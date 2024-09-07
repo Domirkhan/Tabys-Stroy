@@ -246,12 +246,31 @@ p {
 
 
 /*-------Адаптивность----------*/
+@media (max-width: 450px){
+   .header__nav>ul>.gl {
+      display: none;
+   }
+   .glav{
+      background-position: 50%;
+   }
+   .glav__heading{
+      font-size: 40px;
+   }
+   .logo{
+      font-size: 15px;
+   }
+   .logotip{
+      margin-right: 20px;
+   }
+}
+
+
 @media only screen and (min-width: 450px) {
+   /*----КАРТОЧКИ---*/
 	.product-wrapper {
 		width: 50%;
 	}
 }
-
 @media only screen and (min-width: 768px) {
 	.product-wrapper {
 		width: 33.333%;
