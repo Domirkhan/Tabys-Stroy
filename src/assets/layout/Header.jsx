@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../assets/styles/Header.css';
+import cartIcon from "../../assets/icon/cart.png";
 
 function Header() {
     return(
@@ -7,11 +8,11 @@ function Header() {
             <header className="header">
                 <div className="header-top">
                     <div className="container">
-                        <div className="logo">Tabys Stroy</div>
                         <div className="catalog-btn">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='white' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z'/%3E%3C/svg%3E" alt="menu" />
                             <span>Каталог</span>
                         </div>
+                        <div className="logo">TABYS STROY</div>
                         <div className="search">
                             <input type="text" placeholder="Поиск" />
                             <button className="search-btn"></button>
@@ -21,7 +22,7 @@ function Header() {
                             <a href="#" className="action-btn wishlist"><span>Избранное</span></a>
                             <a href="#" className="action-btn profile"><span>Профиль</span></a>
                             <div className="cart">
-                                <a href="#" className="action-btn cart-btn"><span>Корзина</span></a>
+                            <img src={cartIcon} alt="" />
                                 <span className="cart-count">0</span>
                             </div>
                         </div>

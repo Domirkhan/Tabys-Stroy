@@ -2,6 +2,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.cart{
+    
+}
+.cart img{
+}
+
 .header-top {
     padding: 15px 0;
 }
@@ -201,5 +207,24 @@
     .catalog-btn img{
         width: 20px;
         height: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-actions .action-btn{
+        display: none;
+    }
+    .catalog-btn {
+        margin-right: auto;
+    }
+    .catalog-btn span{
+        display: none;
+    }
+    .header-bottom{
+        display: none;
+    }
+    .cart img{
+        width: 24px;
+        height: 24px;
     }
 }
