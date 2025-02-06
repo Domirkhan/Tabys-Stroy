@@ -2,12 +2,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
 .header-top {
     padding: 15px 0;
 }
@@ -189,3 +183,23 @@
     border-radius: 10px;
 }
 
+/* Media */
+@media (max-width: 1000px) {
+    .header-actions{
+        margin-left: auto;
+    }
+    .logo{
+        font-size: 20px;
+    }
+    .search{
+        display: none;
+    }
+    .catalog-btn{
+        padding: 5px 12px;
+        font-size: 15px;
+    }
+    .catalog-btn img{
+        width: 20px;
+        height: 20px;
+    }
+}
