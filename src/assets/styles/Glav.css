@@ -1,6 +1,6 @@
 .hero-section {
     background: linear-gradient(to right, #f8fafc, #e0f2fe);
-    padding-top: 8rem;
+    padding-top: 5rem;
     padding-bottom: 5rem;
   }
   
@@ -32,12 +32,6 @@
     font-weight: bold;
     color: #1f2937;
     margin-bottom: 1.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .hero-title {
-      font-size: 3rem;
-    }
   }
   
   .hero-subtitle {
@@ -72,3 +66,19 @@
     height: auto;
   }
   
+  @media (max-width: 900px) {
+  .hero-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-image {
+    display: none;
+  }
+  }
+
+  @media (max-width: 450px) {
+  }

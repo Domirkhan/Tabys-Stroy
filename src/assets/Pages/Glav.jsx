@@ -2,10 +2,10 @@ import '../../assets/styles/Glav.css';
 function Glav() {
     return(
         <>
-         <div className="hero-section pt-32 pb-20 bg-gradient">
+        <div className="hero-section pt-32 pb-20 bg-gradient">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid-wrapper grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                     <div className="hero-content">
+                    <div className="hero-content">
                         <h1 className="hero-title">Все для ремонта и строительства — выгодные цены!</h1>
                         <p className="hero-subtitle">Более 10 000 товаров. Доставка по всему городу.</p>
                         <button className="hero-button">Перейти</button>
@@ -20,7 +20,6 @@ function Glav() {
                 </div>
             </div>
         </div>
-
         </>
     )
 }

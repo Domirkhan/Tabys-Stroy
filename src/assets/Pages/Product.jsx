@@ -28,32 +28,31 @@ function Product() {
     ];
   
     return (
-        <>
-        
-      <section className="product-section py-20 bg-light-gray">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title text-3xl font-bold text-center mb-12">Популярные товары</h2>
-          <div className="products-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((product, index) => (
-              <div key={index} className="product-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="product-image w-full h-48 object-cover rounded-lg mb-4"
-                />
-                <h3 className="product-name text-lg font-semibold mb-2">{product.name}</h3>
-                <div className="price-wrapper flex items-center space-x-2 mb-4">
-                  <span className="current-price text-xl font-bold text-primary">{product.price} ₽</span>
-                  <span className="old-price text-sm text-gray-400 line-through">{product.oldPrice} ₽</span>
+      <>
+        <section className="product-section py-20 bg-light-gray">
+          <div className="container mx-auto px-4">
+            <h2 className="section-title text-3xl font-bold text-center mb-12">Популярные товары</h2>
+            <div className="products-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {products.map((product, index) => (
+                <div key={index} className="product-card bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="product-image w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="product-name text-lg font-semibold mb-2">{product.name}</h3>
+                  <div className="price-wrapper flex items-center space-x-2 mb-4">
+                    <span className="current-price text-xl font-bold text-primary">{product.price} тг</span>
+                    <span className="old-price text-sm text-gray-400 line-through">{product.oldPrice}тг</span>
+                  </div>
+                  <button className="add-to-cart-btn w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark transition-colors">
+                    В корзину
+                  </button>
                 </div>
-                <button className="add-to-cart-btn w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark transition-colors">
-                  В корзину
-                </button>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </>
     )
   }
