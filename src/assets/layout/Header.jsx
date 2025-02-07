@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../assets/styles/Header.css';
 import cartIcon from "../../assets/icon/cart.png";
 
 function Header() {
+    const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+    const [openCategory, setOpenCategory] = useState(null);
+
+    const toggleCatalog = () => {
+        setIsCatalogOpen(!isCatalogOpen);
+    };
+
+    const toggleCategory = (category) => {
+        setOpenCategory(openCategory === category ? null : category);
+    };
+
     return(
         <>
             <header className="header">
                 <div className="header-top">
                     <div className="container">
-                        <div className="catalog-btn">
+                        <div className="catalog-btn" onClick={toggleCatalog}>
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='white' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z'/%3E%3C/svg%3E" alt="menu" />
                             <span>Каталог</span>
                         </div>
@@ -28,29 +39,69 @@ function Header() {
                         </div>
                     </div>
                 </div>
-                <div className="header-bottom">
-                    <div className="container">
-                        <button className="mobile-menu-btn">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='%23333' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z'/%3E%3C/svg%3E" alt="menu" />
-                        </button>
-                        <nav className="main-nav">
-                            <a href="#">О нас</a>
-                            <a href="#">Оплата</a>
-                            <a href="#">Доставка</a>
-                            <a href="#">Контакты</a>
-                        </nav>
-                        <div className="lang-phone">
-                            <select className="lang-select">
-                                <option value="ru">RU</option>
-                                <option value="kz">KZ</option>
-                            </select>
-                            <a href="tel:+78008008080" className="phone">+7(705) 454-13-49</a>
-                        </div>
+            </header>
+            {isCatalogOpen && (
+                <div className="catalog-overlay" onClick={toggleCatalog}>
+                    <div className="catalog-sidebar" onClick={(e) => e.stopPropagation()}>
+                        <button className="close-btn" onClick={toggleCatalog}>X</button>
+                        <h2>Категории</h2>
+                        <ul className="category-list">
+                            <li className={`category-item ${openCategory === 'paint' ? 'open' : ''}`} onClick={() => toggleCategory('paint')}>
+                                <span className="category-title">Краска</span>
+                                <span className="arrow">{openCategory === 'paint' ? '▲' : '▼'}</span>
+                                <div className="subcategory-wrapper">
+                                    <ul className="subcategory-list">
+                                        <li>Подкатегория 1.1</li>
+                                        <li>Подкатегория 1.2</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li className={`category-item ${openCategory === 'dry-mixes' ? 'open' : ''}`} onClick={() => toggleCategory('dry-mixes')}>
+                                <span className="category-title">Сухие смеси</span>
+                                <span className="arrow">{openCategory === 'dry-mixes' ? '▲' : '▼'}</span>
+                                <div className="subcategory-wrapper">
+                                    <ul className="subcategory-list">
+                                        <li>Подкатегория 2.1</li>
+                                        <li>Подкатегория 2.2</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li className={`category-item ${openCategory === 'plumbing' ? 'open' : ''}`} onClick={() => toggleCategory('plumbing')}>
+                                <span className="category-title">Сантехника</span>
+                                <span className="arrow">{openCategory === 'plumbing' ? '▲' : '▼'}</span>
+                                <div className="subcategory-wrapper">
+                                    <ul className="subcategory-list">
+                                        <li>Подкатегория 3.1</li>
+                                        <li>Подкатегория 3.2</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li className={`category-item ${openCategory === 'power-tools' ? 'open' : ''}`} onClick={() => toggleCategory('power-tools')}>
+                                <span className="category-title">Электроинструменты</span>
+                                <span className="arrow">{openCategory === 'power-tools' ? '▲' : '▼'}</span>
+                                <div className="subcategory-wrapper">
+                                    <ul className="subcategory-list">
+                                        <li>Подкатегория 4.1</li>
+                                        <li>Подкатегория 4.2</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li className={`category-item ${openCategory === 'decorative-elements' ? 'open' : ''}`} onClick={() => toggleCategory('decorative-elements')}>
+                                <span className="category-title">Декоративные элементы</span>
+                                <span className="arrow">{openCategory === 'decorative-elements' ? '▲' : '▼'}</span>
+                                <div className="subcategory-wrapper">
+                                    <ul className="subcategory-list">
+                                        <li>Подкатегория 5.1</li>
+                                        <li>Подкатегория 5.2</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </header>
+            )}
         </>
-    )
+    );
 }
 
 export default Header;

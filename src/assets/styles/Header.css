@@ -1,9 +1,14 @@
 .header {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.header-top {
-    padding: 15px 0;
+.header-top, .header-bottom {
+    padding: 10px 0;
 }
 
 .header-top .container {
@@ -183,6 +188,86 @@
     border-radius: 10px;
 }
 
+.catalog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 1000;
+}
+
+.catalog-sidebar {
+    background: white;
+    width: 800px; /* для компьютера увеличенная ширина */
+    height: 100%;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: translateX(-100%);
+    animation: slideIn 0.3s forwards;
+}
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+    }
+}
+.close-btn {
+    position: absolute;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+}
+
+.category-item {
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.category-item > .category-title,
+.category-item > .arrow {
+    display: inline-block;
+}
+
+.category-item > .arrow {
+    font-size: 12px;
+    margin-left: 100%;
+}
+
+.category-item > .subcategory-wrapper {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+.category-item.open > .subcategory-wrapper {
+    max-height: 500px; /* достаточно для отображения всех подкатегорий */
+}
+
+.subcategory-list {
+    list-style: none;
+    padding-left: 20px;
+    margin: 10px 0 0;
+}
+.arrow {
+    font-size: 12px;
+}
 /* Media */
 @media (max-width: 1000px) {
     .header-actions{
@@ -220,5 +305,8 @@
     .cart img{
         width: 24px;
         height: 24px;
+    }
+    .catalog-sidebar {
+        width: 100%;
     }
 }
