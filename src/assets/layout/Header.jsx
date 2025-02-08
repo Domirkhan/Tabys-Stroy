@@ -66,8 +66,12 @@ function Header() {
                                 <span className="arrow">{openCategory === 'dry-mixes' ? '▲' : '▼'}</span>
                                 <div className="subcategory-wrapper">
                                     <ul className="subcategory-list">
-                                        <li>Подкатегория 2.1</li>
-                                        <li>Подкатегория 2.2</li>
+                                        <li>Штукатурга</li>
+                                        <li>Цемент</li>
+                                        <li>Шпаклевка</li>
+                                        <li>Гипс</li>
+                                        <li>Клей</li>
+                                        <li>Наливной пол</li>
                                     </ul>
                                 </div>
                             </li>
@@ -76,8 +80,11 @@ function Header() {
                                 <span className="arrow">{openCategory === 'plumbing' ? '▲' : '▼'}</span>
                                 <div className="subcategory-wrapper">
                                     <ul className="subcategory-list">
-                                        <li>Подкатегория 3.1</li>
-                                        <li>Подкатегория 3.2</li>
+                                        <li>Трубы</li>
+                                        <li>Отвод, муфты</li>
+                                        <li>Сместители</li>
+                                        <li>Шланги</li>
+                                        <li>Комплектующие для сместелей</li>
                                     </ul>
                                 </div>
                             </li>
@@ -86,8 +93,24 @@ function Header() {
                                 <span className="arrow">{openCategory === 'power-tools' ? '▲' : '▼'}</span>
                                 <div className="subcategory-wrapper">
                                     <ul className="subcategory-list">
-                                        <li>Подкатегория 4.1</li>
-                                        <li>Подкатегория 4.2</li>
+                                        <li>Шурупаверты</li>
+                                        <li>Дрели</li>
+                                        <li>Перфоратор</li>
+                                        <li>Сварочный аппарат</li>
+                                        <li>Гайкаверт</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li className={`category-item ${openCategory === 'tools' ? 'open' : ''}`} onClick={() => toggleCategory('tools')}>
+                                <span className="category-title">Инструменты</span>
+                                <span className="arrow">{openCategory === 'tools' ? '▲' : '▼'}</span>
+                                <div className="subcategory-wrapper">
+                                    <ul className="subcategory-list">
+                                        <li>Малаток</li>
+                                        <li>Отвертка</li>
+                                        <li>Пилы</li>
+                                        <li>Топор</li>
+                                        <li>Гайчные ключи</li>
                                     </ul>
                                 </div>
                             </li>
@@ -96,8 +119,13 @@ function Header() {
                                 <span className="arrow">{openCategory === 'decorative-elements' ? '▲' : '▼'}</span>
                                 <div className="subcategory-wrapper">
                                     <ul className="subcategory-list">
-                                        <li>Подкатегория 5.1</li>
-                                        <li>Подкатегория 5.2</li>
+                                        <li>Гибкий мрамор</li>
+                                        <li>Лувер</li>
+                                        <li>Декор панели</li>
+                                        <li>Галтели</li>
+                                        <li>Обои</li>
+                                        <li>Подсветки</li>
+                                        <li>Люстры</li>
                                     </ul>
                                 </div>
                             </li>
