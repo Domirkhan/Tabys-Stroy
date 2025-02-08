@@ -218,7 +218,7 @@
 }
 .close-btn {
     position: absolute;
-    right: 20px;
+    right: 30px;
     background: none;
     border: none;
     font-size: 20px;
@@ -247,7 +247,7 @@
 
 .category-item > .arrow {
     font-size: 12px;
-    margin-left: 100%;
+    margin-left: max(10px, 100% - 20px);
 }
 
 .category-item > .subcategory-wrapper {
