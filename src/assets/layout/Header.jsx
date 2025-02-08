@@ -51,8 +51,13 @@ function Header() {
                                 <span className="arrow">{openCategory === 'paint' ? '▲' : '▼'}</span>
                                 <div className="subcategory-wrapper">
                                     <ul className="subcategory-list">
-                                        <li>Подкатегория 1.1</li>
-                                        <li>Подкатегория 1.2</li>
+                                        <li>Dulux</li>
+                                        <li>San Marino</li>
+                                        <li>Краска для стен</li>
+                                        <li>Краска для потолков</li>
+                                        <li>Лаки</li>
+                                        <li>Водоэмульсия</li>
+                                        <li>Растворители</li>
                                     </ul>
                                 </div>
                             </li>

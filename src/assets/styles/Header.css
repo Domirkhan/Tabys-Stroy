@@ -211,18 +211,26 @@
     transform: translateX(-100%);
     animation: slideIn 0.3s forwards;
 }
+.catalog-sidebar h2{
+    color: #ff0000;
+    margin-bottom: 10px;
+}
 @keyframes slideIn {
     to {
         transform: translateX(0);
     }
 }
 .close-btn {
+    color: #ff0000;
+    font-weight: bold;
     position: absolute;
+    top: 30px;
     right: 30px;
     background: none;
     border: none;
     font-size: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .category-list {
@@ -247,7 +255,7 @@
 
 .category-item > .arrow {
     font-size: 12px;
-    margin-left: max(10px, 100% - 20px);
+    margin-left: auto;
 }
 
 .category-item > .subcategory-wrapper {
