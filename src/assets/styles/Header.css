@@ -247,11 +247,15 @@
     padding: 10px 0;
     border-bottom: 1px solid #eee;
 }
+.category-item:hover {
+    background-color: #f9f9f9;
+}
 .category-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .category-item > .category-title,
 .category-item > .arrow {
     display: inline-block;

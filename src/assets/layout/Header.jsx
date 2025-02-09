@@ -228,6 +228,202 @@ function Header() {
                             </li>
                         </ul>
                         <ul className="category-list">
+                            <li className={`category-item ${openCategory === 'power-tool-accessories' ? 'open' : ''}`}>
+                                <div className="category-header" onClick={() => toggleCategory('power-tool-accessories')}>
+                                    <span className="category-title">Аксессуары для электроинструментов</span>
+                                    <span className="arrow">{openCategory === 'power-tool-accessories' ? '▲' : '▼'}</span>
+                                </div>
+                                <div className="subcategory-wrapper">
+                                    <ul className="subcategory-list">
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Наборы бит
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Биты
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Магнитные биты
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Битодержатели
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Биты торцевые
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Биты шестигранные
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Биты шлицевые
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Бокорезы и кусачки
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Биты шлицевые
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Сверла по металлу
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Сверла по дереву
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tool-accessories/#" onClick={(e) => e.stopPropagation()}>
+                                                Сверла по бетону
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul className="category-list">
+                            <li className={`category-item ${openCategory === 'tools' ? 'open' : ''}`}>
+                                <div className="category-header" onClick={() => toggleCategory('tools')}>
+                                    <span className="category-title">Инструменты</span>
+                                    <span className="arrow">{openCategory === 'tools' ? '▲' : '▼'}</span>
+                                </div>
+                                <div className="subcategory-wrapper">
+                                    <ul className="subcategory-list">
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Наборы инструментов
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Отвертки
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Плоскогубцы и пасатижи
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Гаичные ключи
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Головки и торцевые
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Ножи строительные
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Ножницы
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Бокорезы и кусачки
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Болторезы
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Пилы и ножовки
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Молотки
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Кувалды
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Ломы и гвоздодеры
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Кирки и лопаты
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Столярные инструменты
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/tools/#" onClick={(e) => e.stopPropagation()}>
+                                                Зубилы и дыроколы
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul className="category-list">
+                            <li className={`category-item ${openCategory === 'gasoline-technics' ? 'open' : ''}`}>
+                                <div className="category-header" onClick={() => toggleCategory('gasoline-technics')}>
+                                    <span className="category-title">Бензиновые техники</span>
+                                    <span className="arrow">{openCategory === 'gasoline-technics' ? '▲' : '▼'}</span>
+                                </div>
+                                <div className="subcategory-wrapper">
+                                    <ul className="subcategory-list">
+                                        <li>
+                                            <a href="/gasoline-technics/#" onClick={(e) => e.stopPropagation()}>
+                                                Бензоэлектростанции
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/gasoline-technics/#" onClick={(e) => e.stopPropagation()}>
+                                                Бензопилы
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/gasoline-technics/#" onClick={(e) => e.stopPropagation()}>
+                                                Бензогазонокосилки
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/gasoline-technics/#" onClick={(e) => e.stopPropagation()}>
+                                                Прочие бензиновые техники
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul className="category-list">
                             <li className={`category-item ${openCategory === 'plumbing' ? 'open' : ''}`}>
                                 <div className="category-header" onClick={() => toggleCategory('plumbing')}>
                                     <span className="category-title">Сантехника</span>
