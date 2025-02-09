@@ -225,7 +225,7 @@
     font-weight: bold;
     position: absolute;
     top: 30px;
-    right: 30px;
+    right: 20px;
     background: none;
     border: none;
     font-size: 20px;
@@ -272,6 +272,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subcategory-header:hover {
+    background-color: #f2f2f2;
 }
 .subcategory-list {
     list-style: none;
