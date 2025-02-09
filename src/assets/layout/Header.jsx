@@ -4,14 +4,29 @@ import cartIcon from "../../assets/icon/cart.png";
 
 function Header() {
     const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+    const [closing, setClosing] = useState(false);
     const [openCategory, setOpenCategory] = useState(null);
     const [openSubCategory, setOpenSubCategory] = useState(null);
 
-    const toggleCatalog = () => {
-        setIsCatalogOpen(!isCatalogOpen);
-        if (isCatalogOpen) {
+    const openCatalog = () => {
+        setIsCatalogOpen(true);
+        setClosing(false);
+    };
+
+    const closeCatalog = () => {
+        setClosing(true);
+        setTimeout(() => {
+            setIsCatalogOpen(false);
             setOpenCategory(null);
             setOpenSubCategory(null);
+        }, 300); // время анимации закрытия должно совпадать с 0.3s в CSS
+    };
+
+    const toggleCatalog = () => {
+        if (isCatalogOpen) {
+            closeCatalog();
+        } else {
+            openCatalog();
         }
     };
 
@@ -30,7 +45,10 @@ function Header() {
                 <div className="header-top">
                     <div className="container">
                         <div className="catalog-btn" onClick={toggleCatalog}>
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='white' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z'/%3E%3C/svg%3E" alt="menu" />
+                            <img
+                                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='white' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z'/%3E%3C/svg%3E"
+                                alt="menu"
+                            />
                             <span>Каталог</span>
                         </div>
                         <div className="logo">TABYS STROY</div>
@@ -49,7 +67,7 @@ function Header() {
                                 <span>Профиль</span>
                             </a>
                             <div className="cart">
-                                <img src={cartIcon} alt="" />
+                                <img src={cartIcon} alt="cart" />
                                 <span className="cart-count">0</span>
                             </div>
                         </div>
@@ -57,9 +75,9 @@ function Header() {
                 </div>
             </header>
             {isCatalogOpen && (
-                <div className="catalog-overlay" onClick={toggleCatalog}>
-                    <div className="catalog-sidebar" onClick={(e) => e.stopPropagation()}>
-                        <button className="close-btn" onClick={toggleCatalog}>X</button>
+                <div className="catalog-overlay" onClick={closeCatalog}>
+                    <div className={`catalog-sidebar ${closing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}>
+                        <button className="close-btn" onClick={closeCatalog}>X</button>
                         <h2>Категории</h2>
                         <ul className="category-list">
                             <li className={`category-item ${openCategory === 'paint' ? 'open' : ''}`}>
