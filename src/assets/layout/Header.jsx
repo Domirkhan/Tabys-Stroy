@@ -5,16 +5,26 @@ import cartIcon from "../../assets/icon/cart.png";
 function Header() {
     const [isCatalogOpen, setIsCatalogOpen] = useState(false);
     const [openCategory, setOpenCategory] = useState(null);
+    const [openSubCategory, setOpenSubCategory] = useState(null);
 
     const toggleCatalog = () => {
         setIsCatalogOpen(!isCatalogOpen);
+        if (isCatalogOpen) {
+            setOpenCategory(null);
+            setOpenSubCategory(null);
+        }
     };
 
     const toggleCategory = (category) => {
         setOpenCategory(openCategory === category ? null : category);
+        setOpenSubCategory(null);
     };
 
-    return(
+    const toggleSubCategory = (subCategory) => {
+        setOpenSubCategory(openSubCategory === subCategory ? null : subCategory);
+    };
+
+    return (
         <>
             <header className="header">
                 <div className="header-top">
@@ -29,11 +39,17 @@ function Header() {
                             <button className="search-btn"></button>
                         </div>
                         <div className="header-actions">
-                            <a href="#" className="action-btn compare"><span>Сравнить</span></a>
-                            <a href="#" className="action-btn wishlist"><span>Избранное</span></a>
-                            <a href="#" className="action-btn profile"><span>Профиль</span></a>
+                            <a href="#" className="action-btn compare">
+                                <span>Сравнить</span>
+                            </a>
+                            <a href="#" className="action-btn wishlist">
+                                <span>Избранное</span>
+                            </a>
+                            <a href="#" className="action-btn profile">
+                                <span>Профиль</span>
+                            </a>
                             <div className="cart">
-                            <img src={cartIcon} alt="" />
+                                <img src={cartIcon} alt="" />
                                 <span className="cart-count">0</span>
                             </div>
                         </div>
@@ -46,86 +62,219 @@ function Header() {
                         <button className="close-btn" onClick={toggleCatalog}>X</button>
                         <h2>Категории</h2>
                         <ul className="category-list">
-                            <li className={`category-item ${openCategory === 'paint' ? 'open' : ''}`} onClick={() => toggleCategory('paint')}>
-                                <span className="category-title">Краска</span>
-                                <span className="arrow">{openCategory === 'paint' ? '▲' : '▼'}</span>
+                            <li className={`category-item ${openCategory === 'paint' ? 'open' : ''}`}>
+                                <div className="category-header" onClick={() => toggleCategory('paint')}>
+                                    <span className="category-title">Краска</span>
+                                    <span className="arrow">{openCategory === 'paint' ? '▲' : '▼'}</span>
+                                </div>
                                 <div className="subcategory-wrapper">
                                     <ul className="subcategory-list">
-                                        <li>Dulux</li>
-                                        <li>San Marino</li>
-                                        <li>Краска для стен</li>
-                                        <li>Краска для потолков</li>
-                                        <li>Лаки</li>
-                                        <li>Водоэмульсия</li>
-                                        <li>Растворители</li>
+                                        <li>
+                                            <a href="/paint/dulux" onClick={(e) => e.stopPropagation()}>
+                                                Dulux
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/paint/san-marino" onClick={(e) => e.stopPropagation()}>
+                                                San Marino
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/paint/ceiling-paint" onClick={(e) => e.stopPropagation()}>
+                                                Краска для потолков
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/paint/ceiling-paint" onClick={(e) => e.stopPropagation()}>
+                                                Краска для стен
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/paint/varnish" onClick={(e) => e.stopPropagation()}>
+                                                Лаки
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/paint/emulsion" onClick={(e) => e.stopPropagation()}>
+                                                Водоэмульсия
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/paint/solvents" onClick={(e) => e.stopPropagation()}>
+                                                Растворители
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li className={`category-item ${openCategory === 'dry-mixes' ? 'open' : ''}`} onClick={() => toggleCategory('dry-mixes')}>
-                                <span className="category-title">Сухие смеси</span>
-                                <span className="arrow">{openCategory === 'dry-mixes' ? '▲' : '▼'}</span>
+                        </ul>
+                        <ul className="category-list">
+                            <li className={`category-item ${openCategory === 'power-tools' ? 'open' : ''}`}>
+                                <div className="category-header" onClick={() => toggleCategory('power-tools')}>
+                                    <span className="category-title">Электроинструменты</span>
+                                    <span className="arrow">{openCategory === 'power-tools' ? '▲' : '▼'}</span>
+                                </div>
                                 <div className="subcategory-wrapper">
                                     <ul className="subcategory-list">
-                                        <li>Штукатурга</li>
-                                        <li>Цемент</li>
-                                        <li>Шпаклевка</li>
-                                        <li>Гипс</li>
-                                        <li>Клей</li>
-                                        <li>Наливной пол</li>
+                                        <li>
+                                            <a href="/power-tools/drills" onClick={(e) => e.stopPropagation()}>
+                                                Дрели-шуруповерты
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/hammer-drills" onClick={(e) => e.stopPropagation()}>
+                                                Перфораторы
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/grinders" onClick={(e) => e.stopPropagation()}>
+                                                Болгарки
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/sanders" onClick={(e) => e.stopPropagation()}>
+                                                Шлифовальные машины
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/angle-grinders" onClick={(e) => e.stopPropagation()}>
+                                                Фризеры
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/jigsaws" onClick={(e) => e.stopPropagation()}>
+                                                Электролобзики
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/planers" onClick={(e) => e.stopPropagation()}>
+                                                Электрорубанки
+                                            </a>
+                                        </li>
+                                        <li className={`subcategory-item ${openSubCategory === 'wall-paint' ? 'open' : ''}`}>
+                                            <div className="subcategory-header" onClick={() => toggleSubCategory('wall-paint')}>
+                                                <a href="/paint/wall-paint" onClick={(e) => e.stopPropagation()}>
+                                                    Электропилы
+                                                </a>
+                                                <span className="arrow">{openSubCategory === 'wall-paint' ? '▲' : '▼'}</span>
+                                            </div>
+                                            {openSubCategory === 'wall-paint' && (
+                                                <ul className="subsubcategory-list">
+                                                    <li>
+                                                        <a href="/paint/wall-paint/type1" onClick={(e) => e.stopPropagation()}>
+                                                            Электропилы
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/paint/wall-paint/type2" onClick={(e) => e.stopPropagation()}>
+                                                            Стабельные пилы
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/paint/wall-paint/type2" onClick={(e) => e.stopPropagation()}>
+                                                            Торцевые пилы
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/paint/wall-paint/type2" onClick={(e) => e.stopPropagation()}>
+                                                            Церкулярные пилы
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/paint/wall-paint/type2" onClick={(e) => e.stopPropagation()}>
+                                                            Монтажные пилы
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            )}
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/specials" onClick={(e) => e.stopPropagation()}>
+                                                Граверы
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/renovators" onClick={(e) => e.stopPropagation()}>
+                                                Реноваторы
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/sprayers" onClick={(e) => e.stopPropagation()}>
+                                                Краскопульты электрические
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/gun-drivers" onClick={(e) => e.stopPropagation()}>
+                                                Гайкаверты
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/construction-heaters" onClick={(e) => e.stopPropagation()}>
+                                                Фены строительные
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/mixers" onClick={(e) => e.stopPropagation()}>
+                                                Миксеры
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/power-tools/cutters" onClick={(e) => e.stopPropagation()}>
+                                                Штроборезы
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li className={`category-item ${openCategory === 'plumbing' ? 'open' : ''}`} onClick={() => toggleCategory('plumbing')}>
-                                <span className="category-title">Сантехника</span>
-                                <span className="arrow">{openCategory === 'plumbing' ? '▲' : '▼'}</span>
-                                <div className="subcategory-wrapper">
-                                    <ul className="subcategory-list">
-                                        <li>Трубы</li>
-                                        <li>Отвод, муфты</li>
-                                        <li>Сместители</li>
-                                        <li>Шланги</li>
-                                        <li>Комплектующие для сместелей</li>
-                                    </ul>
+                        </ul>
+                        <ul className="category-list">
+                            <li className={`category-item ${openCategory === 'plumbing' ? 'open' : ''}`}>
+                                <div className="category-header" onClick={() => toggleCategory('plumbing')}>
+                                    <span className="category-title">Сантехника</span>
+                                    <span className="arrow">{openCategory === 'plumbing' ? '▲' : '▼'}</span>
                                 </div>
-                            </li>
-                            <li className={`category-item ${openCategory === 'power-tools' ? 'open' : ''}`} onClick={() => toggleCategory('power-tools')}>
-                                <span className="category-title">Электроинструменты</span>
-                                <span className="arrow">{openCategory === 'power-tools' ? '▲' : '▼'}</span>
                                 <div className="subcategory-wrapper">
                                     <ul className="subcategory-list">
-                                        <li>Шурупаверты</li>
-                                        <li>Дрели</li>
-                                        <li>Перфоратор</li>
-                                        <li>Сварочный аппарат</li>
-                                        <li>Гайкаверт</li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li className={`category-item ${openCategory === 'tools' ? 'open' : ''}`} onClick={() => toggleCategory('tools')}>
-                                <span className="category-title">Инструменты</span>
-                                <span className="arrow">{openCategory === 'tools' ? '▲' : '▼'}</span>
-                                <div className="subcategory-wrapper">
-                                    <ul className="subcategory-list">
-                                        <li>Малаток</li>
-                                        <li>Отвертка</li>
-                                        <li>Пилы</li>
-                                        <li>Топор</li>
-                                        <li>Гайчные ключи</li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li className={`category-item ${openCategory === 'decorative-elements' ? 'open' : ''}`} onClick={() => toggleCategory('decorative-elements')}>
-                                <span className="category-title">Декоративные элементы</span>
-                                <span className="arrow">{openCategory === 'decorative-elements' ? '▲' : '▼'}</span>
-                                <div className="subcategory-wrapper">
-                                    <ul className="subcategory-list">
-                                        <li>Гибкий мрамор</li>
-                                        <li>Лувер</li>
-                                        <li>Декор панели</li>
-                                        <li>Галтели</li>
-                                        <li>Обои</li>
-                                        <li>Подсветки</li>
-                                        <li>Люстры</li>
+                                        <li>
+                                            <a href="/plumbing/#" onClick={(e) => e.stopPropagation()}>
+                                                Трубы
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/plumbing/#" onClick={(e) => e.stopPropagation()}>
+                                                Фитинги
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/plumbing/#" onClick={(e) => e.stopPropagation()}>
+                                                Унитазы и биде
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/plumbing/#" onClick={(e) => e.stopPropagation()}>
+                                                Мебель для ванной
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/plumbing/#" onClick={(e) => e.stopPropagation()}>
+                                                Ванны и коплектующие
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/plumbing/#" onClick={(e) => e.stopPropagation()}>
+                                                Раковины
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/plumbing/#" onClick={(e) => e.stopPropagation()}>
+                                                Зеркала
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/plumbing/#" onClick={(e) => e.stopPropagation()}>
+                                                Смесители для ванной и кухни
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>

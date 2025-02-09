@@ -265,9 +265,14 @@
 }
 
 .category-item.open > .subcategory-wrapper {
-    max-height: 500px; /* достаточно для отображения всех подкатегорий */
+    max-height: 80vh; /* ограничиваем высоту подкатегорий 80% от высоты окна */
+    overflow-y: auto; /* добавляем вертикальную прокрутку, если элементов много */
 }
-
+.subcategory-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .subcategory-list {
     list-style: none;
     padding-left: 20px;
@@ -275,6 +280,23 @@
 }
 .arrow {
     font-size: 12px;
+}
+.subcategory-list a {
+    color: #333;           /* нужный вам цвет текста */
+    text-decoration: none; /* убрать подчеркивание */
+    border: none;          /* убрать любые границы */
+    display: block;
+    padding: 5px 0;        /* немного отступов для удобства клика */
+}
+
+.subcategory-list a:hover {
+    color: #ff0000;        /* цвет при наведении, по желанию */
+} 
+.subsubcategory-list {
+    background-color: #f9f9f9;
+    list-style: none;
+    padding-left: 20px;
+    margin: 0;
 }
 /* Media */
 @media (max-width: 1000px) {
