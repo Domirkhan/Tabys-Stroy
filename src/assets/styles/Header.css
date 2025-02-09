@@ -22,18 +22,6 @@
     font-weight: bold;
 }
 
-.catalog-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #ff0000;
-    color: white;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 .search {
     flex-grow: 1;
     display: flex;
@@ -186,6 +174,22 @@
     font-size: 10px;
     padding: 2px 6px;
     border-radius: 10px;
+}
+.catalog-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ff0000;
+    color: white;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.catalog-btn:hover {
+    background-color: #b00000;
 }
 
 .catalog-overlay {
