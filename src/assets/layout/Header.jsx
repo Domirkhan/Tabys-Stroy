@@ -73,6 +73,26 @@ function Header() {
                         </div>
                     </div>
                 </div>
+                <div class="header-bottom">
+                    <div class="container">
+                        <button class="mobile-menu-btn">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='%23333' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z'/%3E%3C/svg%3E" alt="menu" />
+                        </button>
+                        <nav class="main-nav">
+                            <a href="#">О нас</a>
+                            <a href="#">Оплата</a>
+                            <a href="#">Доставка</a>
+                            <a href="#">Контакты</a>
+                        </nav>
+                        <div class="lang-phone">
+                            <select class="lang-select">
+                                <option value="satpayev">Сатпаев</option>
+                                <option value="zhezkazgan">Жезказган</option>
+                            </select>
+                            <a href="tel:+78008008080" class="phone">+7(705) 454-13-49</a>
+                        </div>
+                    </div>
+                </div>
             </header>
             {isCatalogOpen && (
                 <div className="catalog-overlay" onClick={closeCatalog}>

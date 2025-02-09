@@ -53,6 +53,13 @@
     align-items: center;
     gap: 16px;
 }
+.header-actions .action-btn span{
+    transition: 0.3s ease;
+}
+
+.header-actions .action-btn span:hover{
+    color: #ff0000;
+}
 
 .action-btn {
     display: flex;
@@ -95,6 +102,11 @@
 .main-nav a {
     text-decoration: none;
     color: #333;
+    transition: 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #ff0000;
 }
 
 .lang-phone {
@@ -112,6 +124,11 @@
 .phone {
     text-decoration: none;
     color: #333;
+    transition: 0.3s ease;
+}
+
+.phone:hover {
+    color: #ff0000;
 }
 
 /* Mobile menu button - hidden by default */
