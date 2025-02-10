@@ -94,6 +94,10 @@
   background-color: #303f9f;
 }
 
+.cart-items-mobile {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .cart-page {
     margin-top: 6rem;
@@ -101,6 +105,10 @@
 
   .cart-table {
     display: none;
+  }
+
+  .cart-items-mobile {
+    display: block;
   }
 
   .cart-item {
