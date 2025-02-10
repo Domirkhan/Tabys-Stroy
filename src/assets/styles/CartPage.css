@@ -1,0 +1,167 @@
+.cart-page {
+  margin-top: 8rem;
+  margin-bottom: 3rem;
+}
+
+.cart-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.empty-cart {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cart-table th {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.cart-table td input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.delete-btn {
+  background-color: #ff4d4f;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #d9363e;
+}
+
+.total-amount {
+  font-size: 1.5rem;
+  text-align: right;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.order-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.order-form input {
+  flex: 1 1 250px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.order-btn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+  background-color: #303f9f;
+}
+
+@media (max-width: 768px) {
+  .cart-page {
+    margin-top: 6rem;
+  }
+
+  .cart-table {
+    display: none;
+  }
+
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+
+  .cart-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .cart-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cart-item-details div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart-item-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .cart-item-actions input[type="number"] {
+    width: 50px;
+    padding: 4px;
+  }
+
+  .delete-btn {
+    padding: 6px 10px;
+  }
+
+  .total-amount {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .order-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .order-form input {
+    flex: 1 1 auto;
+    padding: 10px;
+  }
+
+  .order-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}

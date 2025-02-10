@@ -14,9 +14,12 @@
   },
   "dependencies": {
     "gh-pages": "^6.3.0",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.4",
     "lucide-react": "^0.474.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.5",
     "yarn": "^1.22.22"
   },
   "devDependencies": {

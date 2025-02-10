@@ -3,6 +3,7 @@
   }
   
   .section-title {
+    margin-top: 5rem;
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 3rem;
@@ -17,6 +18,12 @@
   @media (min-width: 768px) {
     .products-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      margin-top: 2rem;
     }
   }
   

@@ -22,6 +22,12 @@
     font-weight: bold;
 }
 
+.logo a{
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .search {
     flex-grow: 1;
     display: flex;
