@@ -27,7 +27,7 @@ function CartPage() {
 
   const handleOrderSubmit = (e) => {
     e.preventDefault();
-
+  
     const orderDetails = {
       items: cartItems.map(item => ({
         name: item.product.name,
@@ -38,13 +38,10 @@ function CartPage() {
       totalPrice,
       customer: orderData,
     };
-
-    console.log('Данные заказа:', orderDetails);
-
-    // Формируем ссылку с учетом базового пути для GitHub Pages
-    const basePath = '/Tabys-Stroy';
-    const orderLink = `${window.location.origin}${basePath}/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
-
+  
+    // Используем window.location.origin и hash-маршрутизацию
+    const orderLink = `${window.location.origin}/Tabys-Stroy/#/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
+  
     const message =
       `Новый заказ:\n\n` +
       orderDetails.items
@@ -57,14 +54,13 @@ function CartPage() {
       `Телефон: ${orderData.phone}\n` +
       `ФИО: ${orderData.fio}\n\n` +
       `Подробности заказа: ${orderLink}`;
-
+  
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/77054541349?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
-
+  
     clearCart();
   };
-
   return (
     <div className="app-container">
       <Header />
