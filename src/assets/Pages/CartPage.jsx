@@ -41,8 +41,8 @@ function CartPage() {
 
     console.log('Данные заказа:', orderDetails);
 
-    // Формируем ссылку с учетом базового пути и русскоязычного маршрута /zakaz
-    const basePath = '../../';
+    // Формируем ссылку с учетом базового пути для GitHub Pages
+    const basePath = '/Tabys-Stroy';
     const orderLink = `${window.location.origin}${basePath}/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
 
     const message =
