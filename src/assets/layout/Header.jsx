@@ -57,7 +57,7 @@ function Header() {
               />
               <span>Каталог</span>
             </div>
-            <div className="logo"><a href="../../">TABYS STROY</a></div>
+            <div className="logo"><a href="/Tabys-Stroy/">TABYS STROY</a></div>
             <div className="search">
               <input type="text" placeholder="Поиск" />
               <button className="search-btn"></button>
