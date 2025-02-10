@@ -42,7 +42,7 @@ function CartPage() {
     console.log('Данные заказа:', orderDetails);
 
     // Формируем ссылку с учетом базового пути и русскоязычного маршрута /zakaz
-    const basePath = '/Tabys-Stroy';
+    const basePath = '../../';
     const orderLink = `${window.location.origin}${basePath}/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
 
     const message =

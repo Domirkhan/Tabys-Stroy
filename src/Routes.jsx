@@ -1,4 +1,4 @@
-///// filepath: src/Routes.jsx
+///// filepath: /src/Routes.jsx
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
@@ -13,7 +13,6 @@ function RouterApp() {
         <Route path="/" element={<App />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/zakaz" element={<OrderPage />} />
-        {/* Универсальный маршрут для категорий */}
         <Route path="/*" element={<CategoryPage />} />
       </Routes>
     </BrowserRouter>
