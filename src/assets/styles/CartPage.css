@@ -186,7 +186,8 @@
   }
 
   .delete-btn {
-    padding: 10px 165px;
+    padding: 10px 20px; /* Изменяем padding для кнопки */
+    width: 100%; /* Делаем кнопку шириной 100% */
   }
 
   .total-amount {
