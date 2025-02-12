@@ -1,4 +1,4 @@
-///// filepath: src/App.jsx
+//// filepath: src/App.jsx
 import './assets/styles/App.css';
 import Header from './assets/layout/Header';
 import Glav from './assets/Pages/Glav';

@@ -1,4 +1,5 @@
-import duluxImage from '../assets/image/dulux.png';
+import duluxImage1 from '../assets/image/dulux.png';
+import duluxImage2 from '../assets/image/dulux-poli.png';
 
 const Products = [
   {
@@ -6,7 +7,7 @@ const Products = [
     name: "Dulux: Окна и двери",
     price: 12000,
     oldPrice: 15000,
-    image: duluxImage,
+    image: duluxImage1,
     description: "Краска для окон и дверей Dulux",
     detailedDescription: "Высококачественная полуматовая краска на водной основе для окон и дверей...",
     specifications: { "Объём": "5 л", "Цвет": "Белый" },
@@ -18,7 +19,7 @@ const Products = [
     name: "Dulux: Полы и лестницы ",
     price: 19000,
     oldPrice: 15000,
-    image: duluxImage,
+    image: duluxImage2,
     description: "Краска для окон и дверей Dulux",
     detailedDescription: "Высококачественная полуматовая краска на водной основе для окон и дверей...",
     specifications: { "Объём": "5 л", "Цвет": "Белый" },
