@@ -1,19 +1,17 @@
+//// filepath: src/assets/Pages/CategoryPage.jsx
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import ProductList from '../components/ProductList';
 
 function CategoryPage() {
-  const location = useLocation();
-  const segments = location.pathname.split('/').filter(Boolean);
-  const mainCategory = segments[0] || '';
-  const subCategory = segments[1] || '';
+  const { category, subCategory } = useParams();
 
   return (
     <>
       <Header />
-      <ProductList category={mainCategory} subCategory={subCategory} />
+      <ProductList category={category} subCategory={subCategory} />
       <Footer />
     </>
   );

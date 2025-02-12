@@ -14,14 +14,6 @@ function ProductCard({ product, onClick }) {
       />
       <h3 className="product-name text-lg font-semibold mb-2">{product.name}</h3>
       <p className="product-description mb-2">{product.description}</p>
-      <ul className="product-specifications mb-4">
-        {product.specifications &&
-          Object.entries(product.specifications).map(([key, value]) => (
-            <li key={key}>
-              <strong>{key}:</strong> {value}
-            </li>
-          ))}
-      </ul>
       <div className="price-wrapper flex items-center space-x-2 mb-4">
         <span className="current-price text-xl font-bold text-primary">
           {product.price} тг

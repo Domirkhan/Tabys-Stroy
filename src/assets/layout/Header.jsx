@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-// Обновлённый путь к файлу CartContext
 import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/Header.css';
 import cartIcon from "../../assets/icon/cart.png";
-
+import Products from "../../data/Products";
 
 function Header() {
   const { cartItems } = useContext(CartContext);
@@ -13,6 +12,15 @@ function Header() {
   const [closing, setClosing] = useState(false);
   const [openCategory, setOpenCategory] = useState(null);
   const [openSubCategory, setOpenSubCategory] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredProducts = Products.filter(product => 
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const openCatalog = () => {
     setIsCatalogOpen(true);
@@ -57,21 +65,45 @@ function Header() {
               />
               <span>Каталог</span>
             </div>
-            <div className="logo"><a href="/Tabys-Stroy/">TABYS STROY</a></div>
-            <div className="search">
-              <input type="text" placeholder="Поиск" />
+            <div className="logo">
+              <a href="/Tabys-Stroy/">TABYS STROY</a>
+            </div>
+            <div className="search" style={{ position: "relative" }}>
+              <input
+                type="text"
+                placeholder="Поиск"
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
               <button className="search-btn"></button>
+              {searchQuery && filteredProducts.length > 0 && (
+                <div className="search-suggestions">
+                  <ul>
+                    {filteredProducts.map(product => (
+                      <li key={product.id}>
+                        <Link 
+                          to={`/${product.category}/${product.subCategory}`} 
+                          onClick={() => {
+                            setSearchQuery("");
+                            if (isCatalogOpen) {
+                              closeCatalog();
+                            }
+                          }}
+                        >
+                          {product.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {searchQuery && filteredProducts.length === 0 && (
+                <div className="search-suggestions">
+                  <p style={{ padding: "0.5rem" }}>Ничего не найдено</p>
+                </div>
+              )}
             </div>
             <div className="header-actions">
-              <a href="#" className="action-btn compare">
-                <span>Сравнить</span>
-              </a>
-              <a href="#" className="action-btn wishlist">
-                <span>Избранное</span>
-              </a>
-              <a href="#" className="action-btn profile">
-                <span>Профиль</span>
-              </a>
               <Link to="/cart" className="cart">
                 <img src={cartIcon} alt="cart" />
                 <span className="cart-count">{totalQuantity}</span>

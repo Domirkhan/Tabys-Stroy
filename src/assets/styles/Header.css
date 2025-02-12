@@ -250,6 +250,37 @@
     animation: slideOut 0.3s forwards;
 }
 
+.search-suggestions {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .search-suggestions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .search-suggestions li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  .search-suggestions li a{
+    text-decoration: none;
+    color: #333;
+  }
+  .search-suggestions li:hover {
+    background-color: #f7f7f7;
+  }
+
 @keyframes slideIn {
     from {
         transform: translateX(-100%);

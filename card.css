@@ -1,0 +1,57 @@
+.card-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.card-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin: 12px 0;
+    color: #333;
+}
+
+.product-price {
+    font-size: 1rem;
+    color: #ff5722;
+    font-weight: bold;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .card-container {
+        padding: 12px;
+    }
+    .product-title {
+        font-size: 1rem;
+    }
+    .product-price {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        padding: 8px;
+    }
+    .product-title {
+        font-size: 0.9rem;
+    }
+    .product-price {
+        font-size: 0.8rem;
+    }
+}

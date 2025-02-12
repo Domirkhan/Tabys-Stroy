@@ -1,4 +1,4 @@
-///// filepath: src/assets/Pages/CartPage.jsx
+//// filepath: /c:/Users/damir/Tabys-Stroy/src/assets/Pages/CartPage.jsx
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/CartPage.css';
@@ -27,7 +27,7 @@ function CartPage() {
 
   const handleOrderSubmit = (e) => {
     e.preventDefault();
-  
+
     const orderDetails = {
       items: cartItems.map(item => ({
         name: item.product.name,
@@ -38,10 +38,10 @@ function CartPage() {
       totalPrice,
       customer: orderData,
     };
-  
+
     // Используем window.location.origin и hash-маршрутизацию
     const orderLink = `${window.location.origin}/Tabys-Stroy/#/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
-  
+
     const message =
       `Новый заказ:\n\n` +
       orderDetails.items
@@ -54,13 +54,14 @@ function CartPage() {
       `Телефон: ${orderData.phone}\n` +
       `ФИО: ${orderData.fio}\n\n` +
       `Подробности заказа: ${orderLink}`;
-  
+
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/77054541349?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
-  
+
     clearCart();
   };
+
   return (
     <div className="app-container">
       <Header />
@@ -71,6 +72,7 @@ function CartPage() {
             <p className="empty-cart">В корзине нет товаров</p>
           ) : (
             <>
+              {/* Desktop Cart Table */}
               <div className="cart-table-wrapper">
                 <table className="cart-table">
                   <thead>
@@ -88,14 +90,29 @@ function CartPage() {
                         <td>{item.product.name}</td>
                         <td>{item.product.price}</td>
                         <td>
-                          <input
-                            type="number"
-                            min="1"
-                            value={item.quantity}
-                            onChange={(e) =>
-                              updateQuantity(item.product.id, parseInt(e.target.value) || 1)
-                            }
-                          />
+                          <div className="quantity-controls">
+                            <button
+                              className="quantity-btn"
+                              onClick={() =>
+                                updateQuantity(
+                                  item.product.id,
+                                  item.quantity > 1 ? item.quantity - 1 : 1
+                                )
+                              }
+                              disabled={item.quantity <= 1}
+                            >
+                              &minus;
+                            </button>
+                            <span className="quantity-value">{item.quantity}</span>
+                            <button
+                              className="quantity-btn"
+                              onClick={() =>
+                                updateQuantity(item.product.id, item.quantity + 1)
+                              }
+                            >
+                              +
+                            </button>
+                          </div>
                         </td>
                         <td>{item.product.price * item.quantity}</td>
                         <td>
@@ -111,6 +128,7 @@ function CartPage() {
                   </tbody>
                 </table>
               </div>
+              {/* Mobile Cart Items */}
               <div className="cart-items-mobile">
                 {cartItems.map(item => (
                   <div key={item.product.id} className="cart-item">
@@ -122,14 +140,29 @@ function CartPage() {
                       </div>
                       <div>
                         <span>Кол-во:</span>
-                        <input
-                          type="number"
-                          min="1"
-                          value={item.quantity}
-                          onChange={(e) =>
-                            updateQuantity(item.product.id, parseInt(e.target.value) || 1)
-                          }
-                        />
+                        <div className="quantity-controls">
+                          <button
+                            className="quantity-btn"
+                            onClick={() =>
+                              updateQuantity(
+                                item.product.id,
+                                item.quantity > 1 ? item.quantity - 1 : 1
+                              )
+                            }
+                            disabled={item.quantity <= 1}
+                          >
+                            &minus;
+                          </button>
+                          <span className="quantity-value">{item.quantity}</span>
+                          <button
+                            className="quantity-btn"
+                            onClick={() =>
+                              updateQuantity(item.product.id, item.quantity + 1)
+                            }
+                          >
+                            +
+                          </button>
+                        </div>
                       </div>
                       <div>
                         <span>Сумма:</span>
