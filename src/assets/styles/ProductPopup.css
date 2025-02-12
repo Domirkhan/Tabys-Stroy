@@ -10,7 +10,9 @@
   justify-content: center;
   align-items: center;
 }
-
+button{
+  color: #333;
+}
 .popup-content {
   background: #fff;
   width: 90%;
