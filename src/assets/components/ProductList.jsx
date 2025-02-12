@@ -13,14 +13,14 @@ const categoryTranslations = {
   'varnish': 'Лаки',
   'emulsion': 'Водоэмульсия',
   'solvents': 'Растворители',
-  'drills': 'Дрели-шуруповерты', // Оставляем этот ключ
+  'drills': 'Дрели-шуруповерты',
   'hammer-drills': 'Перфораторы',
   'grinders': 'Болгарки',
   'sanders': 'Шлифовальные машины',
   'angle-grinders': 'Фрезеры',
   'jigsaws': 'Электролобзики',
   'planers': 'Электрорубанки',
-  'bit-sets': 'Наборы бит', // Изменяем ключ на уникальное значение
+  'sets': 'Наборы бит',
   'bits': 'Биты',
   'magnetic-bits': 'Магнитные биты',
   'holders': 'Битодержатели',
@@ -28,7 +28,7 @@ const categoryTranslations = {
   'hex-bits': 'Биты шестигранные',
   'slot-bits': 'Биты шлицевые',
   'cutters': 'Бокорезы и кусачки',
-  'metal-drills': 'Сверла по металлу', // Изменяем ключ на уникальное значение
+  'drills': 'Сверла по металлу',
   'wood-drills': 'Сверла по дереву',
   'concrete-drills': 'Сверла по бетону',
   'generators': 'Бензоэлектростанции',
@@ -65,7 +65,7 @@ function ProductList({ category, subCategory }) {
   return (
     <section className="product-section">
       <div className="container">
-        <h2 className="section-title">
+        <h2 className="section-title-category">
           {subCategory 
             ? `Товары подкатегории: ${categoryTranslations[subCategory] || subCategory}`
             : `Товары категории: ${category}`}
