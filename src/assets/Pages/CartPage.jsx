@@ -25,7 +25,7 @@ function CartPage() {
     console.log('Обновлённые данные заказа:', newOrderData);
   };
 
-  const handleOrderSubmit = (e) => {
+  const handleOrderSubmit = async (e) => {
     e.preventDefault();
 
     const orderDetails = {
@@ -39,8 +39,25 @@ function CartPage() {
       customer: orderData,
     };
 
-    // Используем window.location.origin и hash-маршрутизацию
     const orderLink = `${window.location.origin}/Tabys-Stroy/#/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
+
+    // Сокращение ссылки с помощью TinyURL API
+    const shortenUrl = async (url) => {
+      const response = await fetch(`https://api.tinyurl.com/create?api_token=FzFKhtH5dWAwnhpSiOBouGzBNOuirtCl7k0TQ9w4hGXrubII3CC5L2OMW0rO`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          url: url,
+          domain: 'tinyurl.com',
+        }),
+      });
+      const data = await response.json();
+      return data.data.tiny_url;
+    };
+
+    const shortOrderLink = await shortenUrl(orderLink);
 
     const message =
       `Новый заказ:\n\n` +
@@ -53,7 +70,7 @@ function CartPage() {
       `Адрес: ${orderData.address}\n` +
       `Телефон: ${orderData.phone}\n` +
       `ФИО: ${orderData.fio}\n\n` +
-      `Подробности заказа: ${orderLink}`;
+      `Подробности заказа: ${shortOrderLink}`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/77054541349?text=${encodedMessage}`;
