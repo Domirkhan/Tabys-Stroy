@@ -3,7 +3,7 @@
 }
 
 .order-page h1 {
-    margin-top: 6rem;
+  margin-top: 6rem;
   text-align: center;
   margin-bottom: 20px;
   color: #333;
@@ -53,7 +53,33 @@
 }
 
 @media (max-width: 768px) {
-    .order-page h1 {
+  .order-page h1 {
     margin-top: 3rem;
-    }
+  }
+
+  .order-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .order-table th,
+  .order-table td {
+    padding: 8px;
+    font-size: 0.875rem;
+  }
+
+  .order-summary {
+    padding: 10px;
+  }
+
+  .order-summary h2 {
+    font-size: 1.25rem;
+  }
+
+  .order-summary h3 {
+    font-size: 1rem;
+  }
+
+  .order-summary p {
+    font-size: 0.875rem;
+  }
 }
