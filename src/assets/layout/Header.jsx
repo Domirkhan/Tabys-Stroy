@@ -152,8 +152,8 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/paint/san-marino" onClick={closeCatalog}>
-                          San Marino
+                        <Link to="/paint/san-marito" onClick={closeCatalog}>
+                          San Marito
                         </Link>
                       </li>
                       <li>

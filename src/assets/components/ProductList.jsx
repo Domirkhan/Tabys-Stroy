@@ -9,7 +9,7 @@ const categoryTranslations = {
   'ceiling-paint': 'Краска для потолков',
   'wall-paint': 'Краска для стен',
   'dulux': 'Dulux',
-  'san-marino': 'San Marino',
+  'san-marito': 'San Marito', // Изменено
   'varnish': 'Лаки',
   'emulsion': 'Водоэмульсия',
   'solvents': 'Растворители',
