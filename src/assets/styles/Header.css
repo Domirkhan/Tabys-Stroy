@@ -361,6 +361,8 @@
     justify-content: space-between;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .subcategory-header:hover {
@@ -391,6 +393,7 @@
     padding-left: 40px;
     margin: 0;
 }
+
 /* Media */
 @media (max-width: 1000px) {
     .header-actions{
@@ -399,9 +402,6 @@
     .logo{
         font-size: 20px;
     }
-    .search{
-        display: none;
-    }
     .catalog-btn{
         padding: 5px 12px;
         font-size: 15px;
@@ -409,6 +409,9 @@
     .catalog-btn img{
         width: 20px;
         height: 20px;
+    }
+    .search{
+        display: none;
     }
 }
 
