@@ -35,17 +35,6 @@ button{
   cursor: pointer;
 }
 
-.popup-img-slider {
-  position: relative;
-  text-align: center;
-}
-
-.popup-img-slider img {
-  width: 50%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
 .popup-specs {
   list-style: none;
   padding-left: 0;
@@ -117,22 +106,6 @@ button{
   color: #333;
 }
 
-/* Стили для кнопок изменения количества */
-.quantity-btn {
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  width: 32px;
-  height: 32px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.quantity-btn:hover {
-  background-color: #b00000;
-}
 
 /* Стили для отображения количества */
 .quantity-value {
@@ -166,4 +139,147 @@ button{
 
 .popup-add-to-cart:hover {
   background-color: #333;
+}
+.popup-img-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+}
+
+.popup-img-slider img {
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  position: absolute;
+  opacity: 0;
+}
+
+.popup-img-slider img.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  background: #fff;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.popup-overlay.active .popup-content {
+  transform: scale(1);
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.popup-img-slider {
+  position: relative;
+  text-align: center;
+}
+
+.popup-img-slider img {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 24px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+ .popup-img-slider{
+  height: 200px;
+ }
+ h2{
+  font-size: 1rem;
+ }
+ p{
+  font-size: 0.7rem;
+ }
+ .tab-btn{
+  font-size: 0.7rem;
+ }
+ .popup-price{
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+ }
+ .popup-add-to-cart{
+  font-size: 0.8rem;
+ }
+ .quantity-btn{
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 0.8rem;
+ }
+ .quantity-wrapper{
+  padding: 10px 16px;
+  margin-bottom: 10px;
+ }
+ .popup-specs{
+  font-size: 0.8rem;
+ }
 }

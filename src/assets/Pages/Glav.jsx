@@ -8,7 +8,6 @@ function Glav() {
                     <div className="hero-content">
                         <h1 className="hero-title">Все для ремонта и строительства — выгодные цены!</h1>
                         <p className="hero-subtitle">Более 10 000 товаров. Доставка по всему городу.</p>
-                        <button className="hero-button">Перейти</button>
                     </div>
                     <div className="hero-image-wrapper relative">
                     <img
