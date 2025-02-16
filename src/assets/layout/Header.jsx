@@ -1532,6 +1532,166 @@ function Header() {
                 )}
               </li>
             </ul>
+            {/* Категория "Двери и фурнитура" */}
+            <ul className="category-list">
+              <li className={`category-item ${openCategory === 'doors' ? 'open' : ''}`}>
+                <div className="category-header" onClick={() => toggleCategory('doors')}>
+                  <span className="category-title">Двери и фурнитура</span>
+                  <span className="arrow">{openCategory === 'doors' ? '▲' : '▼'}</span>
+                </div>
+                {openCategory === 'doors' && (
+                  <div className="subcategory-wrapper">
+                    <ul className="subcategory-list">
+                      <li>
+                          <Link to="/Decor/Межкомнатные двери" onClick={closeCatalog}>
+                            Межкомнатные двери
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/Decor/Гвозди" onClick={closeCatalog}>
+                            Гвозди
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/Decor/Металлические входные двери" onClick={closeCatalog}>
+                            Металлические входные двери
+                          </Link>
+                      </li>
+                      <li className={`subcategory-item ${openSubCategory === 'door-handles' ? 'open' : ''}`}>
+                        <div className="subcategory-header" onClick={() => toggleSubCategory('door-handles')}>
+                          <span>Ручки для дверей</span>
+                          <span className="arrow">{openSubCategory === 'door-handles' ? '▲' : '▼'}</span>
+                        </div>
+                        {openSubCategory === 'door-handles' && (
+                          <ul className="subsubcategory-list">
+                            <li>
+                              <Link to="/Decor/Ручки для межкомнатных дверей" onClick={closeCatalog}>
+                                Ручки для межкомнатных дверей
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/Decor/Ручки для металлических входных дверей" onClick={closeCatalog}>
+                              Ручки для металлических входных дверей
+                              </Link>
+                            </li>
+                          </ul>
+                        )}
+                      </li>
+                      <li>
+                          <Link to="/Decor/Замки, комплектующие и аксессуары" onClick={closeCatalog}>
+                            Замки, комплектующие и аксессуары
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/Decor/Фурнитура для дверей" onClick={closeCatalog}>
+                            Фурнитура для дверей
+                          </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </li>
+            </ul>
+            {/* Категория "Отопление" */}
+            <ul className="category-list">
+              <li className={`category-item ${openCategory === 'heating' ? 'open' : ''}`}>
+                <div className="category-header" onClick={() => toggleCategory('heating')}>
+                  <span className="category-title">Отопление</span>
+                  <span className="arrow">{openCategory === 'heating' ? '▲' : '▼'}</span>
+                </div>
+                {openCategory === 'heating' && (
+                  <div className="subcategory-wrapper">
+                    <ul className="subcategory-list">
+                      <li className={`subcategory-item ${openSubCategory === 'radiators' ? 'open' : ''}`}>
+                        <div className="subcategory-header" onClick={() => toggleSubCategory('radiators')}>
+                          <span>Радиаторы отопления и комплектующие</span>
+                          <span className="arrow">{openSubCategory === 'radiators' ? '▲' : '▼'}</span>
+                        </div>
+                        {openSubCategory === 'radiators' && (
+                          <ul className="subsubcategory-list">
+                            <li>
+                              <Link to="/Decor/Радиаторы отопления" onClick={closeCatalog}>
+                                Радиаторы отопления
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/Decor/Комлектующие и аксессуары" onClick={closeCatalog}>
+                                Комлектующие и аксессуары
+                              </Link>
+                            </li>
+                          </ul>
+                        )}
+                      </li>
+                      <li>
+                          <Link to="/Decor/Отопительные котлы" onClick={closeCatalog}>
+                            Отопительные котлы
+                          </Link>
+                      </li>
+                      <li className={`subcategory-item ${openSubCategory === 'electric-heating' ? 'open' : ''}`}>
+                        <div className="subcategory-header" onClick={() => toggleSubCategory('electric-heating')}>
+                          <span>Электрический обогрев</span>
+                          <span className="arrow">{openSubCategory === 'electric-heating' ? '▲' : '▼'}</span>
+                        </div>
+                        {openSubCategory === 'electric-heating' && (
+                          <ul className="subsubcategory-list">
+                            <li>
+                              <Link to="/Decor/Обогреватели, пушки, вентиляторы" onClick={closeCatalog}>
+                                Обогреватели, пушки, вентиляторы
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/Decor/Электр Теплыйе полы и терморегуляторы" onClick={closeCatalog}>
+                              Электр Теплыйе полы и терморегуляторы
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/Decor/Водяные теплые полы, коллекторы и насосы" onClick={closeCatalog}>
+                              Водяные теплые полы, коллекторы и насосы
+                              </Link>
+                            </li>
+                          </ul>
+                        )}
+                      </li>
+                      <li>
+                          <Link to="/Decor/Полотенцесушители" onClick={closeCatalog}>
+                            Полотенцесушители
+                          </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </li>
+            </ul>
+            {/* Категория "Спецодежда и средства защиты" */}
+            <ul className="category-list">
+              <li className={`category-item ${openCategory === 'special-clothing' ? 'open' : ''}`}>
+                <div className="category-header" onClick={() => toggleCategory('special-clothing')}>
+                  <span className="category-title">Спецодежда и средства защиты</span>
+                  <span className="arrow">{openCategory === 'special-clothing' ? '▲' : '▼'}</span>
+                </div>
+                {openCategory === 'special-clothing' && (
+                  <div className="subcategory-wrapper">
+                    <ul className="subcategory-list">
+                      <li>
+                          <Link to="/Decor/Спецодежда и обувь" onClick={closeCatalog}>
+                              Спецодежда и обувь
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/Decor/Перчатки и поясы" onClick={closeCatalog}>
+                            Перчатки и поясы
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/Decor/Средства защиты и респираторы" onClick={closeCatalog}>
+                            Средства защиты и респираторы
+                          </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </li>
+            </ul>
           </div>
         </div>
       )}

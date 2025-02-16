@@ -51,7 +51,6 @@
 
 .price-wrapper {
   display: flex;
-  gap: 10px;
   align-items: center;
 }
 
@@ -89,6 +88,10 @@
 }
 
 @media (max-width: 768px) {
+  .section-title-category {
+    font-size: 1.5rem;
+  }
+  
   .product-section{
     padding-top: 0;
   }

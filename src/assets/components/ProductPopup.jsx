@@ -1,6 +1,5 @@
-//// filepath: /c:/Users/damir/Tabys-Stroy/src/assets/components/ProductPopup.jsx
-import React, { useState, useContext } from 'react';
-import { CartContext } from '../../context/CartContext.jsx';
+import React, { useContext, useState, useEffect } from 'react';
+import { CartContext } from '../../context/CartContext';
 import '../styles/ProductPopup.css';
 
 function ProductPopup({ product, onClose }) {
@@ -8,8 +7,13 @@ function ProductPopup({ product, onClose }) {
   const [quantity, setQuantity] = useState(1);
   const [currentImage, setCurrentImage] = useState(0);
   const [activeTab, setActiveTab] = useState('описание');
+  const [isActive, setIsActive] = useState(false);
 
   const images = product.images ? product.images : [product.image];
+
+  useEffect(() => {
+    setIsActive(true);
+  }, []);
 
   const handlePrev = () => {
     setCurrentImage(prev => (prev === 0 ? images.length - 1 : prev - 1));
@@ -32,14 +36,26 @@ function ProductPopup({ product, onClose }) {
     onClose();
   };
 
+  const handleClose = () => {
+    setIsActive(false);
+    setTimeout(onClose, 300); // Дождитесь завершения анимации перед закрытием
+  };
+
   return (
-    <div className="popup-overlay" onClick={onClose}>
+    <div className={`popup-overlay ${isActive ? 'active' : ''}`} onClick={handleClose}>
       <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <button className="popup-close" onClick={onClose}>&times;</button>
+        <button className="popup-close" onClick={handleClose}>&times;</button>
         <div className="popup-img-slider">
-          <button className="slider-btn" onClick={handlePrev}>{'<'}</button>
-          <img src={images[currentImage]} alt={product.name} />
-          <button className="slider-btn" onClick={handleNext}>{'>'}</button>
+          <button className="slider-btn prev" onClick={handlePrev}>{'<'}</button>
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={product.name}
+              className={index === currentImage ? 'active' : ''}
+            />
+          ))}
+          <button className="slider-btn next" onClick={handleNext}>{'>'}</button>
         </div>
         <div className="popup-details">
           <h2>{product.name}</h2>
