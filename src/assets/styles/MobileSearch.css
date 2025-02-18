@@ -1,0 +1,58 @@
+.mobile-search {
+    position: relative;
+    margin-top: 50px;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .mobile-search input {
+    width: 100%;
+    padding: 8px 40px 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1rem;
+  }
+  
+  .mobile-search .search-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  .search-btn {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='20' height='20'%3E%3Cpath fill='%23666' d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5z'/%3E%3C/svg%3E") no-repeat center;
+    background-size: contain;
+  }
+  
+  .mobile-search .search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 20;
+  }
+  
+  .mobile-search .search-suggestions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .mobile-search .search-suggestions li {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .mobile-search .search-suggestions li:hover {
+    background-color: #f7f7f7;
+  }

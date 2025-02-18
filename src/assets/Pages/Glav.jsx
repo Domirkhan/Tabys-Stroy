@@ -1,7 +1,9 @@
 import '../../assets/styles/Glav.css';
+import MobileSearch from '../components/MobileSearch';
 function Glav() {
     return(
         <>
+        <MobileSearch />
         <div className="hero-section pt-32 pb-20 bg-gradient">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid-wrapper grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

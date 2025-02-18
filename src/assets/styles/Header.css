@@ -410,9 +410,6 @@
         width: 20px;
         height: 20px;
     }
-    .search{
-        display: none;
-    }
 }
 
 @media (max-width: 768px) {
@@ -425,14 +422,19 @@
     .catalog-btn span{
         display: none;
     }
-    .header-bottom{
-        display: none;
-    }
     .cart img{
         width: 24px;
         height: 24px;
     }
     .catalog-sidebar {
         width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .header-bottom{
+        display: none;
+    }
+    .search{
+        display: none;
     }
 }

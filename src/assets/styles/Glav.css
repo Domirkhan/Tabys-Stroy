@@ -1,6 +1,6 @@
 .hero-section {
     background: linear-gradient(to right, #f8fafc, #e0f2fe);
-    padding-top: 8rem;
+    padding-top: 2rem;
   }
   
   .container {
@@ -64,8 +64,3 @@
   }
   }
 
-  @media (max-width: 768px) {
-    .hero-section{
-      padding-top: 4rem;
-    }
-  }
