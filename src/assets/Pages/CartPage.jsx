@@ -1,9 +1,9 @@
-//// filepath: /c:/Users/damir/Tabys-Stroy/src/assets/Pages/CartPage.jsx
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/CartPage.css';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
+import { shortenUrl } from '../untils/shortenUrl.js';
 
 function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useContext(CartContext);
@@ -41,22 +41,7 @@ function CartPage() {
 
     const orderLink = `${window.location.origin}/Tabys-Stroy/#/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
 
-    // Сокращение ссылки с помощью TinyURL API
-    const shortenUrl = async (url) => {
-      const response = await fetch(`https://api.tinyurl.com/create?api_token=FzFKhtH5dWAwnhpSiOBouGzBNOuirtCl7k0TQ9w4hGXrubII3CC5L2OMW0rO`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          url: url,
-          domain: 'tinyurl.com',
-        }),
-      });
-      const data = await response.json();
-      return data.data.tiny_url;
-    };
-
+    // Используем новую функцию shortenUrl, которая заменяет домен на "tabys-stroy"
     const shortOrderLink = await shortenUrl(orderLink);
 
     const message =

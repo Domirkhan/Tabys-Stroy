@@ -1,4 +1,9 @@
+.content{
+  margin: 0 auto;
+  max-width: 1120px;
+}
 .order-page {
+  width: 100%;
   padding: 20px;
 }
 
@@ -15,8 +20,10 @@
 }
 
 .order-table {
+  table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
+  margin: 0 auto; /* Если нужно явно центрировать таблицу */
 }
 
 .order-table th,
@@ -24,6 +31,7 @@
   border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
+  word-wrap: break-word;
 }
 
 .order-table th {
