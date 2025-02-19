@@ -79,10 +79,6 @@
   animation: input-focus 0.3s ease;
 }
 
-/* Стили для placeholder */
-.mobile-search input::placeholder {
-  color: #999;
-}
 
 @media (min-width: 768px) {
   .mobile-search {

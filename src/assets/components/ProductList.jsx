@@ -1,10 +1,7 @@
-//// filepath: src/assets/components/ProductList.jsx
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import ProductPopup from './ProductPopup';
 import products from '../../data/Products.jsx';
-
-// Объект для перевода названий подкатегорий
 
 function ProductList({ category, subCategory }) {
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -21,14 +18,33 @@ function ProductList({ category, subCategory }) {
     setFilteredProducts(filtered);
   }, [category, subCategory]);
 
+  useEffect(() => {
+    // Добавляем небольшую задержку, чтобы дать время на рендеринг элементов
+    const timeoutId = setTimeout(() => {
+      const hash = window.location.hash;
+      if (hash) {
+        const elementId = hash.substring(1); // Убираем # из начала
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }
+      }
+    }, 500); // Задержка в 500мс
+
+    return () => clearTimeout(timeoutId);
+  }, [filteredProducts]);
+
   return (
     <section className="product-section">
       <div className="container">
-      <h2 className="section-title-category">
-        {subCategory 
-          ? `Товары подкатегории: ${subCategory}`
-          : `Товары категории: ${category}`}
-      </h2>
+        <h2 className="section-title-category">
+          {subCategory 
+            ? `Товары подкатегории: ${subCategory}`
+            : `Товары категории: ${category}`}
+        </h2>
         <div className="products-grid">
           {filteredProducts.map(product => (
             <ProductCard

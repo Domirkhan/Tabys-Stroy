@@ -250,6 +250,34 @@
     animation: slideOut 0.5s forwards;
 }
 
+.search input {
+    width: 100%;
+    padding: 8px 40px 8px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .search input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.1);
+    animation: input-focus 0.3s ease;
+    outline: none;
+  }
+  
+  .search input::placeholder {
+    color: #999;
+  }
+  
+  @keyframes input-focus {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
 .search-suggestions {
     position: absolute;
     top: 110%;
