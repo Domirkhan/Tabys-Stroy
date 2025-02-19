@@ -2,9 +2,11 @@
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Обеспечивает, что контейнер занимает всю высоту экрана */
+  min-height: 100vh;
   background-color: #f9f9f9;
 }
+
+
 
 /* Стилизация контейнера корзины */
 .cart-page.container {
@@ -346,6 +348,14 @@
 
 /* Адаптивные стили */
 @media (max-width: 768px) {
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Контент начинается сверху */
+  }
+  .cart-page.container {
+    order: -1; /* Помещаем контент в начало */
+  }
   .cart-title {
     margin-top: 3rem;
   }
@@ -364,5 +374,8 @@
   .delivery-details .radio-group {
     flex-direction: row; /* Оставляем горизонтальное расположение */
     flex-wrap: wrap; /* Добавляем перенос при необходимости */
+  }
+  footer {
+    order: 1; /* Помещаем футер в конец */
   }
 }

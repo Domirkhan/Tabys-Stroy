@@ -1,4 +1,5 @@
 .hero-section {
+    margin-top: 5rem;
     background: linear-gradient(to right, #f8fafc, #e0f2fe);
     padding-top: 2rem;
   }
@@ -62,5 +63,11 @@
   .hero-image {
     display: none;
   }
+  }
+
+  @media (max-width: 600px) {
+    .hero-section{
+      margin-top: 0rem;
+    }
   }
 
