@@ -5,6 +5,7 @@ import '../../assets/styles/Header.css';
 import cartIcon from "../../assets/icon/cart.png";
 import Products from "../../data/Products";
 
+
 function Header() {
   const { cartItems } = useContext(CartContext);
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -125,7 +126,7 @@ function Header() {
               />
             </button>
             <nav className="main-nav">
-              <a href="#">О нас</a>
+            <Link to="/about">О нас</Link>
               <a href="#">Оплата</a>
               <a href="#">Доставка</a>
               <a href="#">Контакты</a>

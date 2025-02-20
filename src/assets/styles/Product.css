@@ -1,6 +1,7 @@
 .product-section {
   padding: 3rem 0;
 }
+
 .section-title-category {
   margin-top: 5rem;
   font-size: 2rem;
@@ -15,9 +16,14 @@
 }
 
 .products-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  overflow-x: auto;
   gap: 2rem;
+  cursor: grab;
+}
+
+.products-grid:active {
+  cursor: grabbing;
 }
 
 .product-card {
@@ -26,23 +32,27 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
   transition: box-shadow 0.2s ease;
+  flex: 0 0 auto;
+  width: 500px;
+  min-height: 500px; /* фиксированная минимальная высота карточки */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 1rem 0;
 }
 
 .product-card:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-.product-image {
-  width: 100%;
-  height: 12rem;
-  object-fit: cover;
-  border-radius: 0.75rem;
-  margin-bottom: 1rem;
-}
 
+.product-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  height: 3rem; /* фиксированная высота */
+  overflow: hidden;
+}
 .product-name {
   font-size: 1.125rem;
   font-weight: 600;
@@ -51,7 +61,9 @@
 
 .price-wrapper {
   display: flex;
+  gap: 10px;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .current-price {
@@ -83,30 +95,20 @@
 
 @media (min-width: 768px) {
   .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-}
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  .section-title-category {
-    margin-top: 0;
-    font-size: 1.5rem;
-  }
-  
-  .product-section{
+  .product-section {
     padding-top: 0;
   }
-  .section-title{
-    margin-top: 2rem;
+  .section-title {
+    margin-top: 4rem;
   }
   .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-}
-}
-@media (max-width: 600px) {
-  .products-grid {
     grid-template-columns: repeat(2, 1fr);
-}
+  }
 }
 
 @media (min-width: 1024px) {
@@ -114,3 +116,48 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+.products-grid {
+  
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  cursor: grab;
+  scroll-behavior: smooth; /* Плавная прокрутка */
+}
+
+/* Стили для Webkit браузеров */
+.products-grid::-webkit-scrollbar {
+  width: 100%;
+ 
+  
+}
+
+.products-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.products-grid::-webkit-scrollbar-thumb {
+  background: #ff0000;
+  border-radius: 4px;
+}
+
+.products-grid::-webkit-scrollbar-thumb:hover {
+  background: #b00000;
+}
+
+/* Стили для Firefox */
+.products-grid {
+  scrollbar-width: thin;
+  scrollbar-color: #ff0000 #f1f1f1;
+}
+.products-grid {
+  display: flex;
+  overflow-x: auto;
+  
+  gap: 1rem; /* увеличено расстояние между карточками */
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+
+
