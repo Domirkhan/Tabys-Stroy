@@ -5,6 +5,7 @@ import CartPage from './assets/Pages/CartPage';
 import CategoryPage from './assets/Pages/CategoryPage';
 import ProductPage from './assets/Pages/ProductPage';
 import ZakazPage from './assets/Pages/ZakazPage';
+import DeliveryPage from './assets/Pages/DeliveryPage';
 
 function RouterApp() {
   return (
@@ -17,6 +18,7 @@ function RouterApp() {
         <Route path="/:category/:subCategory/:subSubCategory" element={<CategoryPage />} />
         <Route path="/:category/:subCategory" element={<CategoryPage />} />
         <Route path="/:category" element={<CategoryPage />} />
+        <Route path="/delivery" element={<DeliveryPage />} />
       </Routes>
     </HashRouter>
   );

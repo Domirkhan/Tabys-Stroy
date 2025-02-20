@@ -125,10 +125,10 @@ function Header() {
               />
             </button>
             <nav className="main-nav">
-              <a href="#">О нас</a>
-              <a href="#">Оплата</a>
-              <a href="#">Доставка</a>
-              <a href="#">Контакты</a>
+              <Link to="/about">О нас</Link>
+              <Link to="/payment">Оплата</Link>
+              <Link to="/delivery">Доставка</Link>
+              <Link to="/contacts">Контакты</Link>
             </nav>
             <div className="lang-phone">
               <a href="tel:+78008008080" className="phone">+7(705) 454-13-49</a>

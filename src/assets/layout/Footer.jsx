@@ -1,4 +1,5 @@
-import "../styles/Footer.css"
+import "../styles/Footer.css";
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -8,28 +9,28 @@ function Footer() {
           <div className="footer-column">
             <h3>Компания</h3>
             <nav className="footer-nav">
-              <a href="#">О нас</a>
-              <a href="#">Новости</a>
-              <a href="#">Реквизиты</a>
-              <a href="#">Вакансии</a>
-              <a href="#">Контактная информация</a>
+              <Link to="/about">О нас</Link>
+              <Link to="/news">Новости</Link>
+              <Link to="/details">Реквизиты</Link>
+              <Link to="/jobs">Вакансии</Link>
+              <Link to="/contacts">Контакты</Link>
             </nav>
           </div>
           <div className="footer-column">
             <h3>Сервис</h3>
             <nav className="footer-nav">
-              <a href="#">Как заказать</a>
-              <a href="#">Оплата</a>
-              <a href="#">Доставка</a>
-              <a href="#">Скидки и бонусы</a>
-              <a href="#">Возврат товаров</a>
+              <Link to="/How-to-order">Как заказать</Link>
+              <Link to="/payment">Оплата</Link>
+              <Link to="/delivery">Доставка</Link>
+              <Link to="/bonus">Скидки и бонусы</Link>
+              <Link to="/Return">Возврат товаров</Link>
             </nav>
           </div>
           <div className="footer-column">
             <h3>Сотрудничество</h3>
             <nav className="footer-nav">
-              <a href="#">Оптовые заказы</a>
-              <a href="#">Поставщикам</a>
+              <Link to="/Return">Оптовые заказы</Link>
+              <Link to="/Return">Поставщикам</Link>
             </nav>
           </div>
           <div className="footer-column">
@@ -41,9 +42,9 @@ function Footer() {
               </div>
               <p className="footer-address">г. Жезказган, ул. Алашахана, 8</p>
               <div className="social-links">
-                <a href="#" className="social-link telegram"></a>
-                <a href="#" className="social-link vk"></a>
-                <a href="#" className="social-link youtube"></a>
+                <a href="https://wa.me/77054541349" className="social-link whatsapp"></a>
+                <a href="https://instagram.com/yourprofile" className="social-link instagram"></a>
+                <a href="https://t.me/yourprofile" className="social-link telegram"></a>
               </div>
             </div>
           </div>
