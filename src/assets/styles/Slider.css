@@ -28,8 +28,8 @@
   
   .slide-content {
     position: absolute;
-    bottom: 40px;
-    left: 40px;
+    bottom: 5rem;
+    left: 5rem;
     color: #fff;
     max-width: 50%;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
@@ -72,7 +72,7 @@
     border: none;
     color: #b5b2b2;
     font-size: 2rem;
-    padding: 8px 16px;
+    padding: 5px 16px;
     cursor: pointer;
     border-radius: 50%;
     transition: background-color 0.3s ease;
@@ -115,18 +115,21 @@
   }
 
   @media screen and (max-width: 768px) {
-    .slide-content {
-      bottom: 100px;
-      left: 50px;
+    .slider {
+      width: 90%;
+      height: 300px;
     }
-  
+    .slide-content {
+      text-align: center;
+      left: 6rem;
+    }
+    
     .slide-content h2 {
-        
-      font-size: 25px;
+      font-size: 1rem;
     }
   
     .slide-content p {
-        margin-top: 25px;
+      margin-top: 0;
       font-size: 18px;
       margin-bottom: 30px;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
@@ -134,13 +137,16 @@
     }
   
     .slider-button {
-      padding: 8px 16px;
+      padding: 5px 10px;
+    }
+
+    .slider-button a{
+      font-style: 1rem;
     }
   
     .prev,
     .next {
       font-size: 1.5rem;
-      padding: 6px 12px;
     }
   
     .dots {

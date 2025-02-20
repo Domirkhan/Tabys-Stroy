@@ -19,6 +19,8 @@ function RouterApp() {
         <Route path="/:category/:subCategory/:subSubCategory" element={<CategoryPage />} />
         <Route path="/:category/:subCategory" element={<CategoryPage />} />
         <Route path="/:category" element={<CategoryPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/delivery" element={<DeliveryPage />} />
       </Routes>
     </HashRouter>
   );

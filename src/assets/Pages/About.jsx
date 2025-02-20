@@ -1,19 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../../assets/styles/About.css';
-import { CheckCircle, Award, Clock, MapPin } from 'react-feather';
+import { CheckCircle, Award, Clock, MapPin } from 'react-feather'; // Импортируем иконки
 import Header from '../layout/Header'; // Импортируем Header
 import Footer from '../layout/Footer';
 
 function About() {
-    
   return (
     <>
-    <Header />
+      <Header />
       <div className="about-section">
         <div className="about-container">
-          
-
           <div className="about-grid">
             <div className="about-info">
               <h3 className="about-info-title">О нашем магазине</h3>
@@ -67,8 +63,6 @@ function About() {
               <p>Мы работаем как с частными клиентами, так и с компаниями. Для постоянных клиентов действует система скидок и специальные условия на оптовые закупки.</p>
             </div>
           </div>
-
-          
         </div>
       </div>
       <Footer />
@@ -76,4 +70,4 @@ function About() {
   );
 }
 
-export default About;
+export default About;

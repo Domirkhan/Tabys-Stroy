@@ -180,7 +180,9 @@
       overflow: hidden;
       color: white; /* Изменяем цвет шрифта на белый */
     }
-  
+    .about-section{
+      margin-top: 0;
+    }
     .about-info::before {
       content: '';
       position: absolute;
@@ -217,6 +219,6 @@
     }
   
     .about-info-text p {
-      color: #ffffff;
+      color:#ffffff;
     }
   }
