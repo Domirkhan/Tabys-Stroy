@@ -42,9 +42,9 @@ function Footer() {
               </div>
               <p className="footer-address">г. Жезказган, ул. Алашахана, 8</p>
               <div className="social-links">
-                <a href="https://wa.me/77054541349" className="social-link whatsapp"></a>
-                <a href="https://instagram.com/yourprofile" className="social-link instagram"></a>
-                <a href="https://t.me/yourprofile" className="social-link telegram"></a>
+                <a href="https://wa.me/+77054541349" className="social-link whatsapp"></a>
+                <a href="https://instagram.com/tabys_stroy" className="social-link instagram"></a>
+                <a href="https://t.me/+77054541349" className="social-link telegram"></a>
               </div>
             </div>
           </div>
