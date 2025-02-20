@@ -1,0 +1,222 @@
+.about-section {
+    margin-top: 50px;
+    padding: 5rem 0;
+    background-color: white;
+  }
+  
+  .about-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .about-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .about-title {
+    margin-top: 50px;
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1.25rem;
+    color: #718096;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+  }
+  
+  .about-info-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-info-text p {
+    color: #718096;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .about-feature {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, color 0.3s ease; /* Добавляем плавный переход для иконок и текста */
+  }
+  
+  .about-feature-icon {
+    color: #ff0000; /* Изменяем цвет иконок на красный */
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease; /* Добавляем плавный переход для иконок */
+  }
+  
+  .about-feature:hover .about-feature-icon {
+    transform: scale(1.2); /* Увеличиваем иконку при наведении */
+  }
+  
+  .about-feature:hover {
+    color: #ff0000; /* Изменяем цвет текста при наведении */
+  }
+  
+/* Обновлённые стили для блока изображений */
+.about-images {
+    position: relative;
+    width: 100%;
+    height: 380px; /* увеличили высоту контейнера */
+    margin: 2rem 0;
+  }
+  
+  .about-image {
+    position: absolute;
+    width: 45%; /* увеличили ширину изображений */
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .about-images img:nth-child(1) {
+    top: 0;
+    left: 5%;
+    z-index: 3;
+    transform: rotate(-3deg);
+  }
+  
+  .about-images img:nth-child(2) {
+    top: 10%;
+    left: 40%;
+    z-index: 4;
+    transform: rotate(2deg);
+  }
+  
+  .about-images img:nth-child(3) {
+    top: 45%;
+    left: 10%;
+    z-index: 2;
+    transform: rotate(-1deg);
+  }
+  
+  .about-images img:nth-child(4) {
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: rotate(3deg);
+  }
+  
+  .about-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .about-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .about-card {
+    background: #F7FAFC;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .about-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .about-card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .about-footer {
+    text-align: center;
+  }
+  
+  .about-button {
+    background: #ff0000; /* Изменяем цвет кнопки на красный */
+    color: white;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+    border: none;
+  }
+  
+  .about-button:hover {
+    background: #b00000; /* Изменяем цвет кнопки при наведении на более темный красный */
+  }
+  
+  /* Адаптивные стили для мобильных устройств */
+  @media (max-width: 768px) {
+    .about-info {
+      position: relative;
+      background-image: url('https://avatars.mds.yandex.net/i?id=d2bfa18f22b4f6fc245acf8a0a81b713_l-6890988-images-thumbs&n=13'); /* Указываем URL изображения */
+      background-size: cover;
+      background-attachment: fixed; /* Фиксируем фон для мобильных устройств */
+      background-position: center;
+      padding: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+      color: white; /* Изменяем цвет шрифта на белый */
+    }
+  
+    .about-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.70); /* Полупрозрачный черный слой */
+      z-index: 1;
+    }
+  
+    .about-info * {
+      position: relative;
+      z-index: 2;
+    }
+  
+    .about-container {
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон для контента */
+      border-radius: 8px;
+    }
+  
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  
+    .about-images {
+      display: none;
+    }
+  
+    .about-cards {
+      grid-template-columns: 1fr;
+    }
+  
+    .about-info-text p {
+      color: #ffffff;
+    }
+  }

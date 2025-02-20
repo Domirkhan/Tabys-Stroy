@@ -5,6 +5,7 @@ import '../../assets/styles/Header.css';
 import cartIcon from "../../assets/icon/cart.png";
 import Products from "../../data/Products";
 
+
 function Header() {
   const { cartItems } = useContext(CartContext);
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
