@@ -1,7 +1,13 @@
 .product-section {
   padding: 3rem 0;
+  
 }
 
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1rem;
+} 
 .section-title-category {
   margin-top: 5rem;
   font-size: 2rem;
@@ -17,14 +23,14 @@
 
 .products-grid {
   display: flex;
-  overflow-x: auto;
-  gap: 2rem;
-  cursor: grab;
+  
+  
+  
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.products-grid:active {
-  cursor: grabbing;
-}
+
 
 .product-card {
   background-color: white;
@@ -32,19 +38,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
   transition: box-shadow 0.2s ease;
-  flex: 0 0 auto;
-  width: 500px;
-  min-height: 500px; /* фиксированная минимальная высота карточки */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   margin: 1rem 0;
 }
 
 .product-card:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
-
 
 .product-title {
   font-size: 1.125rem;
@@ -53,6 +52,7 @@
   height: 3rem; /* фиксированная высота */
   overflow: hidden;
 }
+
 .product-name {
   font-size: 1.125rem;
   font-weight: 600;
@@ -106,9 +106,6 @@
   .section-title {
     margin-top: 4rem;
   }
-  .section-title-category{
-    margin-top: 0;
-  }
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -119,48 +116,3 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.products-grid {
-  
-  display: flex;
-  overflow-x: auto;
-  gap: 2rem;
-  cursor: grab;
-  scroll-behavior: smooth; /* Плавная прокрутка */
-}
-
-/* Стили для Webkit браузеров */
-.products-grid::-webkit-scrollbar {
-  width: 100%;
- 
-  
-}
-
-.products-grid::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
-
-.products-grid::-webkit-scrollbar-thumb {
-  background: #ff0000;
-  border-radius: 4px;
-}
-
-.products-grid::-webkit-scrollbar-thumb:hover {
-  background: #b00000;
-}
-
-/* Стили для Firefox */
-.products-grid {
-  scrollbar-width: thin;
-  scrollbar-color: #ff0000 #f1f1f1;
-}
-.products-grid {
-  display: flex;
-  overflow-x: auto;
-  
-  gap: 1rem; /* увеличено расстояние между карточками */
-  cursor: grab;
-  scroll-behavior: smooth;
-}
-
-

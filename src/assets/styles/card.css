@@ -2,12 +2,12 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 16px;
-  width: 450px;
-  height: 500px;
+  width: 250px;
+  height: 450px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #fff;
-  display: flex;
+  display: flex;   
   flex-direction: column;
   justify-content: space-between;
 }
