@@ -106,6 +106,9 @@
   .section-title {
     margin-top: 4rem;
   }
+  .section-title-category {
+    margin-top: 0;
+  }
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
