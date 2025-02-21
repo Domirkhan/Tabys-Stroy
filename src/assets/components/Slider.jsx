@@ -5,15 +5,11 @@ const slides = [
   {
     image: "https://avatars.mds.yandex.net/i?id=673d9dd7b0697b9b9af7fc359a54cd0f_l-5233858-images-thumbs&n=13",
     title: "Качественные инструменты от ведущих производителей",
-    description: "",
-    buttonText: "Перейти в каталог",
     link: "#"
   },
   {
     image: "https://en.idei.club/uploads/posts/2023-06/1686421166_en-idei-club-p-construction-materials-paint-dizain-krasiv-12.jpg",
     title: "Все для ремонта и строительства — выгодные цены!",
-    description: "",
-    buttonText: "Перейти в каталог",
     link: "#"
   }
 ];
@@ -46,10 +42,6 @@ function Slider() {
         >
           <div className="slide-content">
             <h2>{slide.title}</h2>
-            <p>{slide.description}</p>
-            <a href={slide.link} className="slider-button">
-              {slide.buttonText}
-            </a>
           </div>
         </div>
       ))}

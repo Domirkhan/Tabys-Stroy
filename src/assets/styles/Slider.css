@@ -1,4 +1,5 @@
 .slider {
+  margin-top: 10rem !important;
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 1rem;
@@ -36,30 +37,11 @@
   }
   
   .slide-content h2 {
+    margin-bottom: 5rem;
+    margin-left: 2rem;
     color: #fff;
     font-size: 2.5rem;
-    margin-bottom: 10px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-  }
-  
-  .slide-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  
-  .slider-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: rgba(255, 0, 0, 0.8);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .slider-button:hover {
-    background-color: rgba(255, 0, 0, 1);
   }
   
   /* Кнопки навигации */
@@ -116,6 +98,7 @@
 
   @media screen and (max-width: 768px) {
     .slider {
+      margin-top: 0 !important;
       width: 90%;
       height: 300px;
     }
@@ -125,23 +108,9 @@
     }
     
     .slide-content h2 {
-      font-size: 1rem;
-    }
-  
-    .slide-content p {
-      margin-top: 0;
-      font-size: 18px;
-      margin-bottom: 30px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-      font-weight: bold;
-    }
-  
-    .slider-button {
-      padding: 5px 10px;
-    }
-
-    .slider-button a{
-      font-style: 1rem;
+      margin-bottom: 0;
+      margin-left: 0;
+      font-size: 1.5rem;
     }
   
     .prev,
