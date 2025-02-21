@@ -256,8 +256,6 @@
   transition: all 0.3s ease;
 }
 .delivery-details label.payment-method {
-  flex-direction: row;
-  align-items: center;
   gap: 20px;
 }
 .delivery-details input[type="radio"]:checked {

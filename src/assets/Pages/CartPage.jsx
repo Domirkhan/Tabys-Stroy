@@ -18,6 +18,7 @@ function CartPage() {
   });
   const [deliveryData, setDeliveryData] = useState({
     paymentMethod: 'cash',
+    deliveryMethod: 'delivery', // Добавляем новое поле для способа доставки
     note: '',
   });
   
@@ -65,7 +66,7 @@ function CartPage() {
         .join('\n') +
       `\n\nОбщая сумма: ${totalPrice} тг\n\n` +
       `Данные покупателя:\nГород: ${orderData.city}\nАдрес: ${orderData.address}\nТелефон: ${orderData.phone}\nФИО: ${orderData.fio}\n\n` +
-      `Доставка и оплата:\nСпособ оплаты: ${deliveryData.paymentMethod}\nПримечание: ${deliveryData.note}\n\n` +
+      `Доставка и оплата:\nСпособ оплаты: ${deliveryData.paymentMethod}\nСпособ доставки: ${deliveryData.deliveryMethod}\nПримечание: ${deliveryData.note}\n\n` +
       `Подробности заказа: ${shortOrderLink}`;
       
     const encodedMessage = encodeURIComponent(message);
@@ -172,6 +173,31 @@ function CartPage() {
                             onChange={handleDeliveryInputChange} 
                           />
                           Оплата картой
+                        </label>
+                      </div>
+                    </label>
+                  <label className="delivery-method">
+                      Способ доставки:
+                      <div className="radio-group">
+                        <label>
+                          <input 
+                            type="radio" 
+                            name="deliveryMethod" 
+                            value="delivery" 
+                            checked={deliveryData.deliveryMethod === 'delivery'} 
+                            onChange={handleDeliveryInputChange} 
+                          />
+                          Доставка
+                        </label>
+                        <label>
+                          <input 
+                            type="radio" 
+                            name="deliveryMethod" 
+                            value="pickup" 
+                            checked={deliveryData.deliveryMethod === 'pickup'} 
+                            onChange={handleDeliveryInputChange} 
+                          />
+                          Самовывоз
                         </label>
                       </div>
                     </label>
