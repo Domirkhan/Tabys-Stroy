@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 250px; /* Фиксированная ширина */
   height: 350px; /* Автоматическая высота */
 }
 .product-card-wrapper.highlighted {
@@ -48,7 +49,7 @@
 
 .product-image {
   width: 100%;
-  height: 200px; /* Фиксированная высота */
+  height: 180px; /* Фиксированная высота */
   object-fit: cover;
   border-radius: 0.75rem;
   margin-bottom: 0.5rem;
