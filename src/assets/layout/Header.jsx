@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/Header.css';
 import cartIcon from "../../assets/icon/cart.png";
 import Products from "../../data/Products";
-
 
 function Header() {
   const { cartItems } = useContext(CartContext);
@@ -15,9 +14,33 @@ function Header() {
   const [openSubCategory, setOpenSubCategory] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSelect = (product) => {
+    const hash = `product-${product.id}`;
+    navigate(`/${product.category}/${product.subCategory}#${hash}`);
+    setSearchQuery("");
+
+    setTimeout(() => {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+
+        element.classList.add('highlighted');
+        setTimeout(() => {
+          element.classList.remove('highlighted');
+        }, 2000);
+      } else {
+        console.error(`Element with id ${hash} not found`);
+      }
+    }, 500); // Увеличиваем время задержки до 500 мс
   };
 
   const filteredProducts = Products.filter(product => 
@@ -66,7 +89,7 @@ function Header() {
           <div className="container">
             <div className="catalog-btn" onClick={toggleCatalog}>
               <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='white' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z'/%3E%3C/svg%3E"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='white' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3V4zm0 7h18v2H3V4z'/%3E%3C/svg%3E"
                 alt="menu"
               />
               <span>Каталог</span>
@@ -90,7 +113,7 @@ function Header() {
                         <Link 
                           to={`/${product.category}/${product.subCategory}`} 
                           onClick={() => {
-                            setSearchQuery("");
+                            handleSearchSelect(product);
                             if (isCatalogOpen) {
                               closeCatalog();
                             }
@@ -121,7 +144,7 @@ function Header() {
           <div className="container">
             <button className="mobile-menu-btn">
               <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='%23333' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z'/%3E%3C/svg%3E"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='%23333' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3V4zm0 7h18v2H3V4z'/%3E%3C/svg%3E"
                 alt="menu"
               />
             </button>
@@ -142,7 +165,7 @@ function Header() {
           <div className={`catalog-sidebar ${closing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}>
             
             <button className="close-btn" onClick={closeCatalog}>X</button>
-            <h2>Категории</h2>
+            <h2>Каталог</h2>
             {/* Категория "Сантехника" */}
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'plumbing' ? 'open' : ''}`}>

@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
+import products from '../../data/Products';
 import ProductPopup from './ProductPopup';
-import products from '../../data/Products.jsx';
+import '../../assets/styles/Product.css';
 
 function ProductList({ category, subCategory }) {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
     let filtered = products;
@@ -18,40 +20,65 @@ function ProductList({ category, subCategory }) {
     setFilteredProducts(filtered);
   }, [category, subCategory]);
 
-  useEffect(() => {
-    // Добавляем небольшую задержку, чтобы дать время на рендеринг элементов
-    const timeoutId = setTimeout(() => {
-      const hash = window.location.hash;
-      if (hash) {
-        const elementId = hash.substring(1); // Убираем # из начала
-        const element = document.getElementById(elementId);
-        if (element) {
-          element.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-          });
-        }
-      }
-    }, 500); // Задержка в 500мс
+  const handleSortChange = (e) => {
+    const order = e.target.value;
+    setSortOrder(order);
+    const sortedProducts = [...filteredProducts].sort((a, b) => {
+      return order === 'asc' ? a.price - b.price : b.price - a.price;
+    });
+    setFilteredProducts(sortedProducts);
+  };
 
-    return () => clearTimeout(timeoutId);
-  }, [filteredProducts]);
+  // Функция вызывается при выборе товара в поиске.
+  // Она обновляет URL hash, чтобы сработал эффект прокрутки и подсветки.
+  const handleSearchSelect = (product) => {
+    const hash = `product-${product.id}`;
+    window.location.hash = hash;
+
+    const element = document.getElementById(hash);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+
+      setTimeout(() => {
+        element.classList.add('highlighted');
+        setTimeout(() => {
+          element.classList.remove('highlighted');
+        }, 2000);
+      }, 100);
+    }
+  };
 
   return (
     <section className="product-section">
       <div className="container">
         <h2 className="section-title-category">
-          {subCategory 
-            ? `Товары подкатегории: ${subCategory}`
-            : `Товары категории: ${category}`}
+          {subCategory ? `Товары подкатегории: ${subCategory}` : `Товары категории: ${category}`}
         </h2>
+        <div className="sort-wrapper">
+          <label htmlFor="sortOrder">Сортировка по:</label>
+          <select id="sortOrder" value={sortOrder} onChange={handleSortChange}>
+            <option value="asc">Сначала дешевые</option>
+            <option value="desc">Сначала дорогие</option>
+          </select>
+        </div>
         <div className="products-grid">
           {filteredProducts.map(product => (
-            <ProductCard
+            <div
               key={product.id}
-              product={product}
-              onClick={() => setSelectedProduct(product)}
-            />
+              id={`product-${product.id}`} // назначаем идентификатор для прокрутки
+              className="product-card-wrapper"
+              onClick={() => {
+                // При клике обновляем hash, чтобы скроллился к выбранной карточке,
+                // а также открываем попап с информацией о товаре.
+                handleSearchSelect(product);
+                setSelectedProduct(product);
+              }}
+            >
+              <ProductCard product={product} onClick={() => setSelectedProduct(product)} />
+            </div>
           ))}
         </div>
       </div>
