@@ -10,6 +10,7 @@ function About() {
       <Header />
       <div className="about-section">
         <div className="about-container">
+        <h1 className="section-title-category">О нас</h1>
           <div className="about-grid">
             <div className="about-info">
               <h3 className="about-info-title">О нашем магазине</h3>

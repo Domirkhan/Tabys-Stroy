@@ -7,14 +7,12 @@
   
   .delivery-container {
     max-width: 1120px;
-    margin-top: 10rem;
+    margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5rem;
     padding: 20px;
-    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
   
   .delivery-container h1 {
@@ -37,6 +35,10 @@
   .delivery-container ul {
     list-style: disc;
     padding-left: 1.5rem;
+  }
+  .phone{
+    text-decoration: none;
+    color: #333;
   }
 
   @media (max-width: 768px) {

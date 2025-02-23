@@ -7,6 +7,8 @@ import ProductPage from './assets/Pages/ProductPage';
 import ZakazPage from './assets/Pages/ZakazPage';
 import About from './assets/Pages/About';
 import DeliveryPage from './assets/Pages/DeliveryPage';
+import PaymentPage from './assets/Pages/PaymentPage';
+import ContactsPage from './assets/Pages/ContactsPage';
 
 function RouterApp() {
   return (
@@ -21,6 +23,8 @@ function RouterApp() {
         <Route path="/:category" element={<CategoryPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/delivery" element={<DeliveryPage />} />
+        <Route path='/payment' element={<PaymentPage />} />
+        <Route path='/contacts' element={<ContactsPage />} />
       </Routes>
     </HashRouter>
   );

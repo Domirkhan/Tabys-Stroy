@@ -10,29 +10,29 @@ function Footer() {
             <h3>Компания</h3>
             <nav className="footer-nav">
               <Link to="/about">О нас</Link>
-              <Link to="/news">Новости</Link>
+              {/* <Link to="/news">Новости</Link>
               <Link to="/details">Реквизиты</Link>
-              <Link to="/jobs">Вакансии</Link>
+              <Link to="/jobs">Вакансии</Link> */}
               <Link to="/contacts">Контакты</Link>
             </nav>
           </div>
           <div className="footer-column">
             <h3>Сервис</h3>
             <nav className="footer-nav">
-              <Link to="/How-to-order">Как заказать</Link>
+              {/* <Link to="/How-to-order">Как заказать</Link> */}
               <Link to="/payment">Оплата</Link>
               <Link to="/delivery">Доставка</Link>
-              <Link to="/bonus">Скидки и бонусы</Link>
-              <Link to="/Return">Возврат товаров</Link>
+              {/* <Link to="/bonus">Скидки и бонусы</Link>
+              <Link to="/Return">Возврат товаров</Link> */}
             </nav>
           </div>
-          <div className="footer-column">
+          {/* <div className="footer-column">
             <h3>Сотрудничество</h3>
             <nav className="footer-nav">
               <Link to="/Return">Оптовые заказы</Link>
               <Link to="/Return">Поставщикам</Link>
             </nav>
-          </div>
+          </div> */}
           <div className="footer-column">
             <h3>Контакты</h3>
             <div className="footer-contacts">

@@ -61,12 +61,12 @@ import plankaImage1 from '../assets/image/plumbing/Фитинги/1.1.21.1.png';
 
 import otvodskrepleniemImage from '../assets/image/plumbing/Фитинги/1.1.22.1.jpg';
 
-import krandiamondImage1 from '../assets/image/plumbing/Фитинги/1.1.24.1.jpg';
-import krandiamondImage2 from '../assets/image/plumbing/Фитинги/1.1.24.2.jpg';
-import krangallopImage1 from '../assets/image/plumbing/Фитинги/1.1.25.1.jpeg';
-import krangallopImage2 from '../assets/image/plumbing/Фитинги/1.1.25.2.jpeg';
-import krandiamondImage3 from '../assets/image/plumbing/Фитинги/1.1.26.1.jpg';
-import kranjaccoImage1 from '../assets/image/plumbing/Фитинги/1.1.30.1.jpg';
+import krandiamondImage1 from '../assets/image/plumbing/Фитинги/1.1.24.1.png';
+import krandiamondImage2 from '../assets/image/plumbing/Фитинги/1.1.24.2.png';
+import krangallopImage1 from '../assets/image/plumbing/Фитинги/1.1.25.1.png';
+import krangallopImage2 from '../assets/image/plumbing/Фитинги/1.1.25.2.png';
+import krandiamondImage3 from '../assets/image/plumbing/Фитинги/1.1.26.1.png';
+import kranjaccoImage1 from '../assets/image/plumbing/Фитинги/1.1.30.1.png';
 
 
 

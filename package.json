@@ -20,6 +20,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-feather": "^2.0.10",
+    "react-icon": "^1.0.0",
     "react-router-dom": "^7.2.0",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
