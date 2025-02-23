@@ -65,8 +65,7 @@
   transition: background-color 0.3s ease;
 }
 
-.prev:hover,
-.next:hover {
+.slider .prev:hover, .slider .next:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
 

@@ -29,8 +29,6 @@ function ProductList({ category, subCategory }) {
     setFilteredProducts(sortedProducts);
   };
 
-  // Функция вызывается при выборе товара в поиске.
-  // Она обновляет URL hash, чтобы сработал эффект прокрутки и подсветки.
   const handleSearchSelect = (product) => {
     const hash = `product-${product.id}`;
     window.location.hash = hash;
@@ -70,12 +68,7 @@ function ProductList({ category, subCategory }) {
               key={product.id}
               id={`product-${product.id}`} // назначаем идентификатор для прокрутки
               className="product-card-wrapper"
-              onClick={() => {
-                // При клике обновляем hash, чтобы скроллился к выбранной карточке,
-                // а также открываем попап с информацией о товаре.
-                handleSearchSelect(product);
-                setSelectedProduct(product);
-              }}
+              onClick={() => setSelectedProduct(product)}
             >
               <ProductCard product={product} onClick={() => setSelectedProduct(product)} />
             </div>
