@@ -10,11 +10,11 @@ function PaymentPage() {
       <main className="payment-content">
       <h1 className="section-title-category">Оплата</h1>
         <div className="payment-container">
-          <div className="payment-method">
+          <div className="payment-method-page">
             <h2>Оплата через курьера</h2>
             <p>Вы можете оплатить заказ наличными или картой при получении у курьера.</p>
           </div>
-          <div className="payment-method">
+          <div className="payment-method-page">
             <h2>Оплата через WhatsApp</h2>
             <p>Свяжитесь с нами в WhatsApp для уточнения деталей и перевода.</p>
             <a href="https://wa.me/77054541349" className="whatsapp-button">Написать в WhatsApp</a>
