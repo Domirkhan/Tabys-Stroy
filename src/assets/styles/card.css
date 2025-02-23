@@ -74,17 +74,17 @@
 
 .status-available {
   color: green;
-  font-size: 0.7rem; /* Уменьшаем размер шрифта */
+  font-size: 0.6rem; /* Уменьшаем размер шрифта */
 }
 
 .status-unavailable {
   color: red;
-  font-size: 0.7rem; /* Уменьшаем размер шрифта */
+  font-size: 0.6rem; /* Уменьшаем размер шрифта */
 }
 
 .status-order {
   color: rgb(0, 17, 173);
-  font-size: 0.7rem; /* Уменьшаем размер шрифта */
+  font-size: 0.6rem; /* Уменьшаем размер шрифта */
 }
 
 /* Адаптивные стили */
