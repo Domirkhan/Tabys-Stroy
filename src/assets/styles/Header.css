@@ -7,6 +7,10 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.logotipe{
+    width: 36px;
+}
+
 .header-top, .header-bottom {
     padding: 10px 0;
 }
@@ -14,12 +18,13 @@
 .header-top .container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 2rem;
 }
 
 .logo {
     font-size: 24px;
     font-weight: bold;
+    display: contents;
 }
 
 .logo a{
@@ -81,8 +86,9 @@
     gap: 4px;
 }
 
+
 .cart-count {
-    background-color: #ff0000;
+    background-color: #333;
     color: white;
     padding: 2px 6px;
     border-radius: 4px;
@@ -202,17 +208,15 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #ff0000;
-    color: white;
+    color: #333;
     font-weight: 600;
-    padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .catalog-btn:hover {
-    background-color: #b00000;
+    color: #ff0000;
 }
 
 .catalog-overlay {
@@ -430,13 +434,11 @@
     .logo{
         font-size: 20px;
     }
-    .catalog-btn{
-        padding: 5px 12px;
-        font-size: 15px;
+    .logotipe{
+        width: 30px;
     }
     .catalog-btn img{
-        width: 20px;
-        height: 20px;
+        width: 1.5rem;
     }
 }
 
@@ -456,6 +458,9 @@
     }
     .catalog-sidebar {
         width: 100%;
+    }
+    .header-top .container{
+        gap: 10px;
     }
 }
 @media (max-width: 600px) {

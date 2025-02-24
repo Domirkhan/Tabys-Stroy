@@ -10,7 +10,7 @@
 
 /* Стилизация контейнера корзины */
 .cart-page.container {
-  margin: 0 auto;
+  margin-top: 3rem !important;
   max-width: 1120px;
   padding: 20px;
   flex: 1; /* Заставляет контейнер занимать оставшееся пространство */
@@ -50,7 +50,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .section-header {
-  background-color: #ff0000;
+  background-color: #333;
   color: #fff;
   padding: 10px;
   cursor: pointer;
@@ -63,6 +63,7 @@
   color: #fff;
   margin: 0;
   font-size: 1.25rem;
+  font-weight: 300;
 }
 .toggle-icon {
   font-size: 1.25rem;
@@ -307,6 +308,7 @@
   color: #fff;
   padding: 12px 30px;
   border: none;
+  width: -webkit-fill-available;
   border-radius: 4px;
   font-size: 1.1rem;
   cursor: pointer;

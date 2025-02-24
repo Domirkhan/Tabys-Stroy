@@ -69,5 +69,11 @@
     .hero-section{
       margin-top: 0rem;
     }
+    .hero-title{
+      font-size: 1.5rem;
+    }
+    .container{
+      margin: 0 !important;
+    }
   }
 

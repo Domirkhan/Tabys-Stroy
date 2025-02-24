@@ -81,7 +81,7 @@ function CartPage() {
       <Header />
       <main className="main-content">
         <div className="cart-page container">
-          <h1 className="cart-title">Корзина</h1>
+        <h1 className="section-title-category">Корзина</h1>
           
           {cartItems.length === 0 ? (
             <div className="empty-cart">В корзине нет товаров</div>

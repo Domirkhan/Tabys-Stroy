@@ -7,6 +7,7 @@ import Footer from './assets/layout/Footer';
 import Map from './assets/components/Map';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import AboutUs from './assets/components/AboutUs';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <main className="main-content">
         <Glav />
         <Product />
+        <AboutUs />
         <Map />
       </main>
       <Footer />

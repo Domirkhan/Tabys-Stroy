@@ -1,6 +1,5 @@
 .about-section {
     margin-top: 3rem;
-    background-color: white;
   }
   
   .about-container {
@@ -131,7 +130,7 @@
   }
   
   .about-card {
-    background: #F7FAFC;
+    background: #ffffff; /* Изменяем цвет карточек на белый */
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -197,7 +196,13 @@
       position: relative;
       z-index: 2;
     }
-  
+
+    .about-info-text{
+      font-size: 0.8rem;
+    }
+    .about-info-title {
+      font-size: 1.5rem;
+    }
     .about-container {
       padding: 1rem;
       background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон для контента */

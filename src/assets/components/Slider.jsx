@@ -4,12 +4,12 @@ import "../../assets/styles/Slider.css";
 const slides = [
   {
     image: "https://avatars.mds.yandex.net/i?id=673d9dd7b0697b9b9af7fc359a54cd0f_l-5233858-images-thumbs&n=13",
-    title: "Качественные инструменты",
+    title: "КАЧЕСТВЕННЫЕ СТРОИТЕЛЬНЫЕ МАТЕРИАЛЫ",
     link: "#"
   },
   {
     image: "https://en.idei.club/uploads/posts/2023-06/1686421166_en-idei-club-p-construction-materials-paint-dizain-krasiv-12.jpg",
-    title: "Все для ремонта и строительства",
+    title: "ВСЕ ДЛЯ РЕМОНТА И СТРОИТЕЛЬСТВА",
     link: "#"
   }
 ];

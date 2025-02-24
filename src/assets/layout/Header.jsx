@@ -4,6 +4,8 @@ import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/Header.css';
 import cartIcon from "../../assets/icon/cart.png";
 import Products from "../../data/Products";
+import Logo from "../icon/logo.png"
+import Menu from "../icon/menu.png"
 
 function Header() {
   const { cartItems } = useContext(CartContext);
@@ -89,12 +91,13 @@ function Header() {
           <div className="container">
             <div className="catalog-btn" onClick={toggleCatalog}>
               <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='white' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3V4zm0 7h18v2H3V4z'/%3E%3C/svg%3E"
+                src={Menu}
                 alt="menu"
               />
               <span>Каталог</span>
             </div>
             <div className="logo">
+            <img className='logotipe' src={Logo} alt="" />
               <a href="/Tabys-Stroy/">TABYS STROY</a>
             </div>
             <div className="search" style={{ position: "relative" }}>
