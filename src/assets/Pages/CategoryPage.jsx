@@ -14,17 +14,19 @@ function CategoryPage() {
   const title = `Tabys Stroy | ${titleText}`;
 
   return (
+    <>
+    <Header />
     <div className="app-container">
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <Header />
       <MobileSearch />
       <main className="main-content">
         <ProductList category={category} subCategory={subCategory} />
       </main>
-      <Footer />
     </div>
+    <Footer />
+    </>
   );
 }
 

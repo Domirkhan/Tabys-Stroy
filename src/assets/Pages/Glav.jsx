@@ -8,7 +8,6 @@ function Glav() {
     <>
       <MobileSearch />
       <Slider />
-      
         </>
     )
 }

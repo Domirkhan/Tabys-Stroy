@@ -10,8 +10,8 @@ function DeliveryPage() {
     <Helmet>
     <title>Tabys Stroy | Доставка</title>
     </Helmet>
+    <Header />
     <div className="delivery-page">
-      <Header />
       <main className="main-content">
         <div className="delivery-container">
         <h1 className="section-title-category">Доставка</h1>
@@ -39,8 +39,8 @@ function DeliveryPage() {
           </p>
         </div>
       </main>
-      <Footer />
     </div>
+    <Footer />
     </>
   );
 }

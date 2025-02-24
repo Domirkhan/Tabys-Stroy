@@ -16,16 +16,16 @@ function App() {
     <Helmet>
         <title>Tabys Stroy | Главная страница</title>
       </Helmet>
-    <div className="app-container">
       <Header />
+    <div className="app-container">
       <main className="main-content">
         <Glav />
         <Product />
         <AboutUs />
         <Map />
       </main>
-      <Footer />
     </div>
+    <Footer />
     </>
   );
 }

@@ -82,8 +82,8 @@ function CartPage() {
     <Helmet>
     <title>Tabys Stroy | Корзина</title>
     </Helmet>
+    <Header />
     <div className="app-container">
-      <Header />
       <main className="main-content">
         <div className="cart-page container">
         <h1 className="section-title-category">Корзина</h1>
@@ -220,8 +220,8 @@ function CartPage() {
           )}
         </div>
       </main>
-      <Footer />
     </div>
+    <Footer />
     </>
   );
 }
