@@ -6,10 +6,14 @@ import Whatsapp from '../icon/whatsapp-1.png';
 import Instagram from '../icon/instagram-1.png';
 import Phone from '../icon/phone.png';
 import Email from '../icon/email.png';
+import { Helmet } from 'react-helmet-async';
 
 function ContactsPage() {
   return (
     <>
+        <Helmet>
+        <title>Tabys Stroy | Контакты</title>
+        </Helmet>
       <Header />
       <main className="contact-content">
         <div className="contact-container">

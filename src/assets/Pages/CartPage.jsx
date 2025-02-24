@@ -5,6 +5,7 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import { shortenUrl } from '../untils/shortenUrl.js';
 import Deletebtn from '../../assets/icon/delete.png';
+import { Helmet } from 'react-helmet-async';
 
 function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useContext(CartContext);
@@ -77,6 +78,10 @@ function CartPage() {
   };
 
   return (
+    <>
+    <Helmet>
+    <title>Tabys Stroy | Корзина</title>
+    </Helmet>
     <div className="app-container">
       <Header />
       <main className="main-content">
@@ -217,6 +222,7 @@ function CartPage() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }
 

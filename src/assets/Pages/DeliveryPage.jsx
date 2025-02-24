@@ -2,9 +2,14 @@ import React from 'react';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import '../styles/DeliveryPage.css'; // опционально, для кастомизации стилей
+import { Helmet } from 'react-helmet-async';
 
 function DeliveryPage() {
   return (
+    <>
+    <Helmet>
+    <title>Tabys Stroy | Доставка</title>
+    </Helmet>
     <div className="delivery-page">
       <Header />
       <main className="main-content">
@@ -36,6 +41,7 @@ function DeliveryPage() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }
 

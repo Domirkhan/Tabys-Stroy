@@ -2,10 +2,14 @@ import React from 'react';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import '../styles/PaymentPage.css';
+import { Helmet } from 'react-helmet-async';
 
 function PaymentPage() {
   return (
     <>
+    <Helmet>
+    <title>Tabys Stroy | Оплата</title>
+    </Helmet>
       <Header />
       <main className="payment-content">
       <h1 className="section-title-category">Оплата</h1>

@@ -8,9 +8,14 @@ import Map from './assets/components/Map';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import AboutUs from './assets/components/AboutUs';
+import { Helmet } from "react-helmet-async";
 
 function App() {
   return (
+    <>
+    <Helmet>
+        <title>Tabys Stroy | Главная страница</title>
+      </Helmet>
     <div className="app-container">
       <Header />
       <main className="main-content">
@@ -21,6 +26,7 @@ function App() {
       </main>
       <Footer />
     </div>
+    </>
   );
 }
 

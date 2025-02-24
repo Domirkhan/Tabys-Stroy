@@ -3,10 +3,14 @@ import '../../assets/styles/About.css';
 import { CheckCircle, Award, Clock, MapPin } from 'react-feather'; // Импортируем иконки
 import Header from '../layout/Header'; // Импортируем Header
 import Footer from '../layout/Footer';
+import { Helmet } from 'react-helmet-async';
 
 function About() {
   return (
     <>
+        <Helmet>
+        <title>Tabys Stroy | О нас</title>
+        </Helmet>
       <Header />
       <div className="about-section">
         <div className="about-container">
