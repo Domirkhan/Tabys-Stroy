@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     background-color: #f9fafb;
     font-family: Montserrat, sans-serif;
@@ -29,19 +30,19 @@ html, body {
 }
 
 #root {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .app-container {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .main-content {
-    flex: 1 0 auto;
+    flex-grow: 1;
 }
 
 footer {

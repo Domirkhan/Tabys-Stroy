@@ -22,6 +22,7 @@ function Product() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    arrows: false, // Отключаем боковые стрелки
     responsive: [
       {
         breakpoint: 1024,

@@ -1,134 +1,133 @@
 .footer {
-    background-color: #333;
-    color: white;
-    padding: 60px 0 20px;
-    margin-top: auto;
-    margin-bottom: 0;
-  }
-  
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    margin-bottom: 40px;
-  }
-  
-  .footer-column h3 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    font-weight: normal;
-  }
-  
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .footer-nav a {
-    color: #999;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
-  }
-  
-  .footer-nav a:hover {
-    color: white;
-  }
-  
-  .footer-contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .footer-phones {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .footer-phones a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .footer-address {
-    color: #999;
-    font-size: 14px;
-  }
-  
-  .social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-  }
-  
-  .social-link {
-    width: 24px;
-    height: 24px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    transition: transform 0.3s ease;
-  }
-  
-  .social-link.whatsapp {
-    background-image: url('../icon/whatsapp.png');
-  }
-  
-  .social-link.instagram {
-    background-image: url('../icon/instagram.png');
-  }
-  
-  .social-link.telegram {
-    background-image: url('../icon/telegram.png');
-  }
-  
-  .social-link:hover {
-    transform: scale(1.2);
-  }
-  
-  .footer-bottom {
-    border-top: 1px solid #444;
-    padding-top: 20px;
-    text-align: left;
-  }
-  
-  .footer-bottom p {
-    color: #666;
-    font-size: 14px;
-  }
-  
-  /* Адаптив для мобильных устройств */
-  @media (max-width: 768px) {
-    .footer {
+  background-color: #333;
+  color: white;
+  padding: 60px 0 20px;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav a {
+  color: #999;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+  color: white;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.footer-phones a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-address {
+  color: #999;
+  font-size: 14px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-link {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: transform 0.3s ease;
+}
+
+.social-link.whatsapp {
+  background-image: url('../icon/whatsapp.png');
+}
+
+.social-link.instagram {
+  background-image: url('../icon/instagram.png');
+}
+
+.social-link.telegram {
+  background-image: url('../icon/telegram.png');
+}
+
+.social-link:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 20px;
+  text-align: left;
+}
+
+.footer-bottom p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+  .footer {
       padding: 40px 10px 20px;
-    }
-    .footer-content {
+  }
+  .footer-content {
       display: flex;
       flex-direction: column;
       gap: 20px;
-    }
-    .footer-column h3 {
+  }
+  .footer-column h3 {
       font-size: 16px;
       margin-bottom: 15px;
-    }
-    .footer-nav a {
+  }
+  .footer-nav a {
       font-size: 13px;
-    }
-    .footer-phones a {
+  }
+  .footer-phones a {
       font-size: 14px;
-    }
-    .footer-address {
+  }
+  .footer-address {
       font-size: 13px;
-    }
-    .footer-bottom {
+  }
+  .footer-bottom {
       text-align: center;
       padding-top: 15px;
-    }
-    .footer-bottom p {
-      font-size: 13px;
-    }
   }
+  .footer-bottom p {
+      font-size: 13px;
+  }
+}
