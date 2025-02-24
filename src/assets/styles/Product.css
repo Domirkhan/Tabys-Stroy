@@ -161,7 +161,9 @@
   transition: background-color 0.3s ease;
   border: none;
 }
-
+.slick-track{
+  margin-top: 0.5rem;
+}
 
 .add-to-cart-btn:hover {
   background-color: #b00000;
