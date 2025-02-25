@@ -13,9 +13,9 @@ createRoot(document.getElementById('root')).render(
       <CartProvider>
       <HelmetProvider>
         <RouterApp />
-    </HelmetProvider>,
+    </HelmetProvider>
       </CartProvider>
     </ErrorBoundary>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 document.getElementById("root")
