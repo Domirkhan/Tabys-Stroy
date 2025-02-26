@@ -3,14 +3,12 @@ import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/CartPage.css';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
-import { shortenUrl } from '../untils/shortenUrl.js';
 import Deletebtn from '../../assets/icon/delete.png';
 import { Helmet } from 'react-helmet-async';
 
 function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useContext(CartContext);
 
-  // Сохраняем поля заказа для контактных данных и доставки
   const [orderData, setOrderData] = useState({
     city: '',
     address: '',
@@ -19,7 +17,7 @@ function CartPage() {
   });
   const [deliveryData, setDeliveryData] = useState({
     paymentMethod: 'cash',
-    deliveryMethod: 'delivery', // способ доставки: доставка или самовывоз
+    deliveryMethod: 'delivery',
     note: '',
   });
 
@@ -28,7 +26,6 @@ function CartPage() {
     0
   );
 
-  // Сворачивание секций
   const [isCartOpen, setIsCartOpen] = useState(true);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isDeliveryOpen, setIsDeliveryOpen] = useState(false);
@@ -56,10 +53,10 @@ function CartPage() {
       delivery: deliveryData,
     };
 
-    // Формируем ссылку с данными заказа в query-параметре "data"
+    // Формируем URL с данными заказа в query-параметре "data"
     const orderLink = `${window.location.origin}/Tabys-Stroy/#/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
-    // Если хотите сократить ссылку, используйте функцию shortenUrl
-    const shortOrderLink = await shortenUrl(orderLink);
+    // Без сокращения – данные будут доступны всем
+    const fullOrderLink = orderLink;
 
     const message =
       `Новый заказ:\n\n` +
@@ -69,7 +66,7 @@ function CartPage() {
       `\n\nОбщая сумма: ${totalPrice} тг\n\n` +
       `Данные покупателя:\nГород: ${orderData.city}\nАдрес: ${orderData.address}\nТелефон: ${orderData.phone}\nФИО: ${orderData.fio}\n\n` +
       `Доставка и оплата:\nСпособ оплаты: ${deliveryData.paymentMethod}\nСпособ доставки: ${deliveryData.deliveryMethod}\nПримечание: ${deliveryData.note}\n\n` +
-      `Подробности заказа: ${shortOrderLink}`;
+      `Подробности заказа: ${fullOrderLink}`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/77054541349?text=${encodedMessage}`;
@@ -92,7 +89,6 @@ function CartPage() {
               <div className="empty-cart">В корзине нет товаров</div>
             ) : (
               <form onSubmit={handleOrderSubmit}>
-                {/* Секция "Ваша корзина" */}
                 <Section title="1. Ваша корзина" isOpen={isCartOpen} toggle={() => setIsCartOpen(!isCartOpen)}>
                   <div className="cart-items">
                     {cartItems.map(item => (
@@ -131,7 +127,6 @@ function CartPage() {
                   <div className="cart-total">Итог: {totalPrice} тг</div>
                 </Section>
 
-                {/* Секция "Контактные данные" */}
                 <Section title="2. Контактные данные" isOpen={isContactOpen} toggle={() => setIsContactOpen(!isContactOpen)}>
                   <div className="contact-details">
                     <label>
@@ -153,7 +148,6 @@ function CartPage() {
                   </div>
                 </Section>
 
-                {/* Секция "Доставка и оплата" */}
                 <Section title="3. Доставка и оплата" isOpen={isDeliveryOpen} toggle={() => setIsDeliveryOpen(!isDeliveryOpen)}>
                   <div className="delivery-details">
                     <label className="payment-method">

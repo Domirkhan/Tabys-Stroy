@@ -6,19 +6,46 @@ import Footer from '../layout/Footer';
 
 function ZakazPage() {
   const location = useLocation();
+  console.log('Location:', location);
+
+  // Получаем параметры из location.search вместо location.hash
   const searchParams = new URLSearchParams(location.search);
   const data = searchParams.get('data');
 
+  console.log('data:', data);
+
   if (!data) {
     return (
-      <div className="order-page">
-        <h1>Заказ не найден</h1>
-      </div>
+      <>
+        <Header />
+        <div className="content">
+          <div className="order-page">
+            <h1>Заказ не найден</h1>
+          </div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
-  // Декодируем и парсим данные заказа
-  const orderData = JSON.parse(decodeURIComponent(data));
+  let orderData;
+  try {
+    orderData = JSON.parse(decodeURIComponent(data));
+    console.log('Decoded order data:', orderData);
+  } catch (error) {
+    console.error('Ошибка при декодировании данных заказа:', error);
+    return (
+      <>
+        <Header />
+        <div className="content">
+          <div className="order-page">
+            <h1>Ошибка при обработке данных заказа</h1>
+          </div>
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -55,9 +82,9 @@ function ZakazPage() {
             <p>Телефон: {orderData.customer.phone}</p>
             <p>ФИО: {orderData.customer.fio}</p>
             <h3>Доставка и оплата:</h3>
-            <p>Способ оплаты: {orderData.delivery.paymentMethod}</p>
-            <p>Способ доставки: {orderData.delivery.deliveryMethod}</p>
-            <p>Примечание: {orderData.delivery.note}</p>
+            <p>Способ оплаты: {orderData.delivery.paymentMethod === 'cash' ? 'Наличными' : 'Оплата картой'}</p>
+            <p>Способ доставки: {orderData.delivery.deliveryMethod === 'delivery' ? 'Доставка' : 'Самовывоз'}</p>
+            <p>Примечание: {orderData.delivery.note || 'Нет'}</p>
           </div>
         </div>
       </div>
