@@ -61,14 +61,157 @@ import plankaImage1 from '../assets/image/plumbing/Фитинги/1.1.21.1.png';
 
 import otvodskrepleniemImage from '../assets/image/plumbing/Фитинги/1.1.22.1.jpg';
 
-import krandiamondImage1 from '../assets/image/plumbing/Фитинги/1.1.24.1.jpg';
-import krandiamondImage2 from '../assets/image/plumbing/Фитинги/1.1.24.2.jpg';
-import krangallopImage1 from '../assets/image/plumbing/Фитинги/1.1.25.1.jpeg';
-import krangallopImage2 from '../assets/image/plumbing/Фитинги/1.1.25.2.jpeg';
-import krandiamondImage3 from '../assets/image/plumbing/Фитинги/1.1.26.1.jpg';
-import kranjaccoImage1 from '../assets/image/plumbing/Фитинги/1.1.30.1.jpg';
+// Краны фото
+import kranGAVALVEImage1 from '../assets/image/plumbing/Фитинги/1.1.28.1.jpg';
+import kranGAVALVEImage2 from '../assets/image/plumbing/Фитинги/1.1.28.2.jpg';
 
+import kranjaccoImage1 from '../assets/image/plumbing/Фитинги/1.1.30.1.png';
 
+import krangallopImage1 from '../assets/image/plumbing/Фитинги/1.1.25.1.png';
+import krangallopImage2 from '../assets/image/plumbing/Фитинги/1.1.25.2.png';
+import kranGallopImage from '../assets/image/plumbing/Фитинги/1.1.29.jpg';
+import kranGallopImage1 from '../assets/image/plumbing/Фитинги/1.1.31.1.jpg';
+import kranGallopImage2 from '../assets/image/plumbing/Фитинги/1.1.31.2.jpg';
+import kranGallopImage3 from '../assets/image/plumbing/Фитинги/1.1.31.3.jpg';
+import kranGallopImage4 from '../assets/image/plumbing/Фитинги/1.1.31.4.jpg';
+import kranGallopImage5 from '../assets/image/plumbing/Фитинги/1.1.35.jpg';
+import kranGallopImage6 from '../assets/image/plumbing/Фитинги/1.1.37.1.jpg';
+import kranGallopImage7 from '../assets/image/plumbing/Фитинги/1.1.37.2.jpg';
+import kranGallopImage8 from '../assets/image/plumbing/Фитинги/1.1.37.3.jpg';
+import kranGallopImage9 from '../assets/image/plumbing/Фитинги/1.1.37.4.jpg';
+import kranGallopImage10 from '../assets/image/plumbing/Фитинги/1.1.41.1.jpg';
+import kranGallopImage11 from '../assets/image/plumbing/Фитинги/1.1.41.2.jpg';
+import kranGallopImage12 from '../assets/image/plumbing/Фитинги/1.1.41.3.jpg';
+import kranGallopImage13 from '../assets/image/plumbing/Фитинги/1.1.41.4.jpg';
+import kranGallopImage14 from '../assets/image/plumbing/Фитинги/1.1.45.1.jpg';
+import kranGallopImage15 from '../assets/image/plumbing/Фитинги/1.1.45.2.jpg';
+
+import kranFRADOSImage1 from '../assets/image/plumbing/Фитинги/1.1.32.1.jpg';
+import kranFRADOSImage2 from '../assets/image/plumbing/Фитинги/1.1.32.2.jpg';
+import kranFRADOSImage3 from '../assets/image/plumbing/Фитинги/1.1.32.3.jpg';
+import kranFRADOSImage4 from '../assets/image/plumbing/Фитинги/1.1.32.4.jpg';
+import kranFRADOSImage5 from '../assets/image/plumbing/Фитинги/1.1.39.1.jpg';
+import kranFRADOSImage6 from '../assets/image/plumbing/Фитинги/1.1.39.2.jpg';
+import kranFRADOSImage7 from '../assets/image/plumbing/Фитинги/1.1.44.1.jpg';
+import kranFRADOSImage8 from '../assets/image/plumbing/Фитинги/1.1.44.2.jpg';
+
+import krandiamondImage1 from '../assets/image/plumbing/Фитинги/1.1.24.1.png';
+import krandiamondImage2 from '../assets/image/plumbing/Фитинги/1.1.24.2.png';
+import krandiamondImage3 from '../assets/image/plumbing/Фитинги/1.1.26.1.png';
+import kranDIAMOND33Image1 from '../assets/image/plumbing/Фитинги/1.1.33.1.jpg';
+import kranDIAMOND33Image2 from '../assets/image/plumbing/Фитинги/1.1.33.2.jpg';
+import kranDIAMOND33Image3 from '../assets/image/plumbing/Фитинги/1.1.33.3.jpg';
+import kranDIAMOND33Image4 from '../assets/image/plumbing/Фитинги/1.1.33.4.jpg';
+import kranDIAMOND25Image5 from '../assets/image/plumbing/Фитинги/1.1.40.1.jpg';
+import kranDIAMOND25Image6 from '../assets/image/plumbing/Фитинги/1.1.40.2.jpg';
+import kranDIAMOND25Image7 from '../assets/image/plumbing/Фитинги/1.1.40.3.jpg';
+import kranDIAMOND25Image8 from '../assets/image/plumbing/Фитинги/1.1.40.4.jpg';
+import kranDIAMOND32Image9 from '../assets/image/plumbing/Фитинги/1.1.43.1.jpg';
+import kranDIAMOND32Image10 from '../assets/image/plumbing/Фитинги/1.1.43.2.jpg';
+import kranDIAMOND40Image11 from '../assets/image/plumbing/Фитинги/1.1.46.1.jpg';
+import kranDIAMOND40Image12 from '../assets/image/plumbing/Фитинги/1.1.46.2.jpg';
+
+import kranlussoImage1 from '../assets/image/plumbing/Фитинги/1.1.27.1.jpg';
+import kranlussoImage2 from '../assets/image/plumbing/Фитинги/1.1.27.2.jpg';
+import kranLusso20Image1 from '../assets/image/plumbing/Фитинги/1.1.34.1.jpg';
+import kranLusso20Image2 from '../assets/image/plumbing/Фитинги/1.1.34.2.jpg';
+import kranLusso25Image3 from '../assets/image/plumbing/Фитинги/1.1.38.1.jpg';
+import kranLusso25Image4 from '../assets/image/plumbing/Фитинги/1.1.38.2.jpg';
+import kranLusso32Image5 from '../assets/image/plumbing/Фитинги/1.1.42.1.jpg';
+import kranLusso32Image6 from '../assets/image/plumbing/Фитинги/1.1.42.2.jpg';
+import kranLusso32Image7 from '../assets/image/plumbing/Фитинги/1.1.42.3.jpg';
+import kranLusso32Image8 from '../assets/image/plumbing/Фитинги/1.1.42.4.jpg';
+
+import kranstiralkamage1 from '../assets/image/plumbing/Фитинги/1.1.50.1.jpg';
+import kranstiralkamage2 from '../assets/image/plumbing/Фитинги/1.1.50.2.jpg';
+
+import klapanGrosnaImage1 from '../assets/image/plumbing/Фитинги/1.1.52.1.webp';
+import klapanGrosnaImage2 from '../assets/image/plumbing/Фитинги/1.1.52.2.jpg';
+
+// Гибкий шланг
+import ShlangImage1 from '../assets/image/plumbing/Фитинги/1.4.1.1(1).jpg';
+import ShlangImage2 from '../assets/image/plumbing/Фитинги/1.4.1.1(2).jpg';
+import ShlangImage3 from '../assets/image/plumbing/Фитинги/1.4.2.1(1).jpg';
+import ShlangImage4 from '../assets/image/plumbing/Фитинги/1.4.2.1(2).jpg';
+
+// Заглуши и переходники
+import ZaglushkaImage1 from '../assets/image/plumbing/Фитинги/1.5.1.1(1).jpg';
+import ZaglushkaImage2 from '../assets/image/plumbing/Фитинги/1.5.1.1(2).jpg';
+import ZaglushkaImage3 from '../assets/image/plumbing/Фитинги/1.5.1.1(3).jpg';
+import ZaglushkaImage4 from '../assets/image/plumbing/Фитинги/1.5.1.1(4).jpg';
+import ZaglushkaImage5 from '../assets/image/plumbing/Фитинги/1.5.1.1(5).jpg';
+import ZaglushkaImage6 from '../assets/image/plumbing/Фитинги/1.5.1.1(6).jpg';
+import ZaglushkaImage7 from '../assets/image/plumbing/Фитинги/1.5.1.1(7).jpg';
+import ZaglushkaImage8 from '../assets/image/plumbing/Фитинги/1.5.1.1(8).jpg';
+import ZaglushkaImage9 from '../assets/image/plumbing/Фитинги/1.5.1.1(9).jpg';
+import ZaglushkaImage10 from '../assets/image/plumbing/Фитинги/1.5.1.1(10).jpg';
+import ZaglushkaImage11 from '../assets/image/plumbing/Фитинги/1.5.1.1(11).jpg';
+import ZaglushkaImage12 from '../assets/image/plumbing/Фитинги/1.5.1.1(12).jpg';
+import ZaglushkaImage13 from '../assets/image/plumbing/Фитинги/1.5.1.1(13).jpg';
+import ZaglushkaImage14 from '../assets/image/plumbing/Фитинги/1.5.1.1(14).jpg';
+
+// Ниппель
+import NippelImage1 from '../assets/image/plumbing/Фитинги/1.5.1.2(1).jpg';
+import NippelImage2 from '../assets/image/plumbing/Фитинги/1.5.1.2(2).jpg';
+import NippelImage3 from '../assets/image/plumbing/Фитинги/1.5.1.2(3).jpg';
+import NippelImage4 from '../assets/image/plumbing/Фитинги/1.5.1.2(4).jpg';
+import NippelImage5 from '../assets/image/plumbing/Фитинги/1.5.1.2(5).jpg';
+import NippelImage6 from '../assets/image/plumbing/Фитинги/1.5.1.2(6).jpg';
+import NippelImage7 from '../assets/image/plumbing/Фитинги/1.5.1.2(7).jpg';
+
+// Преходник
+import PerehodnikmetalllImage1 from '../assets/image/plumbing/Фитинги/1.5.1.3(1).jpg';
+import PerehodnikmetalllImage2 from '../assets/image/plumbing/Фитинги/1.5.1.3(4).jpg';
+import PerehodnikmetalllImage3 from '../assets/image/plumbing/Фитинги/1.5.1.3(3).jpg';
+import PerehodnikmetalllImage4 from '../assets/image/plumbing/Фитинги/1.5.1.3(2).jpg';
+import PerehodnikmetalllImage5 from '../assets/image/plumbing/Фитинги/1.5.1.4(1).jpg';
+import PerehodnikmetalllImage6 from '../assets/image/plumbing/Фитинги/1.5.1.5(1).jpg';
+import PerehodnikmetalllImage7 from '../assets/image/plumbing/Фитинги/1.5.1.6(1).jpg';
+import PerehodnikmetalllImage8 from '../assets/image/plumbing/Фитинги/1.5.1.7(1).jpg';
+import PerehodnikmetalllImage9 from '../assets/image/plumbing/Фитинги/1.5.1.9(1).jpg';
+import PerehodnikmetalllImage10 from '../assets/image/plumbing/Фитинги/1.5.1.9(2).jpg';
+import PerehodnikmetalllImage11 from '../assets/image/plumbing/Фитинги/1.5.1.9(3).jpg';
+
+// Муфта металл
+import MuftametalllImage1 from '../assets/image/plumbing/Фитинги/1.5.1.10(1).jpg';
+import MuftametalllImage2 from '../assets/image/plumbing/Фитинги/1.5.1.10(2).jpg';
+import MuftametalllImage3 from '../assets/image/plumbing/Фитинги/1.5.1.11(1).jpg';
+import MuftametalllImage4 from '../assets/image/plumbing/Фитинги/1.5.1.11(2).jpg';
+import MuftametalllImage5 from '../assets/image/plumbing/Фитинги/1.5.1.12(1).jpg';
+import MuftametalllImage6 from '../assets/image/plumbing/Фитинги/1.5.1.12(2).jpg';
+
+// Кран Маевского
+import KranmaevskogolImage1 from '../assets/image/plumbing/Фитинги/1.5.1.8(1).jpg';
+import KranmaevskogolImage2 from '../assets/image/plumbing/Фитинги/1.5.1.8(2).jpg';
+
+// Канализация
+import Truba50250lImage1 from '../assets/image/plumbing/Фитинги/1.6.1.1.1.jpg';
+import Truba50250lImage2 from '../assets/image/plumbing/Фитинги/1.6.1.1.2.jpeg';
+import Truba110250lImage1 from '../assets/image/plumbing/Фитинги/1.6.1.2.1.jpg';
+import Truba110250lImage2 from '../assets/image/plumbing/Фитинги/1.6.1.2.2.jpg';
+import Truba50500lImage1 from '../assets/image/plumbing/Фитинги/1.6.1.3.1.jpg';
+import Truba50500lImage2 from '../assets/image/plumbing/Фитинги/1.6.1.3.2.webp';
+import Truba110500lImage1 from '../assets/image/plumbing/Фитинги/1.6.1.4.1.jpg';
+import Truba110500lImage2 from '../assets/image/plumbing/Фитинги/1.6.1.4.2.jpeg';
+import Truba501000lImage1 from '../assets/image/plumbing/Фитинги/1.6.1.5.1.jpg';
+import Truba1101000lImage1 from '../assets/image/plumbing/Фитинги/1.6.1.6.1.jpg';
+import Truba1101000lImage2 from '../assets/image/plumbing/Фитинги/1.6.1.6.2.jpg';
+import Truba502000lImage1 from '../assets/image/plumbing/Фитинги/1.6.1.7.1.jpg';
+import Truba1102000lImage1 from '../assets/image/plumbing/Фитинги/1.6.1.8.1.jpg';
+
+// Муфта, отвод, тройник канализациия
+import Mufta50lImage1 from '../assets/image/plumbing/Фитинги/1.6.2.1.1.jpg';
+import Mufta110lImage1 from '../assets/image/plumbing/Фитинги/1.6.2.2.1.jpg';
+import Otvod50lImage1 from '../assets/image/plumbing/Фитинги/1.6.3.1.1.jpg';
+import Otvod110lImage1 from '../assets/image/plumbing/Фитинги/1.6.3.2.1.jpeg';
+import PoluOtvod50lImage1 from '../assets/image/plumbing/Фитинги/1.6.4.1.1.jpg';
+import PoluOtvod110lImage1 from '../assets/image/plumbing/Фитинги/1.6.4.2.1.jpg';
+import Troinik50lImage1 from '../assets/image/plumbing/Фитинги/1.6.5.1.1.jpg';
+import Troinik110lImage1 from '../assets/image/plumbing/Фитинги/1.6.5.2.1.jpg';
+import TroinikKosoi50lImage1 from '../assets/image/plumbing/Фитинги/1.6.6.1.1.jpg';
+import TroinikKosoi110lImage1 from '../assets/image/plumbing/Фитинги/1.6.6.2.1.jpg';
+import Krestovina50lImage1 from '../assets/image/plumbing/Фитинги/1.6.7.1.1.jpg';
+import Krestovina110lImage1 from '../assets/image/plumbing/Фитинги/1.6.7.2.1.jpg';
 
 
 const Products = [
@@ -2397,7 +2540,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2411,7 +2554,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2425,7 +2568,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2439,7 +2582,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2453,7 +2596,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2467,7 +2610,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2481,7 +2624,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2495,7 +2638,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2509,7 +2652,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2523,7 +2666,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   // Муфта, отвод, тройник Канализация
@@ -2538,7 +2681,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2552,7 +2695,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2566,7 +2709,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2580,7 +2723,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2594,7 +2737,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2608,7 +2751,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2622,7 +2765,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2636,7 +2779,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2650,7 +2793,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2664,7 +2807,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
@@ -2678,7 +2821,7 @@ const Products = [
     detailedDescription: "",
     specifications: { },
     category: "plumbing", // Категория
-    subCategory: "Фитинги", // Подкатегория
+    subCategory: "Канализация", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
   {
