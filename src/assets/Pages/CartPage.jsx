@@ -9,8 +9,8 @@ import { Helmet } from 'react-helmet-async';
 
 function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useContext(CartContext);
-  
-  // Сохраним поля заказа для контактных данных и доставку
+
+  // Сохраняем поля заказа для контактных данных и доставки
   const [orderData, setOrderData] = useState({
     city: '',
     address: '',
@@ -19,16 +19,16 @@ function CartPage() {
   });
   const [deliveryData, setDeliveryData] = useState({
     paymentMethod: 'cash',
-    deliveryMethod: 'delivery', // Добавляем новое поле для способа доставки
+    deliveryMethod: 'delivery', // способ доставки: доставка или самовывоз
     note: '',
   });
-  
+
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.product.price * item.quantity,
     0
   );
 
-  // Для сворачивания секций
+  // Сворачивание секций
   const [isCartOpen, setIsCartOpen] = useState(true);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isDeliveryOpen, setIsDeliveryOpen] = useState(false);
@@ -56,8 +56,9 @@ function CartPage() {
       delivery: deliveryData,
     };
 
+    // Формируем ссылку с данными заказа в query-параметре "data"
     const orderLink = `${window.location.origin}/Tabys-Stroy/#/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
-    // TODO: Здесь вставьте свою логику отправки заказа в WhatsApp
+    // Если хотите сократить ссылку, используйте функцию shortenUrl
     const shortOrderLink = await shortenUrl(orderLink);
 
     const message =
@@ -69,7 +70,7 @@ function CartPage() {
       `Данные покупателя:\nГород: ${orderData.city}\nАдрес: ${orderData.address}\nТелефон: ${orderData.phone}\nФИО: ${orderData.fio}\n\n` +
       `Доставка и оплата:\nСпособ оплаты: ${deliveryData.paymentMethod}\nСпособ доставки: ${deliveryData.deliveryMethod}\nПримечание: ${deliveryData.note}\n\n` +
       `Подробности заказа: ${shortOrderLink}`;
-      
+
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/77054541349?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
@@ -79,84 +80,83 @@ function CartPage() {
 
   return (
     <>
-    <Helmet>
-    <title>Tabys Stroy | Корзина</title>
-    </Helmet>
-    <Header />
-    <div className="app-container">
-      <main className="main-content">
-        <div className="cart-page container">
-        <h1 className="section-title-category">Корзина</h1>
-          
-          {cartItems.length === 0 ? (
-            <div className="empty-cart">В корзине нет товаров</div>
-          ) : (
-            <form onSubmit={handleOrderSubmit}>
-              {/* Секция "Ваша корзина" */}
-              <Section title="1. Ваша корзина" isOpen={isCartOpen} toggle={() => setIsCartOpen(!isCartOpen)}>
-              <div className="cart-items">
-                  {cartItems.map(item => (
-                    <div key={item.product.id} className="cart-item">
-                      <div className="cart-item-top">
-                        <img src={item.product.image} alt={item.product.name} className="item-image" />
-                        <div className="item-info">
-                          <span className="item-name">{item.product.name}</span>
+      <Helmet>
+        <title>Tabys Stroy | Корзина</title>
+      </Helmet>
+      <Header />
+      <div className="app-container">
+        <main className="main-content">
+          <div className="cart-page container">
+            <h1 className="section-title-category">Корзина</h1>
+            {cartItems.length === 0 ? (
+              <div className="empty-cart">В корзине нет товаров</div>
+            ) : (
+              <form onSubmit={handleOrderSubmit}>
+                {/* Секция "Ваша корзина" */}
+                <Section title="1. Ваша корзина" isOpen={isCartOpen} toggle={() => setIsCartOpen(!isCartOpen)}>
+                  <div className="cart-items">
+                    {cartItems.map(item => (
+                      <div key={item.product.id} className="cart-item">
+                        <div className="cart-item-top">
+                          <img src={item.product.image} alt={item.product.name} className="item-image" />
+                          <div className="item-info">
+                            <span className="item-name">{item.product.name}</span>
+                          </div>
+                        </div>
+                        <div className="cart-item-bottom">
+                          <div className="quantity-controls">
+                            <button 
+                              className="quantity-btn" 
+                              onClick={() => updateQuantity(item.product.id, item.quantity > 1 ? item.quantity - 1 : 1)}
+                              disabled={item.quantity <= 1}
+                            >
+                              &minus;
+                            </button>
+                            <span className="quantity-value">{item.quantity}</span>
+                            <button 
+                              className="quantity-btn" 
+                              onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                            >
+                              +
+                            </button>
+                          </div>
+                          <div className="item-total">{item.product.price * item.quantity} тг</div>
+                          <button className="delete-btn" onClick={() => removeFromCart(item.product.id)}>
+                            <img src={Deletebtn} alt="Удалить" className="delete-icon" />
+                          </button>
                         </div>
                       </div>
-                      <div className="cart-item-bottom">
-                        <div className="quantity-controls">
-                          <button 
-                            className="quantity-btn" 
-                            onClick={() => updateQuantity(item.product.id, item.quantity > 1 ? item.quantity - 1 : 1)}
-                            disabled={item.quantity <= 1}
-                          >
-                            &minus;
-                          </button>
-                          <span className="quantity-value">{item.quantity}</span>
-                          <button 
-                            className="quantity-btn" 
-                            onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                          >
-                            +
-                          </button>
-                        </div>
-                        <div className="item-total">{item.product.price * item.quantity} тг</div>
-                        <button className="delete-btn" onClick={() => removeFromCart(item.product.id)}>
-                          <img src={Deletebtn} alt="Удалить" className="delete-icon" />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="cart-total">Итог: {totalPrice} тг</div>
-              </Section>
+                    ))}
+                  </div>
+                  <div className="cart-total">Итог: {totalPrice} тг</div>
+                </Section>
 
-              {/* Секция "Контактные данные" */}
-              <Section title="2. Контактные данные" isOpen={isContactOpen} toggle={() => setIsContactOpen(!isContactOpen)}>
-                <div className="contact-details">
-                  <label>
-                    Город:
-                    <input type="text" name="city" value={orderData.city} onChange={handleOrderInputChange} required />
-                  </label>
-                  <label>
-                    Адрес:
-                    <input type="text" name="address" value={orderData.address} onChange={handleOrderInputChange} required />
-                  </label>
-                  <label>
-                    Телефон:
-                    <input type="text" name="phone" value={orderData.phone} onChange={handleOrderInputChange} required />
-                  </label>
-                  <label>
-                    ФИО:
-                    <input type="text" name="fio" value={orderData.fio} onChange={handleOrderInputChange} required />
-                  </label>
-                </div>
-              </Section>
+                {/* Секция "Контактные данные" */}
+                <Section title="2. Контактные данные" isOpen={isContactOpen} toggle={() => setIsContactOpen(!isContactOpen)}>
+                  <div className="contact-details">
+                    <label>
+                      Город:
+                      <input type="text" name="city" value={orderData.city} onChange={handleOrderInputChange} required />
+                    </label>
+                    <label>
+                      Адрес:
+                      <input type="text" name="address" value={orderData.address} onChange={handleOrderInputChange} required />
+                    </label>
+                    <label>
+                      Телефон:
+                      <input type="text" name="phone" value={orderData.phone} onChange={handleOrderInputChange} required />
+                    </label>
+                    <label>
+                      ФИО:
+                      <input type="text" name="fio" value={orderData.fio} onChange={handleOrderInputChange} required />
+                    </label>
+                  </div>
+                </Section>
 
-              {/* Секция "Доставка и оплата" */}
-              <Section title="3. Доставка и оплата" isOpen={isDeliveryOpen} toggle={() => setIsDeliveryOpen(!isDeliveryOpen)}>
-                <div className="delivery-details">
-                  <label className="payment-method">
+                {/* Секция "Доставка и оплата" */}
+                <Section title="3. Доставка и оплата" isOpen={isDeliveryOpen} toggle={() => setIsDeliveryOpen(!isDeliveryOpen)}>
+                  <div className="delivery-details">
+                    <label className="payment-method">
                       Способ оплаты:
                       <div className="radio-group">
                         <label>
@@ -181,7 +181,7 @@ function CartPage() {
                         </label>
                       </div>
                     </label>
-                  <label className="delivery-method">
+                    <label className="delivery-method">
                       Способ доставки:
                       <div className="radio-group">
                         <label>
@@ -206,22 +206,22 @@ function CartPage() {
                         </label>
                       </div>
                     </label>
-                  <label>
-                    Примечание:
-                    <textarea name="note" value={deliveryData.note} onChange={handleDeliveryInputChange} />
-                  </label>
-                </div>
-              </Section>
+                    <label>
+                      Примечание:
+                      <textarea name="note" value={deliveryData.note} onChange={handleDeliveryInputChange} />
+                    </label>
+                  </div>
+                </Section>
 
-              <div className="submit-section">
-                <button type="submit" className="order-btn">Оформить заказ</button>
-              </div>
-            </form>
-          )}
-        </div>
-      </main>
-    </div>
-    <Footer />
+                <div className="submit-section">
+                  <button type="submit" className="order-btn">Оформить заказ</button>
+                </div>
+              </form>
+            )}
+          </div>
+        </main>
+      </div>
+      <Footer />
     </>
   );
 }
