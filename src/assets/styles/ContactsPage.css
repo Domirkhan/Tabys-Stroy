@@ -1,0 +1,64 @@
+.contact-content {
+    margin-top: 1rem;
+    padding-bottom: 3rem;
+    background-color: #f9f9f9;
+  }
+  
+  .contact-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    border-radius: 8px;
+    margin-top: 7rem;
+  }
+  
+  .section-title-category {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background-image: url('../../assets/image/bg/bg-title.jpg'); /* Укажите путь к вашему изображению */
+    background-size: cover;
+    background-position: center;
+    color: white; /* Цвет текста, чтобы он был виден на фоне */
+    padding: 2rem; /* Увеличенные отступы внутри заголовка */
+    border-radius: 8px; /* Скругленные углы */
+    width: 100%; /* Ширина на всю страницу */
+    height: 200px; /* Увеличенная высота */
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-info {
+    margin-top: 2rem;
+  }
+  .contact-info a{
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s ease;
+  }
+
+  .contact-info a:hover{
+    color: #ff0000;
+  }
+  
+  .contact-info p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-info .icon {
+    margin-right: 0.5rem;
+    width: 24px; /* Установите нужный размер иконок */
+    height: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .contact-container {
+      margin-top: 3rem;
+    }
+    .contact-container p{
+      font-size: 1rem;
+    }
+  }

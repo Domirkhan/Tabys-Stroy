@@ -1,13 +1,37 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Products from '../../data/Products';
 import '../styles/MobileSearch.css';
 
 function MobileSearch() {
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
 
   const handleSearchChange = e => {
     setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSelect = (product) => {
+    const hash = `product-${product.id}`;
+    navigate(`/${product.category}/${product.subCategory}#${hash}`);
+    setSearchQuery("");
+
+    setTimeout(() => {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+
+        element.classList.add('highlighted');
+        setTimeout(() => {
+          element.classList.remove('highlighted');
+        }, 2000);
+      } else {
+        console.error(`Element with id ${hash} not found`);
+      }
+    }, 500); // Увеличиваем время задержки до 500 мс
   };
 
   const filteredProducts = Products.filter(product =>
@@ -31,7 +55,7 @@ function MobileSearch() {
                 <li key={product.id}>
                   <Link
                     to={`/${product.category}/${product.subCategory}`}
-                    onClick={() => setSearchQuery('')}
+                    onClick={() => handleSearchSelect(product)}
                   >
                     {product.name}
                   </Link>

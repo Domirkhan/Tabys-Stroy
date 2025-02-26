@@ -1,19 +1,25 @@
 .mobile-search {
-    position: relative;
-    margin-top: 50px;
-    width: 100%;
-    z-index: 10;
-  }
+  position: relative;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  width: 90%;
+  border-radius: 2rem;
+  z-index: 10;
+  margin-left: auto;
+  margin-right: auto;
+}
   
-  .mobile-search input {
-    width: 100%;
-    padding: 8px 40px 8px 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    outline: none;
-    font-size: 1rem;
-  }
-  
+.mobile-search input {
+  width: 100%;
+  padding: 8px 40px 8px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  color: #333;
+}
   .mobile-search .search-btn {
     position: absolute;
     right: 8px;
@@ -25,7 +31,7 @@
     cursor: pointer;
   }
   .search-btn {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='20' height='20'%3E%3Cpath fill='%23666' d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5z'/%3E%3C/svg%3E") no-repeat center;
+    background: url("../icon/lupa.png") no-repeat center;
     background-size: contain;
   }
   
@@ -56,3 +62,26 @@
   .mobile-search .search-suggestions li:hover {
     background-color: #f7f7f7;
   }
+
+  /* Стили при фокусе */
+.mobile-search input:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.1);
+}
+/* Анимация для инпута */
+@keyframes input-focus {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.mobile-search input:focus {
+  animation: input-focus 0.3s ease;
+}
+
+
+@media (min-width: 768px) {
+  .mobile-search {
+    display: none;
+  }
+}
