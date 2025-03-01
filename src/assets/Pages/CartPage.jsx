@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet-async';
 
 function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useContext(CartContext);
+  console.log('Cart Items:', cartItems);
 
   const [orderData, setOrderData] = useState({
     city: '',
@@ -21,10 +22,14 @@ function CartPage() {
     note: '',
   });
 
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.product.price * item.quantity,
-    0
-  );
+  // Вычисление общей суммы
+  const totalPrice = cartItems.reduce((total, item) => {
+    const unitPrice =
+      item.product.pricePerUnit && item.product.pricePerUnit[item.unit] !== undefined
+        ? Number(item.product.pricePerUnit[item.unit])
+        : (item.product.price ? Number(item.product.price) : 0);
+    return total + unitPrice * Number(item.quantity);
+  }, 0);
 
   const [isCartOpen, setIsCartOpen] = useState(true);
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -42,26 +47,36 @@ function CartPage() {
     e.preventDefault();
 
     const orderDetails = {
-      items: cartItems.map(item => ({
-        name: item.product.name,
-        price: item.product.price,
-        quantity: item.quantity,
-        subtotal: item.product.price * item.quantity,
-      })),
+      items: cartItems.map(item => {
+        const unitPrice =
+          item.product.pricePerUnit && item.unit in item.product.pricePerUnit
+            ? Number(item.product.pricePerUnit[item.unit])
+            : (item.product.price ? Number(item.product.price) : 0);
+        return {
+          name: item.product.name,
+          price: unitPrice,
+          quantity: Number(item.quantity),
+          unit: (item.product.pricePerUnit && item.unit in item.product.pricePerUnit) ? item.unit : '',
+          subtotal: unitPrice * Number(item.quantity),
+        };
+      }),
       totalPrice,
       customer: orderData,
       delivery: deliveryData,
     };
 
-    // Формируем URL с данными заказа в query-параметре "data"
-    const orderLink = `${window.location.origin}/Tabys-Stroy/#/zakaz?data=${encodeURIComponent(JSON.stringify(orderDetails))}`;
-    // Без сокращения – данные будут доступны всем
+    const orderLink = `${window.location.origin}/Tabys-Stroy/#/zakaz?data=${encodeURIComponent(
+      JSON.stringify(orderDetails)
+    )}`;
     const fullOrderLink = orderLink;
 
     const message =
       `Новый заказ:\n\n` +
       orderDetails.items
-        .map(i => `${i.name} — ${i.quantity} шт. x ${i.price} тг = ${i.subtotal} тг`)
+        .map(
+          i =>
+            `${i.name} — ${i.quantity} ${i.unit ? i.unit : ''} x ${i.price} тг = ${i.subtotal} тг`
+        )
         .join('\n') +
       `\n\nОбщая сумма: ${totalPrice} тг\n\n` +
       `Данные покупателя:\nГород: ${orderData.city}\nАдрес: ${orderData.address}\nТелефон: ${orderData.phone}\nФИО: ${orderData.fio}\n\n` +
@@ -91,38 +106,64 @@ function CartPage() {
               <form onSubmit={handleOrderSubmit}>
                 <Section title="1. Ваша корзина" isOpen={isCartOpen} toggle={() => setIsCartOpen(!isCartOpen)}>
                   <div className="cart-items">
-                    {cartItems.map(item => (
-                      <div key={item.product.id} className="cart-item">
-                        <div className="cart-item-top">
-                          <img src={item.product.image} alt={item.product.name} className="item-image" />
-                          <div className="item-info">
-                            <span className="item-name">{item.product.name}</span>
+                    {cartItems.map(item => {
+                      const unitPrice =
+                        item.product.pricePerUnit && item.product.pricePerUnit[item.unit] !== undefined
+                          ? Number(item.product.pricePerUnit[item.unit])
+                          : (item.product.price ? Number(item.product.price) : 0);
+                      const total = unitPrice * Number(item.quantity);
+                      return (
+                        <div key={`${item.product.id}-${item.unit}`} className="cart-item">
+                          <div className="cart-item-top">
+                            <img src={item.product.image} alt={item.product.name} className="item-image" />
+                            <div className="item-info">
+                              <span className="item-name">{item.product.name}</span>
+                            </div>
+                          </div>
+                          <div className="cart-item-bottom">
+                            <div className="quantity-controls">
+                              <button 
+                                type="button"
+                                className="quantity-btn" 
+                                onClick={() =>
+                                  updateQuantity(item.product.id, Number(item.quantity) > 1 ? Number(item.quantity) - 1 : 1, item.unit)
+                                }
+                                disabled={Number(item.quantity) <= 1}
+                              >
+                                &minus;
+                              </button>
+                              <span className="quantity-value">{item.quantity}</span>
+                              <button 
+                                type="button"
+                                className="quantity-btn" 
+                                onClick={() =>
+                                  updateQuantity(item.product.id, Number(item.quantity) + 1, item.unit)
+                                }
+                              >
+                                +
+                              </button>
+                            </div>
+                            <span className="item-price">
+                                {item.product.pricePerUnit && item.product.pricePerUnit[item.unit] !== undefined
+                                  ? `${item.product.pricePerUnit[item.unit]} тг за ${item.unit}`
+                                  : (item.product.price ? `${item.product.price} тг` : 'Цена не указана')}
+                              </span>
+                            <div className="item-total">
+                              {item.product.pricePerUnit && item.product.pricePerUnit[item.unit] !== undefined
+                                ? `${total} тг`
+                                : (item.product.price ? `${total} тг` : 'Цена не указана')}
+                            </div>
+                            <button 
+                              type="button"
+                              className="delete-btn" 
+                              onClick={() => removeFromCart(item.product.id, item.unit)}
+                            >
+                              <img src={Deletebtn} alt="Удалить" className="delete-icon" />
+                            </button>
                           </div>
                         </div>
-                        <div className="cart-item-bottom">
-                          <div className="quantity-controls">
-                            <button 
-                              className="quantity-btn" 
-                              onClick={() => updateQuantity(item.product.id, item.quantity > 1 ? item.quantity - 1 : 1)}
-                              disabled={item.quantity <= 1}
-                            >
-                              &minus;
-                            </button>
-                            <span className="quantity-value">{item.quantity}</span>
-                            <button 
-                              className="quantity-btn" 
-                              onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                            >
-                              +
-                            </button>
-                          </div>
-                          <div className="item-total">{item.product.price * item.quantity} тг</div>
-                          <button className="delete-btn" onClick={() => removeFromCart(item.product.id)}>
-                            <img src={Deletebtn} alt="Удалить" className="delete-icon" />
-                          </button>
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                   <div className="cart-total">Итог: {totalPrice} тг</div>
                 </Section>
@@ -154,22 +195,22 @@ function CartPage() {
                       Способ оплаты:
                       <div className="radio-group">
                         <label>
-                          <input 
-                            type="radio" 
-                            name="paymentMethod" 
-                            value="cash" 
-                            checked={deliveryData.paymentMethod === 'cash'} 
-                            onChange={handleDeliveryInputChange} 
+                          <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="cash"
+                            checked={deliveryData.paymentMethod === 'cash'}
+                            onChange={handleDeliveryInputChange}
                           />
                           Наличными
                         </label>
                         <label>
-                          <input 
-                            type="radio" 
-                            name="paymentMethod" 
-                            value="card" 
-                            checked={deliveryData.paymentMethod === 'card'} 
-                            onChange={handleDeliveryInputChange} 
+                          <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="card"
+                            checked={deliveryData.paymentMethod === 'card'}
+                            onChange={handleDeliveryInputChange}
                           />
                           Оплата картой
                         </label>
@@ -179,22 +220,22 @@ function CartPage() {
                       Способ доставки:
                       <div className="radio-group">
                         <label>
-                          <input 
-                            type="radio" 
-                            name="deliveryMethod" 
-                            value="delivery" 
-                            checked={deliveryData.deliveryMethod === 'delivery'} 
-                            onChange={handleDeliveryInputChange} 
+                          <input
+                            type="radio"
+                            name="deliveryMethod"
+                            value="delivery"
+                            checked={deliveryData.deliveryMethod === 'delivery'}
+                            onChange={handleDeliveryInputChange}
                           />
                           Доставка
                         </label>
                         <label>
-                          <input 
-                            type="radio" 
-                            name="deliveryMethod" 
-                            value="pickup" 
-                            checked={deliveryData.deliveryMethod === 'pickup'} 
-                            onChange={handleDeliveryInputChange} 
+                          <input
+                            type="radio"
+                            name="deliveryMethod"
+                            value="pickup"
+                            checked={deliveryData.deliveryMethod === 'pickup'}
+                            onChange={handleDeliveryInputChange}
                           />
                           Самовывоз
                         </label>

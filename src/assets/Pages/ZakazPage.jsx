@@ -61,6 +61,7 @@ function ZakazPage() {
                   <th>Наименование</th>
                   <th>Цена, тг</th>
                   <th>Кол-во</th>
+                  <th>Ед. изм.</th>
                   <th>Сумма, тг</th>
                 </tr>
               </thead>
@@ -70,6 +71,7 @@ function ZakazPage() {
                     <td>{item.name}</td>
                     <td>{item.price}</td>
                     <td>{item.quantity}</td>
+                    <td>{item.unit}</td>
                     <td>{item.subtotal}</td>
                   </tr>
                 ))}

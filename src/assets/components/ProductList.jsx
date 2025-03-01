@@ -5,48 +5,38 @@ import ProductPopup from './ProductPopup';
 import '../../assets/styles/Product.css';
 
 function ProductList({ category, subCategory }) {
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
+  const [filteredAndSortedProducts, setFilteredAndSortedProducts] = useState([]);
 
+  // Сброс сортировки при изменении категории или подкатегории
   useEffect(() => {
-    let filtered = products;
-    if (category) {
-      filtered = filtered.filter(product => product.category === category);
-      if (subCategory) {
-        filtered = filtered.filter(product => product.subCategory === subCategory);
-      }
-    }
-    setFilteredProducts(filtered);
+    setSortOrder('asc');
   }, [category, subCategory]);
 
-  const handleSortChange = (e) => {
-    const order = e.target.value;
-    setSortOrder(order);
-    const sortedProducts = [...filteredProducts].sort((a, b) => {
-      return order === 'asc' ? a.price - b.price : b.price - a.price;
-    });
-    setFilteredProducts(sortedProducts);
-  };
-
-  const handleSearchSelect = (product) => {
-    const hash = `product-${product.id}`;
-    window.location.hash = hash;
-
-    const element = document.getElementById(hash);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
-
-      setTimeout(() => {
-        element.classList.add('highlighted');
-        setTimeout(() => {
-          element.classList.remove('highlighted');
-        }, 2000);
-      }, 100);
+  useEffect(() => {
+    // Фильтрация продуктов
+    let filtered = [...products];
+    if (category && subCategory) {
+      filtered = filtered.filter(product => 
+        product.category === category && product.subCategory === subCategory
+      );
+    } else if (category) {
+      filtered = filtered.filter(product => product.category === category);
     }
+
+    // Сортировка отфильтрованных продуктов
+    const sorted = filtered.sort((a, b) => {
+      const priceA = a.pricePerUnit?.шт || 0;
+      const priceB = b.pricePerUnit?.шт || 0;
+      return sortOrder === 'asc' ? priceA - priceB : priceB - priceA;
+    });
+
+    setFilteredAndSortedProducts([...sorted]);
+  }, [category, subCategory, sortOrder]);
+
+  const handleSortChange = (e) => {
+    setSortOrder(e.target.value);
   };
 
   return (
@@ -63,10 +53,10 @@ function ProductList({ category, subCategory }) {
           </select>
         </div>
         <div className="products-grid">
-          {filteredProducts.map(product => (
+          {filteredAndSortedProducts.map(product => (
             <div
               key={product.id}
-              id={`product-${product.id}`} // назначаем идентификатор для прокрутки
+              id={`product-${product.id}`}
               className="product-card-wrapper"
               onClick={() => setSelectedProduct(product)}
             >

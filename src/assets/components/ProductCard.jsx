@@ -15,13 +15,23 @@ function ProductCard({ product, onClick }) {
     }
   };
 
+  const getDefaultPrice = () => {
+    if (product.pricePerUnit) {
+      const units = Object.keys(product.pricePerUnit);
+      if (units.length > 0) {
+        return `${product.pricePerUnit[units[0]]} тг за ${units[0]}`;
+      }
+    }
+    return `${product.price} тг`;
+  };
+
   return (
     <div className="card-container" onClick={onClick}>
       <img src={product.image} alt={product.name} className="product-image" />
       <h3 className="product-title">{product.name}</h3>
       {product.description && <p className="product-description">{product.description}</p>}
       <div className="price-wrapper">
-        <span className="product-price">{product.price} тг</span>
+        <span className="product-price">{getDefaultPrice()}</span>
         {product.availability && (
           <span className={`product-availability ${getStatusClass(product.availability)}`}>
             — {product.availability}
