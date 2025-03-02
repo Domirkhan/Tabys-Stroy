@@ -6,8 +6,6 @@
   background-color: #f9f9f9;
 }
 
-
-
 /* Стилизация контейнера корзины */
 .cart-page.container {
   margin-top: 3rem !important;
@@ -91,6 +89,8 @@
   display: flex;
   align-items: center;
   justify-content: end;
+  flex-wrap: wrap; /* Добавляем перенос строк */
+  gap: 10px; /* Добавляем отступы между элементами */
 }
 .cart-item {
   display: flex;
@@ -377,5 +377,9 @@
   }
   footer {
     order: 1; /* Помещаем футер в конец */
+  }
+
+  .cart-item-bottom {
+    align-items: flex-start; /* Выравниваем элементы по началу */
   }
 }

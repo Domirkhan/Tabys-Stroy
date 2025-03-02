@@ -190,6 +190,11 @@ function Header() {
                         </Link>
                       </li>
                       <li>
+                        <Link to="/plumbing/Шланги" onClick={closeCatalog}>
+                          Шланги
+                        </Link>
+                      </li>
+                      <li>
                         <Link to="/plumbing/Запорно-регулирующая арматура" onClick={closeCatalog}>
                           Запорно-регулирующая арматура
                         </Link>

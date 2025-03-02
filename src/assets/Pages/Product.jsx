@@ -12,7 +12,7 @@ function Product() {
   const sliderRef = useRef(null);
 
   // IDs товаров, которые вы хотите отобразить в слайдере
-  const productIds = [67, 2, 3, 4, 5]; // Замените на нужные вам ID
+  const productIds = [1.1, 1.2, 1.3, 1.4, 1.5]; // Замените на нужные вам ID
 
   const filteredProducts = Products.filter(product => productIds.includes(product.id));
 

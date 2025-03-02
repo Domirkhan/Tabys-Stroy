@@ -89,6 +89,10 @@
 
 /* Адаптивные стили */
 @media (max-width: 768px) {
+  .price-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
   .products-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 колонки в мобильной версии */
