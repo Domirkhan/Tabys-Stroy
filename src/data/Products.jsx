@@ -213,6 +213,179 @@ import TroinikKosoi110lImage1 from '../assets/image/plumbing/Фитинги/1.6.
 import Krestovina50lImage1 from '../assets/image/plumbing/Фитинги/1.6.7.1.1.jpg';
 import Krestovina110lImage1 from '../assets/image/plumbing/Фитинги/1.6.7.2.1.jpg';
 
+// Уголок, тройник металл, кранбукса
+import Ugolokmetal15Image1 from '../assets/image/plumbing/Фитинги/1.7.1.1.1.jpg';
+import Ugolokmetal15Image2 from '../assets/image/plumbing/Фитинги/1.7.1.1.2.jpg';
+import Ugolokmetal15Image3 from '../assets/image/plumbing/Фитинги/1.7.1.2.1.jpg';
+import Ugolokmetal15Image4 from '../assets/image/plumbing/Фитинги/1.7.1.2.2.jpg';
+import Ugolokmetal15Image5 from '../assets/image/plumbing/Фитинги/1.7.1.9.1.jpg';
+import Ugolokmetal15Image6 from '../assets/image/plumbing/Фитинги/1.7.1.9.2.jpg';
+
+import Troinikmetal15Image1 from '../assets/image/plumbing/Фитинги/1.7.1.3.1.jpg';
+import Troinikmetal15Image2 from '../assets/image/plumbing/Фитинги/1.7.1.3.2.jpg';
+import Troinikmetal15Image3 from '../assets/image/plumbing/Фитинги/1.7.1.4.1.jpg';
+import Troinikmetal15Image4 from '../assets/image/plumbing/Фитинги/1.7.1.4.2.jpg';
+import Troinikmetal15Image5 from '../assets/image/plumbing/Фитинги/1.7.1.5.1.jpg';
+import Troinikmetal15Image6 from '../assets/image/plumbing/Фитинги/1.7.1.5.2.jpg';
+import Troinikmetal15Image7 from '../assets/image/plumbing/Фитинги/1.7.1.6.1.jpg';
+import Troinikmetal15Image8 from '../assets/image/plumbing/Фитинги/1.7.1.6.2.jpg';
+import Troinikmetal15Image9 from '../assets/image/plumbing/Фитинги/1.7.1.7.1.jpg';
+import Troinikmetal15Image10 from '../assets/image/plumbing/Фитинги/1.7.1.7.2.jpg';
+import Troinikmetal15Image11 from '../assets/image/plumbing/Фитинги/1.7.1.8.1.jpg';
+import Troinikmetal15Image12 from '../assets/image/plumbing/Фитинги/1.7.1.8.2.jpg';
+
+// Цанга-гайка уголок, тройник
+import UgolTsanga15Image1 from '../assets/image/plumbing/Фитинги/1.7.1.10.1.jpg';
+import UgolTsanga15Image2 from '../assets/image/plumbing/Фитинги/1.7.1.10.2.jpg';
+import UgolTsanga20Image3 from '../assets/image/plumbing/Фитинги/1.7.1.11.1.jpg';
+import UgolTsanga20Image4 from '../assets/image/plumbing/Фитинги/1.7.1.11.2.jpg';
+
+import TroinikTsanga15Image1 from '../assets/image/plumbing/Фитинги/1.7.1.12.1.jpg';
+import TroinikTsanga15Image2 from '../assets/image/plumbing/Фитинги/1.7.1.12.2.jpg';
+import TroinikTsanga15Image3 from '../assets/image/plumbing/Фитинги/1.7.1.13.1.jpg';
+import TroinikTsanga15Image4 from '../assets/image/plumbing/Фитинги/1.7.1.13.2.jpg';
+import TroinikTsanga15Image5 from '../assets/image/plumbing/Фитинги/1.7.1.14.1.jpg';
+import TroinikTsanga15Image6 from '../assets/image/plumbing/Фитинги/1.7.1.14.2.jpg';
+import TroinikTsanga15Image7 from '../assets/image/plumbing/Фитинги/1.7.1.15.1.jpg';
+import TroinikTsanga15Image8 from '../assets/image/plumbing/Фитинги/1.7.1.15.2.jpg';
+
+import ObjimnoimnoimuftaImage1 from '../assets/image/plumbing/Фитинги/1.7.1.16.1.jpg';
+import ObjimnoimnoimuftaImage2 from '../assets/image/plumbing/Фитинги/1.7.1.16.2.jpg';
+import ObjimnoimnoimuftaImage3 from '../assets/image/plumbing/Фитинги/1.7.1.16.3.jpg';
+import ObjimnoimnoimuftaImage4 from '../assets/image/plumbing/Фитинги/1.7.1.17.1.jpg';
+import ObjimnoimnoimuftaImage5 from '../assets/image/plumbing/Фитинги/1.7.1.17.2.jpg';
+import ObjimnoimnoimuftaImage6 from '../assets/image/plumbing/Фитинги/1.7.1.17.3.jpg';
+
+// Штуцер
+import ShtutserImage1 from '../assets/image/plumbing/Фитинги/1.7.1.18.1.jpg';
+import ShtutserImage2 from '../assets/image/plumbing/Фитинги/1.7.1.18.2.jpg';
+import ShtutserImage3 from '../assets/image/plumbing/Фитинги/1.7.1.19.1.jpg';
+import ShtutserImage4 from '../assets/image/plumbing/Фитинги/1.7.1.19.2.jpg';
+import ShtutserImage5 from '../assets/image/plumbing/Фитинги/1.7.1.20.1.jpg';
+import ShtutserImage6 from '../assets/image/plumbing/Фитинги/1.7.1.20.2.jpg';
+
+// Кранбукса
+import KranbuxaImage1 from '../assets/image/plumbing/Фитинги/1.7.1.21.1.jpg';
+import KranbuxaImage2 from '../assets/image/plumbing/Фитинги/1.7.1.21.2.jpg';
+import KranbuxaImage3 from '../assets/image/plumbing/Фитинги/1.7.1.22.1.jpg';
+import KranbuxaImage4 from '../assets/image/plumbing/Фитинги/1.7.1.23.1.jpg';
+
+// Сифон, гофра, др
+import SifonImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.1.1.1.webp';
+import SifonImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.1.1.2.webp';
+import SifonImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.1.2.1.png';
+import SifonImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.1.2.2.jpg';
+import SifonImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.1.3.1.webp';
+import SifonImage6 from '../assets/image/plumbing/Сифон, гофра/1.8.1.3.2.webp';
+import SifonImage7 from '../assets/image/plumbing/Сифон, гофра/1.8.1.4.1.webp';
+import SifonImage8 from '../assets/image/plumbing/Сифон, гофра/1.8.1.4.2.webp';
+import SifonImage9 from '../assets/image/plumbing/Сифон, гофра/1.8.1.5.1.webp';
+import SifonImage10 from '../assets/image/plumbing/Сифон, гофра/1.8.1.5.2.jpg';
+import SifonImage11 from '../assets/image/plumbing/Сифон, гофра/1.8.1.6.1.jpg';
+import SifonImage12 from '../assets/image/plumbing/Сифон, гофра/1.8.1.6.2.jpg';
+import SifonImage13 from '../assets/image/plumbing/Сифон, гофра/1.8.1.7.1.jpeg';
+import SifonImage14 from '../assets/image/plumbing/Сифон, гофра/1.8.1.7.2.webp';
+import SifonImage15 from '../assets/image/plumbing/Сифон, гофра/1.8.1.8.1.webp';
+import SifonImage16 from '../assets/image/plumbing/Сифон, гофра/1.8.1.8.2.webp';
+import SifonImage17 from '../assets/image/plumbing/Сифон, гофра/1.8.1.9.1.jpg';
+import SifonImage18 from '../assets/image/plumbing/Сифон, гофра/1.8.1.9.2.png';
+import SifonImage19 from '../assets/image/plumbing/Сифон, гофра/1.8.1.10.1.png';
+import SifonImage20 from '../assets/image/plumbing/Сифон, гофра/1.8.1.10.2.png';
+import SifonImage21 from '../assets/image/plumbing/Сифон, гофра/1.8.1.11.1.png';
+import SifonImage22 from '../assets/image/plumbing/Сифон, гофра/1.8.1.11.2.jpg';
+import SifonImage23 from '../assets/image/plumbing/Сифон, гофра/1.8.1.12.1.webp';
+import SifonImage24 from '../assets/image/plumbing/Сифон, гофра/1.8.1.12.2.jpg';
+import SifonImage25 from '../assets/image/plumbing/Сифон, гофра/1.8.1.13.1.webp';
+import SifonImage26 from '../assets/image/plumbing/Сифон, гофра/1.8.1.13.2.jpg';
+
+// Сифон для ванны
+import SifonVannaImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.2.1.1.jpg';
+import SifonVannaImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.2.2.1.jpg';
+import SifonVannaImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.2.2.2.jpg';
+import SifonVannaImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.2.3.1.png';
+import SifonVannaImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.2.3.2.jpg';
+import SifonVannaImage6 from '../assets/image/plumbing/Сифон, гофра/1.8.2.4.1.jpg';
+import SifonVannaImage7 from '../assets/image/plumbing/Сифон, гофра/1.8.2.4.2.webp';
+
+// Сифон комплект и др
+import SifonComplectImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.3.1.1.webp';
+import SifonComplectImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.3.1.2.webp';
+import SifonComplectImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.3.2.1.jpg';
+import SifonComplectImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.3.2.2.jpg';
+import SifonComplectImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.3.3.1.jpg';
+import SifonComplectImage6 from '../assets/image/plumbing/Сифон, гофра/1.8.3.3.2.webp';
+import SifonComplectImage7 from '../assets/image/plumbing/Сифон, гофра/1.8.3.4.1.jpg';
+import SifonComplectImage8 from '../assets/image/plumbing/Сифон, гофра/1.8.3.4.2.jpeg';
+
+import ZaporArmaturaImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.4.1.1.jpg';
+import ZaporArmaturaImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.4.1.2.jpg';
+import ZaporArmaturaImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.4.2.1.jpg';
+import ZaporArmaturaImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.4.3.1.jpg';
+import ZaporArmaturaImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.5.1.1.jpg';
+import ZaporArmaturaImage6 from '../assets/image/plumbing/Сифон, гофра/1.8.5.1.2.jpg';
+
+import GofraUnitazImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.6.1.1.jpg';
+import GofraUnitazImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.6.1.2.jpg';
+import GofraUnitazImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.6.1.3.jpg';
+import GofraUnitazImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.6.2.1.jpg';
+import GofraUnitazImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.6.2.2.jpg';
+import GofraUnitazImage6 from '../assets/image/plumbing/Сифон, гофра/1.8.6.2.3.jpg';
+import GofraUnitazImage7 from '../assets/image/plumbing/Сифон, гофра/1.8.6.3.1.jpg';
+import GofraUnitazImage9 from '../assets/image/plumbing/Сифон, гофра/1.8.6.3.2.jpeg';
+import GofraUnitazImage8 from '../assets/image/plumbing/Сифон, гофра/1.8.6.3.3.webp';
+
+import PrisoedinenieUnitazImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.7.1.1.webp';
+import PrisoedinenieUnitazImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.7.1.2.webp';
+import PrisoedinenieUnitazImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.7.2.1.webp';
+import PrisoedinenieUnitazImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.7.2.2.webp';
+import PrisoedinenieUnitazImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.7.2.3.webp';
+import PrisoedinenieUnitazImage6 from '../assets/image/plumbing/Сифон, гофра/1.8.7.3.1.jpg';
+import PrisoedinenieUnitazImage7 from '../assets/image/plumbing/Сифон, гофра/1.8.7.3.2.jpg';
+
+// Шланг, лейка и др
+import ShlangDushImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.8.1.1.webp';
+import ShlangDushImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.8.2.1.webp';
+import ShlangDushImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.8.4.1.webp';
+import ShlangDushImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.8.5.1.jpg';
+import ShlangDushImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.8.5.2.jpeg';
+import ShlangBideImage6 from '../assets/image/plumbing/Сифон, гофра/1.8.8.6.1.jpg';
+import ShlangBideImage7 from '../assets/image/plumbing/Сифон, гофра/1.8.8.7.1.jpg';
+import ShlangBideImage8 from '../assets/image/plumbing/Сифон, гофра/1.8.8.7.2.jpg';
+import ShlangBideImage9 from '../assets/image/plumbing/Сифон, гофра/1.8.8.7.3.jpg';
+
+import LeikadliaDushImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.8.8.1.webp';
+import LeikadliaDushImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.8.9.1.jpg';
+import LeikadliaDushImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.8.9.2.jpg';
+import LeikadliaDushImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.8.9.3.jpg';
+import LeikadliaDushImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.8.10.1.jpg';
+import LeikadliaDushImage6 from '../assets/image/plumbing/Сифон, гофра/1.8.8.11.1.jpg';
+import LeikadliaDushImage7 from '../assets/image/plumbing/Сифон, гофра/1.8.8.11.2.webp';
+import LeikadliaDushImage8 from '../assets/image/plumbing/Сифон, гофра/1.8.8.12.1.png';
+import LeikadliaDushImage9 from '../assets/image/plumbing/Сифон, гофра/1.8.8.12.2.webp';
+import LeikadliaDushImage10 from '../assets/image/plumbing/Сифон, гофра/1.8.8.13.1.jpg';
+import LeikadliaDushImage11 from '../assets/image/plumbing/Сифон, гофра/1.8.8.13.2.png';
+import LeikadliaDushImage12 from '../assets/image/plumbing/Сифон, гофра/1.8.8.14.1.jpg';
+
+// Шланг залив, дренаж и др
+import ShlangZalivImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.9.1.1.jpg';
+import ShlangZalivImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.9.1.2.jpg';
+import ShlangZalivImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.9.2.1.webp';
+import ShlangZalivImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.9.2.2.webp';
+import ShlangZalivImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.9.3.1.webp';
+import ShlangZalivImage6 from '../assets/image/plumbing/Сифон, гофра/1.8.9.3.2.jpg';
+import ShlangZalivImage7 from '../assets/image/plumbing/Сифон, гофра/1.8.9.4.1.webp';
+import ShlangSlivImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.10.1.1.jpg';
+import ShlangSlivImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.10.1.2.webp';
+import ShlangSlivImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.10.2.1.jpg';
+import ShlangSlivImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.10.3.1.jpg';
+
+// Тросс канализация
+import TrosKanalizImage1 from '../assets/image/plumbing/Сифон, гофра/1.8.11.1.2.jpg';
+import TrosKanalizImage2 from '../assets/image/plumbing/Сифон, гофра/1.8.11.1.1.jpg';
+import TrosKanalizImage3 from '../assets/image/plumbing/Сифон, гофра/1.8.11.2.1.jpg';
+import TrosKanalizImage4 from '../assets/image/plumbing/Сифон, гофра/1.8.11.3.1.jpg';
+import TrosKanalizImage5 from '../assets/image/plumbing/Сифон, гофра/1.8.11.4.1.jpg';
+
 
 const Products = [
   //Сантехника
@@ -2838,7 +3011,1154 @@ const Products = [
     subCategory: "Запорно-регулирующая арматура", // Подкатегория
     availability: "Есть в наличии"  // Новое поле для статуса наличия
   },
-
+  // Уголок, тройник металл 
+  {
+    id: 186,
+    name: "Уголок 15 наруж./внутр. резьба",
+    price: 500,
+    // oldPrice: 500,
+    image: Ugolokmetal15Image1,
+    images: [Ugolokmetal15Image1, Ugolokmetal15Image2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 187,
+    name: "Уголок 15 наруж. резьба",
+    price: 570,
+    // oldPrice: 570,
+    image: Ugolokmetal15Image3,
+    images: [Ugolokmetal15Image3, Ugolokmetal15Image4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 187,
+    name: "Уголок 15 внутр. резьба",
+    price: 500,
+    // oldPrice: 500,
+    image: Ugolokmetal15Image5,
+    images: [Ugolokmetal15Image5, Ugolokmetal15Image6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Тройник металл
+  {
+    id: 188,
+    name: "Тройник 15 наружная резьба",
+    price: 700,
+    // oldPrice: 700,
+    image: Troinikmetal15Image1,
+    images: [Troinikmetal15Image1, Troinikmetal15Image2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 189,
+    name: "Тройник 15 наруж./наруж./внутр. резьба",
+    price: 700,
+    // oldPrice: 700,
+    image: Troinikmetal15Image3,
+    images: [Troinikmetal15Image3, Troinikmetal15Image4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 190,
+    name: "Тройник 15 наруж./внутр./внутр. резьба",
+    price: 700,
+    // oldPrice: 700,
+    image: Troinikmetal15Image5,
+    images: [Troinikmetal15Image5, Troinikmetal15Image6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 191,
+    name: "Тройник 15 наруж. резьба",
+    price: 700,
+    // oldPrice: 700,
+    image: Troinikmetal15Image7,
+    images: [Troinikmetal15Image7, Troinikmetal15Image8],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 192,
+    name: "Тройник 15 внутр./наруж./внутр. резьба",
+    price: 700,
+    // oldPrice: 700,
+    image: Troinikmetal15Image9,
+    images: [Troinikmetal15Image9, Troinikmetal15Image10],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 193,
+    name: "Тройник 15 внутр. резьба",
+    price: 700,
+    // oldPrice: 700,
+    image: Troinikmetal15Image11,
+    images: [Troinikmetal15Image11, Troinikmetal15Image12],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Цанга-гайка угол, тройник
+  {
+    id: 194,
+    name: "Угол цанга-гайка 16",
+    price: 860,
+    // oldPrice: 860,
+    image: UgolTsanga15Image1,
+    images: [UgolTsanga15Image1, UgolTsanga15Image2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 195,
+    name: "Угол цанга-гайка 20",
+    price: 1100,
+    // oldPrice: 1100,
+    image: UgolTsanga20Image3,
+    images: [UgolTsanga20Image3, UgolTsanga20Image4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 196,
+    name: "Тройник цанга-гайка 16. Внутр. резьба 15",
+    price: 1100,
+    // oldPrice: 1100,
+    image: TroinikTsanga15Image1,
+    images: [TroinikTsanga15Image1, TroinikTsanga15Image2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 197,
+    name: "Тройник цанга-гайка 16. Наруж. резьба 15",
+    price: 1250,
+    // oldPrice: 1250,
+    image: TroinikTsanga15Image3,
+    images: [TroinikTsanga15Image3, TroinikTsanga15Image4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 198,
+    name: "Тройник цанга-гайка 16/16/16",
+    price: 1100,
+    // oldPrice: 1100,
+    image: TroinikTsanga15Image5,
+    images: [TroinikTsanga15Image5, TroinikTsanga15Image6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 199,
+    name: "Тройник цанга-гайка 20/20/20",
+    price: 1700,
+    // oldPrice: 1700,
+    image: TroinikTsanga15Image7,
+    images: [TroinikTsanga15Image7, TroinikTsanga15Image8],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 200,
+    name: "Обжимная муфта 25/15 наруж./внутр. резьба",
+    price: 1000,
+    // oldPrice: 1000,
+    image: ObjimnoimnoimuftaImage1,
+    images: [ObjimnoimnoimuftaImage1, ObjimnoimnoimuftaImage2, ObjimnoimnoimuftaImage3],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 201,
+    name: "Обжимная муфта 20/25 наруж. резьба",
+    price: 1250,
+    // oldPrice: 1250,
+    image: ObjimnoimnoimuftaImage4,
+    images: [ObjimnoimnoimuftaImage4, ObjimnoimnoimuftaImage5, ObjimnoimnoimuftaImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Штуцер
+  {
+    id: 202,
+    name: "Штуцер 15 наруж. резьба (2000)",
+    price: 100,
+    // oldPrice: 100,
+    image: ShtutserImage1,
+    images: [ShtutserImage1, ShtutserImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 203,
+    name: "Штуцер 15 внутр. резьба",
+    price: 100,
+    // oldPrice: 100,
+    image: ShtutserImage3,
+    images: [ShtutserImage3, ShtutserImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 204,
+    name: "Штуцер 15 внутр. резьба белый",
+    price: 350,
+    // oldPrice: 350,
+    image: ShtutserImage5,
+    images: [ShtutserImage5, ShtutserImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Кран букса
+  {
+    id: 205,
+    name: "Кран-букса для смесителя 1/2''",
+    price: 0,
+    // oldPrice: 0,
+    image: KranbuxaImage2,
+    images: [KranbuxaImage2, KranbuxaImage1],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 206,
+    name: "Кран-букса для смесителя прозрачный''",
+    price: 0,
+    // oldPrice: 0,
+    image: KranbuxaImage3,
+    images: [KranbuxaImage3],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 207,
+    name: "Кран-букса для смесителя синий''",
+    price: 0,
+    // oldPrice: 0,
+    image: KranbuxaImage4,
+    images: [KranbuxaImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Сифон,гофра,итд
+  {
+    id: 208,
+    name: "Сифон (Евросифон) NOVA 1041 без гофры",
+    price: 2250,
+    // oldPrice: 2250,
+    image: SifonImage1,
+    images: [SifonImage1, SifonImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 209,
+    name: "Cифон (Евросифон) для керамической мойки NOVA 1046",
+    price: 2650,
+    // oldPrice: 2650,
+    image: SifonImage3,
+    images: [SifonImage3, SifonImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 210,
+    name: "Cифон (Евросифон) для мойки NOVA 1047",
+    price: 3300,
+    // oldPrice: 3300,
+    image: SifonImage5,
+    images: [SifonImage5, SifonImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 211,
+    name: "Cифон (Евросифон) для керамической мойки NOVA 1048",
+    price: 3300,
+    // oldPrice: 3300,
+    image: SifonImage7,
+    images: [SifonImage7, SifonImage8],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 212,
+    name: "Сифон с отстойником NOVA 1050",
+    price: 1200,
+    // oldPrice: 1200,
+    image: SifonImage9,
+    images: [SifonImage9, SifonImage10],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 213,
+    name: "Сифон гофрированный NOVA 1061",
+    price: 1700,
+    // oldPrice: 1700,
+    image: SifonImage11,
+    images: [SifonImage11, SifonImage12],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 214,
+    name: "Сифон с гибкой трубой ORIO А-7001",
+    price: 1600,
+    // oldPrice: 1600,
+    image: SifonImage13,
+    images: [SifonImage13, SifonImage14],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 215,
+    name: "Сифон гофрированный ORIO АС-7011",
+    price: 1150,
+    // oldPrice: 1150,
+    image: SifonImage15,
+    images: [SifonImage15, SifonImage16],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 216,
+    name: "Сифон бутылочный ORIO А-4011",
+    price: 4950,
+    // oldPrice: 4950,
+    image: SifonImage17,
+    images: [SifonImage17, SifonImage18],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 217,
+    name: "Сифон бутылочный ORIO А-3202",
+    price: 1700,
+    // oldPrice: 1700,
+    image: SifonImage19,
+    images: [SifonImage19, SifonImage20],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 218,
+    name: "Сифон с отвод для стиральной машины ORIO А-40059",
+    price: 2000,
+    // oldPrice: 2000,
+    image: SifonImage21,
+    images: [SifonImage21, SifonImage22],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 219,
+    name: "Сифон (гофросифон) NOVA 1209, 64/32мм, 78см",
+    price: 700,
+    // oldPrice: 700,
+    image: SifonImage23,
+    images: [SifonImage23, SifonImage24],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 220,
+    name: "Сифон гофрированный NOVA 1262, 64/50мм",
+    price: 800,
+    // oldPrice: 800,
+    image: SifonImage25,
+    images: [SifonImage25, SifonImage26],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Сифон для ванны
+  {
+    id: 221,
+    name: "Сифон для ванны Casela AR 105",
+    price: 3000,
+    // oldPrice: 3000,
+    image: SifonVannaImage1,
+    images: [SifonVannaImage1],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 222,
+    name: "Сифон для ванны NOVA 1520",
+    price: 2200,
+    // oldPrice: 2200,
+    image: SifonVannaImage4,
+    images: [SifonVannaImage4, SifonVannaImage5],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 223,
+    name: "Сифон для ванны NOVA 1521",
+    price: 1900,
+    // oldPrice: 1900,
+    image: SifonVannaImage2,
+    images: [SifonVannaImage2, SifonVannaImage3],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 224,
+    name: "Сифон для ванны ORIO А-70089",
+    price: 1750,
+    // oldPrice: 1750,
+    image: SifonVannaImage6,
+    images: [SifonVannaImage6, SifonVannaImage7],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 225,
+    name: "Сифон для ванны ORIO А-70089",
+    price: 1750,
+    // oldPrice: 1750,
+    image: SifonVannaImage6,
+    images: [SifonVannaImage6, SifonVannaImage7],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Сифон комплект и др
+  {
+    id: 226,
+    name: "Гибкая труба для сифона NOVA 1315",
+    price: 400,
+    // oldPrice: 400,
+    image: SifonComplectImage1,
+    images: [SifonComplectImage1, SifonComplectImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 227,
+    name: "Выпуск для сифона 114mm. NOVA 1040",
+    price: 2200,
+    // oldPrice: 2200,
+    image: SifonComplectImage3,
+    images: [SifonComplectImage3, SifonComplectImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 228,
+    name: "Выпуск для сифона 114mm. NOVA 1043",
+    price: 2000,
+    // oldPrice: 2000,
+    image: SifonComplectImage5,
+    images: [SifonComplectImage5, SifonComplectImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 229,
+    name: "Трап сливной для душа NOVA 5020",
+    price: 400,
+    // oldPrice: 400,
+    image: SifonComplectImage7,
+    images: [SifonComplectImage7],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 261,
+    name: "Трап сливной для душа нержавеющий NOVA 5026",
+    price: 2000,
+    // oldPrice: 2000,
+    image: SifonComplectImage8,
+    images: [SifonComplectImage8],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Запорная Арматура
+  {
+    id: 230,
+    name: "Арматура сантехническая с боковой подачей воды 1/2 Ани Пласт WC6050",
+    price: 2700,
+    // oldPrice: 2700,
+    image: ZaporArmaturaImage1,
+    images: [ZaporArmaturaImage1, ZaporArmaturaImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 231,
+    name: "Арматура для смывного бочка с боковой подачей воды АО Уклад А105.56У1.3",
+    price: 2850,
+    // oldPrice: 2850,
+    image: ZaporArmaturaImage3,
+    images: [ZaporArmaturaImage3],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 232,
+    name: "Арматура для смывного бочка с нижней подачей воды АО Уклад А105.57.14.3",
+    price: 2800,
+    // oldPrice: 2800,
+    image: ZaporArmaturaImage4,
+    images: [ZaporArmaturaImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 233,
+    name: "Клапан нижней подачи воды NOVA 4721",
+    price: 1200,
+    // oldPrice: 1200,
+    image: ZaporArmaturaImage5,
+    images: [ZaporArmaturaImage5, ZaporArmaturaImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 234,
+    name: "Гофра для унитаза NOVA 7012 500mm",
+    price: 1700,
+    // oldPrice: 1700,
+    image: GofraUnitazImage1,
+    images: [GofraUnitazImage1, GofraUnitazImage2, GofraUnitazImage3],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 235,
+    name: "Гофра для унитаза NOVA 7013 350mm",
+    price: 1600,
+    // oldPrice: 1600,
+    image: GofraUnitazImage4,
+    images: [GofraUnitazImage4, GofraUnitazImage5, GofraUnitazImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 262,
+    name: "Гофрированный удлинитель для унитаза NOVA 7044 500mm",
+    price: 2000,
+    // oldPrice: 2000,
+    image: GofraUnitazImage7,
+    images: [GofraUnitazImage7, GofraUnitazImage8, GofraUnitazImage9],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 236,
+    name: "Присоединение к унитазу 110/87 Политэк",
+    price: 1700,
+    // oldPrice: 1700,
+    image: PrisoedinenieUnitazImage3,
+    images: [PrisoedinenieUnitazImage3, PrisoedinenieUnitazImage4, PrisoedinenieUnitazImage5],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 237,
+    name: "Присоединение к унитазу 110/45 Политэк",
+    price: 1700,
+    // oldPrice: 1700,
+    image: PrisoedinenieUnitazImage1,
+    images: [PrisoedinenieUnitazImage1, PrisoedinenieUnitazImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 238,
+    name: "Присоединение к унитазу 110 Прямое. Политэк",
+    price: 1500,
+    // oldPrice: 1500,
+    image: PrisoedinenieUnitazImage6,
+    images: [PrisoedinenieUnitazImage6, PrisoedinenieUnitazImage7],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  //Шланги, лейки и др
+  {
+    id: 239,
+    name: "Шланг для душа DELANO PT- 56",
+    price: 1500,
+    // oldPrice: 1500,
+    image: ShlangDushImage1,
+    images: [ShlangDushImage1],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 240,
+    name: "Шланг для душа VEKKO PT- 55",
+    price: 2100,
+    // oldPrice: 2100,
+    image: ShlangDushImage2,
+    images: [ShlangDushImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 241,
+    name: "Душевой шланг из ПВХ DELANO PT- 58W",
+    price: 2200,
+    // oldPrice: 2200,
+    image: ShlangDushImage3,
+    images: [ShlangDushImage3],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 242,
+    name: "Шланг с лейкой TRIGOR TG 2027",
+    price: 2640,
+    // oldPrice: 2640,
+    image: ShlangDushImage4,
+    images: [ShlangDushImage4, ShlangDushImage5],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 243,
+    name: "Гигиенический комплект (шланг с лейкой биде) TRIGOR TG4052",
+    price: 3500,
+    // oldPrice: 3500,
+    image: ShlangBideImage6,
+    images: [ShlangBideImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 244,
+    name: "Шланг с лейкой (биде) Casela CLM34",
+    price: 7000,
+    // oldPrice: 7000,
+    image: ShlangBideImage7,
+    images: [ShlangBideImage7, ShlangBideImage8, ShlangBideImage9],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Лейка для душа
+  {
+    id: 245,
+    name: "Лейка для душа Casela CLM07",
+    price: 4550,
+    // oldPrice: 4550,
+    image: LeikadliaDushImage1,
+    images: [LeikadliaDushImage1],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 246,
+    name: "Лейка для душа Casela CL02",
+    price: 1500,
+    // oldPrice: 1500,
+    image: LeikadliaDushImage3,
+    images: [LeikadliaDushImage3, LeikadliaDushImage2, LeikadliaDushImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 247,
+    name: "Лейка для душа VEKKO JX-907",
+    price: 550,
+    // oldPrice: 550,
+    image: LeikadliaDushImage12,
+    images: [LeikadliaDushImage12],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 248,
+    name: "Лейка для душа VEKKO JX-908",
+    price: 760,
+    // oldPrice: 760,
+    image: LeikadliaDushImage10,
+    images: [LeikadliaDushImage10, LeikadliaDushImage11],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 247,
+    name: "Лейка для душа VEKKO JX-910",
+    price: 1000,
+    // oldPrice: 1000,
+    image: LeikadliaDushImage5,
+    images: [LeikadliaDushImage5],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 248,
+    name: "Лейка для душа VEKKO JX-912",
+    price: 1150,
+    // oldPrice: 1150,
+    image: LeikadliaDushImage6,
+    images: [LeikadliaDushImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 249,
+    name: "Лейка для душа VEKKO JX-917",
+    price: 1000,
+    // oldPrice: 1000,
+    image: LeikadliaDushImage8,
+    images: [LeikadliaDushImage8, LeikadliaDushImage9],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Шланги залив, дренаж и др
+  {
+    id: 250,
+    name: "Шланг заливной ТВХ 500 1,5м",
+    price: 1400,
+    // oldPrice: 1400,
+    image: ShlangZalivImage1,
+    images: [ShlangZalivImage1, ShlangZalivImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 251,
+    name: "Шланг заливной ТВХ 500 2м",
+    price: 1600,
+    // oldPrice: 1600,
+    image: ShlangZalivImage3,
+    images: [ShlangZalivImage3, ShlangZalivImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 252,
+    name: "Шланг заливной ТВХ 500 2,5м",
+    price: 1900,
+    // oldPrice: 1900,
+    image: ShlangZalivImage5,
+    images: [ShlangZalivImage5, ShlangZalivImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 253,
+    name: "Шланг заливной ТВХ 500 3м",
+    price: 2100,
+    // oldPrice: 2100,
+    image: ShlangZalivImage7,
+    images: [ShlangZalivImage7, ShlangZalivImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 254,
+    name: "Шланг сливной 2м",
+    price: 1100,
+    // oldPrice: 1100,
+    image: ShlangSlivImage1,
+    images: [ShlangSlivImage1, ShlangSlivImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 255,
+    name: "Шланг сливной 2,5м",
+    price: 1300,
+    // oldPrice: 1300,
+    image: ShlangSlivImage3,
+    images: [ShlangSlivImage3, ShlangSlivImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 256,
+    name: "Шланг сливной 3м",
+    price: 1400,
+    // oldPrice: 1400,
+    image: ShlangSlivImage4,
+    images: [ShlangSlivImage4, ShlangSlivImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Тросс канализация
+  {
+    id: 257,
+    name: "Тросс канализационный Exprofil 3м",
+    price: 1050,
+    // oldPrice: 1050,
+    image: TrosKanalizImage1,
+    images: [TrosKanalizImage1, TrosKanalizImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 258,
+    name: "Тросс канализационный 5м",
+    price: 1650,
+    // oldPrice: 1650,
+    image: TrosKanalizImage4,
+    images: [TrosKanalizImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 259,
+    name: "Тросс канализационный Exprofil 7м",
+    price: 2350,
+    // oldPrice: 2350,
+    image: TrosKanalizImage5,
+    images: [TrosKanalizImage5],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 260,
+    name: "Тросс канализационный 10м",
+    price: 3300,
+    // oldPrice: 3300,
+    image: TrosKanalizImage3,
+    images: [TrosKanalizImage3],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Аксессуары Санузел
+  {
+    id: 263,
+    name: "Тросс канализационный 10м",
+    price: 3300,
+    // oldPrice: 3300,
+    image: TrosKanalizImage3,
+    images: [TrosKanalizImage3],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "plumbing", // Категория
+    subCategory: "Ванны и комплектующие", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  }, 
 
 ];
 
