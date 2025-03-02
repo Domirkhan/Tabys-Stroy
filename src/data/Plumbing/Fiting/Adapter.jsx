@@ -1,0 +1,128 @@
+import adapternaruzhniyImage1 from '../../../assets/image/plumbing/Фитинги/1.1.13.jpg';
+import adapternaruzhniyImage2 from '../../../assets/image/plumbing/Фитинги/1.1.13.1.jpg';
+import adapternaruzhniyImage3 from '../../../assets/image/plumbing/Фитинги/1.1.14.jpg';
+import adapternaruzhniyImage4 from '../../../assets/image/plumbing/Фитинги/1.1.14.1.jpg';
+import adapternaruzhniyImage5 from '../../../assets/image/plumbing/Фитинги/1.1.14.2.jpg';
+import adapternaruzhniyImage6 from '../../../assets/image/plumbing/Фитинги/1.1.14.3.jpg';
+import adaptervnutrenniyImage1 from '../../../assets/image/plumbing/Фитинги/1.1.14.7.jpg';
+import adaptervnutrenniyImage2 from '../../../assets/image/plumbing/Фитинги/1.1.14.8.jpg';
+import adaptervnutrenniyImage3 from '../../../assets/image/plumbing/Фитинги/1.1.14.9.jpg';
+import adaptervnutrenniyImage4 from '../../../assets/image/plumbing/Фитинги/1.1.14.10.jpg';
+
+const Adapter = [
+    {
+    id: 11.1,
+    name: " Адаптер наруж. резьба ППР белый Jakko 20мм х 1/2",
+    pricePerUnit: {
+      шт: 70,
+    },
+    // oldPrice: 300,
+    image: adapternaruzhniyImage1,
+    images: [adapternaruzhniyImage1, adapternaruzhniyImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "Полипропиленовые фитинги JAKKO предназначены для соединения методом полифузионной сварки систем полипропиленовых напорных трубопроводов отопления, холодного и горячего водоснабжения. Полипропиленовые фитинги и комбинированные полипропиленовые фитинги служат для перехода на резьбовое трубное соединение.",
+    specifications: { "Материал адаптера": "Полипропилен", "Диаметр подключения полипропилена": "20 mm", "Диаметр присоединяемой резьбы": "1/2", "Тип резьбы": "Наружная", "Вид адаптера": "Комбинированная", "Рабочая среда": "Вода"},
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 11.2,
+    name: " Адаптер наруж. резьба ППР белый Jakko 20мм х 3/4",
+    pricePerUnit: {
+      шт: 70,
+    },
+    // oldPrice: 300,
+    image: adapternaruzhniyImage3,
+    images: [adapternaruzhniyImage3, adapternaruzhniyImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "Полипропиленовые фитинги JAKKO предназначены для соединения методом полифузионной сварки систем полипропиленовых напорных трубопроводов отопления, холодного и горячего водоснабжения. Полипропиленовые фитинги и комбинированные полипропиленовые фитинги служат для перехода на резьбовое трубное соединение.",
+    specifications: { "Материал адаптера": "Полипропилен", "Диаметр подключения полипропилена": "20 mm", "Диаметр присоединяемой резьбы": "3/4", "Тип резьбы": "Наружная", "Вид адаптера": "Комбинированная", "Рабочая среда": "Вода"},
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 11.3,
+    name: " Адаптер наруж. резьба ППР белый Jakko 25мм х 1/2",
+    pricePerUnit: {
+      шт: 70,
+    },
+    // oldPrice: 300,
+    image: adapternaruzhniyImage5,
+    images: [adapternaruzhniyImage5, adapternaruzhniyImage6],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "Полипропиленовые фитинги JAKKO предназначены для соединения методом полифузионной сварки систем полипропиленовых напорных трубопроводов отопления, холодного и горячего водоснабжения. Полипропиленовые фитинги и комбинированные полипропиленовые фитинги служат для перехода на резьбовое трубное соединение.",
+    specifications: { "Материал адаптера": "Полипропилен", "Диаметр подключения полипропилена": "25 mm", "Диаметр присоединяемой резьбы": "3/4", "Тип резьбы": "Наружная", "Вид адаптера": "Комбинированная", "Рабочая среда": "Вода"},
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  // Адаптер внутренний
+  {
+    id: 11.4,
+    name: " Адаптер внутрен. резьба ППР белый Jakko 20мм х 1/2",
+    pricePerUnit: {
+      шт: 70,
+    },
+    // oldPrice: 300,
+    image: adaptervnutrenniyImage1,
+    images: [adaptervnutrenniyImage1, adaptervnutrenniyImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "Прямой полипропиленовый фитинг для соединения методом полифузионной сварки полипропиленовой трубы и компонента инженерной системы с резьбовым подключением.",
+    specifications: { "Материал адаптера": "Полипропилен", "Диаметр подключения полипропилена": "20 mm", "Диаметр присоединяемой резьбы": "1/2", "Тип резьбы": "Внутренняя", "Вид адаптера": "Комбинированная", "Рабочая среда": "Вода"},
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 11.5,
+    name: " Адаптер внутрен. резьба ППР белый Jakko 25мм х 1/2",
+    pricePerUnit: {
+      шт: 70,
+    },
+    // oldPrice: 300,
+    image: adaptervnutrenniyImage1,
+    images: [adaptervnutrenniyImage1, adaptervnutrenniyImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "Прямой полипропиленовый фитинг для соединения методом полифузионной сварки полипропиленовой трубы и компонента инженерной системы с резьбовым подключением.",
+    specifications: { "Материал адаптера": "Полипропилен", "Диаметр подключения полипропилена": "25 mm", "Диаметр присоединяемой резьбы": "1/2", "Тип резьбы": "Внутренняя", "Вид адаптера": "Комбинированная", "Рабочая среда": "Вода"},
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 11.6,
+    name: " Адаптер внутрен. резьба ППР белый Jakko 25мм х 3/4",
+    pricePerUnit: {
+      шт: 70,
+    },
+    // oldPrice: 300,
+    image: adaptervnutrenniyImage1,
+    images: [adaptervnutrenniyImage1, adaptervnutrenniyImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "Прямой полипропиленовый фитинг для соединения методом полифузионной сварки полипропиленовой трубы и компонента инженерной системы с резьбовым подключением.",
+    specifications: { "Материал адаптера": "Полипропилен", "Диаметр подключения полипропилена": "25 mm", "Диаметр присоединяемой резьбы": "3/4", "Тип резьбы": "Внутренняя", "Вид адаптера": "Комбинированная", "Рабочая среда": "Вода"},
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+  {
+    id: 11.7,
+    name: " Адаптер внутрен. резьба ППР белый Jakko 32мм х 1",
+    pricePerUnit: {
+      шт: 70,
+    },
+    // oldPrice: 300,
+    image: adaptervnutrenniyImage3,
+    images: [adaptervnutrenniyImage3, adaptervnutrenniyImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "Прямой полипропиленовый фитинг для соединения методом полифузионной сварки полипропиленовой трубы и компонента инженерной системы с резьбовым подключением.",
+    specifications: { "Материал адаптера": "Полипропилен", "Диаметр подключения полипропилена": "32 mm", "Диаметр присоединяемой резьбы": "1", "Тип резьбы": "Внутренняя", "Вид адаптера": "Комбинированная", "Рабочая среда": "Вода"},
+    category: "plumbing", // Категория
+    subCategory: "Фитинги", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+  },
+];
+
+export default Adapter;
