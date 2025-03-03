@@ -1,7 +1,8 @@
 import ventilzaporniyImage1 from '../../../assets/image/plumbing/Фитинги/1.1.16.1.jpg';
 import ventilzaporniyImage2 from '../../../assets/image/plumbing/Фитинги/1.1.16.2.jpg';
 
-const VentilZaporniy = [{
+const VentilZaporniy = [
+  {
     id: 13.1,
     name: " Вентиль запорный ППР  белый Jakko 20мм",
     pricePerUnit: {
