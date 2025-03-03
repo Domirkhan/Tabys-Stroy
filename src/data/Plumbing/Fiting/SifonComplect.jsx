@@ -9,15 +9,6 @@ import SifonComplectImage7 from '../../../assets/image/plumbing/Сифон, го
 import SifonComplectImage8 from '../../../assets/image/plumbing/Сифон, гофра/1.8.3.4.2.jpeg';
 
 
-
-import PrisoedinenieUnitazImage1 from '../../../assets/image/plumbing/Сифон, гофра/1.8.7.1.1.webp';
-import PrisoedinenieUnitazImage2 from '../../../assets/image/plumbing/Сифон, гофра/1.8.7.1.2.webp';
-import PrisoedinenieUnitazImage3 from '../../../assets/image/plumbing/Сифон, гофра/1.8.7.2.1.webp';
-import PrisoedinenieUnitazImage4 from '../../../assets/image/plumbing/Сифон, гофра/1.8.7.2.2.webp';
-import PrisoedinenieUnitazImage5 from '../../../assets/image/plumbing/Сифон, гофра/1.8.7.2.3.webp';
-import PrisoedinenieUnitazImage6 from '../../../assets/image/plumbing/Сифон, гофра/1.8.7.3.1.jpg';
-import PrisoedinenieUnitazImage7 from '../../../assets/image/plumbing/Сифон, гофра/1.8.7.3.2.jpg'; // нау не импорттар колданылмаган бул баскалардыкы 
-
 const SifonComplect = [
      {
         id: 34.1,
