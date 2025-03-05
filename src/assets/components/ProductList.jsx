@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import products from '../../data/Products';
-import ProductPopup from './ProductPopup';
 import '../../assets/styles/Product.css';
 
 function ProductList({ category, subCategory }) {
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const navigate = useNavigate();
 
   if (!category) {
     return (
@@ -17,17 +17,12 @@ function ProductList({ category, subCategory }) {
     );
   }
 
-  // Отладочный лог. Проверьте, что параметры из URL корректны.
-  console.log("Category:", category, "subCategory:", subCategory);
-
-  // Фильтрация продуктов при каждом рендере (без useMemo)
+  // Фильтрация товаров с приведением к нижнему регистру
   const filteredProducts = products.filter(product => {
-    // Приводим все к нижнему регистру и убираем пробелы
     const cat = category.trim().toLowerCase();
     const subCat = subCategory ? subCategory.trim().toLowerCase() : null;
-
-    // Приводим поля продукта к нижнему регистру
     const prodCat = product.category.trim().toLowerCase();
+
     if (prodCat !== cat) return false;
 
     if (subCat) {
@@ -36,9 +31,6 @@ function ProductList({ category, subCategory }) {
     }
     return true;
   });
-
-  // Вывести результат фильтрации в консоль для отладки
-  console.log("Filtered products:", filteredProducts);
 
   return (
     <section className="product-section">
@@ -49,27 +41,20 @@ function ProductList({ category, subCategory }) {
             : `Товары категории: ${category}`}
         </h2>
         <div className="products-grid">
-          {filteredProducts.map(product => (
+          {filteredProducts.map((product, index) => (
             <div
-              key={`${product.id}-${product.category}-${product.subCategory}-${Math.random()}`}
+              key={`${product.id}-${product.category}-${product.subCategory}-${index}`}
               id={`product-${product.id}`}
               className="product-card-wrapper"
-              onClick={() => setSelectedProduct(product)}
+              onClick={() =>
+                navigate(`/${category}/${subCategory}/${product.name}`)
+              }
             >
-              <ProductCard
-                product={product}
-                onClick={() => setSelectedProduct(product)}
-              />
+              <ProductCard product={product} />
             </div>
           ))}
         </div>
       </div>
-      {selectedProduct && (
-        <ProductPopup
-          product={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-        />
-      )}
     </section>
   );
 }

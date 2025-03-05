@@ -1,0 +1,236 @@
+.pd-section {
+    padding: 40px 0;
+    background-color: #f7f7f7;
+}
+
+.pd-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.pd-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.pd-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.pd-images {
+    flex: 200px;
+    position: relative;
+    text-align: center;
+}
+
+.pd-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pd-slider-controls {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.pd-slider-btn {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 50%;
+    transition: background-color 0.3sease;
+}
+
+.pd-slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.pd-slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.pd-slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.pd-slider-dot.active {
+    background-color: #ff0000; /* красный цвет для активной точки */
+}
+
+.pd-info {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pd-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+.pd-description h3{
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.pd-specifications {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pd-specifications h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.pd-specifications ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pd-specifications li {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.pd-specifications li:last-child {
+    border-bottom: none;
+}
+
+.pd-purchase {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pd-price {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.pd-unit-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.pd-unit-selector label {
+    font-weight: 500;
+    color: #333;
+}
+
+.pd-unit-selector select {
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.pd-quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pd-quantity-btn {
+    background-color: #ddd;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pd-quantity-btn:hover {
+    background-color: #ccc;
+}
+
+.pd-quantity-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Изменения для кнопки "Добавить в корзину" */
+.pd-add-to-cart-btn {
+    background-color: #ff0000;  /* красный */
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pd-add-to-cart-btn:hover {
+    background-color: #333;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .pd-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .pd-slider-controls {
+        top: 50%; /* Поднимаем контролы */
+      }
+
+    .pd-slider-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    .pd-container{
+        margin-top: 2rem!important;
+    }
+}

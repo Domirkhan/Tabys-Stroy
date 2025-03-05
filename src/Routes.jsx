@@ -9,6 +9,7 @@ import About from './assets/Pages/About';
 import DeliveryPage from './assets/Pages/DeliveryPage';
 import PaymentPage from './assets/Pages/PaymentPage';
 import ContactsPage from './assets/Pages/ContactsPage';
+import ProductDetail from './assets/components/ProductDetail'; 
 
 function RouterApp() {
   return (
@@ -25,6 +26,9 @@ function RouterApp() {
 
         {/* Страница продукта */}
         <Route path="/product/:id" element={<ProductPage />} />
+
+        {/* Новый маршрут для детальной страницы товара */}
+        <Route path="/:category/:subCategory/:productName" element={<ProductDetail />} />
 
         {/* Прочие страницы */}
         <Route path="/about" element={<About />} />
