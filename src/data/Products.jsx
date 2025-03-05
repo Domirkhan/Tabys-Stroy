@@ -57,64 +57,117 @@ import KanalizaciaTruba from './Plumbing/Fiting/KanalizaciaTruba.jsx';
 
 import MuftaKan from './Plumbing/Fiting/MuftaKan.jsx';
 
+import UgolokMetal from './Plumbing/Fiting/UgolokMetal.jsx';
+
+import ObjimMuf from './Plumbing/Fiting/ObjimMuf.jsx';
+
+import Shtutser from './Plumbing/Fiting/Shtutser.jsx';
+
+import KranBox from './Plumbing/Fiting/KranBox.jsx';
+
+import Sifon from './Plumbing/Fiting/Sifon.jsx';
+
+import SifonVanna from './Plumbing/Fiting/SifonVanna.jsx';
+
+import SifonComplect from './Plumbing/Fiting/SifonComplect.jsx';
+
+import ShlangLeika from './Plumbing/Fiting/ShlangLeika.jsx';
+
+import ZaporArmatura from './Plumbing/Fiting/ZaporArmatura.jsx';
+
+import ShlangInOutDrain from './Plumbing/Fiting/ShlangInOutDrain.jsx';
+
+import TrossKanalizatsia from './Plumbing/Fiting/TrossKanalizatsia.jsx';
+
+import AccessoriesSanitary from './Plumbing/Fiting/AccessoriesSanitary.jsx';
+
+
 
 const Products = [
   //Сантехника
   //Трубы-1
   ...Trubi,
   //Фитинги
-  // отвод-2
-  ...Otvod,
-  // Полу отвод-3
-  ...PoluOtvod,
-  // Муфта-4
-  ...Mufta,
-  // Тройник-5
-  ...Troinik,
-  // Переходник-6
-  ...Perehodnik,
-  // Заглушка-7
-  ...Zaglushka,
-  // Клипса-8
-  ...klipsa,
-  // Тройник переходной-9
-  ...TroinikPerehodnoi,
-  // Мост-10
-  ...Most,
-  // Адаптер-11
-  ...Adapter,
-  // Кран шаровый-12
-  ...KranSharoviy,
-  // Вентиль запорный-13
-  ...VentilZaporniy,
-  // Крестовина-14
-  ...Krestovina,
-  // Муфта разъемная ВР-15
-  ...MuftaRazemnaya,
-  // Планка для смесителя-16
-  ...Planka,
-  // Отвод с креплением-17
-  ...OtvodSKrepleniem,
-  // Кран металл-18
-  ...KranMetall,
-  // Клапан бойлер-19
-  ...Klapan,
-  // Шланги смеситель, бочок-20
-  ...Shlang,
-  // Заглушки и переходники-21
-  ...ZaglushkaMetall,
-  // Ниппел-22
-  ...Nippel,
-  // Преходник-23
-  ...PerehodnikMetall,
-  // Муфта металл-24
-  ...MuftaMetall,
-  // Кран Маевского-25
-  ...KranMaevskogo,
-  // Канализация-26
-  ...KanalizaciaTruba,
-  // Муфта, отвод, тройник Канализация-27
-  ...MuftaKan,
+   // отвод-2
+   ...Otvod,
+   // Полу отвод-3
+   ...PoluOtvod,
+   // Муфта-4
+   ...Mufta,
+   // Тройник-5
+   ...Troinik,
+   // Переходник-6
+   ...Perehodnik,
+   // Заглушка-7
+   ...Zaglushka,
+   // Клипса-8
+   ...klipsa,
+   // Тройник переходной-9
+   ...TroinikPerehodnoi,
+   // Мост-10
+   ...Most,
+   // Адаптер-11
+   ...Adapter,
+   // Кран шаровый-12
+   ...KranSharoviy,
+   // Вентиль запорный-13
+   ...VentilZaporniy,
+   // Крестовина-14
+   ...Krestovina,
+   // Муфта разъемная ВР-15
+   ...MuftaRazemnaya,
+   // Планка для смесителя-16
+   ...Planka,
+   // Отвод с креплением-17
+   ...OtvodSKrepleniem,
+   // Кран металл-18
+   ...KranMetall,
+   // Клапан бойлер-19
+   ...Klapan,
+   // Шланги смеситель, бочок-20
+   ...Shlang,
+   // Заглушки и переходники-21
+   ...ZaglushkaMetall,
+   // Ниппел-22
+   ...Nippel,
+   // Преходник-23
+   ...PerehodnikMetall,
+   // Муфта металл-24
+   ...MuftaMetall,
+   // Кран Маевского-25
+   ...KranMaevskogo,
+   // Канализация-26
+   ...KanalizaciaTruba,
+   // Муфта, отвод, тройник Канализация-27
+   ...MuftaKan,
+  // Уголок, тройник металл -28
+  ...UgolokMetal,
+  // Обжимная муфта-29
+  ...ObjimMuf,
+  // Штуцер-30
+  ...Shtutser,
+  // Кранбукса-31
+  ...KranBox,
+  // Сифон-32
+  ...Sifon,
+  // Сифон для ванны-33
+  ...SifonVanna,
+  // Сифон комплект и др-34
+  ...SifonComplect,
+  //Шланги, лейки и др-35
+  ...ShlangLeika,
+  // Запорная Арматура-36
+  ...ZaporArmatura,
+  
+  // Шланги залив, дренаж и др-37
+  ...ShlangInOutDrain,
+  
+  // Тросс канализация-38
+  ...TrossKanalizatsia,
+  
+  // Аксессуары Санузел-39
+  ...AccessoriesSanitary,
+  
 ];
 
 export default Products;
