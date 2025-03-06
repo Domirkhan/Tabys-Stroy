@@ -1257,27 +1257,27 @@ function Header() {
                         {openSubCategory === 'floor-covering' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Ламинат" onClick={closeCatalog}>
+                              <Link to="/floor-coverings/Ламинат" onClick={closeCatalog}>
                                 Ламинат
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Линолеум" onClick={closeCatalog}>
+                              <Link to="/floor-coverings/Линолеум" onClick={closeCatalog}>
                                 Линолеум
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Напольные плинтусы" onClick={closeCatalog}>
+                              <Link to="/floor-coverings/Напольные плинтусы" onClick={closeCatalog}>
                                 Напольные плинтусы
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Комплектующие для плинтуса" onClick={closeCatalog}>
+                              <Link to="/floor-coverings/Комплектующие для плинтуса" onClick={closeCatalog}>
                                 Комплектующие для плинтуса
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Порожки для пола" onClick={closeCatalog}>
+                              <Link to="/floor-coverings/Порожки для пола" onClick={closeCatalog}>
                                 Порожки для пола
                               </Link>
                             </li>
@@ -1285,7 +1285,7 @@ function Header() {
                         )}
                       </li>
                       <li>
-                          <Link to="/Decor/Подложки" onClick={closeCatalog}>
+                          <Link to="/floor-coverings/Подложки" onClick={closeCatalog}>
                             Подложки
                           </Link>
                       </li>
@@ -1297,22 +1297,22 @@ function Header() {
                         {openSubCategory === 'tiles' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Напольная плитка" onClick={closeCatalog}>
+                              <Link to="/floor-coverings/Напольная плитка" onClick={closeCatalog}>
                                 Напольная плитка
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Керамическая плитка" onClick={closeCatalog}>
+                              <Link to="/floor-coverings/Керамическая плитка" onClick={closeCatalog}>
                                 Керамическая плитка
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Керамогранит" onClick={closeCatalog}>
+                              <Link to="/floor-coverings/Керамогранит" onClick={closeCatalog}>
                                 Керамогранит
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Бардюры" onClick={closeCatalog}>
+                              <Link to="/floor-coverings/Бардюры" onClick={closeCatalog}>
                                 Бардюры
                               </Link>
                             </li>
@@ -1342,22 +1342,22 @@ function Header() {
                         {openSubCategory === 'dry-mixes' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Штукатурки" onClick={closeCatalog}>
+                              <Link to="/building-materials/Штукатурки" onClick={closeCatalog}>
                                 Штукатурки
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Шпактлевки" onClick={closeCatalog}>
+                              <Link to="/building-materials/Шпактлевки" onClick={closeCatalog}>
                                 Шпактлевки
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Смеси для пола и цемент" onClick={closeCatalog}>
+                              <Link to="/building-materials/Смеси для пола и цемент" onClick={closeCatalog}>
                                 Смеси для пола и цемент
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Клеи и монтажно-кладочные смеси" onClick={closeCatalog}>
+                              <Link to="/building-materials/Клеи и монтажно-кладочные смеси" onClick={closeCatalog}>
                                 Клеи и монтажно-кладочные смеси
                               </Link>
                             </li>
@@ -1365,12 +1365,12 @@ function Header() {
                         )}
                       </li>
                       <li>
-                          <Link to="/Decor/Грунтовки и праймеры" onClick={closeCatalog}>
+                          <Link to="/building-materials/Грунтовки и праймеры" onClick={closeCatalog}>
                             Грунтовки и праймеры
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Штукатурные сетки, серпянки и профили" onClick={closeCatalog}>
+                          <Link to="/building-materials/Штукатурные сетки, серпянки и профили" onClick={closeCatalog}>
                             Штукатурные сетки, серпянки и профили
                           </Link>
                       </li>
@@ -1382,17 +1382,17 @@ function Header() {
                         {openSubCategory === 'sheet-materials' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Гипсокартоны" onClick={closeCatalog}>
+                              <Link to="/building-materials/Гипсокартоны" onClick={closeCatalog}>
                                 Гипсокартоны
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/ОСБ фанеры" onClick={closeCatalog}>
+                              <Link to="/building-materials/ОСБ фанеры" onClick={closeCatalog}>
                                 ОСБ фанеры
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Оргалит" onClick={closeCatalog}>
+                              <Link to="/building-materials/Оргалит" onClick={closeCatalog}>
                                 Оргалит
                               </Link>
                             </li>
@@ -1400,12 +1400,12 @@ function Header() {
                         )}
                       </li>
                       <li>
-                          <Link to="/Decor/Профиль для гипсокартона и аксессуары" onClick={closeCatalog}>
+                          <Link to="/building-materials/Профиль для гипсокартона и аксессуары" onClick={closeCatalog}>
                             Профиль для гипсокартона и аксессуары
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Теплоизоляция" onClick={closeCatalog}>
+                          <Link to="/building-materials/Теплоизоляция" onClick={closeCatalog}>
                             Теплоизоляция
                           </Link>
                       </li>
@@ -1425,17 +1425,17 @@ function Header() {
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
                       <li>
-                          <Link to="/Decor/Бетономешалки" onClick={closeCatalog}>
+                          <Link to="/construction-equipment/Бетономешалки" onClick={closeCatalog}>
                             Бетономешалки
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Тачки строительные" onClick={closeCatalog}>
+                          <Link to="/construction-equipment/Тачки строительные" onClick={closeCatalog}>
                             Тачки строительные
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Стремянка" onClick={closeCatalog}>
+                          <Link to="/construction-equipment/Стремянка" onClick={closeCatalog}>
                             Стремянка
                           </Link>
                       </li>
@@ -1462,27 +1462,27 @@ function Header() {
                         {openSubCategory === 'screws' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Саморезы для гипсокартон и дерева" onClick={closeCatalog}>
+                              <Link to="/hardware/Саморезы для гипсокартон и дерева" onClick={closeCatalog}>
                                 Саморезы для гипсокартон и дерева
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Саморезы кровельные" onClick={closeCatalog}>
+                              <Link to="/hardware/Саморезы кровельные" onClick={closeCatalog}>
                               Саморезы кровельные
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Саморезы по металу" onClick={closeCatalog}>
+                              <Link to="/hardware/Саморезы по металу" onClick={closeCatalog}>
                                 Саморезы по металу
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Саморезы с прессшайбой" onClick={closeCatalog}>
+                              <Link to="/hardware/Саморезы с прессшайбой" onClick={closeCatalog}>
                                 Саморезы с прессшайбой
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Монтажный шурупы" onClick={closeCatalog}>
+                              <Link to="/hardware/Монтажный шурупы" onClick={closeCatalog}>
                                 Монтажный шурупы
                               </Link>
                             </li>
@@ -1497,17 +1497,17 @@ function Header() {
                         {openSubCategory === 'Dowel-nails' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Распорные, фасадные и потайные" onClick={closeCatalog}>
+                              <Link to="/hardware/Распорные, фасадные и потайные" onClick={closeCatalog}>
                                 Распорные, фасадные и потайные
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Для гипсокартона и газобетона " onClick={closeCatalog}>
+                              <Link to="/hardware/Для гипсокартона и газобетона " onClick={closeCatalog}>
                                 Для гипсокартона и газобетона 
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Для теплоизоляции и универсальные" onClick={closeCatalog}>
+                              <Link to="/hardware/Для теплоизоляции и универсальные" onClick={closeCatalog}>
                                 Для теплоизоляции и универсальные
                               </Link>
                             </li>
@@ -1522,17 +1522,17 @@ function Header() {
                         {openSubCategory === 'anchors' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Анкеры клиновые, втулочные и забивные" onClick={closeCatalog}>
+                              <Link to="/hardware/Анкеры клиновые, втулочные и забивные" onClick={closeCatalog}>
                                 Анкеры клиновые, втулочные и забивные
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Анкеры клиновые, втулочные и забивные" onClick={closeCatalog}>
+                              <Link to="/hardware/Анкеры клиновые, втулочные и забивные" onClick={closeCatalog}>
                                 Анкеры клиновые, втулочные и забивные
                               </Link>
                             </li>
                             <li>
-                                <Link to="/Decor/Анкеры с кольцом, с крюком и шпильки резбовые" onClick={closeCatalog}>
+                                <Link to="/hardware/Анкеры с кольцом, с крюком и шпильки резбовые" onClick={closeCatalog}>
                                   Анкеры с кольцом, с крюком и шпильки резбовые
                                 </Link>
                             </li>
@@ -1540,32 +1540,32 @@ function Header() {
                         )}
                       </li>
                       <li>
-                          <Link to="/Decor/Болты, гайки и шайбы" onClick={closeCatalog}>
+                          <Link to="/hardware/Болты, гайки и шайбы" onClick={closeCatalog}>
                             Болты, гайки и шайбы
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Гвозди" onClick={closeCatalog}>
+                          <Link to="/hardware/Гвозди" onClick={closeCatalog}>
                             Гвозди
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Заклепки и крепежные наборы" onClick={closeCatalog}>
+                          <Link to="/hardware/Заклепки и крепежные наборы" onClick={closeCatalog}>
                             Заклепки и крепежные наборы
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Конфирматы" onClick={closeCatalog}>
+                          <Link to="/hardware/Конфирматы" onClick={closeCatalog}>
                             Конфирматы
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Перфорированные крепежные элементы" onClick={closeCatalog}>
+                          <Link to="/hardware/Перфорированные крепежные элементы" onClick={closeCatalog}>
                             Перфорированные крепежные элементы
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Хомуты и специальный крепеж" onClick={closeCatalog}>
+                          <Link to="/hardware/Хомуты и специальный крепеж" onClick={closeCatalog}>
                             Хомуты и специальный крепеж
                           </Link>
                       </li>
@@ -1585,17 +1585,17 @@ function Header() {
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
                       <li>
-                          <Link to="/Decor/Межкомнатные двери" onClick={closeCatalog}>
+                          <Link to="/doors/Межкомнатные двери" onClick={closeCatalog}>
                             Межкомнатные двери
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Гвозди" onClick={closeCatalog}>
+                          <Link to="/doors/Гвозди" onClick={closeCatalog}>
                             Гвозди
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Металлические входные двери" onClick={closeCatalog}>
+                          <Link to="/doors/Металлические входные двери" onClick={closeCatalog}>
                             Металлические входные двери
                           </Link>
                       </li>
@@ -1607,12 +1607,12 @@ function Header() {
                         {openSubCategory === 'door-handles' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Ручки для межкомнатных дверей" onClick={closeCatalog}>
+                              <Link to="/doors/Ручки для межкомнатных дверей" onClick={closeCatalog}>
                                 Ручки для межкомнатных дверей
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Ручки для металлических входных дверей" onClick={closeCatalog}>
+                              <Link to="/doors/Ручки для металлических входных дверей" onClick={closeCatalog}>
                               Ручки для металлических входных дверей
                               </Link>
                             </li>
@@ -1620,12 +1620,12 @@ function Header() {
                         )}
                       </li>
                       <li>
-                          <Link to="/Decor/Замки, комплектующие и аксессуары" onClick={closeCatalog}>
+                          <Link to="/doors/Замки, комплектующие и аксессуары" onClick={closeCatalog}>
                             Замки, комплектующие и аксессуары
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Фурнитура для дверей" onClick={closeCatalog}>
+                          <Link to="/doors/Фурнитура для дверей" onClick={closeCatalog}>
                             Фурнитура для дверей
                           </Link>
                       </li>
@@ -1652,12 +1652,12 @@ function Header() {
                         {openSubCategory === 'radiators' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Радиаторы отопления" onClick={closeCatalog}>
+                              <Link to="/heating/Радиаторы отопления" onClick={closeCatalog}>
                                 Радиаторы отопления
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Комлектующие и аксессуары" onClick={closeCatalog}>
+                              <Link to="/heating/Комлектующие и аксессуары" onClick={closeCatalog}>
                                 Комлектующие и аксессуары
                               </Link>
                             </li>
@@ -1665,7 +1665,7 @@ function Header() {
                         )}
                       </li>
                       <li>
-                          <Link to="/Decor/Отопительные котлы" onClick={closeCatalog}>
+                          <Link to="/heating/Отопительные котлы" onClick={closeCatalog}>
                             Отопительные котлы
                           </Link>
                       </li>
@@ -1677,17 +1677,17 @@ function Header() {
                         {openSubCategory === 'electric-heating' && (
                           <ul className="subsubcategory-list">
                             <li>
-                              <Link to="/Decor/Обогреватели, пушки, вентиляторы" onClick={closeCatalog}>
+                              <Link to="/heating/Обогреватели, пушки, вентиляторы" onClick={closeCatalog}>
                                 Обогреватели, пушки, вентиляторы
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Электр Теплыйе полы и терморегуляторы" onClick={closeCatalog}>
+                              <Link to="/heating/Электр Теплыйе полы и терморегуляторы" onClick={closeCatalog}>
                               Электр Теплыйе полы и терморегуляторы
                               </Link>
                             </li>
                             <li>
-                              <Link to="/Decor/Водяные теплые полы, коллекторы и насосы" onClick={closeCatalog}>
+                              <Link to="/heating/Водяные теплые полы, коллекторы и насосы" onClick={closeCatalog}>
                               Водяные теплые полы, коллекторы и насосы
                               </Link>
                             </li>
@@ -1695,7 +1695,7 @@ function Header() {
                         )}
                       </li>
                       <li>
-                          <Link to="/Decor/Полотенцесушители" onClick={closeCatalog}>
+                          <Link to="/heating/Полотенцесушители" onClick={closeCatalog}>
                             Полотенцесушители
                           </Link>
                       </li>
@@ -1715,17 +1715,17 @@ function Header() {
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
                       <li>
-                          <Link to="/Decor/Спецодежда и обувь" onClick={closeCatalog}>
+                          <Link to="/special-clothing/Спецодежда и обувь" onClick={closeCatalog}>
                               Спецодежда и обувь
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Перчатки и поясы" onClick={closeCatalog}>
+                          <Link to="/special-clothing/Перчатки и поясы" onClick={closeCatalog}>
                             Перчатки и поясы
                           </Link>
                       </li>
                       <li>
-                          <Link to="/Decor/Средства защиты и респираторы" onClick={closeCatalog}>
+                          <Link to="/special-clothing/Средства защиты и респираторы" onClick={closeCatalog}>
                             Средства защиты и респираторы
                           </Link>
                       </li>
