@@ -81,6 +81,32 @@ import TrossKanalizatsia from './Plumbing/Fiting/TrossKanalizatsia.jsx';
 
 import AccessoriesSanitary from './Plumbing/Fiting/AccessoriesSanitary.jsx';
 
+import GofraUnitaz from './Plumbing/Fiting/GofraUnitaz.jsx';
+
+import PrisoedinenieUnitaz from './Plumbing/Fiting/PrisoedinenieUnitaz.jsx';
+
+import FaucetSink from './Plumbing/Faucet/FaucetSink.jsx';
+
+import FaucetBath from './Plumbing/Faucet/FaucetBath.jsx';
+
+import FaucetKichen from './Plumbing/Faucet/FaucetKichen.jsx';
+
+import FaucetShower from './Plumbing/Faucet/FaucetShower.jsx';
+
+import FaucetBidet from './Plumbing/Faucet/FaucetBidet.jsx';
+
+import Toilet from './Plumbing/Toilet,Bidet/Toilet.jsx';
+
+import Bidet from './Plumbing/Toilet,Bidet/Bidet.jsx';
+
+import Shkaf from './Plumbing/Furniture/Shkaf.jsx';
+
+import ToolSets from './HandTools/ToolSets.jsx';
+
+import HandScrewdriver from './HandTools/HandScrewdriver.jsx';
+
+
+
 
 
 const Products = [
@@ -158,16 +184,42 @@ const Products = [
   ...ShlangLeika,
   // Запорная Арматура-36
   ...ZaporArmatura,
-  
   // Шланги залив, дренаж и др-37
   ...ShlangInOutDrain,
-  
   // Тросс канализация-38
   ...TrossKanalizatsia,
-  
   // Аксессуары Санузел-39
   ...AccessoriesSanitary,
-  
+  // Гофра для унитаза-40
+  ...GofraUnitaz,
+  // Присоединение к унитазу-41
+  ...PrisoedinenieUnitaz,
+  // Смесители
+   // Смеситель Раковина-42
+    ...FaucetSink,
+    // Смеситель Ванна-43
+    ...FaucetBath,
+    // Смеситель Кухня-44
+    ...FaucetKichen,
+    // Смеситель Душ-45
+    ...FaucetShower,
+    // Смеситель Биде-46
+    ...FaucetBidet,
+  // Унитазы и биде
+    // Унитазы-47
+    ...Toilet,
+    // Биде-48
+    ...Bidet,
+  // Мебель
+   // Shkaf-49
+   ...Shkaf,
+  // HandTools
+   // Набор инструмент-50
+   ...ToolSets,
+   // Отвертка-51
+   ...HandScrewdriver,
+
+
 ];
 
 export default Products;
