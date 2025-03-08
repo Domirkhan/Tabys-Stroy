@@ -84,7 +84,7 @@ function CartPage() {
       `Подробности заказа: ${fullOrderLink}`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/905349362979?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/77782673976?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
 
     clearCart();

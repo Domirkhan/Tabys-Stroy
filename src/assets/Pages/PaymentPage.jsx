@@ -21,7 +21,7 @@ function PaymentPage() {
           <div className="payment-method-page">
             <h2>Оплата через WhatsApp</h2>
             <p>Свяжитесь с нами в WhatsApp для уточнения деталей и перевода.</p>
-            <a href="https://wa.me/905349362979" className="whatsapp-button">Написать в WhatsApp</a>
+            <a href="https://wa.me/+77782673976" className="whatsapp-button">Написать в WhatsApp</a>
           </div>
           <div className="payment-method">
             <h2>Перевод на номер Kaspi</h2>
