@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import BackButton from '../components/BackButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/Header.css';
@@ -89,6 +90,7 @@ function Header() {
       <header className="header">
         <div className="header-top">
           <div className="container">
+            <BackButton />
             <div className="catalog-btn" onClick={toggleCatalog}>
               <img
                 src={Menu}

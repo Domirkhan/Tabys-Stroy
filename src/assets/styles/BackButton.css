@@ -1,0 +1,12 @@
+.back-button {
+  background-color: transparent;
+  color: #ff0000;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #cc0000;
+}
