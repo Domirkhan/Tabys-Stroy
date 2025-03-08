@@ -37,14 +37,15 @@ function Footer() {
             <h3>Контакты</h3>
             <div className="footer-contacts">
               <div className="footer-phones">
-                <a href="tel:+77054541349">+7(705) 454-13-49</a>
-                <a href="tel:+77054541349">+7(705) 454-13-49</a>
+                <a href="https://wa.me/+905349362979">Жезказган</a>
+                <a href="https://wa.me/+77082621972">Сатпаев</a>
               </div>
               <p className="footer-address">г. Жезказган, ул. Алашахана, 8</p>
+              <p className="footer-address">г. Сатпаев, проспект Независимости, 25А</p>
               <div className="social-links">
-                <a href="https://wa.me/+77054541349" className="social-link whatsapp"></a>
+                <a href="https://wa.me/+905349362979" className="social-link whatsapp"></a>
                 <a href="https://instagram.com/tabys_stroy" className="social-link instagram"></a>
-                <a href="https://t.me/+77054541349" className="social-link telegram"></a>
+                <a href="https://t.me/+905349362979" className="social-link telegram"></a>
               </div>
             </div>
           </div>

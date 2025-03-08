@@ -21,13 +21,19 @@ function ContactsPage() {
           <p>Свяжитесь с нами удобным для вас способом:</p>
           <div className="contact-info">
             <p>
-              <img src={Whatsapp} alt="WhatsApp" className="icon" /> WhatsApp: <a href="https://wa.me/+77000000000">+7 (700) 000-00-00</a>
+              <img src={Whatsapp} alt="WhatsApp" className="icon" /> WhatsApp - Жезказган: <a href="https://wa.me/905349362979">+90(534) 936-29-79</a>
+            </p>
+            <p>
+              <img src={Whatsapp} alt="WhatsApp" className="icon" /> WhatsApp - Сатпаев: <a href="https://wa.me/77082621972">+7(708) 262-19-72</a>
             </p>
             <p>
               <img src={Instagram} alt="Instagram" className="icon" /> Instagram: <a href="https://www.instagram.com/tabys_stroy" target="_blank" rel="noopener noreferrer">@tabys_stroy</a>
             </p>
             <p>
-              <img src={Phone} alt="Телефон" className="icon" /> Телефон: <a href="tel:+77000000000">+7 (700) 000-00-00</a>
+              <img src={Phone} alt="Телефон" className="icon" /> Телефон - Жезказган: <a href="tel:+905349362979">+90(534) 936-29-79</a>
+            </p>
+            <p>
+              <img src={Phone} alt="Телефон" className="icon" /> Телефон - Сатпаев: <a href="tel:+77082621972">+7(708) 262-19-72</a>
             </p>
             <p>
               <img src={Email} alt="Email" className="icon" /> Email: <a href="mailto:info@tabys-stroy.kz">info@tabys-stroy.kz</a>

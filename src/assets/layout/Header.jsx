@@ -158,7 +158,7 @@ function Header() {
               <Link to="/contacts">Контакты</Link>
             </nav>
             <div className="lang-phone">
-              <a href="tel:+78008008080" className="phone">+7(705) 454-13-49</a>
+              <a href="tel:+905349362979" className="phone">+90(534) 936-29-79</a>
             </div>
           </div>
         </div>
