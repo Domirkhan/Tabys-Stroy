@@ -105,7 +105,12 @@ import ToolSets from './HandTools/ToolSets.jsx';
 
 import HandScrewdriver from './HandTools/HandScrewdriver.jsx';
 
+import Plier from './HandTools/Plier.jsx';
 
+//Аксесуары для электроинтрументов
+import Nabor from './PowerToolsAccesories/Биты и наворы бит/Nabor.jsx';
+
+import Buri from './PowerToolsAccesories/Буры пики и зубила/Buri.jsx';
 
 
 
@@ -213,12 +218,19 @@ const Products = [
   // Мебель
    // Shkaf-49
    ...Shkaf,
+   
   // HandTools
    // Набор инструмент-50
    ...ToolSets,
    // Отвертка-51
    ...HandScrewdriver,
+   // Плоскогубцы Пасатижы-52
+   ...Plier,
+  
+   //Акссесуары для электроинструментов
+  ...Nabor,
 
+  ...Buri,
 
 ];
 
