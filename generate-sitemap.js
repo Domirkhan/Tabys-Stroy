@@ -8,7 +8,7 @@ const links = [
   { url: '/about', changefreq: 'monthly', priority: 0.6 }
 ];
 
-const sitemapStream = new SitemapStream({ hostname: 'https://yourwebsite.com' });
+const sitemapStream = new SitemapStream({ hostname: 'https://tabys-stroy.kz' });
 const writeStream = createWriteStream('./public/sitemap.xml');
 
 // Запись данных в файл
