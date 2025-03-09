@@ -100,7 +100,7 @@ function Header() {
             </div>
             <div className="logo">
             <img className='logotipe' src={Logo} alt="" />
-              <a href="/Tabys-Stroy/">TABYS STROY</a>
+              <a href="/">TABYS STROY</a>
             </div>
             <div className="search" style={{ position: "relative" }}>
               <input

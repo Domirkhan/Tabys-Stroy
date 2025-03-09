@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import CartPage from './assets/Pages/CartPage';
 import CategoryPage from './assets/Pages/CategoryPage';
@@ -13,7 +13,7 @@ import ProductDetail from './assets/components/ProductDetail';
 
 function RouterApp() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         {/* Главная страница */}
         <Route path="/" element={<App />} />
@@ -41,7 +41,7 @@ function RouterApp() {
         <Route path="/:category/:subCategory" element={<CategoryPage />} />
         <Route path="/:category" element={<CategoryPage />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
