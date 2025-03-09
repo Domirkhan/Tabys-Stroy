@@ -34,8 +34,8 @@ const manifest = {
     "dir":"auto",
     "lang":"ru",
     "name":"Tabys Stroy",
-    "short_name":"Tabys",
-    "start_url":"tabys-stroy.kz"
+    "short_name":"Tabys Stroy",
+    "start_url":"/"
 };
 
 export default defineConfig({
