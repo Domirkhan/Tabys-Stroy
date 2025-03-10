@@ -827,7 +827,7 @@ function Header() {
             {/* Категория "Стройматериалы" */}
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'building-materials' ? 'open' : ''}`}>
-                <div className="category-header" onClick={() => toggleCategory('building-materials')}>\
+                <div className="category-header" onClick={() => toggleCategory('building-materials')}>
                   <img src={buildingIcon} alt="Стройматериалы" className='icon' />
                   <span className="category-title">Стройматериалы</span>
                   <span className="arrow">{openCategory === 'building-materials' ? '▲' : '▼'}</span>
