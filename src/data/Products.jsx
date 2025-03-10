@@ -108,9 +108,54 @@ import HandScrewdriver from './HandTools/HandScrewdriver.jsx';
 import Plier from './HandTools/Plier.jsx';
 
 //Аксесуары для электроинтрументов
-import Nabor from './PowerToolsAccesories/Биты и наворы бит/Nabor.jsx';
+import Bita from './PowerToolsAccesories/Bita.jsx';
 
-import Buri from './PowerToolsAccesories/Буры пики и зубила/Buri.jsx';
+import BurPika from './PowerToolsAccesories/BurPika.jsx';
+
+import Sverlo from './PowerToolsAccesories/Sverlo.jsx';
+
+import Disk from './PowerToolsAccesories/Diski.jsx';
+
+import Koronki from './PowerToolsAccesories/Koronki.jsx'; 
+
+import ShlifNasadka from './PowerToolsAccesories/ShlifNasadka.jsx';
+
+import Pilki from './PowerToolsAccesories/Pilki.jsx';
+
+import ProchiPowertoolAccessories from './PowerToolsAccesories/ProchiPowertoolAccessories.jsx';
+import DrillScrewdriver from './PowerTools/DrillScrewdriver.jsx';
+
+import PerforatorOtboinik from './PowerTools/PerforatorOtboinik.jsx';
+
+import BolgarkaCirkkrug from './PowerTools/BolgarkaCirkkrug.jsx';
+
+import Shlifmashina from './PowerTools/Shlifmashina.jsx';
+
+import FrezerGraverTochilka from './PowerTools/FrezerGraverTochilka.jsx';
+
+import LobzikPila from './PowerTools/LobzikPila.jsx';
+
+import Kraskapult from './PowerTools/Kraskapult.jsx';
+
+import Fen from './PowerTools/Fen.jsx';
+
+import MixerVibrator from './PowerTools/MixerVibrator.jsx';
+
+import Shtroborez from './PowerTools/Shtroborez.jsx';
+
+import Svarkaapparat from './PowerTools/Svarkaapparat.jsx';
+
+import Minimoika from './PowerTools/MinimoikaPylesos.jsx';
+
+import Pushka from './PowerTools/Pushka.jsx';
+
+import Compressor from './PowerTools/Compressor.jsx';
+
+import Pnevmostepler from './PowerTools/Pnevmostepler.jsx';
+
+import ProchiePowertools from './PowerTools/ProchiePowertools.jsx';
+
+
 
 
 
@@ -227,11 +272,57 @@ const Products = [
    // Плоскогубцы Пасатижы-52
    ...Plier,
   
-   //Акссесуары для электроинструментов
-  ...Nabor,
+  //Акссесуары для электроинструментов
+   // Бита-53
+   ...Bita,
+   // Бур Пика-54
+   ...BurPika,
+   // Сверло-55
+   ...Sverlo,
+   // Диски-56
+   ...Disk,
+   // Коронки-57
+   ...Koronki,
+   // ШлифНасадка-58
+   ...ShlifNasadka,
+   // Пилки-59
+   ...Pilki,
+   // ПрочийАксессуарЭлектроинструмет-60
+   ...ProchiPowertoolAccessories,
 
-  ...Buri,
-
+  //Электроинструменты
+   // Дрель Шуруповерт
+   ...DrillScrewdriver,
+   // Перфоратор Отбойник-61
+   ...PerforatorOtboinik,
+   // Болгарка Арматурорез ЦиркКруг-62
+   ...BolgarkaCirkkrug,
+   // Шлифмашины-63
+   ...Shlifmashina,
+   // Фрезер Гравер Точилка-64
+   ...FrezerGraverTochilka,
+   // Электролобзик Электропила-65
+   ...LobzikPila,
+   // Краскопульт-66
+   ...Kraskapult,
+   //Фен-67
+   ...Fen,
+   // Миксер Вибратор-68
+   ...MixerVibrator,
+   // Штроборез-69
+   ...Shtroborez,
+   // Сварочный аппарат-70
+   ...Svarkaapparat,
+   //Минимойка Пылесос-71
+   ...Minimoika,
+   // Пушки-72
+   ...Pushka,
+   // Компрессор-73
+   ...Compressor,
+   // Пневмостеплер-74
+   ...Pnevmostepler,
+   // Прочие Электромнструменты-75
+   ...ProchiePowertools,
 ];
 
 export default Products;

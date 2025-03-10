@@ -2,7 +2,7 @@ import PlierExpertImage1 from '../../assets/image/HandTools/Плоскогубц
 
 
 const Plier = [
-    //  Плоскогубцы, Пасатижы
+    //  Плоскогубцы Пасатижы
                         {
                             id: 52.1,
                             name:  "Плоскогубцы Эксперт 51401-180 180мм",
@@ -16,7 +16,7 @@ const Plier = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Плоскогубцы и пасатижы", // Подкатегория
+                            subCategory: "Плоскогубцы и пасатижи", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
 ];

@@ -1,16 +1,16 @@
-import PlierExpertImage1 from '../../../assets/image/HandTools/Плоскогубцы Пасатижи/2.3.1.1.jpg';
+import BurImage1 from '../../assets/image/PowerToolAccessories/Бур Пика/4.3.1.1.1.jpg';
 
 
-const Buri =[
+const BurPika =[
     {
-        id: 200,
-        name:  "Плоскогубцы Эксперт 51401-180 180мм",
+        id: 54.1,
+        name:  "Бур по бетону 6*110 Сибртех 70552",
         pricePerUnit: {
-            шт: 2850,
+            шт: 260,
             },
-        // oldPrice: 2850,
-        image: PlierExpertImage1,
-        images: [PlierExpertImage1],
+        // oldPrice: 260,
+        image: BurImage1,
+        images: [BurImage1],
         // description: "Краска для окон и дверей Dulux",
         detailedDescription: "",
         specifications: { },
@@ -20,4 +20,4 @@ const Buri =[
     },
 ]
 
-export default Buri;
+export default BurPika;
