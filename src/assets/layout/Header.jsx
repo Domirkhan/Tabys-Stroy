@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import BackButton from '../components/BackButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/Header.css';
@@ -89,6 +90,7 @@ function Header() {
       <header className="header">
         <div className="header-top">
           <div className="container">
+            <BackButton />
             <div className="catalog-btn" onClick={toggleCatalog}>
               <img
                 src={Menu}
@@ -98,7 +100,7 @@ function Header() {
             </div>
             <div className="logo">
             <img className='logotipe' src={Logo} alt="" />
-              <a href="/Tabys-Stroy/">TABYS STROY</a>
+              <a href="/">TABYS STROY</a>
             </div>
             <div className="search" style={{ position: "relative" }}>
               <input
@@ -158,7 +160,7 @@ function Header() {
               <Link to="/contacts">Контакты</Link>
             </nav>
             <div className="lang-phone">
-              <a href="tel:+78008008080" className="phone">+7(705) 454-13-49</a>
+              <a href="tel:+77782673976" className="phone">+7(778) 267-39-76</a>
             </div>
           </div>
         </div>

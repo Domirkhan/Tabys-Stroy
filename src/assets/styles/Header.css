@@ -12,7 +12,7 @@
 }
 
 .header-top, .header-bottom {
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .header-top .container {
@@ -88,11 +88,11 @@
 
 
 .cart-count {
-    background-color: #333;
-    color: white;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
+    color: black;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 
 .header-bottom {
@@ -406,6 +406,7 @@
     margin: 10px 0 0;
 }
 .arrow {
+    color: #333;
     font-size: 12px;
 }
 .subcategory-list a {
@@ -461,6 +462,9 @@
     }
     .header-top .container{
         gap: 10px;
+    }
+    .close-btn{
+        top: auto;
     }
 }
 @media (max-width: 600px) {

@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./public/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabys Stroy</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://tabys-stroy.kz/logo.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="https://tabys-stroy.kz/logo.png">
+    <link rel="shortcut icon" href="https://tabys-stroy.kz/favicon.ico" type="image/x-icon">
+
+    <!-- SEO -->
     <meta name="description" content="Tabys Stroy — магазин строительных и отделочных материалов в Улытауском области. Широкий выбор товаров для ремонта, инструменты, краски, сантехника, электрика и многое другое. Доставляем в Жезказган и Сатпаев. Качественные стройматериалы по лучшим ценам!" />
-    <meta name="keywords" content="строительные материалы, Жезказган, Сатпаев, Улытауская область, ремонт, отделка, инструменты, сантехника, краски, электрика, строймагазин, Tabys Stroy" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Tabys Stroy" />
-    <meta property="og:description" content="Tabys Stroy — магазин строительных и отделочных материалов в Улытауском области. Широкий выбор товаров для ремонта, инструменты, краски, сантехника, электрика и многое другое. Доставляем в Жезказган и Сатпаев. Качественные стройматериалы по лучшим ценам!" />
-    <meta property="og:url" content="https://tabys_stroy.kz" />
-    <meta property="og:image" content="/public/logo.png" />
-    <script type="text/javascript">
-      (function(l) {
-        if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
+    <meta name="keywords" content="строительные материалы, Жезказган, Сатпаев, Улытауская область, ремонт, отделка, инструменты, сантехника, краски, электрика, строймагазин, Tabys Stroy , Табыс Строй" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tabys Stroy">
+    <meta property="og:description" content="Tabys Stroy — магазин строительных и отделочных материалов в Улытауском области. Широкий выбор товаров для ремонта, инструменты, краски, сантехника, электрика и многое другое. Доставляем в Жезказган и Сатпаев. Качественные стройматериалы по лучшим ценам! Табыс Строй">
+    <meta property="og:url" content="https://tabys-stroy.kz">
+    <meta property="og:image" content="https://tabys-stroy.kz/logo.png">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Tabys Stroy",
+        "url": "https://tabys-stroy.kz",
+        "logo": "https://tabys-stroy.kz/logo.png"
+      }
     </script>
-  </head>
-  <body>
+
+    <script>
+        (function(l) {
+            if (l.search[1] === '/') {
+                var decoded = l.search.slice(1).split('&').map(function(s) {
+                    return s.replace(/~and~/g, '&');
+                }).join('?');
+                window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+            }
+        }(window.location));
+    </script>
+</head>
+<body>
     <div id="root"></div>
     <script type="module" src="./src/main.jsx"></script>
-  </body>
+</body>
 </html>

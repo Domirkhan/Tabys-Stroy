@@ -167,6 +167,9 @@
   
   /* Адаптивные стили для мобильных устройств */
   @media (max-width: 768px) {
+    .about-card ul{
+      font-size: 0.6rem;
+    }
     .about-info {
       position: relative;
       background-image: url('https://avatars.mds.yandex.net/i?id=d2bfa18f22b4f6fc245acf8a0a81b713_l-6890988-images-thumbs&n=13'); /* Указываем URL изображения */
@@ -211,6 +214,7 @@
     }
   
     .about-grid {
+      margin-bottom: 2rem;
       grid-template-columns: 1fr;
       gap: 2rem;
     }
