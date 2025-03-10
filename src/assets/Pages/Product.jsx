@@ -12,7 +12,7 @@ function Product() {
   const sliderRef = useRef(null);
 
   // IDs товаров, которые нужно отобразить в слайдере
-  const productIds = [1.1, 1.2, 1.3, 1.4, 1.5]; // замените на нужные ID
+  const productIds = [1.1, 1.2, 1.3, 1.4, 1.5, 49.1, 49.2, 49.3]; // замените на нужные ID
   const filteredProducts = Products.filter(product => productIds.includes(product.id));
 
   const settings = {
@@ -20,14 +20,14 @@ function Product() {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     arrows: false,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
           infinite: true,
           dots: true
         }
@@ -36,7 +36,7 @@ function Product() {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
           initialSlide: 2
         }
       },
@@ -44,7 +44,7 @@ function Product() {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1
+          slidesToScroll: 2
         }
       }
     ]

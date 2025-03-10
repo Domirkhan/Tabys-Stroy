@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react-swc'
 import { VitePWA } from 'vite-plugin-pwa'
 
 const manifest = {
-  "theme_color":"#ff0000",
+  "theme_color":"#ffffff",
   "background_color":"#ffffff",
   "icons":[{"purpose":"maskable",
     "sizes":"512x512",

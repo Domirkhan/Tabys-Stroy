@@ -4,6 +4,7 @@ import '../../assets/styles/CartPage.css';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import Deletebtn from '../../assets/icon/delete.png';
+import cartIcon from "../../assets/icon/cart-2.png";
 import { Helmet } from 'react-helmet-async';
 
 function CartPage() {
@@ -101,7 +102,10 @@ function CartPage() {
           <div className="cart-page container">
             <h1 className="section-title-category">Корзина</h1>
             {cartItems.length === 0 ? (
-              <div className="empty-cart">В корзине нет товаров</div>
+              <div className="empty-cart">
+                <img src={cartIcon} alt="cart" />
+                В корзине нет товаров
+                </div>
             ) : (
               <form onSubmit={handleOrderSubmit}>
                 <Section title="1. Ваша корзина" isOpen={isCartOpen} toggle={() => setIsCartOpen(!isCartOpen)}>

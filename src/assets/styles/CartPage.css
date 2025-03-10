@@ -28,6 +28,7 @@
 
 /* Пустая корзина */
 .empty-cart {
+  margin-top: 5rem;
   text-align: center;
   font-size: 1.5rem;
   color: #333;
@@ -35,6 +36,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.empty-cart img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 /* Секция с анимацией сворачивания */
@@ -354,6 +362,7 @@
     justify-content: flex-start; /* Контент начинается сверху */
   }
   .cart-page.container {
+    margin-top: 4rem !important;
     order: -1; /* Помещаем контент в начало */
   }
   .cart-title {
@@ -381,5 +390,8 @@
 
   .cart-item-bottom {
     align-items: flex-start; /* Выравниваем элементы по началу */
+  }
+  .empty-cart {
+    margin-top: 0;
   }
 }

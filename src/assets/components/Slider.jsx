@@ -45,12 +45,12 @@ function Slider() {
           </div>
         </div>
       ))}
-      <button className="prev" onClick={goToPrevious}>
+      {/* <button className="prev" onClick={goToPrevious}>
         &#10094;
       </button>
       <button className="next" onClick={goToNext}>
         &#10095;
-      </button>
+      </button> */}
       <div className="dots">
         {slides.map((_, index) => (
           <span
