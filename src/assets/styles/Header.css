@@ -332,6 +332,7 @@
 }
 
 .catalog-sidebar h2{
+    font-size: 1rem;
     color: #ff0000;
     margin-bottom: 10px;
 }
@@ -352,7 +353,12 @@
     list-style: none;
     padding: 0;
 }
-
+.category-title{
+    margin-right: auto;
+}
+.icon{
+    margin-right: 1rem;
+}
 .category-item {
     cursor: pointer;
     padding: 10px 0;
