@@ -113,6 +113,7 @@ function Header() {
               <img
                 src={Menu}
                 alt="menu"
+                className='menu'
               />
               <span>Каталог</span>
             </div>
@@ -157,7 +158,7 @@ function Header() {
             </div>
             <div className="header-actions">
               <Link to="/cart" className="cart">
-                <img src={cartIcon} alt="cart" />
+                <img src={cartIcon} alt="cart" className='cart-icon'/>
                 <span className="cart-count">{totalQuantity}</span>
               </Link>
             </div>
