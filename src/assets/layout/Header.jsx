@@ -241,7 +241,7 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/plumbing/Раковины" onClick={closeCatalog}>
+                        <Link to="/plumbing/Сифон, гофра и шланги" onClick={closeCatalog}>
                           Сифон, гофра и шланги
                         </Link>
                       </li>
