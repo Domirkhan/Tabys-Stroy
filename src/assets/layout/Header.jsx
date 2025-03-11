@@ -8,6 +8,24 @@ import Products from "../../data/Products";
 import Logo from "../icon/logo.png"
 import Menu from "../icon/menu.png"
 
+//icons
+import plumbingIcon from "../../assets/icon/plumbing.png";
+import toolsIcon from "../../assets/icon/tools.png";
+import powerToolsIcon from "../../assets/icon/power-tools.png";
+import accessoriesIcon from "../../assets/icon/accessories.png";
+import gasIcon from "../../assets/icon/gas.png";
+import electricalIcon from "../../assets/icon/electrical.png";
+import lightingIcon from "../../assets/icon/lighting.png";
+import decorIcon from "../../assets/icon/Decor.png";
+import paintIcon from "../../assets/icon/paint.png";
+import floorIcon from "../../assets/icon/floor.png";
+import buildingIcon from "../../assets/icon/building.png";
+import constructionIcon from "../../assets/icon/construction.png";
+import hardwareIcon from "../../assets/icon/hardware.png";
+import doorsIcon from "../../assets/icon/doors.png";
+import heatingIcon from "../../assets/icon/heating.png";
+import specialIcon from "../../assets/icon/special.png";
+
 function Header() {
   const { cartItems } = useContext(CartContext);
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -175,6 +193,7 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'plumbing' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('plumbing')}>
+                  <img src={plumbingIcon} alt="Сантехника" className='icon'/>
                   <span className="category-title">Сантехника</span>
                   <span className="arrow">{openCategory === 'plumbing' ? '▲' : '▼'}</span>
                 </div>
@@ -192,8 +211,8 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/plumbing/Шланги" onClick={closeCatalog}>
-                          Шланги
+                        <Link to="/plumbing/Шланги для смесителей и унитаза" onClick={closeCatalog}>
+                          Шланги для смесителей и унитаза
                         </Link>
                       </li>
                       <li>
@@ -202,8 +221,8 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/plumbing/Канализация" onClick={closeCatalog}>
-                          Канализация
+                        <Link to="/plumbing/Канализационные трубы и комплектующие" onClick={closeCatalog}>
+                          Канализационные трубы и комплектующие
                         </Link>
                       </li>
                       <li>
@@ -223,17 +242,22 @@ function Header() {
                       </li>
                       <li>
                         <Link to="/plumbing/Раковины" onClick={closeCatalog}>
-                          Раковины
+                          Сифон, гофра и шланги
                         </Link>
                       </li>
                       <li>
-                        <Link to="/plumbing/Зеркала" onClick={closeCatalog}>
-                          Зеркала
+                        <Link to="/plumbing/Переходники, ниппеля" onClick={closeCatalog}>
+                          Переходники, ниппеля
                         </Link>
                       </li>
                       <li>
                         <Link to="/plumbing/Смесители для ванной и кухни" onClick={closeCatalog}>
                           Смесители для ванной и кухни
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/plumbing/Аксессуары для ванной" onClick={closeCatalog}>
+                          Аксессуары для ванной
                         </Link>
                       </li>
                     </ul>
@@ -245,6 +269,7 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'tools' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('tools')}>
+                  <img src={toolsIcon} alt="Инструменты" className='icon' />
                   <span className="category-title">Инструменты</span>
                   <span className="arrow">{openCategory === 'tools' ? '▲' : '▼'}</span>
                 </div>
@@ -267,63 +292,33 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/tools/Гаичные ключи" onClick={closeCatalog}>
-                          Гаичные ключи
+                        <Link to="/tools/Столярные инструменты" onClick={closeCatalog}>
+                          Столярные инструменты
                         </Link>
                       </li>
                       <li>
-                        <Link to="/tools/Головки и торцевые" onClick={closeCatalog}>
-                          Головки и торцевые
+                        <Link to="/tools/Малярные инструменты" onClick={closeCatalog}>
+                          Малярные инструменты
                         </Link>
                       </li>
                       <li>
-                        <Link to="/tools/Ножи строительные" onClick={closeCatalog}>
-                          Ножи строительные
+                        <Link to="/tools/Бокорезы, кабелерезы, тросорезы" onClick={closeCatalog}>
+                          Бокорезы, кабелерезы, тросорезы
                         </Link>
                       </li>
                       <li>
-                        <Link to="/tools/Ножницы" onClick={closeCatalog}>
-                          Ножницы
+                        <Link to="/tools/Ножи и ожницы" onClick={closeCatalog}>
+                          Ножи и ожницы
                         </Link>
                       </li>
                       <li>
-                        <Link to="/tools/Бокорезы и кусачки" onClick={closeCatalog}>
-                          Бокорезы и кусачки
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/tools/Болторезы" onClick={closeCatalog}>
-                          Болторезы
+                        <Link to="/tools/Ключи и головки" onClick={closeCatalog}>
+                          Ключи и головки
                         </Link>
                       </li>
                       <li>
                         <Link to="/tools/Пилы и ножовки" onClick={closeCatalog}>
                           Пилы и ножовки
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/tools/Молотки" onClick={closeCatalog}>
-                          Молотки
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/tools/Кувалды" onClick={closeCatalog}>
-                          Кувалды
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/tools/Ломы и гвоздодеры" onClick={closeCatalog}>
-                          Ломы и гвоздодеры
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/tools/Кирки и лопаты" onClick={closeCatalog}>
-                          Кирки и лопаты
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/tools/Столярные инструменты" onClick={closeCatalog}>
-                          Столярные инструменты
                         </Link>
                       </li>
                       <li>
@@ -342,8 +337,18 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/tools/Кабелерезы и тросорезы" onClick={closeCatalog}>
-                          Кабелерезы и тросорезы
+                        <Link to="/tools/Молоток и кувалда" onClick={closeCatalog}>
+                          Молоток и кувалда
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/tools/Ломы и гвоздодеры" onClick={closeCatalog}>
+                          Ломы и гвоздодеры
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/tools/Кирки, лопаты и грабли" onClick={closeCatalog}>
+                          Кирки, лопаты и грабли
                         </Link>
                       </li>
                     </ul>
@@ -355,6 +360,7 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'power-tools' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('power-tools')}>
+                  <img src={powerToolsIcon} alt="Электроинструменты" className='icon' />
                   <span className="category-title">Электроинструменты</span>
                   <span className="arrow">{openCategory === 'power-tools' ? '▲' : '▼'}</span>
                 </div>
@@ -367,13 +373,18 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Перфораторы" onClick={closeCatalog}>
-                          Перфораторы
+                        <Link to="/power-tools/Перфораторы отбойные молотки" onClick={closeCatalog}>
+                          Перфораторы и отбойные молотки
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Болгарки" onClick={closeCatalog}>
-                          Болгарки
+                        <Link to="/power-tools/Болгарки и арматурорезы" onClick={closeCatalog}>
+                          Болгарки и арматурорезы
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/power-tools/Кафелерезы" onClick={closeCatalog}>
+                          Кафелерезы
                         </Link>
                       </li>
                       <li>
@@ -382,73 +393,18 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Фризеры" onClick={closeCatalog}>
-                          Фризеры
+                        <Link to="/power-tools/Фрезеры и граверы" onClick={closeCatalog}>
+                          Фрезеры и граверы
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Электролобзики" onClick={closeCatalog}>
-                          Электролобзики
+                        <Link to="/power-tools/Электролобзики и электропилы" onClick={closeCatalog}>
+                          Электролобзики и электропилы
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Электрорубанки" onClick={closeCatalog}>
-                          Электрорубанки
-                        </Link>
-                      </li>
-                      <li className={`subcategory-item ${openSubCategory === 'electric-saws' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('electric-saws')}>
-                          <span>Электропилы</span>
-                          <span className="arrow">{openSubCategory === 'electric-saws' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'electric-saws' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/power-tools/Электропилы" onClick={closeCatalog}>
-                                Электропилы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tools/Стабильные пилы" onClick={closeCatalog}>
-                                Стабильные пилы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tools/Торцевые пилы" onClick={closeCatalog}>
-                                Торцевые пилы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tools/Церкулярные пилы" onClick={closeCatalog}>
-                                Церкулярные пилы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tools/ Монтажные пилы" onClick={closeCatalog}>
-                                Монтажные пилы
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
-                      </li>
-                      <li>
-                        <Link to="/power-tools/Граверы" onClick={closeCatalog}>
-                          Граверы
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tools/Реноваторы" onClick={closeCatalog}>
-                          Реноваторы
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tools/Краскопульты электрические" onClick={closeCatalog}>
-                          Краскопульты электрические
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tools/Гайкаверты" onClick={closeCatalog}>
-                          Гайкаверты
+                        <Link to="/power-tools/Краскапульты электрические" onClick={closeCatalog}>
+                          Краскапульты электрические
                         </Link>
                       </li>
                       <li>
@@ -457,8 +413,8 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Миксеры" onClick={closeCatalog}>
-                          Миксеры
+                        <Link to="/power-tools/Миксеры и вибратор" onClick={closeCatalog}>
+                          Миксеры и вибратор
                         </Link>
                       </li>
                       <li>
@@ -467,38 +423,13 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Отбойные молотки" onClick={closeCatalog}>
-                          Отбойные молотки
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tools/Арматурорезы" onClick={closeCatalog}>
-                          Арматурорезы 
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tools/Точильные станки" onClick={closeCatalog}>
-                          Точильные станки  
-                        </Link>
-                      </li>
-                      <li>
                         <Link to="/power-tools/Пневмостеплер" onClick={closeCatalog}>
-                          Пневмостеплер 
+                          Пневмостеплер
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Вибратор " onClick={closeCatalog}>
-                          Вибратор 
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tools/Сварочные аппараты" onClick={closeCatalog}>
-                          Сварочные аппараты
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tools/Ножницы и баранострижеры электрические" onClick={closeCatalog}>
-                          Ножницы и баранострижеры электрические
+                        <Link to="/power-tools/Сверочные аппараты" onClick={closeCatalog}>
+                          Сверочные аппараты
                         </Link>
                       </li>
                       <li>
@@ -513,11 +444,11 @@ function Header() {
                       </li>
                       <li>
                         <Link to="/power-tools/Компрессоры" onClick={closeCatalog}>
-                          Компрессоры 
+                          Компрессоры
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/other-Прочие электроинструменты" onClick={closeCatalog}>
+                        <Link to="/power-tools/Прочие электроинструменты" onClick={closeCatalog}>
                           Прочие электроинструменты 
                         </Link>
                       </li>
@@ -530,235 +461,46 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'power-tool-accessories' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('power-tool-accessories')}>
+                  <img src={accessoriesIcon} alt="Аксессуары для электроинструментов" className='icon' />
                   <span className="category-title">Аксессуары для электроинструментов</span>
                   <span className="arrow">{openCategory === 'power-tool-accessories' ? '▲' : '▼'}</span>
                 </div>
                 {openCategory === 'power-tool-accessories' && (
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
-                      <li className={`subcategory-item ${openSubCategory === 'sets-bits' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('sets-bits')}>
-                          <span>Биты и наборы бит для шуруповерта</span>
-                          <span className="arrow">{openSubCategory === 'sets-bits' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'sets-bits' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/power-tool-accessories/Наборы" onClick={closeCatalog}>
-                                Наборы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Биты" onClick={closeCatalog}>
-                                Биты
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Магнитные биты" onClick={closeCatalog}>
-                                Магнитные биты
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Битодержатели" onClick={closeCatalog}>
-                                Битодержатели
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Биты торцевые" onClick={closeCatalog}>
-                                Биты торцевые
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Биты шестигранные " onClick={closeCatalog}>
-                                Биты шестигранные
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Биты шлицевые" onClick={closeCatalog}>
-                                Биты шлицевые
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/power-tool-accessories/Биты и наборы бит" onClick={closeCatalog}>
+                            Биты и наборы бит
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'drill-sets' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('drill-sets')}>
-                          <span>Сверла и наборы сверл</span>
-                          <span className="arrow">{openSubCategory === 'drill-sets' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'drill-sets' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/power-tool-accessories/По металу" onClick={closeCatalog}>
-                                По металу
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/По дереву" onClick={closeCatalog}>
-                                По дереву
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/По бетону" onClick={closeCatalog}>
-                                По бетону
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/ По керамике и керамограниту и стеклу" onClick={closeCatalog}>
-                                По керамике и керамограниту и стеклу
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Сверла универсальные" onClick={closeCatalog}>
-                                Сверла универсальные
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/power-tool-accessories/Сверла и наборы сверл" onClick={closeCatalog}>
+                            Сверла и наборы сверл
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'drills-picks' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('drills-picks')}>
-                          <span>Буры, пики и зубила</span>
-                          <span className="arrow">{openSubCategory === 'drills-picks' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'drills-picks' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/power-tool-accessories/Буры" onClick={closeCatalog}>
-                                Буры
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Зубила и пики" onClick={closeCatalog}>
-                                Зубила и пики
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/power-tool-accessories/Буры, пики и зубила" onClick={closeCatalog}>
+                            Буры, пики и зубила
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'discs' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('discs')}>
-                          <span> Диски отрезные, алмазные и пильные </span>
-                          <span className="arrow">{openSubCategory === 'discs' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'discs' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/power-tool-accessories/Диски отрезные" onClick={closeCatalog}>
-                                Диски отрезные
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Диски алмазные" onClick={closeCatalog}>
-                                Диски алмазные
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Диски пильные" onClick={closeCatalog}>
-                                Диски пильные
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/power-tool-accessories/Диски отрезные, алмазные и пильные" onClick={closeCatalog}>
+                            Диски отрезные, алмазные и пильные
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'power-tool-crowns' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('power-tool-crowns')}>
-                          <span>  Коронки для электроинструментов </span>
-                          <span className="arrow">{openSubCategory === 'power-tool-crowns' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'power-tool-crowns' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/power-tool-accessories/Коронки алмазные" onClick={closeCatalog}>
-                                Коронки алмазные
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Коронки по бетону" onClick={closeCatalog}>
-                                Коронки по бетону
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Коронки по дереву" onClick={closeCatalog}>
-                                Коронки по дереву
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/power-tool-accessories/Коронки для электроинструментов" onClick={closeCatalog}>
+                            Коронки для электроинструментов
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'grinding-wheels' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('grinding-wheels')}>
-                          <span>Шлифовальные круги и насадки</span>
-                          <span className="arrow">{openSubCategory === 'grinding-wheels' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'grinding-wheels' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/power-tool-accessories/Круги шлифовальные и лепестковые" onClick={closeCatalog}>
-                                Круги шлифовальные и лепестковые
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Чашки абдирочные и алмазные" onClick={closeCatalog}>
-                                Чашки абдирочные и алмазные
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Круги полировальные, точильные и насадки" onClick={closeCatalog}>
-                                Круги полировальные, точильные и насадки
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Опорные тарелки" onClick={closeCatalog}>
-                                Опорные тарелки
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
-                      </li>
-                      <li className={`subcategory-item ${openSubCategory === 'milling-cutters' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('milling-cutters')}>
-                          <span>Фрезы</span>
-                          <span className="arrow">{openSubCategory === 'milling-cutters' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'milling-cutters' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/power-tool-accessories/Фрезы по дереву" onClick={closeCatalog}>
-                                Фрезы по дереву
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/power-tool-accessories/Борфрезы" onClick={closeCatalog}>
-                                Борфрезы
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/power-tool-accessories/Шлифовальные круги и насадки" onClick={closeCatalog}>
+                            Шлифовальные круги и насадки
+                        </Link>
                       </li>
                       <li>
                         <Link to="/power-tool-accessories/Пилки для электролобзиков" onClick={closeCatalog}>
                             Пилки для электролобзиков
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tool-accessories/Насадки для граверов" onClick={closeCatalog}>
-                            Насадки для граверов
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tool-accessories/Патроны для дрелей" onClick={closeCatalog}>
-                            Патроны для дрелей
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tool-accessories/Насадки и кордщетки для электроинструментов" onClick={closeCatalog}>
-                            Насадки и кордщетки для электроинструментов
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/power-tool-accessories/Аккумуляторы и зарядные устройства для электроинструмента" onClick={closeCatalog}>
-                            Аккумуляторы и зарядные устройства для электроинструмента
                         </Link>
                       </li>
                       <li>
@@ -775,6 +517,7 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'gasoline-technics' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('gasoline-technics')}>
+                  <img src={gasIcon} alt="Бензиновые техники" className='icon' />
                   <span className="category-title">Бензиновые техники</span>
                   <span className="arrow">{openCategory === 'gasoline-technics' ? '▲' : '▼'}</span>
                 </div>
@@ -782,8 +525,8 @@ function Header() {
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
                       <li>
-                        <Link to="/gasoline-technics/Бензоэлектростанции" onClick={closeCatalog}>
-                          Бензоэлектростанции
+                        <Link to="/gasoline-technics/Генераторы" onClick={closeCatalog}>
+                          Генераторы
                         </Link>
                       </li>
                       <li>
@@ -810,56 +553,22 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'electrical-goods' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('electrical-goods')}>
+                  <img src={electricalIcon} alt="Электротовары" className='icon' />
                   <span className="category-title">Электротовары</span>
                   <span className="arrow">{openCategory === 'electrical-goods' ? '▲' : '▼'}</span>
                 </div>
                 {openCategory === 'electrical-goods' && (
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
-                      <li className={`subcategory-item ${openSubCategory === 'sockets' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('sockets')}>
-                          <span>Розетки, выключатели и рамки</span>
-                          <span className="arrow">{openSubCategory === 'sockets' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'sockets' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/electrical-goods/Розетки и выключатели" onClick={closeCatalog}>
-                                Розетки и выключатели
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/electrical-goods/Аксессуары и подрозетники" onClick={closeCatalog}>
-                                Аксессуары и подрозетники
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/electrical-goods/Розетки, выключатели и рамки" onClick={closeCatalog}>
+                            Розетки, выключатели и рамки
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'cable' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('cable')}>
-                          <span>Кабель и монтаж</span>
-                          <span className="arrow">{openSubCategory === 'cable' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'cable' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/electrical-goods/Силовые кабели, аудио, ТВ и интернет" onClick={closeCatalog}>
-                                Силовые кабели, аудио, ТВ и интернет
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/electrical-goods/Кабель-каналы и гофрированные трубы" onClick={closeCatalog}>
-                                Кабель-каналы и гофрированные трубы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/electrical-goods/Распред коробки, изоляция и крепеж" onClick={closeCatalog}>
-                                Распред коробки, изоляция и крепеж
-                              </Link>
-                            </li>
-                        </ul>
-                        )}
+                      <li>
+                        <Link to="/electrical-goods/Кабель и монтаж" onClick={closeCatalog}>
+                            Кабель и монтаж
+                        </Link>
                       </li>
                       <li>
                         <Link to="/electrical-goods/Запчасти для светильников" onClick={closeCatalog}>
@@ -876,34 +585,9 @@ function Header() {
                             Электромонтажные инструменты
                         </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'extension-cords' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('extension-cords')}>
-                          <span>Удлинители и сетевые фильтры</span>
-                          <span className="arrow">{openSubCategory === 'extension-cords' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'extension-cords' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/electrical-goods/Удлинители, сетевые фильтры и шнуры" onClick={closeCatalog}>
-                                Удлинители, сетевые фильтры и шнуры
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/electrical-goods/Разветвители, переходники и колодки" onClick={closeCatalog}>
-                                Разветвители, переходники и колодки
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/electrical-goods/Аксессуары и комплектующие для удлинителей" onClick={closeCatalog}>
-                                Аксессуары и комплектующие для удлинителей
-                              </Link>
-                            </li>
-                        </ul>
-                        )}
-                      </li>
                       <li>
-                        <Link to="/electrical-goods/Фонари" onClick={closeCatalog}>
-                            Фонари
+                        <Link to="/electrical-goods/Фонари и прочие товары" onClick={closeCatalog}>
+                            Фонари и прочие товары
                         </Link>
                       </li>
                     </ul>
@@ -915,91 +599,32 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'Lighting' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('Lighting')}>
+                  <img src={lightingIcon} alt="Освещение" className='icon' />
                   <span className="category-title">Освещение</span>
                   <span className="arrow">{openCategory === 'Lighting' ? '▲' : '▼'}</span>
                 </div>
                 {openCategory === 'Lighting' && (
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
-                      <li className={`subcategory-item ${openSubCategory === 'light' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('light')}>
-                          <span>Лампочки</span>
-                          <span className="arrow">{openSubCategory === 'light' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'light' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Lighting/Светодиодные лампы" onClick={closeCatalog}>
-                                Светодиодные лампы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Lighting/Декоративные, галогеновые и обычные лампы" onClick={closeCatalog}>
-                                Декоративные, галогеновые и обычные лампы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Lighting/Патроны для ламп" onClick={closeCatalog}>
-                                Патроны для ламп
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/Lighting/Лампочки и патроны для ламп" onClick={closeCatalog}>
+                          Лампочки и патроны для ламп
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'ceiling-lights' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('ceiling-lights')}>
-                          <span>Потолочные светильники и люстры</span>
-                          <span className="arrow">{openSubCategory === 'ceiling-lights' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'ceiling-lights' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Lighting/Потолочные светильники" onClick={closeCatalog}>
-                                Потолочные светильники
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Lighting/Подвесные светильники" onClick={closeCatalog}>
-                                Подвесные светильники
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Lighting/Точечные светильники" onClick={closeCatalog}>
-                                Точечные светильники
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Lighting/Трекерные светильники и споты" onClick={closeCatalog}>
-                                Трекерные светильники и споты
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Lighting/Люстры и подвесные лампы" onClick={closeCatalog}>
-                                Люстры и подвесные лампы
-                              </Link>
-                            </li>
-                        </ul>
-                        )}
+                      <li>
+                        <Link to="/Lighting/Потолочные светильники" onClick={closeCatalog}>
+                          Потолочные светильники
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'wall-lights' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('wall-lights')}>
-                          <span>Настенные светильники, лампы и бра</span>
-                          <span className="arrow">{openSubCategory === 'wall-lights' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'wall-lights' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Lighting/Настенные светодиодные светильники" onClick={closeCatalog}>
-                                Настенные светодиодные светильники
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Lighting/Настенные лампы и бра" onClick={closeCatalog}>
-                                Настенные лампы и бра
-                              </Link>
-                            </li>
-                        </ul>
-                        )}
+                      <li>
+                        <Link to="/Lighting/Люстры" onClick={closeCatalog}>
+                          Люстры
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/Lighting/Настенные светильники, лампы и бра" onClick={closeCatalog}>
+                          Настенные светильники, лампы и бра
+                        </Link>
                       </li>
                       <li>
                         <Link to="/Lighting/Настольные лампы и торшеры" onClick={closeCatalog}>
@@ -1025,92 +650,48 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'Decor' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('Decor')}>
+                  <img src={decorIcon} alt="Декор" className='icon' />
                   <span className="category-title">Декор</span>
                   <span className="arrow">{openCategory === 'Decor' ? '▲' : '▼'}</span>
                 </div>
                 {openCategory === 'Decor' && (
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
-                      <li className={`subcategory-item ${openSubCategory === 'wallpaper' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('wallpaper')}>
-                          <span>Обои</span>
-                          <span className="arrow">{openSubCategory === 'wallpaper' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'wallpaper' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Decor/Декоративные обои" onClick={closeCatalog}>
-                                Декоративные обои
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Обои под покраску" onClick={closeCatalog}>
-                                Обои под покраску
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
-                      </li>
-                      <li className={`subcategory-item ${openSubCategory === 'decor-panels' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('decor-panels')}>
-                          <span>Декор панели, гибкий мрамор, луверы</span>
-                          <span className="arrow">{openSubCategory === 'decor-panels' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'decor-panels' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Decor/Декоративные ПВХ, МДФ, 3D панели" onClick={closeCatalog}>
-                                Декоративные ПВХ, МДФ, 3D панели
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Гибкий мрамор" onClick={closeCatalog}>
-                                Гибкий мрамор
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Луверы" onClick={closeCatalog}>
-                                Луверы
-                              </Link>
-                            </li>
-                        </ul>
-                        )}
-                      </li>
-                      <li className={`subcategory-item ${openSubCategory === 'profiles' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('profiles')}>
-                          <span>Профили для панелей и углы ПВХ и МДФ</span>
-                          <span className="arrow">{openSubCategory === 'profiles' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'profiles' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Decor/Профили для панелей" onClick={closeCatalog}>
-                                Профили для панелей
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Углы ПВХ и МДФ" onClick={closeCatalog}>
-                                Углы ПВХ и МДФ
-                              </Link>
-                            </li>
-                        </ul>
-                        )}
-                      </li>
-                      <li>
+                    <li>
+                        <Link to="/Decor/Обои" onClick={closeCatalog}>
+                          Обои
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/Decor/Декоротивные панели и гибкий мрамор" onClick={closeCatalog}>
+                          Декоротивные панели и гибкий мрамор
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/Decor/Декоротивные решетки и луверы" onClick={closeCatalog}>
+                          Декоротивные решетки и луверы
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/Decor/Профили для панелей и углы" onClick={closeCatalog}>
+                          Профили для панелей и углы
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/Decor/Плинтусы потолочные и молдинги" onClick={closeCatalog}>
                           Плинтусы потолочные и молдинги
                         </Link>
-                      </li>
-                      <li>
+                    </li>
+                    <li>
                         <Link to="/Decor/Карнизы" onClick={closeCatalog}>
                           Карнизы
                         </Link>
-                      </li>
-                      <li>
-                        <Link to="/Decor/Декор обводы для труб и аксессуары" onClick={closeCatalog}>
-                          Декор обводы для труб и аксессуары
+                    </li>
+                    <li>
+                        <Link to="/Decor/Прочие элементы и аксессуары" onClick={closeCatalog}>
+                          Прочие элементы и аксессуары
                         </Link>
-                      </li>
+                    </li>
                     </ul>
                   </div>
                 )}
@@ -1120,6 +701,7 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'paint' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('paint')}>
+                  <img src={paintIcon} alt="Краски, лаки, олифы и разбавители" className='icon' />
                   <span className="category-title">Краски, лаки, олифы и разбавители</span>
                   <span className="arrow">{openCategory === 'paint' ? '▲' : '▼'}</span>
                 </div>
@@ -1127,114 +709,54 @@ function Header() {
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
                       <li>
-                        <Link to="/paint/Dulux" onClick={closeCatalog}>
-                          Dulux
+                        <Link to="/paint/Интерьерные акриловые краски" onClick={closeCatalog}>
+                          Интерьерные акриловые краски
                         </Link>
                       </li>
                       <li>
-                        <Link to="/paint/San Marito" onClick={closeCatalog}>
-                          San Marito
+                        <Link to="/paint/Фасадные акриловые краски" onClick={closeCatalog}>
+                          Фасадные акриловые краски
                         </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'acrylic-paints' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('acrylic-paints')}>
-                          <span> Акриловые краски и водоэмульсии</span>
-                          <span className="arrow">{openSubCategory === 'acrylic-paints' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'acrylic-paints' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Decor/Интерьерные краски" onClick={closeCatalog}>
-                                Интерьерные краски
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Фасадные краски" onClick={closeCatalog}>
-                                Фасадные краски
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Универсальные краски" onClick={closeCatalog}>
-                                Универсальные краски
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Колеровальные краски" onClick={closeCatalog}>
-                                Колеровальные краски
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/paint/Универсальные акриловые краски" onClick={closeCatalog}>
+                          Универсальные акриловые краски
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'Enamels' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('Enamels')}>
-                          <span>Эмали</span>
-                          <span className="arrow">{openSubCategory === 'Enamels' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'Enamels' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Decor/Эмали алкидные" onClick={closeCatalog}>
-                                Эмали алкидные
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Эмали для пола и Нитроэмали" onClick={closeCatalog}>
-                                Эмали для пола и Нитроэмали
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Эмали акриловые и для радиатора" onClick={closeCatalog}>
-                              Эмали акриловые и для радиатора
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Эмали декоративные и термостойкие" onClick={closeCatalog}>
-                                Эмали декоративные и термостойкие
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/paint/Эмали алкидные" onClick={closeCatalog}>
+                          Эмали алкидные
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'aerosol-paints' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('aerosol-paints')}>
-                          <span>Аэрозольные краски и специальные эмали</span>
-                          <span className="arrow">{openSubCategory === 'aerosol-paints' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'aerosol-paints' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Decor/Аэрозольные краски" onClick={closeCatalog}>
-                              Аэрозольные краски
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Специальные аэрозольные эмали" onClick={closeCatalog}>
-                                Специальные аэрозольные эмали
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/paint/Эмали для пола" onClick={closeCatalog}>
+                          Эмали для пола
+                        </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'varnishes' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('varnishes')}>
-                          <span>Лаки, олифы и разбавители</span>
-                          <span className="arrow">{openSubCategory === 'varnishes' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'varnishes' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/Decor/Лаки и олифы" onClick={closeCatalog}>
-                              Лаки и олифы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/Decor/Разбавители" onClick={closeCatalog}>
-                                Разбавители
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/paint/Эмали акриловые, эмали для радиаторы" onClick={closeCatalog}>
+                          Эмали акриловые, эмали для радиаторы
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/paint/Эмали декоротивные и термостойкие" onClick={closeCatalog}>
+                          Эмали декоротивные и термостойкие
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/paint/Аэрозольные краски и специальные эмали" onClick={closeCatalog}>
+                          Аэрозольные краски и специальные эмали
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/paint/Лаки и олифы" onClick={closeCatalog}>
+                          Лаки и олифы
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/paint/Разбиватели" onClick={closeCatalog}>
+                          Разбиватели
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -1245,81 +767,57 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'floor-coverings' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('floor-coverings')}>
+                  <img src={floorIcon} alt="Напольные покрытия и плитки" className='icon' />
                   <span className="category-title">Напольные покрытия и плитки</span>
                   <span className="arrow">{openCategory === 'floor-coverings' ? '▲' : '▼'}</span>
                 </div>
                 {openCategory === 'floor-coverings' && (
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
-                      <li className={`subcategory-item ${openSubCategory === 'floor-covering' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('floor-covering')}>
-                          <span>Напольные покрытия</span>
-                          <span className="arrow">{openSubCategory === 'floor-covering' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'floor-covering' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/floor-coverings/Ламинат" onClick={closeCatalog}>
-                                Ламинат
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/floor-coverings/Линолеум" onClick={closeCatalog}>
-                                Линолеум
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/floor-coverings/Напольные плинтусы" onClick={closeCatalog}>
-                                Напольные плинтусы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/floor-coverings/Комплектующие для плинтуса" onClick={closeCatalog}>
-                                Комплектующие для плинтуса
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/floor-coverings/Порожки для пола" onClick={closeCatalog}>
-                                Порожки для пола
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                        <Link to="/floor-coverings/Ламинат" onClick={closeCatalog}>
+                          Ламинат
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/floor-coverings/Линолеум" onClick={closeCatalog}>
+                          Линолеум
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/floor-coverings/Напольные плинтусы" onClick={closeCatalog}>
+                          Напольные плинтусы
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/floor-coverings/Комплектующие для плинтуса" onClick={closeCatalog}>
+                          Комплектующие для плинтуса
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/floor-coverings/Порожки для пола" onClick={closeCatalog}>
+                          Порожки для пола
+                        </Link>
                       </li>
                       <li>
                           <Link to="/floor-coverings/Подложки" onClick={closeCatalog}>
                             Подложки
                           </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'tiles' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('tiles')}>
-                          <span>Плитки и керамогранит</span>
-                          <span className="arrow">{openSubCategory === 'tiles' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'tiles' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/floor-coverings/Напольная плитка" onClick={closeCatalog}>
-                                Напольная плитка
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/floor-coverings/Керамическая плитка" onClick={closeCatalog}>
-                                Керамическая плитка
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/floor-coverings/Керамогранит" onClick={closeCatalog}>
-                                Керамогранит
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/floor-coverings/Бардюры" onClick={closeCatalog}>
-                                Бардюры
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                          <Link to="/floor-coverings/Напольная плитка" onClick={closeCatalog}>
+                            Напольная плитка
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/floor-coverings/Керамическая плитка и бордюры" onClick={closeCatalog}>
+                            Керамическая плитка и бордюры
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/floor-coverings/Керамогранит" onClick={closeCatalog}>
+                            Керамогранит
+                          </Link>
                       </li>
                     </ul>
                   </div>
@@ -1330,41 +828,27 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'building-materials' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('building-materials')}>
+                  <img src={buildingIcon} alt="Стройматериалы" className='icon' />
                   <span className="category-title">Стройматериалы</span>
                   <span className="arrow">{openCategory === 'building-materials' ? '▲' : '▼'}</span>
                 </div>
                 {openCategory === 'building-materials' && (
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
-                      <li className={`subcategory-item ${openSubCategory === 'dry-mixes' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('dry-mixes')}>
-                          <span>Сухие смеси и грунтовки</span>
-                          <span className="arrow">{openSubCategory === 'dry-mixes' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'dry-mixes' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/building-materials/Штукатурки" onClick={closeCatalog}>
-                                Штукатурки
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/building-materials/Шпактлевки" onClick={closeCatalog}>
-                                Шпактлевки
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/building-materials/Смеси для пола и цемент" onClick={closeCatalog}>
-                                Смеси для пола и цемент
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/building-materials/Клеи и монтажно-кладочные смеси" onClick={closeCatalog}>
-                                Клеи и монтажно-кладочные смеси
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                          <Link to="/building-materials/Штукатурки и шпактлевки" onClick={closeCatalog}>
+                            Штукатурки и шпактлевки
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/building-materials/Смеси для пола и цемент" onClick={closeCatalog}>
+                            Смеси для пола и цемент
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/building-materials/Клеи и монтажно-кладочные смеси" onClick={closeCatalog}>
+                            Клеи и монтажно-кладочные смеси
+                          </Link>
                       </li>
                       <li>
                           <Link to="/building-materials/Грунтовки и праймеры" onClick={closeCatalog}>
@@ -1376,30 +860,15 @@ function Header() {
                             Штукатурные сетки, серпянки и профили
                           </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'sheet-materials' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('sheet-materials')}>
-                          <span>Листовые материалы</span>
-                          <span className="arrow">{openSubCategory === 'sheet-materials' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'sheet-materials' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/building-materials/Гипсокартоны" onClick={closeCatalog}>
-                                Гипсокартоны
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/building-materials/ОСБ фанеры" onClick={closeCatalog}>
-                                ОСБ фанеры
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/building-materials/Оргалит" onClick={closeCatalog}>
-                                Оргалит
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                          <Link to="/building-materials/Гипсокартоны" onClick={closeCatalog}>
+                            Гипсокартоны
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/building-materials/ОСБ фанеры и Оргалит" onClick={closeCatalog}>
+                            ОСБ фанеры и Оргалит
+                          </Link>
                       </li>
                       <li>
                           <Link to="/building-materials/Профиль для гипсокартона и аксессуары" onClick={closeCatalog}>
@@ -1420,6 +889,7 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'construction-equipment' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('construction-equipment')}>
+                  <img src={constructionIcon} alt="Строительные оборудования" className='icon' />
                   <span className="category-title">Строительные оборудования</span>
                   <span className="arrow">{openCategory === 'construction-equipment' ? '▲' : '▼'}</span>
                 </div>
@@ -1450,96 +920,37 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'hardware' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('hardware')}>
+                  <img src={hardwareIcon} alt="Скобяные изделия" className='icon' />
                   <span className="category-title">Скобяные изделия</span>
                   <span className="arrow">{openCategory === 'hardware' ? '▲' : '▼'}</span>
                 </div>
                 {openCategory === 'hardware' && (
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
-                      <li className={`subcategory-item ${openSubCategory === 'screws' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('screws')}>
-                          <span>Саморезы</span>
-                          <span className="arrow">{openSubCategory === 'screws' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'screws' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/hardware/Саморезы для гипсокартон и дерева" onClick={closeCatalog}>
-                                Саморезы для гипсокартон и дерева
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/hardware/Саморезы кровельные" onClick={closeCatalog}>
-                              Саморезы кровельные
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/hardware/Саморезы по металу" onClick={closeCatalog}>
-                                Саморезы по металу
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/hardware/Саморезы с прессшайбой" onClick={closeCatalog}>
-                                Саморезы с прессшайбой
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/hardware/Монтажный шурупы" onClick={closeCatalog}>
-                                Монтажный шурупы
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                          <Link to="/hardware/Шурупы" onClick={closeCatalog}>
+                            Шурупы
+                          </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'Dowel-nails' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('Dowel-nails')}>
-                          <span>Дюбель-гвозди</span>
-                          <span className="arrow">{openSubCategory === 'Dowel-nails' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'Dowel-nails' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/hardware/Распорные, фасадные и потайные" onClick={closeCatalog}>
-                                Распорные, фасадные и потайные
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/hardware/Для гипсокартона и газобетона " onClick={closeCatalog}>
-                                Для гипсокартона и газобетона 
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/hardware/Для теплоизоляции и универсальные" onClick={closeCatalog}>
-                                Для теплоизоляции и универсальные
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                          <Link to="/hardware/Монтажные шурупы" onClick={closeCatalog}>
+                            Монтажные шурупы
+                          </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'anchors' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('anchors')}>
-                          <span>Анкеры</span>
-                          <span className="arrow">{openSubCategory === 'anchors' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'anchors' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/hardware/Анкеры клиновые, втулочные и забивные" onClick={closeCatalog}>
-                                Анкеры клиновые, втулочные и забивные
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/hardware/Анкеры клиновые, втулочные и забивные" onClick={closeCatalog}>
-                                Анкеры клиновые, втулочные и забивные
-                              </Link>
-                            </li>
-                            <li>
-                                <Link to="/hardware/Анкеры с кольцом, с крюком и шпильки резбовые" onClick={closeCatalog}>
-                                  Анкеры с кольцом, с крюком и шпильки резбовые
-                                </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                          <Link to="/hardware/Саморезы" onClick={closeCatalog}>
+                            Саморезы
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/hardware/Дюбель-гвозди" onClick={closeCatalog}>
+                            Дюбель-гвозди
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/hardware/Анкеры" onClick={closeCatalog}>
+                            Анкеры
+                          </Link>
                       </li>
                       <li>
                           <Link to="/hardware/Болты, гайки и шайбы" onClick={closeCatalog}>
@@ -1580,6 +991,7 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'doors' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('doors')}>
+                  <img src={doorsIcon} alt="Двери и фурнитура" className='icon' />
                   <span className="category-title">Двери и фурнитура</span>
                   <span className="arrow">{openCategory === 'doors' ? '▲' : '▼'}</span>
                 </div>
@@ -1601,25 +1013,15 @@ function Header() {
                             Металлические входные двери
                           </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'door-handles' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('door-handles')}>
-                          <span>Ручки для дверей</span>
-                          <span className="arrow">{openSubCategory === 'door-handles' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'door-handles' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/doors/Ручки для межкомнатных дверей" onClick={closeCatalog}>
-                                Ручки для межкомнатных дверей
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/doors/Ручки для металлических входных дверей" onClick={closeCatalog}>
-                              Ручки для металлических входных дверей
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                          <Link to="/doors/Ручки для межкомнатных дверей" onClick={closeCatalog}>
+                            Ручки для межкомнатных дверей
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/doors/Ручки для входных дверей" onClick={closeCatalog}>
+                            Ручки для входных дверей
+                          </Link>
                       </li>
                       <li>
                           <Link to="/doors/Замки, комплектующие и аксессуары" onClick={closeCatalog}>
@@ -1640,61 +1042,37 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'heating' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('heating')}>
+                  <img src={heatingIcon} alt="Отопление" className='icon' />
                   <span className="category-title">Отопление</span>
                   <span className="arrow">{openCategory === 'heating' ? '▲' : '▼'}</span>
                 </div>
                 {openCategory === 'heating' && (
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
-                      <li className={`subcategory-item ${openSubCategory === 'radiators' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('radiators')}>
-                          <span>Радиаторы отопления и комплектующие</span>
-                          <span className="arrow">{openSubCategory === 'radiators' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'radiators' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/heating/Радиаторы отопления" onClick={closeCatalog}>
-                                Радиаторы отопления
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/heating/Комлектующие и аксессуары" onClick={closeCatalog}>
-                                Комлектующие и аксессуары
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                          <Link to="/heating/Радиаторы отопления и комплектующие" onClick={closeCatalog}>
+                            Радиаторы отопления и комплектующие
+                          </Link>
                       </li>
                       <li>
                           <Link to="/heating/Отопительные котлы" onClick={closeCatalog}>
                             Отопительные котлы
                           </Link>
                       </li>
-                      <li className={`subcategory-item ${openSubCategory === 'electric-heating' ? 'open' : ''}`}>
-                        <div className="subcategory-header" onClick={() => toggleSubCategory('electric-heating')}>
-                          <span>Электрический обогрев</span>
-                          <span className="arrow">{openSubCategory === 'electric-heating' ? '▲' : '▼'}</span>
-                        </div>
-                        {openSubCategory === 'electric-heating' && (
-                          <ul className="subsubcategory-list">
-                            <li>
-                              <Link to="/heating/Обогреватели, пушки, вентиляторы" onClick={closeCatalog}>
-                                Обогреватели, пушки, вентиляторы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/heating/Электр Теплыйе полы и терморегуляторы" onClick={closeCatalog}>
-                              Электр Теплыйе полы и терморегуляторы
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/heating/Водяные теплые полы, коллекторы и насосы" onClick={closeCatalog}>
-                              Водяные теплые полы, коллекторы и насосы
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
+                      <li>
+                          <Link to="/heating/Обогреватели, пушки и вентиляторы" onClick={closeCatalog}>
+                            Обогреватели, пушки и вентиляторы
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/heating/Электрический теплый пол и терморегулятор" onClick={closeCatalog}>
+                          Электрический теплый пол и терморегулятор
+                          </Link>
+                      </li>
+                      <li>
+                          <Link to="/heating/Воденые теплые полы, коллекторы и насосы" onClick={closeCatalog}>
+                          Воденые теплые полы, коллекторы и насосы
+                          </Link>
                       </li>
                       <li>
                           <Link to="/heating/Полотенцесушители" onClick={closeCatalog}>
@@ -1710,6 +1088,7 @@ function Header() {
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'special-clothing' ? 'open' : ''}`}>
                 <div className="category-header" onClick={() => toggleCategory('special-clothing')}>
+                  <img src={specialIcon} alt="Спецодежда и средства защиты" className='icon' />
                   <span className="category-title">Спецодежда и средства защиты</span>
                   <span className="arrow">{openCategory === 'special-clothing' ? '▲' : '▼'}</span>
                 </div>
