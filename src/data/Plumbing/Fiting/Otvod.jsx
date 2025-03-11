@@ -37,7 +37,7 @@ const Otvod = [
         id: 2.3,
         name: "Отвод 90° ППР  белый Jakko 32 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 100,
         },
         image: otvodImage1,
         images: [otvodImage1, otvodImage2, otvodImage3],
@@ -51,7 +51,7 @@ const Otvod = [
         id: 2.4,
         name: "Отвод 90° ППР  белый Jakko 40 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 220,
         },
         image: otvodImage1,
         images: [otvodImage1, otvodImage2, otvodImage3],

@@ -15,7 +15,7 @@ const BolgarkaCirkkrug =[
             detailedDescription: "",
             specifications: { },
             category: "power-tools", // Категория
-            subCategory: "Болгарки", // Подкатегория
+            subCategory: "Болгарки и арматурорезы", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];
