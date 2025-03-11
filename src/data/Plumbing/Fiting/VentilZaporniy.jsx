@@ -6,9 +6,9 @@ const VentilZaporniy = [
     id: 13.1,
     name: " Вентиль запорный ППР  белый Jakko 20мм",
     pricePerUnit: {
-      шт: 70,
+      шт: 1950,
     },
-    // oldPrice: 300,
+    // oldPrice: 1950,
     image: ventilzaporniyImage1,
     images: [ventilzaporniyImage1, ventilzaporniyImage2],
     // description: "Краска для окон и дверей Dulux",
@@ -22,9 +22,9 @@ const VentilZaporniy = [
     id: 13.2,
     name: " Вентиль запорный ППР  белый Jakko 25мм",
     pricePerUnit: {
-      шт: 70,
+      шт: 1900,
     },
-    // oldPrice: 300,
+    // oldPrice: 1900,
     image: ventilzaporniyImage1,
     images: [ventilzaporniyImage1, ventilzaporniyImage2],
     // description: "Краска для окон и дверей Dulux",
@@ -38,9 +38,9 @@ const VentilZaporniy = [
     id: 13.3,
     name: " Вентиль запорный ППР  белый Jakko 32мм",
     pricePerUnit: {
-      шт: 70,
+      шт: 2700,
     },
-    // oldPrice: 300,
+    // oldPrice: 2700,
     image: ventilzaporniyImage1,
     images: [ventilzaporniyImage1, ventilzaporniyImage2],
     // description: "Краска для окон и дверей Dulux",
@@ -54,7 +54,7 @@ const VentilZaporniy = [
     id: 13.4,
     name: " Вентиль запорный ППР  белый Jakko 40мм",
     pricePerUnit: {
-      шт: 70,
+      шт: 0,
     },
     // oldPrice: 300,
     image: ventilzaporniyImage1,
@@ -64,7 +64,7 @@ const VentilZaporniy = [
     specifications: { "Материал крана": "Полипропилен", "Условный проход": "40 mm", "Тип соединения": "Внутренняя пайка", "Диаметр соединения": "40 mm", "Рабочая среда": "Вода"},
     category: "plumbing", // Категория
     subCategory: "Фитинги", // Подкатегория
-    availability: "Есть в наличии"  // Новое поле для статуса наличия
+    availability: "Нет в наличии"  // Новое поле для статуса наличия
   },];
 
 export default VentilZaporniy;

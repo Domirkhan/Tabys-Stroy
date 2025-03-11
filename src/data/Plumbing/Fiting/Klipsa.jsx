@@ -6,7 +6,7 @@ const klipsa = [
         id: 8.1,
         name: "Клипса ППР  белый Jakko 20 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 15,
         },
         image: klipsaImage1,
         images: [klipsaImage1, klipsaImage2],
@@ -20,7 +20,7 @@ const klipsa = [
         id: 8.2,
         name: "Клипса ППР  белый Jakko 25 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 20,
         },
         image: klipsaImage1,
         images: [klipsaImage1, klipsaImage2],
@@ -34,7 +34,7 @@ const klipsa = [
         id: 8.3,
         name: "Клипса ППР  белый Jakko 32 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 30,
         },
         image: klipsaImage1,
         images: [klipsaImage1, klipsaImage2],
@@ -48,7 +48,7 @@ const klipsa = [
         id: 8.4,
         name: "Клипса ППР  белый Jakko 40 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 60,
         },
         image: klipsaImage1,
         images: [klipsaImage1, klipsaImage2],

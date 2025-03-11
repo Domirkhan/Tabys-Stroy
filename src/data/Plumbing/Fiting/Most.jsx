@@ -6,7 +6,7 @@ const Most = [
         id: 10.1,
         name: "Мост ППР  белый Jakko 20 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 150,
         },
         // oldPrice: 300,
         image: mostImage1,
@@ -22,7 +22,7 @@ const Most = [
         id: 10.2,
         name: "Мост ППР  белый Jakko 25 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 210,
         },
         // oldPrice: 300,
         image: mostImage1,
@@ -38,7 +38,7 @@ const Most = [
         id: 10.3,
         name: "Мост ППР  белый Jakko 32 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 465,
         },
         // oldPrice: 300,
         image: mostImage1,
@@ -54,7 +54,7 @@ const Most = [
         id: 10.4,
         name: "Мост ППР  белый Jakko 40 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 0,
         },
         // oldPrice: 300,
         image: mostImage1,
@@ -64,7 +64,7 @@ const Most = [
         specifications: { "Материал моста": "Полипропилен", "Диаметр": "40 mm", "Тип присоединения": "Внутренняя пайка", "Рабочая среда": "Вода"},
         category: "plumbing", // Категория
         subCategory: "Фитинги", // Подкатегория
-        availability: "Есть в наличии"  // Новое поле для статуса наличия
+        availability: "Нет в наличии"  // Новое поле для статуса наличия
       },
 ];
 

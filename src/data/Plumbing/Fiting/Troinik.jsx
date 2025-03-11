@@ -6,7 +6,7 @@ const Troinik = [
         id: 5.1,
         name: "Тройник ППР  белый Jakko 20 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 60,
         },
         image: troinikImage1,
         images: [troinikImage1, troinikImage2],
@@ -34,7 +34,7 @@ const Troinik = [
         id: 5.3,
         name: "Тройник ППР  белый Jakko 32 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 160,
         },
         image: troinikImage1,
         images: [troinikImage1, troinikImage2],
@@ -48,7 +48,7 @@ const Troinik = [
         id: 5.4,
         name: "Тройник ППР  белый Jakko 40 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 250,
         },
         image: troinikImage1,
         images: [troinikImage1, troinikImage2],

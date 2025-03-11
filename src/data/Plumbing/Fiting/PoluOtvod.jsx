@@ -6,7 +6,7 @@ const PoluOtvod = [
         id: 3.1,
         name: "Полуотвод 45° ППР  белый Jakko 20 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 50,
         },
         image: poluotvodImage1,
         images: [poluotvodImage1, poluotvodImage2],
@@ -20,7 +20,7 @@ const PoluOtvod = [
         id: 3.2,
         name: "Полуотвод 45° ППР  белый Jakko 25 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 60,
         },
         image: poluotvodImage1,
         images: [poluotvodImage1, poluotvodImage2],
@@ -34,7 +34,7 @@ const PoluOtvod = [
         id: 3.3,
         name: "Полуотвод 45° ППР  белый Jakko 32 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 105,
         },
         image: poluotvodImage1,
         images: [poluotvodImage1, poluotvodImage2],
@@ -48,7 +48,7 @@ const PoluOtvod = [
         id: 3.4,
         name: "Полуотвод 45° ППР  белый Jakko 40 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 170,
         },
         image: poluotvodImage1,
         images: [poluotvodImage1, poluotvodImage2],

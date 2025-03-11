@@ -12,9 +12,9 @@ const MuftaRazemnaya = [
         id: 15.1,
         name: " Муфта разъемная внутр. резьба ППР белый Jakko 20х1/2",
         pricePerUnit: {
-          шт: 70,
+          шт: 610,
         },
-        // oldPrice: 300,
+        // oldPrice: 610,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
@@ -28,9 +28,9 @@ const MuftaRazemnaya = [
         id: 15.2,
         name: "Муфта разъемная внутр. резьба ППР белый Jakko 20х3/4",
         pricePerUnit: {
-          шт: 70,
+          шт: 680,
         },
-        // oldPrice: 300,
+        // oldPrice: 680,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
@@ -42,11 +42,11 @@ const MuftaRazemnaya = [
       },
       {
         id: 15.3,
-        name: "Муфта разъемная внутр. резьба ППР белый Jakko 20х1/2",
+        name: "Муфта разъемная внутр. резьба ППР белый Jakko 20х1",
         pricePerUnit: {
-          шт: 70,
+          шт: 1100,
         },
-        // oldPrice: 300,
+        // oldPrice: 1100,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
@@ -60,9 +60,9 @@ const MuftaRazemnaya = [
         id: 15.4,
         name: "Муфта разъемная внутр. резьба ППР белый Jakko 25х1/2",
         pricePerUnit: {
-          шт: 70,
+          шт: 1100,
         },
-        // oldPrice: 300,
+        // oldPrice: 1100,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
@@ -76,9 +76,9 @@ const MuftaRazemnaya = [
         id: 15.5,
         name: "Муфта разъемная внутр. резьба ППР белый Jakko 25х3/4",
         pricePerUnit: {
-          шт: 70,
+          шт: 1170,
         },
-        // oldPrice: 300,
+        // oldPrice: 1170,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
@@ -90,11 +90,11 @@ const MuftaRazemnaya = [
       },
       {
         id: 15.6,
-        name: "Муфта разъемная внутр. резьба ППР белый Jakko 25х1/2",
+        name: "Муфта разъемная внутр. резьба ППР белый Jakko 25х1",
         pricePerUnit: {
-          шт: 70,
+          шт: 1300,
         },
-        // oldPrice: 300,
+        // oldPrice: 1300,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
@@ -108,9 +108,9 @@ const MuftaRazemnaya = [
         id: 15.7,
         name: "Муфта разъемная внутр. резьба ППР белый Jakko 32х1/2",
         pricePerUnit: {
-          шт: 70,
+          шт: 0,
         },
-        // oldPrice: 300,
+        // oldPrice: 0,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
@@ -118,15 +118,15 @@ const MuftaRazemnaya = [
         specifications: { "Материал муфты": "Полипропилен", "Вид муфты": "Разъемная", "Соединение американка": "да", "Диаметр соединения полипропилена": "32 mm", "Диаметр соединяемой резьбы": "1/2", "Тип резьбы": "Внутренняя", "Рабочая среда": "Вода"},
         category: "plumbing", // Категория
         subCategory: "Фитинги", // Подкатегория
-        availability: "Есть в наличии"  // Новое поле для статуса наличия
+        availability: "Нет в наличии"  // Новое поле для статуса наличия
       },
       {
         id: 15.8,
         name: "Муфта разъемная внутр. резьба ППР белый Jakko 32х3/4",
         pricePerUnit: {
-          шт: 70,
+          шт: 1650,
         },
-        // oldPrice: 300,
+        // oldPrice: 1650,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
@@ -140,9 +140,9 @@ const MuftaRazemnaya = [
         id: 15.9,
         name: "Муфта разъемная внутр. резьба ППР белый Jakko 32х1",
         pricePerUnit: {
-          шт: 70,
+          шт: 1300,
         },
-        // oldPrice: 300,
+        // oldPrice: 1300,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
@@ -154,60 +154,29 @@ const MuftaRazemnaya = [
       },
       {
         id: 15.10,
-        name: "Муфта разъемная внутр. резьба ППР белый Jakko 40х1/2",
+        name: "Муфта разъемная внутр. резьба ППР белый Jakko 40х1¼",
         pricePerUnit: {
-          шт: 70,
+          шт: 2100,
         },
-        // oldPrice: 300,
+        // oldPrice: 2100,
         image: muftarazemnayaImage,
         images: [muftarazemnayaImage, muftarazemnayaImage1],
         // description: "Краска для окон и дверей Dulux",
         detailedDescription: "Прямой полипропиленовый фитинг для соединения полипропиленовой трубы и компонента инженерной системы с резьбовым подключением. Другое название - американка. Вид муфты - разъемная, резьба фитинга – внутренняя.",
-        specifications: { "Материал муфты": "Полипропилен", "Вид муфты": "Разъемная", "Соединение американка": "да", "Диаметр соединения полипропилена": "40 mm", "Диаметр соединяемой резьбы": "1/2", "Тип резьбы": "Внутренняя", "Рабочая среда": "Вода"},
+        specifications: { "Материал муфты": "Полипропилен", "Вид муфты": "Разъемная", "Соединение американка": "да", "Диаметр соединения полипропилена": "40 mm", "Диаметр соединяемой резьбы": "1¼", "Тип резьбы": "Внутренняя", "Рабочая среда": "Вода"},
         category: "plumbing", // Категория
         subCategory: "Фитинги", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
-      {
-        id: 15.11,
-        name: "Муфта разъемная внутр. резьба ППР белый Jakko 40х3/4",
-        pricePerUnit: {
-          шт: 70,
-        },
-        // oldPrice: 300,
-        image: muftarazemnayaImage,
-        images: [muftarazemnayaImage, muftarazemnayaImage1],
-        // description: "Краска для окон и дверей Dulux",
-        detailedDescription: "Прямой полипропиленовый фитинг для соединения полипропиленовой трубы и компонента инженерной системы с резьбовым подключением. Другое название - американка. Вид муфты - разъемная, резьба фитинга – внутренняя.",
-        specifications: { "Материал муфты": "Полипропилен", "Вид муфты": "Разъемная", "Соединение американка": "да", "Диаметр соединения полипропилена": "40 mm", "Диаметр соединяемой резьбы": "3/4", "Тип резьбы": "Внутренняя", "Рабочая среда": "Вода"},
-        category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
-        availability: "Есть в наличии"  // Новое поле для статуса наличия
-      },
-      {
-        id: 15.12,
-        name: "Муфта разъемная внутр. резьба ППР белый Jakko 40х1",
-        pricePerUnit: {
-          шт: 70,
-        },
-        // oldPrice: 300,
-        image: muftarazemnayaImage,
-        images: [muftarazemnayaImage, muftarazemnayaImage1],
-        // description: "Краска для окон и дверей Dulux",
-        detailedDescription: "Прямой полипропиленовый фитинг для соединения полипропиленовой трубы и компонента инженерной системы с резьбовым подключением. Другое название - американка. Вид муфты - разъемная, резьба фитинга – внутренняя.",
-        specifications: { "Материал муфты": "Полипропилен", "Вид муфты": "Разъемная", "Соединение американка": "да", "Диаметр соединения полипропилена": "40 mm", "Диаметр соединяемой резьбы": "1", "Тип резьбы": "Внутренняя", "Рабочая среда": "Вода"},
-        category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
-        availability: "Есть в наличии"  // Новое поле для статуса наличия
-      },
+      
       // Муфта разъемная НР
       {
         id: 15.13,
         name: "Муфта разъемная наруж. резьба ППР белый Jakko 20х1/2",
         pricePerUnit: {
-          шт: 70,
+          шт: 660,
         },
-        // oldPrice: 300,
+        // oldPrice: 660,
         image: muftarazemnayaImage2,
         images: [muftarazemnayaImage2, muftarazemnayaImage3, muftarazemnayaImage22],
         // description: "Краска для окон и дверей Dulux",
@@ -221,9 +190,9 @@ const MuftaRazemnaya = [
         id: 15.14,
         name: "Муфта разъемная наруж. резьба ППР белый Jakko 20х3/4",
         pricePerUnit: {
-          шт: 70,
+          шт: 0,
         },
-        // oldPrice: 300,
+        // oldPrice: 0,
         image: muftarazemnayaImage4,
         images: [muftarazemnayaImage4, muftarazemnayaImage5, muftarazemnayaImage6],
         // description: "Краска для окон и дверей Dulux",
@@ -231,15 +200,15 @@ const MuftaRazemnaya = [
         specifications: { "Материал муфты": "Полипропилен", "Вид муфты": "Разъемная", "Соединение американка": "да", "Диаметр соединения полипропилена": "20 mm", "Диаметр соединяемой резьбы": "3/4", "Тип резьбы": "Наружная", "Рабочая среда": "Вода"},
         category: "plumbing", // Категория
         subCategory: "Фитинги", // Подкатегория
-        availability: "Есть в наличии"  // Новое поле для статуса наличия
+        availability: "Нет в наличии"  // Новое поле для статуса наличия
       },
       {
         id: 15.15,
-        name: "Муфта разъемная наруж. резьба ППР белый Jakko 20х1/2",
+        name: "Муфта разъемная наруж. резьба ППР белый Jakko 20х1",
         pricePerUnit: {
-          шт: 70,
+          шт: 1780,
         },
-        // oldPrice: 300,
+        // oldPrice: 1780,
         image: muftarazemnayaImage4,
         images: [muftarazemnayaImage4, muftarazemnayaImage5, muftarazemnayaImage6],
         // description: "Краска для окон и дверей Dulux",
@@ -253,9 +222,9 @@ const MuftaRazemnaya = [
         id: 15.16,
         name: "Муфта разъемная наруж. резьба ППР белый Jakko 25х1/2",
         pricePerUnit: {
-          шт: 70,
+          шт: 1550,
         },
-        // oldPrice: 300,
+        // oldPrice: 1550,
         image: muftarazemnayaImage2,
         images: [muftarazemnayaImage2, muftarazemnayaImage3, muftarazemnayaImage22],
         // description: "Краска для окон и дверей Dulux",
@@ -269,9 +238,9 @@ const MuftaRazemnaya = [
         id: 15.17,
         name: "Муфта разъемная наруж. резьба ППР белый Jakko 25х3/4",
         pricePerUnit: {
-          шт: 70,
+          шт: 1200,
         },
-        // oldPrice: 300,
+        // oldPrice: 1200,
         image: muftarazemnayaImage4,
         images: [muftarazemnayaImage4, muftarazemnayaImage5, muftarazemnayaImage6],
         // description: "Краска для окон и дверей Dulux",
@@ -285,9 +254,9 @@ const MuftaRazemnaya = [
         id: 15.18,
         name: "Муфта разъемная наруж. резьба ППР белый Jakko 25х1",
         pricePerUnit: {
-          шт: 70,
+          шт: 1700,
         },
-        // oldPrice: 300,
+        // oldPrice: 1700,
         image: muftarazemnayaImage4,
         images: [muftarazemnayaImage4, muftarazemnayaImage5, muftarazemnayaImage6],
         // description: "Краска для окон и дверей Dulux",
@@ -301,7 +270,7 @@ const MuftaRazemnaya = [
         id: 15.19,
         name: "Муфта разъемная наруж. резьба ППР белый Jakko 32х3/4",
         pricePerUnit: {
-          шт: 70,
+          шт: 1500,
         },
         // oldPrice: 300,
         image: muftarazemnayaImage4,
@@ -317,7 +286,7 @@ const MuftaRazemnaya = [
         id: 15.20,
         name: "Муфта разъемная наруж. резьба ППР белый Jakko 32х1",
         pricePerUnit: {
-          шт: 70,
+          шт: 1450,
         },
         // oldPrice: 300,
         image: muftarazemnayaImage4,

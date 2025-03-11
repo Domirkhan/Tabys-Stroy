@@ -27,7 +27,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -43,7 +43,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -59,7 +59,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -75,7 +75,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -91,7 +91,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -107,7 +107,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -123,7 +123,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -139,7 +139,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -155,7 +155,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -171,7 +171,7 @@ const KanalizaciaTruba = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
 ];

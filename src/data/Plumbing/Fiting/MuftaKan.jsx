@@ -26,7 +26,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -42,7 +42,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -58,7 +58,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -74,7 +74,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -90,7 +90,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -106,7 +106,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -122,7 +122,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -138,7 +138,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -154,7 +154,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -170,7 +170,7 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -186,23 +186,23 @@ const MuftaKan = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
         id: 27.12,
         name: "Крестовина 110 ПВХ",
         pricePerUnit: {
-          шт: 0,
+          шт: 1050,
         },
-        // oldPrice: 0,
+        // oldPrice: 1050,
         image: Krestovina110lImage1,
         images: [Krestovina110lImage1],
         // description: "Краска для окон и дверей Dulux",
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Канализация", // Подкатегория
+        subCategory: "Канализационные трубы и комплектующие", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
 ];

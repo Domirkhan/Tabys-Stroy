@@ -6,7 +6,7 @@ const Zaglushka = [
         id: 7.1,
         name: "Заглушка ППР  белый Jakko 20 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 40,
         },
         image: zaglushkaImage1,
         images: [zaglushkaImage1, zaglushkaImage2],
@@ -20,7 +20,7 @@ const Zaglushka = [
         id: 7.2,
         name: "Заглушка ППР  белый Jakko 25 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 50,
         },
         image: zaglushkaImage1,
         images: [zaglushkaImage1, zaglushkaImage2],
@@ -34,7 +34,7 @@ const Zaglushka = [
         id: 7.3,
         name: "Заглушка ППР  белый Jakko 32 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 100,
         },
         image: zaglushkaImage1,
         images: [zaglushkaImage1, zaglushkaImage2],
@@ -48,7 +48,7 @@ const Zaglushka = [
         id: 7.4,
         name: "Заглушка ППР  белый Jakko 40 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 150,
         },
         image: zaglushkaImage1,
         images: [zaglushkaImage1, zaglushkaImage2],

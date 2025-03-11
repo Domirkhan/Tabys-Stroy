@@ -23,7 +23,7 @@ const SifonComplect = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Сифон, гофра и шланги", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -39,7 +39,7 @@ const SifonComplect = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Сифон, гофра и шланги", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -55,7 +55,7 @@ const SifonComplect = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Сифон, гофра и шланги", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -71,7 +71,7 @@ const SifonComplect = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Сифон, гофра и шланги", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -87,7 +87,7 @@ const SifonComplect = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Сифон, гофра и шланги", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       

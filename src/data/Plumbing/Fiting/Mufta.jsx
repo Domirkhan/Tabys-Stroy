@@ -6,7 +6,7 @@ const Mufta = [
         id: 4.1,
         name: "Муфта ППР   белый Jakko 20 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 40,
         },
         image: muftaImage1,
         images: [muftaImage1, muftaImage2],
@@ -20,7 +20,7 @@ const Mufta = [
         id: 4.2,
         name: "Муфта ППР   белый Jakko 25 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 40,
         },
         image: muftaImage1,
         images: [muftaImage1, muftaImage2],
@@ -34,7 +34,7 @@ const Mufta = [
         id: 4.3,
         name: "Муфта ППР   белый Jakko 32 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 100,
         },
         image: muftaImage1,
         images: [muftaImage1, muftaImage2],
@@ -48,7 +48,7 @@ const Mufta = [
         id: 4.4,
         name: "Муфта ППР  белый Jakko 40 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 130,
         },
         image: muftaImage1,
         images: [muftaImage1, muftaImage2],

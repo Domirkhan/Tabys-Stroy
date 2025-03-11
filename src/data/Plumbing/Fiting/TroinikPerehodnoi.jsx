@@ -5,7 +5,7 @@ const TroinikPerehodnoi = [
         id: 9.1,
         name: "Тройник переходной ППР  белый Jakko 25х20х25 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 100,
         },
         // oldPrice: 300,
         image: troinikperehodnoiImage1,
@@ -21,7 +21,7 @@ const TroinikPerehodnoi = [
         id: 9.2,
         name: "Тройник переходной ППР  белый Jakko 32х20х32 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 0,
         },
         // oldPrice: 300,
         image: troinikperehodnoiImage1,
@@ -31,13 +31,13 @@ const TroinikPerehodnoi = [
         specifications: { "Материал клипсы": "Полипропилен", "Диаметр опоры": "32х20х32 mm","Рабочая среда": "Вода"},
         category: "plumbing", // Категория
         subCategory: "Фитинги", // Подкатегория
-        availability: "Есть в наличии"  // Новое поле для статуса наличия
+        availability: "Нет в наличии"  // Новое поле для статуса наличия
       },
       {
         id: 9.3,
         name: "Тройник переходной ППР  белый Jakko 32х25х32 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 150,
         },
         // oldPrice: 300,
         image: troinikperehodnoiImage1,
@@ -53,7 +53,7 @@ const TroinikPerehodnoi = [
         id: 9.4,
         name: "Тройник переходной ППР  белый Jakko 40х25х40 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 200,
         },
         // oldPrice: 300,
         image: troinikperehodnoiImage1,

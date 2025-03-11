@@ -6,7 +6,7 @@ const Perehodnik = [
         id: 6.1,
         name: "Переходник ППР белый Jakko 25х20 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 60,
         },
         image: perehodnikImage1,
         images: [perehodnikImage1, perehodnikImage2],
@@ -20,7 +20,7 @@ const Perehodnik = [
         id: 6.2,
         name: "Переходник ППР белый Jakko 32х20 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 80,
         },
         image: perehodnikImage1,
         images: [perehodnikImage1, perehodnikImage2],
@@ -34,7 +34,7 @@ const Perehodnik = [
         id: 6.3,
         name: "Переходник ППР белый Jakko 32х25 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 80,
         },
         image: perehodnikImage1,
         images: [perehodnikImage1, perehodnikImage2],
@@ -48,7 +48,7 @@ const Perehodnik = [
         id: 6.4,
         name: "Переходник ППР белый Jakko 40х25 мм",
         pricePerUnit: {
-          шт: 70,
+          шт: 125,
         },
         image: perehodnikImage1,
         images: [perehodnikImage1, perehodnikImage2],

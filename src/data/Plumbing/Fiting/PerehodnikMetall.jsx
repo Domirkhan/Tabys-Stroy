@@ -26,7 +26,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -42,7 +42,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -58,7 +58,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -74,7 +74,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -90,7 +90,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -106,7 +106,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -122,7 +122,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -138,7 +138,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -154,7 +154,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -170,7 +170,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -186,7 +186,7 @@ const PerehodnikMetall = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Переходники, ниппеля", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
 ];
