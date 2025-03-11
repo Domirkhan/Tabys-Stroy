@@ -37,8 +37,8 @@ function Footer() {
             <h3>Контакты</h3>
             <div className="footer-contacts">
               <div className="footer-phones">
-                <a href="https://wa.me/+77782673976">Жезказган</a>
-                <a href="https://wa.me/+77082621972">Сатпаев</a>
+                <a href="https://wa.me/+77782673976">Жезказган +77782673976</a>
+                <a href="https://wa.me/+77082621972">Сатпаев +7708262197</a>
               </div>
               <p className="footer-address">г. Жезказган, ул. Алашахана, 8</p>
               <p className="footer-address">г. Сатпаев, проспект Независимости, 25А</p>

@@ -37,7 +37,7 @@ function ProductList({ category, subCategory }) {
       <div className="container">
         <h2 className="section-title-category">
           {subCategory
-            ? `Товары подкатегории: ${subCategory}`
+            ? ` ${subCategory}`
             : `Товары категории: ${category}`}
         </h2>
         <div className="products-grid">
