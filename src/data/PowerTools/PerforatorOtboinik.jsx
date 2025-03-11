@@ -15,7 +15,7 @@ const PerforatorOtboinik =[
             detailedDescription: "",
             specifications: { },
             category: "power-tools", // Категория
-            subCategory: "Перфораторы", // Подкатегория
+            subCategory: "Перфораторы и отбойные молотки", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];
