@@ -1,7 +1,4 @@
-import ToolSetImage1 from '../../../src/assets/image/HandTools/Набор Инструмент/2.1.1.1.jpg';
-
-
-
+import ToolSetImage1 from '../../../src/assets/image/HandTools/Набор Инструмент/2.1.1.1.png';
 
 const ToolSets = [
     //  Набор Инструмент

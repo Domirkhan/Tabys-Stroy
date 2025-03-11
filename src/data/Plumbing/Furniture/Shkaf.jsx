@@ -1,16 +1,16 @@
-import ShkafImage1 from '../../../assets/image/plumbing/Мебель/1.12.1.1.jpg';
-import ShkafImage2 from '../../../assets/image/plumbing/Мебель/1.12.1.2.jpg';
+import ShkafImage1 from '../../../assets/image/plumbing/Мебель/1.12.1.1.png';
+import ShkafImage2 from '../../../assets/image/plumbing/Мебель/1.12.1.2.png';
 import ShkafImage3 from '../../../assets/image/plumbing/Мебель/1.12.2.1.jpg';
-import ShkafImage4 from '../../../assets/image/plumbing/Мебель/1.12.3.1.jpg';
-import ShkafImage5 from '../../../assets/image/plumbing/Мебель/1.12.3.2.jpg';
-import ShkafImage6 from '../../../assets/image/plumbing/Мебель/1.12.4.1.jpg';
-import ShkafImage7 from '../../../assets/image/plumbing/Мебель/1.12.5.1.jpg';
-import ShkafImage8 from '../../../assets/image/plumbing/Мебель/1.12.5.2.jpeg';
-import ShkafImage9 from '../../../assets/image/plumbing/Мебель/1.12.6.1.jpeg';
+import ShkafImage4 from '../../../assets/image/plumbing/Мебель/1.12.3.1.png';
+import ShkafImage5 from '../../../assets/image/plumbing/Мебель/1.12.3.2.png';
+import ShkafImage6 from '../../../assets/image/plumbing/Мебель/1.12.4.1.png';
+import ShkafImage7 from '../../../assets/image/plumbing/Мебель/1.12.5.1.png';
+import ShkafImage8 from '../../../assets/image/plumbing/Мебель/1.12.5.2.png';
+import ShkafImage9 from '../../../assets/image/plumbing/Мебель/1.12.6.1.png';
 import ShkafImage10 from '../../../assets/image/plumbing/Мебель/1.12.6.2.jpeg';
-import ShkafImage11 from '../../../assets/image/plumbing/Мебель/1.12.7.1.jpeg';
-import ShkafImage12 from '../../../assets/image/plumbing/Мебель/1.12.8.1.jpeg';
-import ShkafImage13 from '../../../assets/image/plumbing/Мебель/1.12.8.2.jpeg';
+import ShkafImage11 from '../../../assets/image/plumbing/Мебель/1.12.7.1.png';
+import ShkafImage12 from '../../../assets/image/plumbing/Мебель/1.12.8.1.png';
+import ShkafImage13 from '../../../assets/image/plumbing/Мебель/1.12.8.2.png';
 
 
 
@@ -67,7 +67,7 @@ const Shkaf = [
                       },
                     {
                         id: 49.4,
-                        name: "Шкаф навесной, 1 дверь+зеркало, 700, (коллекция Астра)",
+                        name: "Шкаф навесной, 1 дверь+зеркало, 700",
                         pricePerUnit: {
                             шт: 31000,
                             },
@@ -83,7 +83,7 @@ const Shkaf = [
                       },
                     {
                         id: 49.5,
-                        name: "Тумба напольная, 2 ящика, 700, (коллекция АФИНА) + раковина ERICA 70",
+                        name: "Тумба напольная, 2 ящика, 700 + раковина ERICA 70",
                         pricePerUnit: {
                             шт: 72000,
                             },
@@ -99,7 +99,7 @@ const Shkaf = [
                       },
                     {
                         id: 49.6,
-                        name: "Тумба Амур напольная 500, 2 дв + раковина  универсал Элегия 50",
+                        name: "Тумба Амур напольная 500, 2 дв + раковина  универсал",
                         pricePerUnit: {
                             шт: 40000,
                             },
@@ -115,7 +115,7 @@ const Shkaf = [
                       },
                     {
                         id: 49.7,
-                        name: "Тумба под раковину 800, 3 двери, коллекция мира + Раковина СОМО 80",
+                        name: "Тумба под раковину 800, 3 двери + Раковина СОМО 80",
                         pricePerUnit: {
                             шт: 90000,
                             },
@@ -131,7 +131,7 @@ const Shkaf = [
                       },
                     {
                         id: 49.8,
-                        name: "AVK2 Тумба напольная 800, 2 двери +НИША, +Раковина COMO 80",
+                        name: "AVK2 Тумба напольная 800, 2 двери + Раковина COMO 80",
                         pricePerUnit: {
                             шт: 99000,
                             },

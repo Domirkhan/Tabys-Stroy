@@ -1,4 +1,4 @@
-import HandScrewdriverImage1 from '../../assets/image/HandTools/Отвертка/2.2.1.1.webp';
+import HandScrewdriverImage1 from '../../assets/image/HandTools/Отвертка/2.2.1.1.png';
 
 
 

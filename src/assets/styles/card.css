@@ -67,7 +67,7 @@
 }
 
 .product-price {
-  font-size: 1rem; /* Уменьшаем размер шрифта */
+  font-size: 0.8rem; /* Уменьшаем размер шрифта */
   color: #ff0000;
   font-weight: bold;
 }
