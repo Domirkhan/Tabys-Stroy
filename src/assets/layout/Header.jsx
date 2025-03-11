@@ -15,7 +15,7 @@ import powerToolsIcon from "../../assets/icon/power-tools.png";
 import accessoriesIcon from "../../assets/icon/accessories.png";
 import gasIcon from "../../assets/icon/gas.png";
 import electricalIcon from "../../assets/icon/electrical.png";
-import lightingIcon from "../../assets/icon/lighting.png";
+import lightingIcon from "../../assets/icon/lightingIcon.png";
 import decorIcon from "../../assets/icon/Decor.png";
 import paintIcon from "../../assets/icon/paint.png";
 import floorIcon from "../../assets/icon/floor.png";
