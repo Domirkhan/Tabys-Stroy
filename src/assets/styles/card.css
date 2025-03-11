@@ -108,6 +108,10 @@
   .product-title {
     font-size: 0.7rem; /* Уменьшаем размер шрифта */
   }
+  .card-container .add-to-cart-btn {
+    padding: 0.5rem;
+    font-size: 0.7rem;
+}
 }
 
 @media (max-width: 480px) {
@@ -122,10 +126,10 @@
   .card-container {
     max-width: 100%; /* Занимает всю ширину */
     padding: 6px; /* Уменьшаем отступы */
-    height: 300px; /* Автоматическая высота */
+    height: 280px; /* Автоматическая высота */
   }
 
   .product-title {
-    font-size: 0.7rem; /* Уменьшаем размер шрифта */
+    font-size: 0.6rem; /* Уменьшаем размер шрифта */
   }
 }

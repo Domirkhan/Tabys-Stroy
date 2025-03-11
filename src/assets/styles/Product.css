@@ -84,7 +84,7 @@
 }
 
 .product-slide {
-  padding: 0 10px; /* Добавляем отступы между слайдами */
+  padding: 0 5px; /* Добавляем отступы между слайдами */
 }
 
 .slider-header {
@@ -195,7 +195,6 @@
 @media (max-width: 768px) {
   .product-section {
     padding-top: 0;
-    padding-bottom: 0;
   }
 
   .section-title-category {
