@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSwipeable } from "react-swipeable"; // Подключаем библиотеку
 import "../../assets/styles/Slider.css";
+import slide1 from "../image/Slider/slide-1.png";
+import slide2 from "../image/Slider/slide-2.png";
 
 const slides = [
   {
-    image: "https://sotni.ru/wp-content/uploads/2023/08/santekhnika-14.webp",
+    image: slide1,
     title: "НАДЕЖНЫЕ ТРУБЫ ОТ ВЕДУЩИХ ПРОИЗВОДИТЕЛЕЙ",
     path: "/plumbing/Трубы"
   },
   {
-    image: "https://sotni.ru/wp-content/uploads/2023/08/instrumenty-santekhnika-fon-2.webp",
+    image: slide2,
     title: "ФИТИНГИ ДЛЯ ВСЕХ ВИДОВ ТРУБ",
     path: "/plumbing/Фитинги"
   }
