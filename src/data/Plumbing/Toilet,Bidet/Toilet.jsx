@@ -1,13 +1,13 @@
 import ToiletLobninskImage1 from "../../../assets/image/plumbing/Унитаз и биде/1.11.111.png";
 import ToiletLobninskImage2 from "../../../assets/image/plumbing/Унитаз и биде/1.11.112.png";
-import ToiletLobninskImage3 from "../../../assets/image/plumbing/Унитаз и биде/1.11.113.jpg";
-import ToiletLobninskImage4 from "../../../assets/image/plumbing/Унитаз и биде/1.11.114.jpg";
-import ToiletLobninskImage5 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.2.1.jpg";
-import ToiletLobninskImage6 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.2.2.jpg";
-import ToiletLobninskImage7 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.3.1.jpg";
-import ToiletLobninskImage8 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.3.2.jpg";
-import ToiletLobninskImage9 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.3.3.jpg";
-import ToiletLobninskImage10 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.3.4.jpg";
+import ToiletLobninskImage3 from "../../../assets/image/plumbing/Унитаз и биде/1.11.113.png";
+import ToiletLobninskImage4 from "../../../assets/image/plumbing/Унитаз и биде/1.11.114.png";
+import ToiletLobninskImage5 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.2.1.png";
+import ToiletLobninskImage6 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.2.2.png";
+import ToiletLobninskImage7 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.3.1.png";
+import ToiletLobninskImage8 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.3.2.png";
+import ToiletLobninskImage9 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.3.3.png";
+import ToiletLobninskImage10 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.3.4.png";
 import ToiletLobninskImage11 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.4.1.jpg";
 import ToiletLobninskImage12 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.4.2.jpg";
 import ToiletLobninskImage13 from "../../../assets/image/plumbing/Унитаз и биде/1.11.1.4.3.jpg";
@@ -16,7 +16,7 @@ const Toilet = [
     //  Унитазы
             {
                 id: 47.1,
-                name: "Унитаз-компакт Лобненский стройфарфор Оптима эконом",
+                name: "Унитаз-компакт Лобненский Оптима эконом",
                 pricePerUnit: {
                     шт: 32000,
                     },
