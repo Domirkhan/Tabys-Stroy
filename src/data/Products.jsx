@@ -155,6 +155,20 @@ import Pnevmostepler from './PowerTools/Pnevmostepler.jsx';
 
 import ProchiePowertools from './PowerTools/ProchiePowertools.jsx';
 
+import Kafelerez from './PowerTools/Kafelerez.jsx';
+
+import Generatory from './GasolineTechnics/Generatory.jsx';
+
+import Benzopila from './GasolineTechnics/Benzopila.jsx';
+
+import Benzogazonokosilka from './GasolineTechnics/Benzogazonokosilka.jsx';
+
+import ProchaiaBenzotehnika from './GasolineTechnics/ProchaiaBenzotehnika.jsx';
+
+import RosetkaVikluchatel from './ElecticalSupplies/RosetkaVikluchatel.jsx';
+
+import UdlinitelFilter from './ElecticalSupplies/UdlinitelFilter.jsx';
+
 
 
 
@@ -232,6 +246,12 @@ const Products = [
   ...SifonComplect,
   //Шланги, лейки и др-35
   ...ShlangLeika,
+
+  // Унитазы и биде
+    // Унитазы-47
+    ...Toilet,
+    // Биде-48
+    ...Bidet,
   // Запорная Арматура-36
   ...ZaporArmatura,
   // Шланги залив, дренаж и др-37
@@ -255,11 +275,7 @@ const Products = [
     ...FaucetShower,
     // Смеситель Биде-46
     ...FaucetBidet,
-  // Унитазы и биде
-    // Унитазы-47
-    ...Toilet,
-    // Биде-48
-    ...Bidet,
+  
   // Мебель
    // Shkaf-49
    ...Shkaf,
@@ -323,6 +339,20 @@ const Products = [
    ...Pnevmostepler,
    // Прочие Электромнструменты-75
    ...ProchiePowertools,
+   // Кафелерез-76
+   ...Kafelerez,
+   // Генераторы-77
+   ...Generatory,
+   // Бензопила-78
+   ...Benzopila,
+   // Бензогазонокосилка-79
+   ...Benzogazonokosilka,
+   // Прочая бензотехника-80
+   ...ProchaiaBenzotehnika,
+   // Розетка Выключатель-81
+   ...RosetkaVikluchatel,
+   // Удлинители и филтры-82
+   ...UdlinitelFilter,
 ];
 
 export default Products;

@@ -15,7 +15,7 @@ const BurPika =[
         detailedDescription: "",
         specifications: { },
         category: "power-tool-accessories", // Категория
-        subCategory: "Биты", // Подкатегория
+        subCategory: "Биты и наборы бит", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
     },
 ]

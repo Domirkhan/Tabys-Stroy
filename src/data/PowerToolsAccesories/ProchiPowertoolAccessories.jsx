@@ -15,7 +15,7 @@ const ProchiPowertoolAccessories =[
             detailedDescription: "",
             specifications: { },
             category: "power-tool-accessories", // Категория
-            subCategory: "Патроны для дрелей", // Подкатегория
+            subCategory: "Прочие аксессуары для электроинструмента", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];

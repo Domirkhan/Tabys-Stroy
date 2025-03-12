@@ -20,7 +20,7 @@ const PrisoedinenieUnitaz = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Унитазы и биде", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -36,7 +36,7 @@ const PrisoedinenieUnitaz = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Унитазы и биде", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -52,7 +52,7 @@ const PrisoedinenieUnitaz = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Унитазы и биде", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
 ];

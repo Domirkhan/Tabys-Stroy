@@ -15,7 +15,7 @@ const LobzikPila =[
             detailedDescription: "",
             specifications: { },
             category: "power-tools", // Категория
-            subCategory: "Электролобзики", // Подкатегория
+            subCategory: "Электролобзики и электропилы", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];

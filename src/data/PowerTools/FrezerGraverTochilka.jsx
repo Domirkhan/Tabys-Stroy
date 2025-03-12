@@ -15,7 +15,7 @@ const FrezerGraverTochilka =[
             detailedDescription: "",
             specifications: { },
             category: "power-tools", // Категория
-            subCategory: "Фризеры", // Подкатегория
+            subCategory: "Фрезеры и граверы", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];

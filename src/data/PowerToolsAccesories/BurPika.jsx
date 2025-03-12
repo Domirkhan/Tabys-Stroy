@@ -15,7 +15,7 @@ const BurPika =[
         detailedDescription: "",
         specifications: { },
         category: "power-tool-accessories", // Категория
-        subCategory: "Буры", // Подкатегория
+        subCategory: "Буры, пики и зубила", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
     },
 ]

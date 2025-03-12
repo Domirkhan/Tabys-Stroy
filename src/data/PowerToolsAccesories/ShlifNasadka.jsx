@@ -15,7 +15,7 @@ const ShlifNasadka =[
             detailedDescription: "",
             specifications: { },
             category: "power-tool-accessories", // Категория
-            subCategory: "Круги шлифовальные и лепестковые", // Подкатегория
+            subCategory: "Шлифовальные круги и насадки", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];

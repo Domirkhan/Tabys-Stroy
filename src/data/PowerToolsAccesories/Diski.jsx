@@ -15,7 +15,7 @@ const Disk =[
             detailedDescription: "",
             specifications: { },
             category: "power-tool-accessories", // Категория
-            subCategory: "Диски отрезные", // Подкатегория
+            subCategory: "Диски отрезные, алмазные и пильные", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];

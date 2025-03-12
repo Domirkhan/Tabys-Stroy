@@ -15,7 +15,7 @@ const MixerVibrator =[
             detailedDescription: "",
             specifications: { },
             category: "power-tools", // Категория
-            subCategory: "Миксеры", // Подкатегория
+            subCategory: "Миксеры и вибратор", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];

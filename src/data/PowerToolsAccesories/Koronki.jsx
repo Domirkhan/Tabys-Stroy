@@ -15,7 +15,7 @@ const Koronki =[
             detailedDescription: "",
             specifications: { },
             category: "power-tool-accessories", // Категория
-            subCategory: "Коронки алмазные", // Подкатегория
+            subCategory: "Коронки для электроинструментов", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];

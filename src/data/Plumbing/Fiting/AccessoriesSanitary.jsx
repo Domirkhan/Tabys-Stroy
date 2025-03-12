@@ -27,7 +27,7 @@ const AccessoriesSanitary = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Аксессуары для ванной", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
     {
@@ -43,7 +43,7 @@ const AccessoriesSanitary = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Аксессуары для ванной", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
     {
@@ -59,7 +59,7 @@ const AccessoriesSanitary = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Аксессуары для ванной", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
     {
@@ -75,7 +75,7 @@ const AccessoriesSanitary = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Аксессуары для ванной", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
     {
@@ -91,7 +91,7 @@ const AccessoriesSanitary = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Аксессуары для ванной", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
     // Стаканы настенные
@@ -108,7 +108,7 @@ const AccessoriesSanitary = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Аксессуары для ванной", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
     {
@@ -124,7 +124,7 @@ const AccessoriesSanitary = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Аксессуары для ванной", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
     {
@@ -140,7 +140,7 @@ const AccessoriesSanitary = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Аксессуары для ванной", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
     {
@@ -156,7 +156,7 @@ const AccessoriesSanitary = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Ванны и комплектующие", // Подкатегория
+        subCategory: "Аксессуары для ванной", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
 ];

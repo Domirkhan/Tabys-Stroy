@@ -15,7 +15,7 @@ const Sverlo =[
             detailedDescription: "",
             specifications: { },
             category: "power-tool-accessories", // Категория
-            subCategory: "Сверла универсальные", // Подкатегория
+            subCategory: "Сверла и наборы сверл", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];

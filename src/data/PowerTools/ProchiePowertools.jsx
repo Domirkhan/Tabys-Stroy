@@ -1,11 +1,11 @@
-import BaranostrijerImage1 from '../../assets/image/PowerTool/Прочие Электромнструменты/3.16.1.1.webp';
+import BaranostrijerImage1 from '../../assets/image/PowerTool/Прочие Электромнструменты/3.16.1.1.jpg';
 
 
 
 const ProchiePowertools =[
     {
             id: 75.1,
-            name:  "Компрессор RC30-210",
+            name:  "Машинка для стрижки овец и баранов",
             pricePerUnit: {
                 шт: 29700,
                 },
@@ -16,7 +16,7 @@ const ProchiePowertools =[
             detailedDescription: "",
             specifications: { },
             category: "power-tools", // Категория
-            subCategory: "other-Прочие электроинструменты", // Подкатегория
+            subCategory: "Прочие электроинструменты", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
 ];
