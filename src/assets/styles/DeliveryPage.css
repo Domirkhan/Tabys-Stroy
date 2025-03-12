@@ -1,7 +1,6 @@
 .delivery-page {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     background-color: #f9f9f9;
   }
   
@@ -44,5 +43,17 @@
   @media (max-width: 768px) {
     .delivery-container {
       margin-top: 3rem;
+      margin-bottom: 0;
     }
+    .delivery-container h2 {
+      font-size: 0.9rem;
+      margin-top: 1.5rem;
+    }
+    
+    .delivery-container p, .delivery-container ul {
+      font-size: 0.7rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    
   }

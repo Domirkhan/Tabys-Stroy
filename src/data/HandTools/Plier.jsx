@@ -1,4 +1,4 @@
-import PlierExpertImage1 from '../../assets/image/HandTools/Плоскогубцы Пасатижи/2.3.1.1.jpg';
+import PlierExpertImage1 from '../../assets/image/HandTools/Плоскогубцы Пасатижи/2.3.1.1.png';
 
 
 const Plier = [

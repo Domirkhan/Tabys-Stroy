@@ -15,7 +15,7 @@ import powerToolsIcon from "../../assets/icon/power-tools.png";
 import accessoriesIcon from "../../assets/icon/accessories.png";
 import gasIcon from "../../assets/icon/gas.png";
 import electricalIcon from "../../assets/icon/electrical.png";
-import lightingIcon from "../../assets/icon/lighting.png";
+import lightingIcon from "../../assets/icon/lightingIcon.png";
 import decorIcon from "../../assets/icon/Decor.png";
 import paintIcon from "../../assets/icon/paint.png";
 import floorIcon from "../../assets/icon/floor.png";
@@ -113,6 +113,7 @@ function Header() {
               <img
                 src={Menu}
                 alt="menu"
+                className='menu'
               />
               <span>Каталог</span>
             </div>
@@ -157,7 +158,7 @@ function Header() {
             </div>
             <div className="header-actions">
               <Link to="/cart" className="cart">
-                <img src={cartIcon} alt="cart" />
+                <img src={cartIcon} alt="cart" className='cart-icon'/>
                 <span className="cart-count">{totalQuantity}</span>
               </Link>
             </div>

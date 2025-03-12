@@ -84,7 +84,7 @@
 }
 
 .product-slide {
-  padding: 0 10px; /* Добавляем отступы между слайдами */
+  padding: 0 5px; /* Добавляем отступы между слайдами */
 }
 
 .slider-header {
@@ -165,6 +165,7 @@
   margin-top: 0.5rem;
 }
 
+
 .add-to-cart-btn:hover {
   background-color: #b00000;
 }
@@ -193,9 +194,11 @@
 }
 
 @media (max-width: 768px) {
+  .slick-slider{
+    margin-bottom: -4rem;
+  }
   .product-section {
     padding-top: 0;
-    padding-bottom: 0;
   }
 
   .section-title-category {
