@@ -15,7 +15,7 @@ const Benzopila =[
         // description: "Краска для окон и дверей Dulux",
         detailedDescription: "",
         specifications: { },
-        category: "GasolineTechnics", // Категория
+        category: "gasoline-technics", // Категория
         subCategory: "Бензопилы", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
     },

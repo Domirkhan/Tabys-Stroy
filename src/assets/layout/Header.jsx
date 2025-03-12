@@ -374,7 +374,7 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Перфораторы отбойные молотки" onClick={closeCatalog}>
+                        <Link to="/power-tools/Перфораторы и отбойные молотки" onClick={closeCatalog}>
                           Перфораторы и отбойные молотки
                         </Link>
                       </li>
@@ -404,8 +404,8 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Краскапульты электрические" onClick={closeCatalog}>
-                          Краскапульты электрические
+                        <Link to="/power-tools/Краскопульты электрические" onClick={closeCatalog}>
+                          Краскопульты электрические
                         </Link>
                       </li>
                       <li>
@@ -429,8 +429,8 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/power-tools/Сверочные аппараты" onClick={closeCatalog}>
-                          Сверочные аппараты
+                        <Link to="/power-tools/Сварочные аппараты" onClick={closeCatalog}>
+                          Сварочные аппараты
                         </Link>
                       </li>
                       <li>
@@ -589,6 +589,11 @@ function Header() {
                       <li>
                         <Link to="/electrical-goods/Фонари и прочие товары" onClick={closeCatalog}>
                             Фонари и прочие товары
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/electrical-goods/Удленители и сетевые фильтры" onClick={closeCatalog}>
+                            Удленители и сетевые фильтры
                         </Link>
                       </li>
                     </ul>
