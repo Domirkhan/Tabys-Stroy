@@ -12,6 +12,7 @@
   }
   
   .uc-modal {
+    max-width: 90%;
     background: #fff;
     padding: 2rem;
     border-radius: 8px;
@@ -20,10 +21,12 @@
   }
 
   .us-h2{
+    font-size: 1rem;
     margin-bottom: 1rem;
   }
   .us-p{
     margin-bottom: 1rem;
+    font-size: 0.7rem;
   }
   
   .uc-close-btn {
@@ -37,6 +40,7 @@
   }
   
   .uc-wa-btn {
+    font-size: 0.8rem;
     display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
