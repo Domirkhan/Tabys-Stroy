@@ -44,7 +44,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -58,7 +58,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -72,7 +72,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   // Тройник металл
@@ -87,7 +87,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -101,7 +101,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -115,7 +115,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -129,7 +129,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -143,7 +143,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -157,7 +157,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   // Цанга-гайка угол, тройник
@@ -172,7 +172,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -186,7 +186,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -200,7 +200,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -214,7 +214,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -228,7 +228,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
   {
@@ -242,7 +242,7 @@ const UgolokMetal = [
     detailedDescription: "",
     specifications: {},
     category: "plumbing",
-    subCategory: "Фитинги",
+    subCategory: "Переходники, ниппеля",
     availability: "Есть в наличии"
   },
 ];

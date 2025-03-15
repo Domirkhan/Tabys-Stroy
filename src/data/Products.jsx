@@ -165,11 +165,123 @@ import Benzogazonokosilka from './GasolineTechnics/Benzogazonokosilka.jsx';
 
 import ProchaiaBenzotehnika from './GasolineTechnics/ProchaiaBenzotehnika.jsx';
 
-import RosetkaVikluchatel from './ElecticalSupplies/RosetkaVikluchatel.jsx';
+import RosetkaVikluchatel from './ElecticalSupplies/RosetkaVikluchatel.jsx'
 
 import UdlinitelFilter from './ElecticalSupplies/UdlinitelFilter.jsx';
 
+import Stoliarnie from './HandTools/Stoliarnie.jsx';
 
+import Maliarnie from './HandTools/Maliarnie.jsx';
+
+import Cutters from './HandTools/Cutters.jsx';
+
+import KnifeScissor from './HandTools/KnifeScissor.jsx';
+
+import KluchGolovka from './HandTools/KluchGolovka.jsx';
+
+import PilaNojovka from './HandTools/PilaNojovka.jsx';
+
+import ZubiloDirokol from './HandTools/ZubiloDirokol.jsx';
+
+import Extractor from './HandTools/Extractor.jsx';
+
+import Multytool from './HandTools/Multytool.jsx';
+
+import Hammer from './HandTools/Hammer.jsx';
+
+import LomGvozdoder from './HandTools/LomGvozdoder.jsx';
+
+import KirkaLopata from './HandTools/KirkaLopata.jsx';
+
+import KabelMontaj from './ElecticalSupplies/KabelMontaj.jsx';
+
+import SvetilnikZapchasti from './ElecticalSupplies/SvetilnikZapchasti.jsx';
+
+import ElectroShityOborudovania from './ElecticalSupplies/ElectroShityOborudovania.jsx';
+
+import ElectromontajPribor from './ElecticalSupplies/ElectromontajPribor.jsx';
+
+import FonarProchie from './ElecticalSupplies/FonarProchie.jsx';
+
+import Lampocki from './Lighting/Lampocki.jsx';
+
+import PotolochSvetil from './Lighting/PotolochSvetil.jsx';
+
+import Lustra from './Lighting/Lustra.jsx';
+
+import NastenSvetilBra from './Lighting/NastenSvetilBra.jsx';
+
+import NastolLampaTorsher from './Lighting/NastolLampaTorsher.jsx';
+
+import LentaSvetodiod from './Lighting/LentaSvetodiod.jsx';
+
+import Projector from './Lighting/Projector.jsx';
+
+import Oboy from './Decor/Oboy.jsx';
+
+import DecorpanelGibkiy from './Decor/DecorpanelGibkiy.jsx';
+
+import ReshetkiLuvery from './Decor/ReshetkiLuvery.jsx';
+
+import ProfilUgolok from './Decor/ProfilUgolok.jsx';
+
+import GaltelMolding from './Decor/GaltelMolding.jsx';
+
+import Karniz from './Decor/Karniz.jsx';
+
+import ProchieAccessories from './Decor/ProchieAccessories.jsx';
+
+import AcrilInterior from './paint/AcrilInterior.jsx';
+
+import AcrilFasad from './paint/AcrilFasad.jsx';
+
+import AcrilUniversal from './paint/AcrilUniversal.jsx';
+
+import Enamel from './paint/Enamel.jsx';
+
+import EnamelFloor from './paint/EnamelFloor.jsx';
+
+import EnamelRadiator from './paint/EnamelRadiator.jsx';
+
+import EnamelDecorTermo from './paint/EnamelDecorTermo.jsx';
+
+import AirzolSpecenamel from './paint/AirzolSpecenamel.jsx';
+
+import LakiOlifa from './paint/LakiOlifa.jsx';
+
+import Razbavitel from './paint/Razbavitel.jsx';
+
+import Laminat from './FloorCoverings/Laminat.jsx';
+
+import Linoleum from './FloorCoverings/Linoleum.jsx';
+
+import PlintusNapol from './FloorCoverings/PlintusNapol.jsx';
+
+import PlintusComplect from './FloorCoverings/PlintusComplect.jsx';
+
+import Porojki from './FloorCoverings/Porojki.jsx';
+
+import Podlojka from './FloorCoverings/Podlojka.jsx';
+
+import NapolPlitka from './FloorCoverings/NapolPlitka.jsx';
+
+import KeramicPlitka from './FloorCoverings/KeramicPlitka.jsx';
+
+import Keramogranit from './FloorCoverings/Keramogranit.jsx';
+
+import Shtukaturka from './BuildingMaterials/Shtukaturka.jsx';
+
+import SmesPolCement from './BuildingMaterials/SmesPolCement.jsx';
+
+import KleySuhie from './BuildingMaterials/KleySuhie.jsx';
+
+import Gruntovka from './BuildingMaterials/Gruntovka.jsx';
+
+import SetkaSerpianka from './BuildingMaterials/SetkaSerpianka.jsx';
+
+import Gipsokarton from './BuildingMaterials/Gipsokarton.jsx';
+
+import OSBFanerOrgalit from './BuildingMaterials/OSBFanerOrgalit.jsx';
 
 
 
@@ -177,6 +289,7 @@ const Products = [
   //Сантехника
   //Трубы-1
   ...Trubi,
+
   //Фитинги
    // отвод-2
    ...Otvod,
@@ -210,12 +323,18 @@ const Products = [
    ...Planka,
    // Отвод с креплением-17
    ...OtvodSKrepleniem,
+
+  // Запорно-регулирующая арматура
    // Кран металл-18
    ...KranMetall,
    // Клапан бойлер-19
    ...Klapan,
+
+  // Шланги для смесителей и унитаза
    // Шланги смеситель, бочок-20
    ...Shlang,
+
+  //Переходники, ниппеля
    // Заглушки и переходники-21
    ...ZaglushkaMetall,
    // Ниппел-22
@@ -226,26 +345,30 @@ const Products = [
    ...MuftaMetall,
    // Кран Маевского-25
    ...KranMaevskogo,
-   // Канализация-26
-   ...KanalizaciaTruba,
-   // Муфта, отвод, тройник Канализация-27
-   ...MuftaKan,
   // Уголок, тройник металл -28
   ...UgolokMetal,
   // Обжимная муфта-29
   ...ObjimMuf,
   // Штуцер-30
   ...Shtutser,
-  // Кранбукса-31
-  ...KranBox,
+
+  // Канализационные трубы и комплектующие
+   // Канализация-26
+   ...KanalizaciaTruba,
+   // Муфта, отвод, тройник Канализация-27
+   ...MuftaKan,
+   // Тросс канализация-38
+   ...TrossKanalizatsia,
+
+ //Сифон, гофра и шланги
   // Сифон-32
   ...Sifon,
   // Сифон для ванны-33
   ...SifonVanna,
   // Сифон комплект и др-34
   ...SifonComplect,
-  //Шланги, лейки и др-35
-  ...ShlangLeika,
+  // Шланги залив, дренаж и др-37
+  ...ShlangInOutDrain,
 
   // Унитазы и биде
     // Унитазы-47
@@ -254,17 +377,20 @@ const Products = [
     ...Bidet,
   // Запорная Арматура-36
   ...ZaporArmatura,
-  // Шланги залив, дренаж и др-37
-  ...ShlangInOutDrain,
-  // Тросс канализация-38
-  ...TrossKanalizatsia,
-  // Аксессуары Санузел-39
-  ...AccessoriesSanitary,
   // Гофра для унитаза-40
   ...GofraUnitaz,
   // Присоединение к унитазу-41
   ...PrisoedinenieUnitaz,
-  // Смесители
+  
+// Ванны и комплектующие
+  //Шланги, лейки и др-35
+  ...ShlangLeika,
+
+//Аксессуары для ванной
+  // Аксессуары Санузел-39
+  ...AccessoriesSanitary,
+ 
+  // Смесители для ванной и кухни
    // Смеситель Раковина-42
     ...FaucetSink,
     // Смеситель Ванна-43
@@ -275,11 +401,14 @@ const Products = [
     ...FaucetShower,
     // Смеситель Биде-46
     ...FaucetBidet,
+    // Кранбукса-31
+    ...KranBox,
   
   // Мебель
    // Shkaf-49
    ...Shkaf,
    
+
   // HandTools
    // Набор инструмент-50
    ...ToolSets,
@@ -287,7 +416,32 @@ const Products = [
    ...HandScrewdriver,
    // Плоскогубцы Пасатижы-52
    ...Plier,
-  
+   // Столярные инструменты-83
+   ...Stoliarnie,
+   // Малярные инструменты-84
+   ...Maliarnie,
+   // Бокорез Всерезы-85
+   ...Cutters,
+   // Ножи, Ножницы-86
+   ...KnifeScissor,
+   // Ключи, Головки-87
+   ...KluchGolovka,
+   // Пила, Ножовка-88
+   ...PilaNojovka,
+   // Зубило, Дырокол-89
+   ...ZubiloDirokol,
+   // Экстракторы-90
+   ...Extractor,
+   // Мультитул-91
+   ...Multytool,
+   // Молоток, Кувалда-92
+   ...Hammer,
+  // Лом, Гвоздодер-93
+  ...LomGvozdoder,
+  // Кирка, Лопатка-94
+  ...KirkaLopata,
+
+
   //Акссесуары для электроинструментов
    // Бита-53
    ...Bita,
@@ -305,6 +459,7 @@ const Products = [
    ...Pilki,
    // ПрочийАксессуарЭлектроинструмет-60
    ...ProchiPowertoolAccessories,
+
 
   //Электроинструменты
    // Дрель Шуруповерт
@@ -341,6 +496,9 @@ const Products = [
    ...ProchiePowertools,
    // Кафелерез-76
    ...Kafelerez,
+
+
+   // Бензиновые техники
    // Генераторы-77
    ...Generatory,
    // Бензопила-78
@@ -349,10 +507,120 @@ const Products = [
    ...Benzogazonokosilka,
    // Прочая бензотехника-80
    ...ProchaiaBenzotehnika,
+
+
+   // Электротовары
    // Розетка Выключатель-81
    ...RosetkaVikluchatel,
-   // Удлинители и филтры-82
+   // Кабель и монтаж-82
+...KabelMontaj,
+   // Удлинители и филтры-95
    ...UdlinitelFilter,
+   // ЗапчастьСветильник-96
+   ...SvetilnikZapchasti,
+   // ЭлектрощитОборудование-97
+   ...ElectroShityOborudovania,
+   // ЭлектромонтажПрибор-98
+   ...ElectromontajPribor,
+   // Фонарь Прочие-99
+   ...FonarProchie,
+   // Лампочки и патроны для ламп-100
+   ...Lampocki,
+   // ПотолочСветиль-101
+   ...PotolochSvetil,
+   // Люстра-102
+   ...Lustra,
+   // Настенные светильники, лампы и бра-103
+   ...NastenSvetilBra,
+   // НастолЛампа Торшер-104
+   ...NastolLampaTorsher,
+   // Лентасветодиодная-105
+   ...LentaSvetodiod,
+   // Прожекторы-106
+   ...Projector,
+
+
+   // Декор
+   // Обои-107
+   ...Oboy,
+   // Гибкий Мрамор-108
+   ...DecorpanelGibkiy,
+   // Декоротивные решетки и луверы-109
+   ...ReshetkiLuvery,
+   // Профили для панелей и углы-110
+   ...ProfilUgolok,
+   // Галтель Молдинг-111
+   ...GaltelMolding,
+   // Карнизы-112
+   ...Karniz,
+   // Прочий Декор Аксессуар-113
+   ...ProchieAccessories,
+
+
+   // Краски
+   // Акрил Водоэмульсия-114
+   ...AcrilInterior,
+   // Акрил Фасад-115
+   ...AcrilFasad,
+   // Акрил Универсал-116
+   ...AcrilUniversal,
+   // Эмаль-117
+   ...Enamel,
+   // Эмаль для пола-118
+   ...EnamelFloor,
+   // Эмаль Радиатор-119
+   ...EnamelRadiator,
+   // Эмали декоротивные и термостойкие-120
+   ...EnamelDecorTermo,
+   // Аэрозоль Спецэмаль-121
+   ...AirzolSpecenamel,
+   // Лаки и олифы-122
+   ...LakiOlifa,
+   // Растворитель-123
+   ...Razbavitel,
+
+   //Напольное покрытие
+   // Ламинат-124
+   ...Laminat,
+   // Линолеум-125
+   ...Linoleum,
+   // Плинтус Комплектующие-126
+   ...PlintusNapol,
+   // Плинтус Комплект-127
+   ...PlintusComplect,
+   // Порожки для пола-128
+   ...Porojki,
+   // Подложки-129
+   ...Podlojka,
+   // Напол Плитка-130
+   ...NapolPlitka,
+   // Керамическая плитка и бордюры-131
+   ...KeramicPlitka,
+   // Керамогранит-132
+   ...Keramogranit,
+   // Штукатурки и шпактлевки-133
+   ...Shtukaturka,
+   // Смесь Пол Цемент-134
+   ...SmesPolCement,
+   // Клеи сухие-135
+   ...KleySuhie,
+   // Грунтовка Праймер-136
+   ...Gruntovka,
+   // Сетка Серпянка-137
+   ...SetkaSerpianka,
+   // Гипсокартон-138
+   ...Gipsokarton,
+   // ОСБ Фанер Оргалит-139
+   ...OSBFanerOrgalit,
+
+
+
+
+
+
+
+
+
 ];
 
 export default Products;

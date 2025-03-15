@@ -4,7 +4,7 @@ import UdlinitelImage1 from '../../assets/image/ElectricalSupplies/Удлини�
 
 const UdlinitelFilter =[
     {
-        id: 82.1,
+        id: 95.1,
         name:  "Удлинитель ЭРА с заземлением 3 гнезда 1,5м, 16А",
         pricePerUnit: {
             шт: 3000,
@@ -15,8 +15,8 @@ const UdlinitelFilter =[
         // description: "Краска для окон и дверей Dulux",
         detailedDescription: "",
         specifications: { },
-        category: "GasolineTechnics", // Категория
-        subCategory: "Удлинитель и сетевые фильтры", // Подкатегория
+        category: "electrical-goods", // Категория
+        subCategory: "Удленители и сетевые фильтры", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
     },
     

@@ -19,7 +19,7 @@ const KranBox = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Смесители для ванной и кухни", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
@@ -35,7 +35,7 @@ const KranBox = [
         detailedDescription: "",
         specifications: { },
         category: "plumbing", // Категория
-        subCategory: "Фитинги", // Подкатегория
+        subCategory: "Смесители для ванной и кухни", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
       },
       {
