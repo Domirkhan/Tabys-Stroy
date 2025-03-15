@@ -21,7 +21,8 @@
   }
 
   .us-h2{
-    font-size: 1rem;
+    color: #ff0000;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
   .us-p{
@@ -60,5 +61,11 @@
       justify-content: center;
       align-items: center;
       align-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .us-h2{
+    font-size: 1rem;
   }
 }

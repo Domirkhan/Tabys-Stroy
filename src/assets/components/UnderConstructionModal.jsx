@@ -23,9 +23,9 @@ function UnderConstructionModal() {
     <div className="uc-modal-overlay">
       <div className="uc-modal">
         <button className="uc-close-btn" onClick={handleClose}>X</button>
-        <h2 className='us-h2'>Сайт в разработке</h2>
+        <h2 className='us-h2'>Важное уведомление !</h2>
         <p className='uc-p'>
-          На данный момент не все товары доступны. Пожалуйста, уточняйте цены и наличие у менеджера через WhatsApp.
+          Мы рады что вы посетили наш сайт и мы надеемся на ваше дальнейшее сотруднечество. На данный момент не все товары доступны. Пожалуйста, уточняйте цены и наличие у менеджера через WhatsApp.
         </p>
         <a 
           href="https://wa.me/77782673976" 
