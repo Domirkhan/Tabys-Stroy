@@ -1,5 +1,5 @@
 
-import RazbavitelImage1 from '../../assets/image/Paint/Разбавитель/9.10.1.1.jpg';
+import RazbavitelImage1 from '../../assets/image/paint/Разбавитель/9.10.1.1.jpg';
 
 
 

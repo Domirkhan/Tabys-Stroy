@@ -1,5 +1,5 @@
 
-import AcrilUniversalImage1 from '../../assets/image/Paint/Акрил Универсал/9.3.1.1.jpg';
+import AcrilUniversalImage1 from '../../assets/image/paint/Акрил Универсал/9.3.1.1.jpg';
 
 
 

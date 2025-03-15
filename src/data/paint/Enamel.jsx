@@ -1,5 +1,5 @@
 
-import EnamelImage1 from '../../assets/image/Paint/Эмаль/9.4.1.1.jpg';
+import EnamelImage1 from '../../assets/image/paint/Эмаль/9.4.1.1.jpg';
 
 
 
