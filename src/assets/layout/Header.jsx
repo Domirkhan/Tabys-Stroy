@@ -740,8 +740,8 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/paint/Эмали акриловые, эмали для радиаторы" onClick={closeCatalog}>
-                          Эмали акриловые, эмали для радиаторы
+                        <Link to="/paint/Эмали акриловые, эмали для радиатора" onClick={closeCatalog}>
+                          Эмали акриловые, эмали для радиатора
                         </Link>
                       </li>
                       <li>
@@ -842,8 +842,8 @@ function Header() {
                   <div className="subcategory-wrapper">
                     <ul className="subcategory-list">
                       <li>
-                          <Link to="/building-materials/Штукатурки и шпактлевки" onClick={closeCatalog}>
-                            Штукатурки и шпактлевки
+                          <Link to="/building-materials/Штукатурки и шпаклевки" onClick={closeCatalog}>
+                            Штукатурки и шпаклевки
                           </Link>
                       </li>
                       <li>
