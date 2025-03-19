@@ -6,7 +6,7 @@ import  OSBFanerImage1 from '../../assets/image/BuildingMaterials/ОСБ Фан�
 const OSBFanerOrgalit =[
     {
         id: 139.1,
-        name:  "Гипсокартон стеновой простой",
+        name:  "Плита OSB (Кроношпан) толщина 9 мм, размер 2440*1220 мм",
         pricePerUnit: {
             шт: 5700,
             },
@@ -17,7 +17,7 @@ const OSBFanerOrgalit =[
         detailedDescription: "",
         specifications: { },
         category: "building-materials", // Категория
-        subCategory: "Гипсокартоны", // Подкатегория
+        subCategory: "ОСБ фанеры и Оргалит", // Подкатегория
         availability: "Есть в наличии"  // Новое поле для статуса наличия
     },
     
