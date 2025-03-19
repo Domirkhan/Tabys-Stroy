@@ -226,4 +226,7 @@
     .pd-container{
         margin-top: 2rem!important;
     }
+    .pd-image{
+        height: 350px;
+    }
 }
