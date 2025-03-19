@@ -1,5 +1,4 @@
-
-import AcrilinteriorImage1 from '../../assets/image/Paint/Акрил Интерьер/9.1.1.1.jpg';
+import AcrilinteriorImage1 from '../../assets/image/paint/Акрил Интерьер/9.1.1.1.jpg';
 
 
 

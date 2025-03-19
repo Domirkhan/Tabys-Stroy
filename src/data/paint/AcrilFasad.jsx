@@ -1,7 +1,4 @@
-
-import AcrilFasadImage1 from '../../assets/image/Paint/Акрил Фасад/9.2.1.1.jpg';
-
-
+import AcrilFasadImage1 from '../../assets/image/paint/Акрил Фасад/9.2.1.1.jpg';
 
 
 const AcrilFasad =[

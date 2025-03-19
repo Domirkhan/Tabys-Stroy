@@ -1,5 +1,5 @@
 
-import EnamelFloorImage1 from '../../assets/image/Paint/Эмаль для пола/9.5.1.1.jpg';
+import EnamelFloorImage1 from '../../assets/image/paint/Эмаль для пола/9.5.1.1.jpg';
 
 
 

@@ -1,6 +1,6 @@
 
-import EnamelRadiatorImage1 from '../../assets/image/Paint/Эмаль Радиатор/9.6.1.1.jpg';
-import EnamelRadiatorImage2 from '../../assets/image/Paint/Эмаль Радиатор/9.6.1.2.jpg';
+import EnamelRadiatorImage1 from '../../assets/image/paint/Эмаль Радиатор/9.6.1.1.jpg';
+import EnamelRadiatorImage2 from '../../assets/image/paint/Эмаль Радиатор/9.6.1.2.jpg';
 
 
 

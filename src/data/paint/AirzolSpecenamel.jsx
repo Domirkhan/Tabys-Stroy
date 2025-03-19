@@ -1,5 +1,5 @@
 
-import AirzolImage1 from '../../assets/image/Paint/Аэрозоль Спецэмаль/9.8.1.1.jpg';
+import AirzolImage1 from '../../assets/image/paint/Аэрозоль Спецэмаль/9.8.1.1.jpg';
 
 
 

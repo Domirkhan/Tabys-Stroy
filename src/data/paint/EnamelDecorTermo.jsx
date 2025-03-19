@@ -1,5 +1,5 @@
 
-import EnamelDecorImage1 from '../../assets/image/Paint/Эмаль Декор Термо/9.7.1.1.jpg';
+import EnamelDecorImage1 from '../../assets/image/paint/Эмаль Декор Термо/9.7.1.1.jpg';
 
 
 

@@ -1,5 +1,5 @@
 
-import LakImage1 from '../../assets/image/Paint/Лаки Олифа/9.9.1.1.jpg';
+import LakImage1 from '../../assets/image/paint/Лаки Олифа/9.9.1.1.jpg';
 
 
 
