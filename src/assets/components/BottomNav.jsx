@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import homeIcon from '../icon/home.png';
-import catalogIcon from '../icon/catalog.png';
+import catalogIcon from '../icon/Catalog.png';
 import cartIcon from '../icon/cart-2.png';
 import userIcon from '../icon/user.png';
 import '../styles/BottomNav.css';
