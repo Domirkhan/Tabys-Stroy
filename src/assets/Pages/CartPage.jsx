@@ -45,9 +45,23 @@ function CartPage() {
     setDeliveryData({ ...deliveryData, [e.target.name]: e.target.value });
   };
 
+  const validateOrderDetails = () => {
+    if (!orderData.city || !orderData.address || !orderData.phone || !orderData.fio) {
+      alert('Пожалуйста, заполните все контактные данные.');
+      return false;
+    }
+    if (cartItems.length === 0) {
+      alert('Корзина пуста. Добавьте товары перед оформлением заказа.');
+      return false;
+    }
+    return true;
+  };
+
   const handleOrderSubmit = async (e) => {
     e.preventDefault();
-
+  
+    if (!validateOrderDetails()) return;
+  
     const orderDetails = {
       items: cartItems.map(item => {
         const unitPrice =
@@ -67,28 +81,30 @@ function CartPage() {
       delivery: deliveryData,
     };
 
-    const orderLink = `${window.location.origin}/Tabys-Stroy/#/zakaz?data=${encodeURIComponent(
+    // Формируем ссылку для страницы заказа
+    const orderLink = `${window.location.origin}/zakaz?data=${encodeURIComponent(
       JSON.stringify(orderDetails)
     )}`;
-    const fullOrderLink = orderLink;
 
-    const message =
-      `Новый заказ:\n\n` +
-      orderDetails.items
-        .map(
-          i =>
-            `${i.name} — ${i.quantity} ${i.unit ? i.unit : ''} x ${i.price} тг = ${i.subtotal} тг`
-        )
-        .join('\n') +
-      `\n\nОбщая сумма: ${totalPrice} тг\n\n` +
-      `Данные покупателя:\nГород: ${orderData.city}\nАдрес: ${orderData.address}\nТелефон: ${orderData.phone}\nФИО: ${orderData.fio}\n\n` +
-      `Доставка и оплата:\nСпособ оплаты: ${deliveryData.paymentMethod}\nСпособ доставки: ${deliveryData.deliveryMethod}\nПримечание: ${deliveryData.note}\n\n` +
-      `Подробности заказа: ${fullOrderLink}`;
+  // Формируем сообщение для WhatsApp
+  const message =
+    `Новый заказ:\n\n` +
+    orderDetails.items
+      .map(
+        i =>
+          `${i.name} — ${i.quantity} ${i.unit ? i.unit : ''} x ${i.price} тг = ${i.subtotal} тг`
+      )
+      .join('\n') +
+    `\n\nОбщая сумма: ${totalPrice} тг\n\n` +
+    `Данные покупателя:\nГород: ${orderData.city}\nАдрес: ${orderData.address}\nТелефон: ${orderData.phone}\nФИО: ${orderData.fio}\n\n` +
+    `Доставка и оплата:\nСпособ оплаты: ${deliveryData.paymentMethod}\nСпособ доставки: ${deliveryData.deliveryMethod}\nПримечание: ${deliveryData.note}\n\n` +
+    `Подробности заказа: ${orderLink}`;
 
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/77782673976?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/77782673976?text=${encodedMessage}`;
 
+  // Открываем WhatsApp-сообщение
+  window.open(whatsappUrl, '_blank');
     clearCart();
   };
 
@@ -106,7 +122,7 @@ function CartPage() {
               <div className="empty-cart">
                 <img src={cartIcon} alt="cart" />
                 В корзине нет товаров
-                </div>
+              </div>
             ) : (
               <form onSubmit={handleOrderSubmit}>
                 <Section title="1. Ваша корзина" isOpen={isCartOpen} toggle={() => setIsCartOpen(!isCartOpen)}>
