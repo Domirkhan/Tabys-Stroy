@@ -40,7 +40,26 @@
   .nav-item:focus {
     outline: none;
   }
-  
+/* Ограничиваем позиционирование только для корзины */
+.bottom-cart-item {
+  position: relative;
+}
+
+.cart-quantity {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
   /* Показываем нижнюю панель только на мобильных устройствах */
   @media (min-width: 768px) {
     .bottom-nav {
