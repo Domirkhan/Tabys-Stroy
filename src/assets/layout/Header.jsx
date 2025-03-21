@@ -1010,11 +1010,6 @@ function Header() {
                           </Link>
                       </li>
                       <li>
-                          <Link to="/doors/Гвозди" onClick={closeCatalog}>
-                            Гвозди
-                          </Link>
-                      </li>
-                      <li>
                           <Link to="/doors/Металлические входные двери" onClick={closeCatalog}>
                             Металлические входные двери
                           </Link>
