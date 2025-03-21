@@ -476,6 +476,7 @@
         height: 24px;
     }
     .catalog-sidebar {
+        padding-bottom: 5rem;
         width: 100%;
     }
     .header-top .container{
