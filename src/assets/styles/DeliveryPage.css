@@ -42,7 +42,7 @@
 
   @media (max-width: 768px) {
     .delivery-container {
-      margin-top: 3rem;
+      margin-top: 0;
       margin-bottom: 0;
     }
     .delivery-container h2 {

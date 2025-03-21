@@ -213,7 +213,7 @@
         gap: 20px;
     }
     .pd-slider-controls {
-        top: 50%; /* Поднимаем контролы */
+        top: 45%; /* Поднимаем контролы */
       }
 
     .pd-slider-btn {
@@ -222,11 +222,10 @@
         font-size: 1.2rem;
         margin: 0;
     }
-
-    .pd-container{
-        margin-top: 2rem!important;
-    }
     .pd-image{
         height: 350px;
+    }
+    .pd-section{
+        padding-top: 1rem;
     }
 }

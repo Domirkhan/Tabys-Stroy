@@ -1,0 +1,49 @@
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+  button.nav-item {
+    all: unset; /* Сбрасываем все стили кнопки */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .nav-item {
+    border: none;
+    background: none;
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-item img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+  }
+  .nav-item:focus {
+    outline: none;
+  }
+  
+  /* Показываем нижнюю панель только на мобильных устройствах */
+  @media (min-width: 768px) {
+    .bottom-nav {
+      display: none;
+    }
+  }

@@ -459,6 +459,9 @@
 }
 
 @media (max-width: 768px) {
+    .header{
+        position: static;
+    }
     .header-actions .action-btn{
         display: none;
     }

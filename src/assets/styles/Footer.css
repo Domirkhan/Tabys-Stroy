@@ -103,7 +103,8 @@
 /* Адаптив для мобильных устройств */
 @media (max-width: 768px) {
   .footer {
-      padding: 40px 10px 20px;
+      padding: 40px 10px 30px;
+      margin-bottom: 4rem;
   }
   .footer-content {
       display: flex;

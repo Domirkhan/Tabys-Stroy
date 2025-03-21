@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import BackButton from '../components/BackButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
@@ -72,6 +72,14 @@ function Header() {
     setIsCatalogOpen(true);
     setClosing(false);
   };
+   // Подписываемся на глобальное событие "openCatalog"
+   useEffect(() => {
+    const handleOpenCatalog = () => {
+      openCatalog();
+    };
+    window.addEventListener('openCatalog', handleOpenCatalog);
+    return () => window.removeEventListener('openCatalog', handleOpenCatalog);
+  }, []);
 
   const closeCatalog = () => {
     setClosing(true);

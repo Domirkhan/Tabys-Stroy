@@ -6,6 +6,7 @@ import Footer from '../layout/Footer';
 import Deletebtn from '../../assets/icon/delete.png';
 import cartIcon from "../../assets/icon/cart-2.png";
 import { Helmet } from 'react-helmet-async';
+import BottomNav from '../components/BottomNav';
 
 function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useContext(CartContext);
@@ -261,6 +262,7 @@ function CartPage() {
         </main>
       </div>
       <Footer />
+      <BottomNav />
     </>
   );
 }

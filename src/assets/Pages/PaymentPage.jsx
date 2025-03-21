@@ -3,6 +3,7 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import '../styles/PaymentPage.css';
 import { Helmet } from 'react-helmet-async';
+import BottomNav from '../components/BottomNav';
 
 function PaymentPage() {
   return (
@@ -31,6 +32,7 @@ function PaymentPage() {
         </div>
       </main>
       <Footer />
+      <BottomNav />
     </>
   );
 }

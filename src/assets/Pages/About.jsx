@@ -4,6 +4,7 @@ import { CheckCircle, Award, Clock, MapPin } from 'react-feather'; // Импор
 import Header from '../layout/Header'; // Импортируем Header
 import Footer from '../layout/Footer';
 import { Helmet } from 'react-helmet-async';
+import BottomNav from '../components/BottomNav';
 
 function About() {
   return (
@@ -71,6 +72,7 @@ function About() {
         </div>
       </div>
       <Footer />
+      <BottomNav />
     </>
   );
 }
