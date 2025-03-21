@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import '../styles/ZakazPage.css';
+import { Bot } from 'lucide-react';
+import BottomNav from '../components/BottomNav';
 
 function ZakazPage() {
   const location = useLocation();
@@ -97,6 +99,7 @@ function ZakazPage() {
         </div>
       </div>
       <Footer />
+      <BottomNav />
     </>
   );
 }
