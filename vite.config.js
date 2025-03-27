@@ -54,18 +54,13 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globDirectory: 'dev-dist', // Убедитесь, что путь правильный
+        globDirectory: 'dist',
         globPatterns: ['**/*.{js,css,html,png,jpg,svg,ico}'],
         maximumFileSizeToCacheInBytes: 4000000,
       },
-      manifest: {
-        name: 'Tabys Stroy',
-        short_name: 'Tabys',
-        start_url: '/',
-        display: 'standalone',
-        background_color: '#ffffff',
-        theme_color: '#000000',
-      },
+      manifest: { /* ... */ },
+      skipWaiting: true,
+      clientsClaim: true,
     })
   ],
   base: '/'
