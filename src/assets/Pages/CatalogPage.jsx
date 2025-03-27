@@ -1,194 +1,44 @@
-import React, { useState, useContext, useEffect } from 'react';
-import BackButton from '../components/BackButton';
-import { Link, useNavigate } from 'react-router-dom';
-import { CartContext } from '../../context/CartContext';
-import '../../assets/styles/Header.css';
-import cartIcon from "../../assets/icon/cart.png";
-import Products from "../../data/Products";
-import Logo from "../icon/logo.png"
-import Menu from "../icon/menu.png"
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Добавьте этот импорт
+import plumbingIcon from '../../assets/icon/plumbing.png';
+import toolsIcon from '../../assets/icon/tools.png';
+import powerToolsIcon from '../../assets/icon/power-tools.png';
+import accessoriesIcon from '../../assets/icon/accessories.png';
+import gasIcon from '../../assets/icon/gas.png';
+import electricalIcon from '../../assets/icon/electrical.png';
+import lightingIcon from '../../assets/icon/lightingIcon.png';
+import decorIcon from '../../assets/icon/Decor.png';
+import paintIcon from '../../assets/icon/paint.png';
+import floorIcon from '../../assets/icon/floor.png';
+import buildingIcon from '../../assets/icon/building.png';
+import constructionIcon from '../../assets/icon/construction.png';
+import hardwareIcon from '../../assets/icon/hardware.png';
+import doorsIcon from '../../assets/icon/doors.png';
+import heatingIcon from '../../assets/icon/heating.png';
+import specialIcon from '../../assets/icon/special.png';
+import '../../assets/styles/CatalogPage.css';
 
-//icons
-import plumbingIcon from "../../assets/icon/plumbing.png";
-import toolsIcon from "../../assets/icon/tools.png";
-import powerToolsIcon from "../../assets/icon/power-tools.png";
-import accessoriesIcon from "../../assets/icon/accessories.png";
-import gasIcon from "../../assets/icon/gas.png";
-import electricalIcon from "../../assets/icon/electrical.png";
-import lightingIcon from "../../assets/icon/lightingIcon.png";
-import decorIcon from "../../assets/icon/Decor.png";
-import paintIcon from "../../assets/icon/paint.png";
-import floorIcon from "../../assets/icon/floor.png";
-import buildingIcon from "../../assets/icon/building.png";
-import constructionIcon from "../../assets/icon/construction.png";
-import hardwareIcon from "../../assets/icon/hardware.png";
-import doorsIcon from "../../assets/icon/doors.png";
-import heatingIcon from "../../assets/icon/heating.png";
-import specialIcon from "../../assets/icon/special.png";
+// Импортируйте другие иконки и данные, если нужно
+import "../../assets/styles/CatalogPage.css";
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
+import BottomNav from '../components/BottomNav';
 
-function Header() {
-  const { cartItems } = useContext(CartContext);
-  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
-  const [closing, setClosing] = useState(false);
+function CatalogPage() {
   const [openCategory, setOpenCategory] = useState(null);
-  const [openSubCategory, setOpenSubCategory] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const handleSearchSelect = (product) => {
-    const hash = `product-${product.id}`;
-    navigate(`/${product.category}/${product.subCategory}#${hash}`);
-    setSearchQuery("");
-
-    setTimeout(() => {
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-
-        element.classList.add('highlighted');
-        setTimeout(() => {
-          element.classList.remove('highlighted');
-        }, 2000);
-      } else {
-        console.error(`Element with id ${hash} not found`);
-      }
-    }, 500); // Увеличиваем время задержки до 500 мс
-  };
-
-  const filteredProducts = Products.filter(product => 
-    product.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const openCatalog = () => {
-    setIsCatalogOpen(true);
-    setClosing(false);
-  };
-  const closeCatalog = () => {
-    setClosing(true);
-    setTimeout(() => {
-      setIsCatalogOpen(false);
-      setOpenCategory(null);
-      setOpenSubCategory(null);
-    }, 300);
-  };
-
-  const toggleCatalog = () => {
-    if (isCatalogOpen) {
-      closeCatalog();
-    } else {
-      openCatalog();
-    }
-  };
 
   const toggleCategory = (category) => {
     setOpenCategory(openCategory === category ? null : category);
-    setOpenSubCategory(null);
   };
-
-  const toggleSubCategory = (subCategory) => {
-    setOpenSubCategory(openSubCategory === subCategory ? null : subCategory);
+  const closeCatalog = () => {
+    console.log("Каталог закрыт");
   };
-
-  const toggleMobileSearch = () => {
-    setIsMobileSearchOpen(!isMobileSearchOpen);
-  };
-
   return (
     <>
-      <header className="header">
-        <div className="header-top">
-          <div className="container">
-            <BackButton />
-            <div className="catalog-btn" onClick={toggleCatalog}>
-              <img
-                src={Menu}
-                alt="menu"
-                className='menu'
-              />
-              <span>Каталог</span>
-            </div>
-            <div className="logo">
-            <img className='logotipe' src={Logo} alt="" />
-              <a href="/">TABYS STROY</a>
-            </div>
-            <div className="search" style={{ position: "relative" }}>
-              <input
-                type="text"
-                placeholder="Поиск"
-                value={searchQuery}
-                onChange={handleSearchChange}
-              />
-              <button className="search-btn"></button>
-              {searchQuery && filteredProducts.length > 0 && (
-                <div className="search-suggestions">
-                  <ul>
-                    {filteredProducts.map(product => (
-                      <li key={product.id}>
-                        <Link 
-                          to={`/${product.category}/${product.subCategory}`} 
-                          onClick={() => {
-                            handleSearchSelect(product);
-                            if (isCatalogOpen) {
-                              closeCatalog();
-                            }
-                          }}
-                        >
-                          {product.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {searchQuery && filteredProducts.length === 0 && (
-                <div className="search-suggestions">
-                  <p style={{ padding: "0.5rem" }}>Ничего не найдено</p>
-                </div>
-              )}
-            </div>
-            <div className="header-actions">
-              <Link to="/cart" className="cart">
-                <img src={cartIcon} alt="cart" className='cart-icon'/>
-                <span className="cart-count">{totalQuantity}</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="header-bottom">
-          <div className="container">
-            <button className="mobile-menu-btn">
-              <img
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='%23333' d='M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3V4zm0 7h18v2H3V4z'/%3E%3C/svg%3E"
-                alt="menu"
-              />
-            </button>
-            <nav className="main-nav">
-              <Link to="/about">О нас</Link>
-              <Link to="/payment">Оплата</Link>
-              <Link to="/delivery">Доставка</Link>
-              <Link to="/contacts">Контакты</Link>
-            </nav>
-            <div className="lang-phone">
-              <a href="tel:+77782673976" className="phone">+7(778) 267-39-76</a>
-            </div>
-          </div>
-        </div>
-      </header>
-      {isCatalogOpen && (
-        <div className="catalog-overlay" onClick={closeCatalog}>
-          <div className={`catalog-sidebar ${closing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}>
-            
-            <button className="close-btn" onClick={closeCatalog}>X</button>
-            <h2>Каталог</h2>
+    <Header />
+    <main className="main-content">
+    <div className="catalog-page">
+    <h1 className="section-title-category">Каталог</h1>
             {/* Категория "Сантехника" */}
             <ul className="category-list">
               <li className={`category-item ${openCategory === 'plumbing' ? 'open' : ''}`}>
@@ -885,6 +735,11 @@ function Header() {
                             Теплоизоляция
                           </Link>
                       </li>
+                      <li>
+                          <Link to="/building-materials/Монтажная пена" onClick={closeCatalog}>
+                            Монтажная пена
+                          </Link>
+                      </li>
                     </ul>
                   </div>
                 )}
@@ -1115,11 +970,12 @@ function Header() {
                 )}
               </li>
             </ul>
-          </div>
-        </div>
-      )}
+    </div>
+    </main>
+    <Footer />
+    <BottomNav />
     </>
   );
 }
 
-export default Header;
+export default CatalogPage;

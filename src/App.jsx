@@ -1,5 +1,4 @@
 //// filepath: src/App.jsx
-import './assets/styles/App.css';
 import Header from './assets/layout/Header';
 import Glav from './assets/Pages/Glav';
 import Product from './assets/Pages/Product';
@@ -10,6 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import AboutUs from './assets/components/AboutUs';
 import { Helmet } from "react-helmet-async";
 import UnderConstructionModal from './assets/components/UnderConstructionModal';
+import BottomNav from './assets/components/BottomNav';
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
       </main>
     </div>
     <Footer />
+    <BottomNav />
     </>
   );
 }

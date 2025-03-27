@@ -7,6 +7,7 @@ import Instagram from '../icon/instagram-1.png';
 import Phone from '../icon/phone.png';
 import Email from '../icon/email.png';
 import { Helmet } from 'react-helmet-async';
+import BottomNav from '../components/BottomNav';
 
 function ContactsPage() {
   return (
@@ -42,6 +43,7 @@ function ContactsPage() {
         </div>
       </main>
       <Footer />
+      <BottomNav />
     </>
   );
 }

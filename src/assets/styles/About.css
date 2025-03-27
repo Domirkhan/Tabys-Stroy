@@ -164,35 +164,30 @@
   .about-button:hover {
     background: #b00000; /* Изменяем цвет кнопки при наведении на более темный красный */
   }
+  .about-image-mobile {
+    display: none;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
   
   /* Адаптивные стили для мобильных устройств */
   @media (max-width: 768px) {
+    .about-image-mobile {
+      display: block;
+    }
+    .about-info{
+      margin-top: 2rem;
+    }
     .about-card ul{
       font-size: 0.6rem;
     }
-    .about-info {
-      position: relative;
-      background-image: url('https://avatars.mds.yandex.net/i?id=d2bfa18f22b4f6fc245acf8a0a81b713_l-6890988-images-thumbs&n=13'); /* Указываем URL изображения */
-      background-size: cover;
-      background-attachment: scroll; /* Фиксируем фон для мобильных устройств */
-      background-position: center;
-      padding: 2rem;
-      border-radius: 8px;
-      overflow: hidden;
-      color: white; /* Изменяем цвет шрифта на белый */
-    }
+   
     .about-section{
       margin-top: 0;
     }
-    .about-info::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.70); /* Полупрозрачный черный слой */
-      z-index: 1;
+    .about-cards{
+      margin-bottom: 0;
     }
   
     .about-info * {
@@ -209,7 +204,6 @@
     .about-container {
       padding: 1rem;
       border-radius: 8px;
-      margin-top: 3rem;
     }
   
     .about-grid {
@@ -227,6 +221,12 @@
     }
   
     .about-info-text p {
-      color:#ffffff;
+      color:#333;
+      font-size: 0.8rem;
     }
+    .text{
+      color: #333;
+      font-size: 0.8rem;
+    }
+    
   }

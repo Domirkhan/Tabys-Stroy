@@ -6,6 +6,7 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import ProductList from '../components/ProductList';
 import MobileSearch from '../components/MobileSearch';
+import BottomNav from '../components/BottomNav';
 
 function CategoryPage() {
   const { category, subCategory } = useParams();
@@ -26,6 +27,7 @@ function CategoryPage() {
       </main>
     </div>
     <Footer />
+    <BottomNav />
     </>
   );
 }

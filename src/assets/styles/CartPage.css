@@ -1,11 +1,3 @@
-/* Основной контейнер страницы */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #f9f9f9;
-}
-
 /* Стилизация контейнера корзины */
 .cart-page.container {
   margin-top: 3rem !important;
@@ -362,7 +354,7 @@
     justify-content: flex-start; /* Контент начинается сверху */
   }
   .cart-page.container {
-    margin-top: 4rem !important;
+    margin-top: 1rem !important;
     order: -1; /* Помещаем контент в начало */
   }
   .cart-title {

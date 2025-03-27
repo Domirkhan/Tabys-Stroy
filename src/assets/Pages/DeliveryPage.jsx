@@ -3,6 +3,7 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import '../styles/DeliveryPage.css'; // опционально, для кастомизации стилей
 import { Helmet } from 'react-helmet-async';
+import BottomNav from '../components/BottomNav';
 
 function DeliveryPage() {
   return (
@@ -41,6 +42,7 @@ function DeliveryPage() {
       </main>
     </div>
     <Footer />
+    <BottomNav />
     </>
   );
 }

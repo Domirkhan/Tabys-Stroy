@@ -5,6 +5,7 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/ProductDetail.css';
+import BottomNav from '../components/BottomNav';
 
 function ProductDetail() {
   const { category, subCategory, productName } = useParams();
@@ -148,6 +149,7 @@ function ProductDetail() {
         </div>
         </section>
         <Footer />
+        <BottomNav />
     </>
     );
 }

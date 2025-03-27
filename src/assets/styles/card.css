@@ -2,7 +2,6 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 12px; /* Уменьшаем отступы */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #fff;
   display: flex;

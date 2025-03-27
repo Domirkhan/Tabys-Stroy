@@ -459,6 +459,9 @@
 }
 
 @media (max-width: 768px) {
+    .header{
+        position: static;
+    }
     .header-actions .action-btn{
         display: none;
     }
@@ -473,6 +476,7 @@
         height: 24px;
     }
     .catalog-sidebar {
+        padding-bottom: 5rem;
         width: 100%;
     }
     .header-top .container{

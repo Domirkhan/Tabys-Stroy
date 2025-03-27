@@ -9,7 +9,9 @@ import About from './assets/Pages/About';
 import DeliveryPage from './assets/Pages/DeliveryPage';
 import PaymentPage from './assets/Pages/PaymentPage';
 import ContactsPage from './assets/Pages/ContactsPage';
-import ProductDetail from './assets/components/ProductDetail'; 
+import ProductDetail from './assets/components/ProductDetail';
+import CatalogPage from './assets/Pages/CatalogPage';
+
 
 function RouterApp() {
   return (
@@ -17,7 +19,8 @@ function RouterApp() {
       <Routes>
         {/* Главная страница */}
         <Route path="/" element={<App />} />
-
+        {/* Каталог */}
+        <Route path="/catalog" element={<CatalogPage />} />
         {/* Страница корзины */}
         <Route path="/cart" element={<CartPage />} />
 

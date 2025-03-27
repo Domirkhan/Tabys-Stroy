@@ -1,55 +1,62 @@
-///// filepath: /vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { VitePWA } from 'vite-plugin-pwa'
 
 const manifest = {
-  "theme_color":"#ffffff",
-  "background_color":"#ffffff",
-  "icons":[{"purpose":"maskable",
-    "sizes":"512x512",
-    "src":"icon512_maskable.png",
-    "type":"image/png"},
-    {"purpose":"any",
-      "sizes":"512x512",
-      "src":"icon512_rounded.png",
-      "type":"image/png"
-    }],
-    screenshots : [
-      {
-      src: '/public/screenshots/desktop.png',
-      tipe : 'image/png',
-      sizes : '1905x922',
-      form_factor : 'wide',
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "/icon512_maskable.png",
+      "type": "image/png"
     },
     {
-      src: '/public/screenshots/mobile.png',
-      tipe : 'image/png',
-      sizes : '374x677',
-      form_factor : 'narrow',
-    },
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "/icon512_rounded.png",
+      "type": "image/png"
+    }
   ],
-    "orientation":"any",
-    "display":"standalone",
-    "dir":"auto",
-    "lang":"ru",
-    "name":"Tabys Stroy",
-    "short_name":"Tabys Stroy",
-    "start_url":"/"
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop.png",
+      "type": "image/png",
+      "sizes": "1905x922",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/mobile.png",
+      "type": "image/png",
+      "sizes": "374x677",
+      "form_factor": "narrow"
+    }
+  ],
+  "orientation": "portrait",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "ru",
+  "name": "Tabys Stroy",
+  "short_name": "Tabys",
+  "start_url": "/",
+  "description": "Tabys Stroy — магазин строительных и отделочных материалов в Улытауском области. Широкий выбор товаров для ремонта, инструменты, краски, сантехника, электрика и многое другое."
 };
 
 export default defineConfig({
-  plugins: [react(),
+  plugins: [
+    react(),
     VitePWA({
-    registerType : 'autoUpdate',
-    workbox: {
-      globPatterns: ["**/*.{js,css,html,png,jpg,svg,ico}"],
-      maximumFileSizeToCacheInBytes: 4000000,
-    },
-    manifest: manifest,
-  })
+      registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,png,jpg,svg,ico}"],
+        maximumFileSizeToCacheInBytes: 4000000
+      },
+      manifest: manifest,
+      devOptions: {
+        enabled: true
+      }
+    })
   ],
-
   base: '/'
-})
-
+});

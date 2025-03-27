@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "generate-pwa-assets": "pwa-asset-generator src/assets/icon/logo-1.png public --splash-only"
   },
   "dependencies": {
     "gh-pages": "^6.3.0",
@@ -39,7 +40,9 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
+    "pwa-asset-generator": "^6.4.0",
     "vite": "^6.0.5",
     "vite-plugin-pwa": "^0.21.1"
   }
 }
+

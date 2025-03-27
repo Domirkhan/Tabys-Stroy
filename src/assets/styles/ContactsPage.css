@@ -56,7 +56,7 @@
 
   @media (max-width: 768px) {
     .contact-container {
-      margin-top: 3rem;
+      margin-top: 0rem;
     }
     .contact-container p{
       font-size: 0.9rem;

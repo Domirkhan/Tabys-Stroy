@@ -1,0 +1,39 @@
+.catalog-page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-top: 2rem;
+  }
+  
+  .category-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .category-item {
+    margin-bottom: 20px;
+  }
+  
+  .category-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .category-header .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  
+  .subcategory-list {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+@media (max-width: 767px) {
+   .catalog-page{
+    padding: 0 1rem;
+    padding-top: 1rem;
+   }
+}

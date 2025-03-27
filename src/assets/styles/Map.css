@@ -7,3 +7,9 @@
 .map{
   margin-bottom: 2rem;
 }
+
+@media (max-width: 768px) {
+  .map-url {
+    height: 400px;
+  }
+} 
