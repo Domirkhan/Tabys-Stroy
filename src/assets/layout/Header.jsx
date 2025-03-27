@@ -3,7 +3,7 @@ import BackButton from '../components/BackButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import '../../assets/styles/Header.css';
-import cartIcon from "../../assets/icon/cart.png";
+import cartIcon from "../../assets/icon/cart-2.png";
 import Products from "../../data/Products";
 import Logo from "../icon/logo.png"
 import Menu from "../icon/menu.png"
@@ -25,6 +25,7 @@ import hardwareIcon from "../../assets/icon/hardware.png";
 import doorsIcon from "../../assets/icon/doors.png";
 import heatingIcon from "../../assets/icon/heating.png";
 import specialIcon from "../../assets/icon/special.png";
+import userIcon from '../icon/user.png';
 
 function Header() {
   const { cartItems } = useContext(CartContext);
@@ -159,6 +160,9 @@ function Header() {
               <Link to="/cart" className="cart">
                 <img src={cartIcon} alt="cart" className='cart-icon'/>
                 <span className="cart-count">{totalQuantity}</span>
+              </Link>
+              <Link to="/profile" className="cart">
+                <img src={userIcon} alt="Профиль" className='cart-icon'/>
               </Link>
             </div>
           </div>

@@ -46,16 +46,36 @@ const manifest = {
 export default defineConfig({
   plugins: [
     react(),
+    compression({
+      algorithm: 'gzip',
+    }),
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ["**/*.{js,css,html,png,jpg,svg,ico}"],
-        maximumFileSizeToCacheInBytes: 4000000
+        globDirectory: 'dev-dist', // Убедитесь, что путь правильный
+        globPatterns: ['**/*.{js,css,html,png,jpg,svg,ico}'],
+        maximumFileSizeToCacheInBytes: 4000000,
       },
-      manifest: manifest,
-      devOptions: {
-        enabled: true
-      }
+      manifest: {
+        name: 'Tabys Stroy',
+        short_name: 'Tabys',
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#ffffff',
+        theme_color: '#000000',
+        icons: [
+          {
+            src: '/public/logo.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/public/logo.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
+      },
     })
   ],
   base: '/'
