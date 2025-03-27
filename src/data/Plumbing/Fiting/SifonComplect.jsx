@@ -1,5 +1,5 @@
 // Сифон комплект и др
-import SifonComplectImage1 from '../../../assets/image/plumbing/Сифон, гофра/1.8.3.1.1.webp';
+import SifonComplectImage1 from '../../../assets/image/plumbing/Сифон, гофра/1.8.3.1.1.png';
 import SifonComplectImage2 from '../../../assets/image/plumbing/Сифон, гофра/1.8.3.1.2.webp';
 import SifonComplectImage3 from '../../../assets/image/plumbing/Сифон, гофра/1.8.3.2.1.jpg';
 import SifonComplectImage4 from '../../../assets/image/plumbing/Сифон, гофра/1.8.3.2.2.jpg';

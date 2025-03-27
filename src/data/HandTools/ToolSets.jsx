@@ -1,4 +1,5 @@
 import ToolSetImage1 from '../../../src/assets/image/HandTools/Набор Инструмент/2.1.1.1.png';
+import ToolSetImage2 from '../../../src/assets/image/HandTools/Набор Инструмент/2.1.2.1.png';
 
 const ToolSets = [
     //  Набор Инструмент
@@ -11,6 +12,22 @@ const ToolSets = [
                             // oldPrice: 5250,
                             image: ToolSetImage1,
                             images: [ToolSetImage1],
+                            // description: "Краска для окон и дверей Dulux",
+                            detailedDescription: "",
+                            specifications: { },
+                            category: "tools", // Категория
+                            subCategory: "Наборы инструментов", // Подкатегория
+                            availability: "Есть в наличии"  // Новое поле для статуса наличия
+                          },
+                        {
+                            id: 50.2,
+                            name:  "Набор садовых инструментов PALISAD 62908",
+                            pricePerUnit: {
+                                шт: 1490,
+                                },
+                            // oldPrice: 1500,
+                            image: ToolSetImage2,
+                            images: [ToolSetImage2],
                             // description: "Краска для окон и дверей Dulux",
                             detailedDescription: "",
                             specifications: { },
