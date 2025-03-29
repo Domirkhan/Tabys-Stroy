@@ -2,6 +2,8 @@ import StameskaImage1 from '../../assets/image/HandTools/Столярные ин
 import StameskaImage2 from '../../assets/image/HandTools/Столярные инструменты/2.4.2.1.png';
 import StameskaImage3 from '../../assets/image/HandTools/Столярные инструменты/2.4.3.1.png';
 import StameskaImage4 from '../../assets/image/HandTools/Столярные инструменты/2.4.4.1.png';
+import StameskaImage5 from '../../assets/image/HandTools/Столярные инструменты/2.4.5.1.png';
+import StameskaImage6 from '../../assets/image/HandTools/Столярные инструменты/2.4.6.1.png';
 
 
 const Stoliarnie = [
@@ -63,6 +65,38 @@ const Stoliarnie = [
   // oldPrice: 1400,
   image: StameskaImage4,
   images: [StameskaImage4],
+  // description: "Краска для окон и дверей Dulux",
+  detailedDescription: "",
+  specifications: { },
+  category: "tools", // Категория
+  subCategory: "Столярные инструменты", // Подкатегория
+  availability: "Есть в наличии"  // Новое поле для статуса наличия
+},
+{
+  id: 83.5,
+  name:  "Рубанок 240*60мм одинарник деревянный 21125",
+  pricePerUnit: {
+      шт: 4780,
+      },
+  // oldPrice: 4750,
+  image: StameskaImage5,
+  images: [StameskaImage5],
+  // description: "Краска для окон и дверей Dulux",
+  detailedDescription: "",
+  specifications: { },
+  category: "tools", // Категория
+  subCategory: "Столярные инструменты", // Подкатегория
+  availability: "Есть в наличии"  // Новое поле для статуса наличия
+},
+{
+  id: 83.6,
+  name:  "Клепатель Экспрофиль ЕХ-003",
+  pricePerUnit: {
+      шт: 1650,
+      },
+  // oldPrice: 1650,
+  image: StameskaImage6,
+  images: [StameskaImage6],
   // description: "Краска для окон и дверей Dulux",
   detailedDescription: "",
   specifications: { },

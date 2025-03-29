@@ -12,6 +12,8 @@ import ScissorImage2 from '../../assets/image/HandTools/Ножи, Ножницы
 import ScissorImage3 from '../../assets/image/HandTools/Ножи, Ножницы/2.7.12.1.png';
 import ScissorImage4 from '../../assets/image/HandTools/Ножи, Ножницы/2.7.13.1.png';
 
+import NojToporImage1 from '../../assets/image/HandTools/Ножи, Ножницы/2.7.14.1.png';
+
 
 
 
@@ -204,6 +206,22 @@ const KnifeScissor = [
                             // oldPrice: 1650,
                             image: ScissorImage3,
                             images: [ScissorImage3],
+                            // description: "Краска для окон и дверей Dulux",
+                            detailedDescription: "",
+                            specifications: { },
+                            category: "tools", // Категория
+                            subCategory: "Ножи и ожницы", // Подкатегория
+                            availability: "Есть в наличии"  // Новое поле для статуса наличия
+                          },
+                        {
+                            id: 86.12,
+                            name:  "Нож-топорик для рубки и разделки мяса Exprofil",
+                            pricePerUnit: {
+                                шт: 1790,
+                                },
+                            // oldPrice: 1800,
+                            image: NojToporImage1,
+                            images: [NojToporImage1],
                             // description: "Краска для окон и дверей Dulux",
                             detailedDescription: "",
                             specifications: { },
