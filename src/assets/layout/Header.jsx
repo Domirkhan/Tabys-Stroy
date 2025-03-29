@@ -355,6 +355,11 @@ function Header() {
                           Кирки, лопаты и грабли
                         </Link>
                       </li>
+                      <li>
+                        <Link to="/tools/Инструменты для штукатурки" onClick={closeCatalog}>
+                          Инструменты для штукатурки
+                        </Link>
+                      </li>
                     </ul>
                   </div>
                 )}
