@@ -311,8 +311,8 @@ function Header() {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/tools/Ножи и ожницы" onClick={closeCatalog}>
-                          Ножи и ожницы
+                        <Link to="/tools/Ножи и ножницы" onClick={closeCatalog}>
+                          Ножи и ножницы
                         </Link>
                       </li>
                       <li>

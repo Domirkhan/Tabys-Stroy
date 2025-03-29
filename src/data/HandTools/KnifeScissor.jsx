@@ -30,7 +30,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -46,7 +46,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -62,7 +62,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -78,7 +78,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -94,7 +94,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -110,7 +110,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -126,7 +126,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -142,7 +142,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
 
@@ -160,7 +160,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -176,7 +176,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -192,7 +192,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
                         {
@@ -208,7 +208,7 @@ const KnifeScissor = [
                             detailedDescription: "",
                             specifications: { },
                             category: "tools", // Категория
-                            subCategory: "Ножи и ожницы", // Подкатегория
+                            subCategory: "Ножи и ножницы", // Подкатегория
                             availability: "Есть в наличии"  // Новое поле для статуса наличия
                           },
 ];
