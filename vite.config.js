@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { VitePWA } from 'vite-plugin-pwa'
+import compression from 'vite-plugin-compression';
+
 
 const manifest = {
   "theme_color": "#ffffff",
@@ -46,16 +48,19 @@ const manifest = {
 export default defineConfig({
   plugins: [
     react(),
+    compression({
+      algorithm: 'gzip',
+    }),
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ["**/*.{js,css,html,png,jpg,svg,ico}"],
-        maximumFileSizeToCacheInBytes: 4000000
+        globDirectory: 'dist',
+        globPatterns: ['**/*.{js,css,html,png,jpg,svg,ico}'],
+        maximumFileSizeToCacheInBytes: 4000000,
       },
-      manifest: manifest,
-      devOptions: {
-        enabled: true
-      }
+      manifest: { /* ... */ },
+      skipWaiting: true,
+      clientsClaim: true,
     })
   ],
   base: '/'
