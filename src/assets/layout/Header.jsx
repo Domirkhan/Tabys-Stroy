@@ -306,6 +306,11 @@ function Header() {
                         </Link>
                       </li>
                       <li>
+                        <Link to="/tools/Инструменты для штукатурки" onClick={closeCatalog}>
+                          Инструменты для штукатурки
+                        </Link>
+                      </li>
+                      <li>
                         <Link to="/tools/Бокорезы, кабелерезы, тросорезы" onClick={closeCatalog}>
                           Бокорезы, кабелерезы, тросорезы
                         </Link>
@@ -353,11 +358,6 @@ function Header() {
                       <li>
                         <Link to="/tools/Кирки, лопаты и грабли" onClick={closeCatalog}>
                           Кирки, лопаты и грабли
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/tools/Инструменты для штукатурки" onClick={closeCatalog}>
-                          Инструменты для штукатурки
                         </Link>
                       </li>
                     </ul>
