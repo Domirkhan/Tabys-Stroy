@@ -7,12 +7,12 @@ import '../../assets/styles/Product.css';
 import Products from '../../data/Products';
 import ProductCard from '../components/ProductCard';
 
-function Product() {
+function ProductN() {
   const navigate = useNavigate();
   const sliderRef = useRef(null);
 
   // IDs товаров, которые нужно отобразить в слайдере
-  const productIds = [85.1, 89.1, 84.1, 84.3, 115.1, 105.1, 131.1, 49.3, 47.3]; // замените на нужные ID
+  const productIds = [93.1, 91.1, 51.1, 51.3, 171.1, 171.3, 83.1, 50.1]; // замените на нужные ID
   const filteredProducts = Products.filter(product => productIds.includes(product.id));
 
   const settings = {
@@ -63,7 +63,7 @@ function Product() {
       <div className="container">
         <div className="slider-header">
           <h2 className="section-title text-3xl font-bold text-center mb-12">
-            Популярные товары
+            Новинки 
           </h2>
           <div className="slider-arrows">
             <button className="slider-arrow slider-arrow-prev" onClick={goToPrev}>
@@ -92,4 +92,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default ProductN;

@@ -10,6 +10,7 @@ import AboutUs from './assets/components/AboutUs';
 import { Helmet } from "react-helmet-async";
 import UnderConstructionModal from './assets/components/UnderConstructionModal';
 import BottomNav from './assets/components/BottomNav';
+import ProductN from './assets/Pages/Product-new';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
     <div className="app-container">
       <main className="main-content">
         <Glav />
+        <ProductN />
         <Product />
         <AboutUs />
         <Map />
