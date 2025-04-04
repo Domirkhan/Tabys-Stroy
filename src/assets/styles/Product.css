@@ -1,5 +1,8 @@
 .product-section {
-  padding: 1rem 0;
+  padding: 3rem 0;
+}
+.product-section-1 {
+  padding: 3rem 0;
 }
 .product-section-2 {
   padding: 1rem 0;
@@ -204,8 +207,12 @@
   .slick-slider{
     margin-bottom: -4rem;
   }
-  .product-section {
+  .product-section-1 {
     padding: 3rem 0;
+  }
+  .product-section {
+    padding: 0;
+    padding-bottom: 1rem;
   }
 
   .section-title-category {
