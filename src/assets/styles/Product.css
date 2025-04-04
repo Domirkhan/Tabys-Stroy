@@ -1,6 +1,9 @@
 .product-section {
   padding: 1rem 0;
 }
+.product-section-2 {
+  padding: 1rem 0;
+}
 
 .sort-wrapper {
   display: flex;
@@ -194,6 +197,10 @@
 }
 
 @media (max-width: 768px) {
+  .product-section-2{
+    padding: 3rem 0;
+    padding-top: 1rem !important;
+  }
   .slick-slider{
     margin-bottom: -4rem;
   }

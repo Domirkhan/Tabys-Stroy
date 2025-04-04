@@ -59,7 +59,7 @@ function ProductN() {
   };
 
   return (
-    <section className="product-section py-20 bg-light-gray">
+    <section className="product-section-2 py-20 bg-light-gray">
       <div className="container">
         <div className="slider-header">
           <h2 className="section-title text-3xl font-bold text-center mb-12">
