@@ -332,6 +332,7 @@ import Workwear from './SpecialClothing/Workwear.jsx';
 import PerchatkiPoiasy from './SpecialClothing/PerchatkiPoiasy.jsx';
 import SIZ from './SpecialClothing/SIZ.jsx';
 
+import DliaShtukaturki from './HandTools/DliaShtukaturki.jsx';
 
 
 
@@ -490,6 +491,8 @@ const Products = [
   ...LomGvozdoder,
   // Кирка, Лопатка-94
   ...KirkaLopata,
+  // Для штукатурки-171
+  ...DliaShtukaturki,
 
 
   //Акссесуары для электроинструментов
@@ -512,7 +515,7 @@ const Products = [
 
 
   //Электроинструменты
-   // Дрель Шуруповерт
+   // Дрель Шуруповерт-61
    ...DrillScrewdriver,
    // Перфоратор Отбойник-61
    ...PerforatorOtboinik,
