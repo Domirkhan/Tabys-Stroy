@@ -1,6 +1,12 @@
 .product-section {
   padding: 3rem 0;
 }
+.product-section-1 {
+  padding: 3rem 0;
+}
+.product-section-2 {
+  padding: 1rem 0;
+}
 
 .sort-wrapper {
   display: flex;
@@ -194,11 +200,19 @@
 }
 
 @media (max-width: 768px) {
+  .product-section-2{
+    padding: 3rem 0;
+    padding-top: 1rem !important;
+  }
   .slick-slider{
     margin-bottom: -4rem;
   }
+  .product-section-1 {
+    padding: 3rem 0;
+  }
   .product-section {
-    padding-top: 0;
+    padding: 0;
+    padding-bottom: 1rem;
   }
 
   .section-title-category {

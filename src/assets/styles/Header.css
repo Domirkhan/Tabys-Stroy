@@ -494,3 +494,18 @@
         display: none;
     }
 }
+@media (max-width: 360px) {
+    .logotipe{
+        width: 25px;
+    }
+    .logo{
+        font-size: 1rem;
+    }
+    .cart img {
+        width: 20px;
+        height: 20px;
+    }
+    .catalog-btn img {
+        width: 1.3rem;
+    }
+}
