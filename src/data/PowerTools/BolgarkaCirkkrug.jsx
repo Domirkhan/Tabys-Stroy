@@ -1,7 +1,9 @@
-import BolgarkaImage1 from '../../assets/image/PowerTool/Болгарка Арматурорез ЦиркКруг/3.3.1.1.jpg';
+import BolgarkaImage1 from '../../assets/image/PowerTool/Болгарка Арматурорез ЦиркКруг/3.3.1.1.png';
 import BolgarkaImage2 from '../../assets/image/PowerTool/Болгарка Арматурорез ЦиркКруг/3.3.2.1.png';
 import BolgarkaImage3 from '../../assets/image/PowerTool/Болгарка Арматурорез ЦиркКруг/3.3.3.1.png';
 import BolgarkaImage4 from '../../assets/image/PowerTool/Болгарка Арматурорез ЦиркКруг/3.3.4.1.png';
+
+
 
 
 const BolgarkaCirkkrug =[
@@ -69,5 +71,7 @@ const BolgarkaCirkkrug =[
             subCategory: "Болгарки и арматурорезы", // Подкатегория
             availability: "Есть в наличии"  // Новое поле для статуса наличия
         },
+
+
 ];
 export default BolgarkaCirkkrug;

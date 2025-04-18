@@ -43,6 +43,9 @@ import SkrebokImage2 from '../../assets/image/HandTools/Для штукатур�
 import TerkaImage1 from '../../assets/image/HandTools/Для штукатурки/2.17.40.1.png';
 import TerkaImage2 from '../../assets/image/HandTools/Для штукатурки/2.17.42.1.png';
 
+import KovshImage1 from '../../assets/image/HandTools/Для штукатурки/2.17.43.1.png';
+import KovshImage2 from '../../assets/image/HandTools/Для штукатурки/2.17.44.1.png';
+
 
 const DliaShtukaturki = [
 // Шпатель
@@ -718,6 +721,40 @@ const DliaShtukaturki = [
     // oldPrice: 2000,
     image: TerkaImage2,
     images: [TerkaImage2],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "tools", // Категория
+    subCategory: "Инструменты для штукатурки", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+},
+
+// Ковш
+ {
+    id: 171.41,
+    name:  "Ковш стальной строительный 160 мм, Сибртех 86225",
+    pricePerUnit: {
+        шт: 1260,
+        },
+    // oldPrice: 1260,
+    image: KovshImage1,
+    images: [KovshImage1],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "tools", // Категория
+    subCategory: "Инструменты для штукатурки", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+ },
+ {
+    id: 171.42,
+    name:  "Ковш штукатурный 160мм ЭКСПЕРТ",
+    pricePerUnit: {
+        шт: 490,
+        },
+    // oldPrice: 500,
+    image: KovshImage2,
+    images: [KovshImage2],
     // description: "Краска для окон и дверей Dulux",
     detailedDescription: "",
     specifications: { },

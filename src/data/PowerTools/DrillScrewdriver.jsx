@@ -2,6 +2,7 @@ import DrillImage1 from '../../assets/image/PowerTool/Дрели Шурупов�
 import DrillImage2 from '../../assets/image/PowerTool/Дрели Шуруповерты/3.1.3.1.png';
 import DrillImage3 from '../../assets/image/PowerTool/Дрели Шуруповерты/3.1.1.1.png';
 import DrillImage4 from '../../assets/image/PowerTool/Дрели Шуруповерты/3.1.4.1.png';
+import DrillImage5 from '../../assets/image/PowerTool/Дрели Шуруповерты/3.1.5.1.png';
 
 
 const DrillScrewdriver =[
@@ -62,6 +63,22 @@ const DrillScrewdriver =[
     // oldPrice: 37000,
     image: DrillImage4,
     images: [DrillImage4],
+    // description: "Краска для окон и дверей Dulux",
+    detailedDescription: "",
+    specifications: { },
+    category: "power-tools", // Категория
+    subCategory: "Дрели-шуруповерты", // Подкатегория
+    availability: "Есть в наличии"  // Новое поле для статуса наличия
+    },
+    {
+    id: 61.4,
+    name:  "DW 2в1 гайковерт+шуруповерт",
+    pricePerUnit: {
+        шт: 39990,
+        },
+    // oldPrice: 40550,
+    image: DrillImage5,
+    images: [DrillImage5],
     // description: "Краска для окон и дверей Dulux",
     detailedDescription: "",
     specifications: { },

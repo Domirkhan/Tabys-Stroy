@@ -16,7 +16,7 @@ const Kraskapult =[
             specifications: { },
             category: "power-tools", // Категория
             subCategory: "Краскопульты электрические", // Подкатегория
-            availability: "Есть в наличии"  // Новое поле для статуса наличия
+            availability: "Уточнить наличие"  // Новое поле для статуса наличия
         },
 ];
 export default Kraskapult;
