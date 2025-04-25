@@ -10,12 +10,12 @@ import BottomNav from '../components/BottomNav';
 function ProductDetail() {
   const { category, subCategory, productName } = useParams();
   const { addToCart } = useContext(CartContext);
-  
-  // Поиск товара с приведением всех значений к нижнему регистру
+
+  // Поиск товара с проверкой полей и приведением к строке
   const product = products.find(p =>
-    p.category.trim().toLowerCase() === category.trim().toLowerCase() &&
-    p.subCategory.trim().toLowerCase() === subCategory.trim().toLowerCase() &&
-    p.name.trim().toLowerCase() === productName.trim().toLowerCase()
+    String(p.category || '').trim().toLowerCase() === String(category || '').trim().toLowerCase() &&
+    String(p.subCategory || '').trim().toLowerCase() === String(subCategory || '').trim().toLowerCase() &&
+    String(p.name || '').trim().toLowerCase() === String(productName || '').trim().toLowerCase()
   );
 
   // Устанавливаем заголовок страницы
@@ -64,94 +64,94 @@ function ProductDetail() {
 
   return (
     <>
-        <Header />
-        <section className="pd-section">
+      <Header />
+      <section className="pd-section">
         <div className="pd-container">
-        <h1 className="section-title-category">{product.name}</h1>
-            <div className="pd-content">
+          <h1 className="section-title-category">{product.name}</h1>
+          <div className="pd-content">
             <div className="pd-images">
-            <img 
+              <img 
                 src={images[currentImage]} 
                 alt={`${product.name} ${currentImage + 1}`} 
                 className="pd-image"
-            />
-            {images.length > 1 && (
+              />
+              {images.length > 1 && (
                 <>
-                <div className="pd-slider-controls">
+                  <div className="pd-slider-controls">
                     <button onClick={handlePrev} className="pd-slider-btn prev">‹</button>
                     <button onClick={handleNext} className="pd-slider-btn next">›</button>
-                </div>
-                <div className="pd-slider-dots">
+                  </div>
+                  <div className="pd-slider-dots">
                     {images.map((_, index) => (
-                    <span 
+                      <span 
                         key={index} 
                         className={`pd-slider-dot ${index === currentImage ? 'active' : ''}`}
-                    />
+                      />
                     ))}
-                </div>
+                  </div>
                 </>
-            )}
+              )}
             </div>
             <div className="pd-info">
-            <div className="pd-description">
+              <div className="pd-description">
                 <h3>Описание</h3>
                 {product.detailedDescription || product.description || 'Описание отсутствует.'}
-                </div>
-                {product.specifications && Object.keys(product.specifications).length > 0 && (
+              </div>
+              {product.specifications && Object.keys(product.specifications).length > 0 && (
                 <div className="pd-specifications">
-                    <h3>Характеристики</h3>
-                    <ul>
+                  <h3>Характеристики</h3>
+                  <ul>
                     {Object.entries(product.specifications).map(([key, value]) => (
-                        <li key={key}>
+                      <li key={key}>
                         <strong>{key}:</strong> {value}
-                        </li>
+                      </li>
                     ))}
-                    </ul>
+                  </ul>
                 </div>
-                )}
-                <div className="pd-purchase">
+              )}
+              <div className="pd-purchase">
                 <div className="pd-price">
-                    {product.pricePerUnit ? (
+                  {product.pricePerUnit ? (
                     <span className="pd-price">
-                        {product.pricePerUnit[selectedUnit]} тг за {selectedUnit}
+                      {product.pricePerUnit[selectedUnit]} тг за {selectedUnit}
                     </span>
-                    ) : (
+                  ) : (
                     <span className="pd-price">{product.price} тг</span>
-                    )}
+                  )}
                 </div>
                 {product.pricePerUnit && (
-                    <div className="pd-unit-selector">
+                  <div className="pd-unit-selector">
                     <label htmlFor="unit">Выберите единицу:</label>
                     <select
-                        id="unit"
-                        value={selectedUnit}
-                        onChange={(e) => setSelectedUnit(e.target.value)}
+                      id="unit"
+                      value={selectedUnit}
+                      onChange={(e) => setSelectedUnit(e.target.value)}
                     >
-                        {Object.keys(product.pricePerUnit).map(unit => (
+                      {Object.keys(product.pricePerUnit).map(unit => (
                         <option key={unit} value={unit}>
-                            {unit}
+                          {unit}
                         </option>
-                        ))}
+                      ))}
                     </select>
-                    </div>
+                  </div>
                 )}
                 <div className="pd-quantity-selector">
-                    <button onClick={handleDecrement} className="pd-quantity-btn">–</button>
-                    <span className="pd-quantity-value">{quantity}</span>
-                    <button onClick={handleIncrement} className="pd-quantity-btn">+</button>
+                  <button onClick={handleDecrement} className="pd-quantity-btn">–</button>
+                  <span className="pd-quantity-value">{quantity}</span>
+                  <button onClick={handleIncrement} className="pd-quantity-btn">+</button>
                 </div>
                 <button onClick={handleAddToCart} className="pd-add-to-cart-btn">
-                    Добавить в корзину
+                  Добавить в корзину
                 </button>
-                </div>
+              </div>
             </div>
-            </div>
+          </div>
         </div>
-        </section>
-        <Footer />
-        <BottomNav />
+      </section>
+      <Footer />
+      <BottomNav />
     </>
-    );
+  );
 }
 
 export default ProductDetail;
