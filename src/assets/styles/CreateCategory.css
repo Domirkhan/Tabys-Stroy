@@ -1,0 +1,26 @@
+.icon-preview {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+  }
+  
+  .category-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .table td {
+    vertical-align: middle;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .btn {
+    margin-right: 5px;
+  }

@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../assets/styles/Glav.css';
-import MobileSearch from '../components/MobileSearch';
+import SearchInput from '../components/Form/SearchInput';
 import Slider from '../components/Slider';
 
 function Glav() {
   return (
     <>
-      <MobileSearch />
+     <SearchInput/>
       <Slider />
         </>
     )

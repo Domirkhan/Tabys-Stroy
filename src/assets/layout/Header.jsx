@@ -13,6 +13,7 @@ import useCategory from "../hooks/useCategory";
 import { toast } from 'react-hot-toast';
 import { useCart } from '../../context/cart.jsx';
 import { Badge } from "antd";
+import SearchInput from '../components/Form/SearchInput';
 
 
 //icons
@@ -150,41 +151,10 @@ const removeFromCart = (pid) => {
               <img className='logotipe' src={Logo} alt="" />
               <a href="/">TABYS STROY</a>
             </div>
-            <div className="search" style={{ position: "relative" }}>
-              <input
-                type="text"
-                placeholder="Поиск"
-                value={searchQuery}
-                onChange={handleSearchChange}
-              />
-              <button className="search-btn"></button>
-              {searchQuery && filteredProducts.length > 0 && (
-                <div className="search-suggestions">
-                  <ul>
-                    {filteredProducts.map(product => (
-                      <li key={product.id}>
-                        <Link 
-                          to={`/${product.category}/${product.subCategory}`} 
-                          onClick={() => {
-                            handleSearchSelect(product);
-                            if (isCatalogOpen) {
-                              closeCatalog();
-                            }
-                          }}
-                        >
-                          {product.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {searchQuery && filteredProducts.length === 0 && (
-                <div className="search-suggestions">
-                  <p style={{ padding: "0.5rem" }}>Ничего не найдено</p>
-                </div>
-              )}
-            </div>
+            
+              
+              <SearchInput/>
+            
             <div className="header-actions">
             <li className="nav-item">
                 <Badge count={cart?.length} showZero>
@@ -273,7 +243,7 @@ const removeFromCart = (pid) => {
               {categories.map(cat => (
                 <li key={cat._id} className={`category-item ${openCategory === cat.slug ? 'open' : ''}`}>
                   <div className="category-header" onClick={() => toggleCategory(cat.slug)}>
-                    <img src={cat.icon || specialIcon} alt={cat.name} className="icon" />
+                    <img src={`${import.meta.env.VITE_API}${cat.iconUrl}`|| specialIcon } alt={cat.name} className="icon" />
                     <span className="category-title">{cat.name}</span>
                     <span className="arrow">{openCategory === cat.slug ? '▲' : '▼'}</span>
                   </div>

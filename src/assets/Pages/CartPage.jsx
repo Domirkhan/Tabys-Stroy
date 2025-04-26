@@ -18,9 +18,9 @@ const CartPage = () => {
       cart.forEach((item) => {
         total += item.price * item.quantity;
       });
-      return total.toLocaleString("en-US", {
+      return total.toLocaleString("kk-KZ", {
         style: "currency",
-        currency: "USD",
+        currency: "KZT",
       });
     } catch (error) {
       console.log(error);

@@ -9,12 +9,14 @@ import { HelmetProvider } from "react-helmet-async";
 import {AuthProvider} from '../src/context/auth.jsx'
 import {registerSW} from 'virtual:pwa-register';
 import { Toaster } from 'react-hot-toast';
+import {SearchProvider } from '../src/context/search.jsx';
 
 registerSW({immediate: true});
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <AuthProvider>
+    <SearchProvider>
     <ErrorBoundary>
       <CartProvider>
         <HelmetProvider>
@@ -23,6 +25,7 @@ createRoot(document.getElementById('root')).render(
         </HelmetProvider>
       </CartProvider>
     </ErrorBoundary>
+    </SearchProvider>
   </AuthProvider>
 </React.StrictMode>
 );

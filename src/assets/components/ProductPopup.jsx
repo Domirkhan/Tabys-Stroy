@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useMemo } from 'react';
-import { CartContext } from '../../context/CartContext';
+
 import '../styles/ProductPopup.css';
 
 function ProductPopup({ product, onClose }) {

@@ -1,39 +1,109 @@
 .catalog-page {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding-top: 2rem;
-  }
-  
-  .category-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .category-item {
-    margin-bottom: 20px;
-  }
-  
-  .category-header {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .category-header .icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-  }
-  
-  .subcategory-list {
-    list-style: none;
-    padding-left: 20px;
-    margin-top: 10px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 6rem;
+}
+
+.catalog-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.catalog-category {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.catalog-category-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  background: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+.catalog-category-header:hover {
+  background: #f0f0f0;
+}
+
+.category-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  object-fit: contain;
+}
+
+.category-name {
+  flex-grow: 1;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.category-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.category-arrow.open {
+  transform: rotate(90deg);
+}
+
+.subcategories {
+  display: none;
+  padding: 0;
+  background: #fff;
+}
+
+.subcategories.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.subcategory-link {
+  color: #666;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.subcategory-link:hover {
+  background: #f8f8f8;
+  color: #000;
+  padding-left: 25px;
+}
+
+.subcategory-link:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .catalog-page {
+    padding: 15px;
+    margin-top: 4rem;
   }
 
-@media (max-width: 767px) {
-   .catalog-page{
-    padding: 0 1rem;
-    padding-top: 1rem;
-   }
+  .catalog-category-header {
+    padding: 12px 15px;
+  }
+
+  .category-name {
+    font-size: 1rem;
+  }
+
+  .category-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .subcategory-link {
+    padding: 10px 15px;
+  }
 }
