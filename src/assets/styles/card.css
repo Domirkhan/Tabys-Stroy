@@ -130,9 +130,6 @@
     height: 150px; /* Уменьшаем высоту изображения */
     width: 100%;
   }
-  .product-image-container {
-    margin-bottom: 1rem;
-  }
   .price-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -179,11 +176,6 @@
   .product-price{
     font-size: 0.7rem; /* Уменьшаем размер шрифта */
   }
-  .product-image {
-    height: 140px;
-    width: 100%;
-  }
-
   .card-container {
     width: 100%;         /* Убираем fit-content */
     max-width: 100%;     /* Убираем ограничения */
