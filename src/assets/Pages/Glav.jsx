@@ -6,10 +6,11 @@ import Slider from '../components/Slider';
 function Glav() {
   return (
     <>
-     <SearchInput/>
+    <div className="container">
+      <SearchInput/>
       <Slider />
-      </div>
-        </>
+    </div>
+    </>
     )
 }
 export default Glav;
