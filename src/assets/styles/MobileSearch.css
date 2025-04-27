@@ -1,86 +1,116 @@
-.mobile-search {
+.mobile-search-wrapper {
   position: relative;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 2rem;
-  z-index: 10;
-  margin-left: auto;
-  margin-right: auto;
-}
-  
-.mobile-search input {
   width: 100%;
-  padding: 8px 40px 8px 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 0.5rem;
-  outline: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background-color: #fff;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: none;
+}
+
+.mobile-search-form {
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.mobile-search-button {
+  padding: 8px 16px;
+  background: #f5f5f5; /* Светлый фон вместо красного */
+  color: #333; /* Тёмный цвет иконки */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-search-button:hover {
+  background: #e5e5e5;
+}
+/* Стили для иконки лупы */
+.search-icon {
+  width: 18px;
+  height: 18px;
+}
+.mobile-search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestions-title {
+  padding: 10px;
+  background: #f5f5f5;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background: #f5f5f5;
+}
+
+.suggestion-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.suggestion-details {
+  flex: 1;
+}
+
+.suggestion-name {
+  font-size: 14px;
   color: #333;
-}
-  .mobile-search .search-btn {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    border: none;
-    cursor: pointer;
-  }
-  .search-btn {
-    background: url("../icon/lupa.png") no-repeat center;
-    background-size: contain;
-  }
-  
-  .mobile-search .search-suggestions {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-top: none;
-    max-height: 250px;
-    overflow-y: auto;
-    z-index: 20;
-  }
-  
-  .mobile-search .search-suggestions ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .mobile-search .search-suggestions li {
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-  }
-  
-  .mobile-search .search-suggestions li:hover {
-    background-color: #f7f7f7;
-  }
-
-  /* Стили при фокусе */
-.mobile-search input:focus {
-  border-color: #ff0000;
-  box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.1);
-}
-/* Анимация для инпута */
-@keyframes input-focus {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
+  margin-bottom: 4px;
 }
 
-.mobile-search input:focus {
-  animation: input-focus 0.3s ease;
+.suggestion-price {
+  font-size: 12px;
+  color: #ff0000;
+  font-weight: bold;
 }
 
+.no-suggestions {
+  padding: 15px;
+  text-align: center;
+  color: #666;
+}
 
-@media (min-width: 768px) {
-  .mobile-search {
-    display: none;
+ul {
+  list-style: none;
+}
+
+/* Показываем на мобильных устройствах */
+@media (max-width: 768px) {
+  .mobile-search-wrapper {
+    display: block;
   }
 }

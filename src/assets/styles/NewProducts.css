@@ -1,7 +1,8 @@
-
 .slick-list {
   overflow: hidden; /* Скрываем элементы, выходящие за пределы */
+  padding-top: 1rem !important;
   padding: 0 1rem; /* Убираем лишние отступы */
+  height: 25rem; /* Высота слайдера */
 }
 
 .slick-slide {
@@ -21,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
   
   .section-title {
@@ -86,7 +87,7 @@
   
   .new-products-section {
     position: relative;
-    padding: 40px 0;
+    padding-top: 40px;
   }
   
   .section-title {
@@ -117,6 +118,10 @@
     }
   }
   @media (max-width: 768px) {
+    .slick-track{
+      display: flex;
+      gap: 1rem;
+    }
     .product-slide {
       max-width: 200px; /* Уменьшаем ширину карточек на мобильных устройствах */
     }
@@ -128,6 +133,17 @@
       width: 32px;
       height: 32px;
     }
+    .slick-slide{
+      width: 100%; /* Карточки занимают всю ширину */
+      max-width: 200px; /* Ограничиваем максимальную ширину карточек */ 
+    }
+    .slick-list{
+      height: auto;
+      padding: 0;
+    }
+    .slider-controls{
+      top: 60%;
+    }
   }
   
   @media (max-width: 480px) {
@@ -137,6 +153,27 @@
     }
   
     .section-title {
-      font-size: 18px;
+      font-size: 1.5rem;
+    }
+    .slick-track {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .slick-slide {
+      width: 50% !important;      /* Две карточки в строку */
+      max-width: 50% !important;
+      min-width: 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+    }
+    .product-slide {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .slick-list {
+      padding: 0 !important;
     }
   }
