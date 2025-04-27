@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useSearch } from "../../../context/search";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useSearch } from '../../../context/search';
+import '../../styles/MobileSearch.css';
 
-const SearchInput = () => {
+const MobileSearch = () => {
   const [values, setValues] = useSearch();
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
@@ -28,23 +29,19 @@ const SearchInput = () => {
 
   const handleSuggestionClick = (product) => {
     try {
-      // Получаем значения slug для категории и подкатегории
       const categorySlug = product.category?.slug || 
                           (typeof product.category === 'string' ? product.category : '');
       
       const subCategorySlug = product.subCategory?.slug || 
                              (typeof product.subCategory === 'string' ? product.subCategory : '');
   
-      // Обновляем значения в поиске
       setValues({ ...values, keyword: product.name, results: [product] });
       
-      // Проверяем наличие всех необходимых параметров
       if (!categorySlug || !product.slug) {
         console.error('Missing required slugs:', { categorySlug, productSlug: product.slug });
         return;
       }
   
-      // Формируем URL
       const url = subCategorySlug 
         ? `/${categorySlug}/${subCategorySlug}/${product.slug}`
         : `/${categorySlug}/${product.slug}`;
@@ -67,27 +64,27 @@ const SearchInput = () => {
         const { data } = await axios.get(
           `${import.meta.env.VITE_API}/api/v1/product/search/${values.keyword}`
         );
-        setSuggestions(data.products);
+        setSuggestions(data.products || []);
       } catch (error) {
         console.log(error);
+        setSuggestions([]);
       }
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [values.keyword, setValues]);
+  }, [values.keyword]);
 
   return (
-    <div className="search-input-wrapper">
-      <form className="d-flex" role="search" onSubmit={handleSubmit}>
+    <div className="mobile-search-wrapper">
+      <form className="mobile-search-form" onSubmit={handleSubmit}>
         <input
-          className="form-control"
+          className="mobile-search-input"
           type="search"
           placeholder="Поиск товаров..."
-          aria-label="Search"
           value={values.keyword}
           onChange={(e) => setValues({ ...values, keyword: e.target.value })}
         />
-        <button className="btn" type="submit">
+        <button className="mobile-search-button" type="submit">
           <svg 
             className="search-icon" 
             xmlns="http://www.w3.org/2000/svg" 
@@ -103,32 +100,42 @@ const SearchInput = () => {
           </svg>
         </button>
       </form>
-      {suggestions.length > 0 && (
-        <div className="search-suggestions">
-          <ul>
-            {suggestions.map((product) => (
-              <li 
-                key={product._id} 
-                onClick={() => handleSuggestionClick(product)}
-              >
-                <div className="suggestion-item">
-                  <img 
-                    src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}`}
-                    alt={product.name}
-                    className="suggestion-image"
-                  />
-                  <div className="suggestion-details">
-                    <div className="suggestion-name">{product.name}</div>
-                    <div className="suggestion-price">{product.price} ₸</div>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+      
+      {values.keyword.trim() !== "" && (
+        <div className="mobile-search-suggestions">
+          {suggestions.length > 0 ? (
+            <>
+              <div className="suggestions-title">Возможно, вы искали:</div>
+              <ul>
+                {suggestions.map((product) => (
+                  <li 
+                    key={product._id} 
+                    onClick={() => handleSuggestionClick(product)}
+                  >
+                    <div className="suggestion-item">
+                      <img 
+                        src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}`}
+                        alt={product.name}
+                        className="suggestion-image"
+                      />
+                      <div className="suggestion-details">
+                        <div className="suggestion-name">{product.name}</div>
+                        <div className="suggestion-price">{product.price} ₸</div>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <div className="no-suggestions">
+              Ничего не найдено
+            </div>
+          )}
         </div>
       )}
     </div>
   );
-}
+};
 
-export default SearchInput;
+export default MobileSearch;

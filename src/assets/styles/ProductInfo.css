@@ -71,6 +71,9 @@
   }
   
   @media (max-width: 768px) {
+    .product-image-container {
+      margin-bottom: 1rem !important; /* Уменьшаем отступы */
+    }
     .product-image-slider {
       height: 300px;
     }

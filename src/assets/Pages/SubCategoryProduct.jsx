@@ -3,6 +3,8 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from '../../context/cart';
 import Header from "../layout/Header";
+import '../styles/SubCategory.css';
+import Footer from "../layout/Footer";
 
 const SubCategoryProduct = () => {
   const [cart, setCart] = useCart();
@@ -35,9 +37,9 @@ const SubCategoryProduct = () => {
   return (
     <>
     <Header/>
-    <div className="container mt-3">
-      <h4 className="text-center">
-        Subcategory - {subcategoryData?.name || subcatSlug}
+    <div className="container-sub mt-3">
+      <h4 className="section-title-category">
+      {subcategoryData?.name || subcatSlug}
       </h4>
       <h6 className="text-center">{products?.length} products found</h6>
       <div className="row">
@@ -82,6 +84,7 @@ const SubCategoryProduct = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
   );
 };

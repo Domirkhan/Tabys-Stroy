@@ -56,8 +56,8 @@ const NewProducts = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToShow: 2,
+          slidesToScroll: 2
         }
       }
     ]
@@ -78,10 +78,10 @@ const NewProducts = () => {
           <h2 className="section-title">Новинки</h2>
           <div className="slider-controls">
             <button className="slider-arrow prev" onClick={goToPrev}>
-              &#8249;
+              &#8249; {/* Левая стрелка */}
             </button>
             <button className="slider-arrow next" onClick={goToNext}>
-              &#8250;
+              &#8250; {/* Правая стрелка */}
             </button>
           </div>
         </div>
