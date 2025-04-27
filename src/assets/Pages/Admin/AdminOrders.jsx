@@ -41,96 +41,97 @@ const AdminOrders = () => {
   };
 
   return (
-    
-      <div className="container-fluid m-3 p-3">
-        <div className="row">
-          <div className="col-md-3">
-            <AdminMenu />
-          </div>
-          <div className="col-md-9">
-            <h1>Заказы</h1>
-            {orders.length === 0 ? (
-              <p>Нет заказов</p>
-            ) : (
-              orders.map((order) => (
-                <div className="border p-3 mb-3" key={order._id}>
-                  <p>
-                    <strong>Заказ ID:</strong> {order._id}
-                  </p>
-                  <p>
-                    <strong>Пользователь:</strong> {order.user?.name} (
-                    {order.user?.email})
-                  </p>
-                  <p>
-                  <strong>Номер телефона:</strong> {order.user?.phone || 'Не указан'}
+    <div className="container-fluid m-3 p-3">
+      <div className="row">
+        <div className="col-md-3">
+          <AdminMenu />
+        </div>
+        <div className="col-md-9">
+          <h1>Заказы</h1>
+          {orders.length === 0 ? (
+            <p>Нет заказов</p>
+          ) : (
+            orders.map((order) => (
+              <div className="border p-3 mb-3" key={order._id}>
+                <p>
+                  <strong>Заказ ID:</strong> {order._id}
                 </p>
-                  <p>
-                    <strong>Общая сумма:</strong> {order.totalAmount}
-                  </p>
-                  <p>
-                    <strong>Статус заказа:</strong> {order.orderStatus}
-                  </p>
-                  <p>
-                    <strong>Статус оплаты:</strong> {order.paymentStatus}
-                  </p>
-                  <div>
-                    <h5>Товары:</h5>
-                    {order.orderItems.map((item, i) => (
-                      <div key={i}>
-                        <p>
-                          {item.name} - {item.quantity} x {item.price}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-2">
-                    <label>
-                      Обновить статус заказа:{" "}
-                      <select
-                        value={order.orderStatus}
-                        onChange={(e) =>
-                          handleOrderStatusChange(
-                            order._id,
-                            e.target.value,
-                            order.paymentStatus
-                          )
-                        }
-                      >
-                        <option value="Not Processed">Not Processed</option>
-                        <option value="Processing">Processing</option>
-                        <option value="Shipped">Shipped</option>
-                        <option value="Delivered">Delivered</option>
-                        <option value="Cancelled">Cancelled</option>
-                      </select>
-                    </label>
-                  </div>
-                  <div className="mt-2">
-                    <label>
-                      Обновить статус оплаты:{" "}
-                      <select
-                        value={order.paymentStatus}
-                        onChange={(e) =>
-                          handleOrderStatusChange(
-                            order._id,
-                            order.orderStatus,
-                            e.target.value
-                          )
-                        }
-                      >
-                        <option value="Not Processed">Not Processed</option>
-                        <option value="Processing">Processing</option>
-                        <option value="Paid">Paid</option>
-                        <option value="Failed">Failed</option>
-                      </select>
-                    </label>
-                  </div>
+                <p>
+                  <strong>Пользователь:</strong> {order.user?.name} ({order.user?.email})
+                </p>
+                <p>
+                  <strong>Телефон:</strong> {order.user?.phone || 'Не указан'}
+                </p>
+                <p>
+                  <strong>Способ получения:</strong>{" "}
+                  {order.deliveryMethod === "pickup" ? "Самовывоз" : "Доставка"}
+                </p>
+                <p>
+                  <strong>Общая сумма:</strong> {order.totalAmount}
+                </p>
+                <p>
+                  <strong>Статус заказа:</strong> {order.orderStatus}
+                </p>
+                <p>
+                  <strong>Статус оплаты:</strong> {order.paymentStatus}
+                </p>
+                <div>
+                  <h5>Товары:</h5>
+                  {order.orderItems.map((item, i) => (
+                    <div key={i}>
+                      <p>
+                        {item.name} - {item.quantity} x {item.price}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-              ))
-            )}
-          </div>
+                <div className="mt-2">
+                  <label>
+                    Обновить статус заказа:{" "}
+                    <select
+                      value={order.orderStatus}
+                      onChange={(e) =>
+                        handleOrderStatusChange(
+                          order._id,
+                          e.target.value,
+                          order.paymentStatus
+                        )
+                      }
+                    >
+                      <option value="Not Processed">Not Processed</option>
+                      <option value="Processing">Processing</option>
+                      <option value="Shipped">Shipped</option>
+                      <option value="Delivered">Delivered</option>
+                      <option value="Cancelled">Cancelled</option>
+                    </select>
+                  </label>
+                </div>
+                <div className="mt-2">
+                  <label>
+                    Обновить статус оплаты:{" "}
+                    <select
+                      value={order.paymentStatus}
+                      onChange={(e) =>
+                        handleOrderStatusChange(
+                          order._id,
+                          order.orderStatus,
+                          e.target.value
+                        )
+                      }
+                    >
+                      <option value="Not Processed">Not Processed</option>
+                      <option value="Processing">Processing</option>
+                      <option value="Paid">Paid</option>
+                      <option value="Failed">Failed</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
-    
+    </div>
   );
 };
 
