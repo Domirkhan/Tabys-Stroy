@@ -5,6 +5,8 @@ import "../styles/ProductInfo.css";
 import { useCart } from "../../context/cart.jsx";
 import { toast } from "react-hot-toast";
 import Reviews from '../components/Reviews';
+import Header from "../layout/Header.jsx";
+import Footer from "../layout/Footer.jsx";
 
 const ProductInfo = () => {
   const [cart, setCart] = useCart();
@@ -75,6 +77,7 @@ const ProductInfo = () => {
 
   return (
     <>
+    <Header />
       <div className="row container mt-2 product-details">
         <div className="col-md-6 product-image-container">
           <div className="product-image-slider">
@@ -147,8 +150,8 @@ const ProductInfo = () => {
                >
               ADD TO CART
         </button>       
+        <Reviews productId={product?._id} />
       </div>
-      <Reviews productId={product?._id} />
       <hr />
       <div className="row container similar-products">
         <h6>Similar Products</h6>
@@ -199,6 +202,7 @@ const ProductInfo = () => {
           </div>
         )}
       </div>
+      <Footer />
     </>
   );
 };
