@@ -187,11 +187,16 @@ const removeFromCart = (pid) => {
             </div>
             <div className="header-actions">
             <li className="nav-item">
-                <Badge count={cart?.length} showZero>
-                  <NavLink to="/cart" className="nav-link">
-                    Cart
-                  </NavLink>
-                </Badge>
+            <Badge 
+              count={cart?.length} 
+              showZero 
+              offset={[0, 5]} // Смещение счетчика вниз
+              style={{ backgroundColor: 'red', color: 'white' }} // Красный цвет счетчика
+            >
+              <NavLink to="/cart" className="nav-item">
+                <img src={cartIcon} alt="Корзина" className="cart-icon" />
+              </NavLink>
+            </Badge>
               </li>
               {!auth?.user ? (
                 <>
@@ -217,7 +222,7 @@ const removeFromCart = (pid) => {
                       style={{ border: "none" }}
                     >
                       <img src={userIcon} alt="Профиль" />
-                      {auth?.user?.name}
+                      {/* {auth?.user?.name} */}
                     </NavLink>
                     <ul className="dropdown-menu">
                       <li>

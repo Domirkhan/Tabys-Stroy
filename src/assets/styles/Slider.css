@@ -46,6 +46,7 @@
   margin-bottom: 1rem;
   color: #fff;
   font-size: 2.5rem;
+  font-weight: 600;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
@@ -99,8 +100,7 @@
 @media screen and (max-width: 768px) {
   .slider {
     margin-top: 0 !important;
-    width: 90%;
-    height: 200px;
+    height: 250px;
   }
   .slide-content {
     left: 50%;

@@ -48,10 +48,16 @@ function BottomNav() {
         <img src={catalogIcon} alt="Каталог" />
         <span>Каталог</span>
       </Link>
-      <Badge count={cart?.length} showZero>
-          <NavLink to="/cart" className="nav-link">
-            Cart
-          </NavLink>
+      <Badge 
+        count={cart?.length} 
+        showZero 
+        offset={[-8, 5]} // Смещение счетчика вниз
+        style={{ backgroundColor: 'red', color: 'white' }} // Красный цвет счетчика
+      >
+        <NavLink to="/cart" className="nav-item">
+          <img src={cartIcon} alt="Корзина" className="cart-icon" />
+          <span className="cart-text">Корзина</span>
+        </NavLink>
       </Badge>
       { !auth?.user ? (
           <>
@@ -69,16 +75,16 @@ function BottomNav() {
         ) : (
           <>
             <li className="nav-item dropdown">
-              <NavLink
-                to="#"
-                className="nav-link dropdown-toggle"
-                role="button"
-                data-bs-toggle="dropdown"
-                style={{ border: "none" }}
-              >
-                <img src={userIcon} alt="Профиль" />
-                {auth?.user?.name}
-              </NavLink>
+            <NavLink
+              to="#"
+              className="nav-item dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              style={{ border: "none" }}
+            >
+              <img src={userIcon} alt="Профиль" />
+              <span className='profil-nav'>Профиль</span>
+            </NavLink>
               <ul className="dropdown-menu">
                 <li>
                   <NavLink

@@ -6,8 +6,10 @@ import Slider from '../components/Slider';
 function Glav() {
   return (
     <>
+      <div className="container">
       <MobileSearch />
       <Slider />
+      </div>
         </>
     )
 }

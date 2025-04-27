@@ -9,12 +9,12 @@ const slides = [
   {
     image: slide1,
     title: "НАДЕЖНЫЕ ТРУБЫ ОТ ВЕДУЩИХ ПРОИЗВОДИТЕЛЕЙ",
-    path: "/plumbing/Трубы"
+    path: "/santehnika/truby"
   },
   {
     image: slide2,
     title: "ФИТИНГИ ДЛЯ ВСЕХ ВИДОВ ТРУБ",
-    path: "/plumbing/Фитинги"
+    path: "/santehnika/fitingi"
   }
 ];
 
