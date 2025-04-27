@@ -26,31 +26,15 @@ const SearchInput = () => {
     }
   };
 
-  const handleSuggestionClick = (product) => {
+  const handleSuggestionClick = async (product) => {
     try {
-      // Получаем значения slug для категории и подкатегории
-      const categorySlug = product.category?.slug || 
-                          (typeof product.category === 'string' ? product.category : '');
-      
-      const subCategorySlug = product.subCategory?.slug || 
-                             (typeof product.subCategory === 'string' ? product.subCategory : '');
-  
       // Обновляем значения в поиске
       setValues({ ...values, keyword: product.name, results: [product] });
       
-      // Проверяем наличие всех необходимых параметров
-      if (!categorySlug || !product.slug) {
-        console.error('Missing required slugs:', { categorySlug, productSlug: product.slug });
-        return;
-      }
-  
-      // Формируем URL
-      const url = subCategorySlug 
-        ? `/${categorySlug}/${subCategorySlug}/${product.slug}`
-        : `/${categorySlug}/${product.slug}`;
-  
-      navigate(url);
+      // Переходим на страницу продукта используя slug
+      navigate(`/product/${product.slug}`);
       setSuggestions([]);
+  
     } catch (error) {
       console.error('Error in handleSuggestionClick:', error);
     }

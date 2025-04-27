@@ -29,25 +29,12 @@ const MobileSearch = () => {
 
   const handleSuggestionClick = (product) => {
     try {
-      const categorySlug = product.category?.slug || 
-                          (typeof product.category === 'string' ? product.category : '');
-      
-      const subCategorySlug = product.subCategory?.slug || 
-                             (typeof product.subCategory === 'string' ? product.subCategory : '');
-  
       setValues({ ...values, keyword: product.name, results: [product] });
       
-      if (!categorySlug || !product.slug) {
-        console.error('Missing required slugs:', { categorySlug, productSlug: product.slug });
-        return;
-      }
-  
-      const url = subCategorySlug 
-        ? `/${categorySlug}/${subCategorySlug}/${product.slug}`
-        : `/${categorySlug}/${product.slug}`;
-  
-      navigate(url);
+      // Переходим на страницу продукта используя slug
+      navigate(`/product/${product.slug}`);
       setSuggestions([]);
+      
     } catch (error) {
       console.error('Error in handleSuggestionClick:', error);
     }
