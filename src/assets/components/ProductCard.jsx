@@ -8,6 +8,11 @@ function ProductCard({ product }) {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
 
+  // Если product не передан, не отображаем карточку
+  if (!product) {
+    return null;
+  }
+
   // Обработчик перехода на страницу товара
   const handleNavigateToProduct = () => {
     navigate(`/product/${product.slug}`);
@@ -32,8 +37,8 @@ function ProductCard({ product }) {
     <div className="card-container">
       <div className="product-image-container" onClick={handleNavigateToProduct}>
         <img 
-          src={product.photo || product.image} 
-          alt={product.name} 
+          src={product.photo || product.image || 'default_image.jpg'} 
+          alt={product.name || 'Продукт'} 
           className="product-image"
         />
       </div>

@@ -62,6 +62,9 @@ const AdminOrders = () => {
                     {order.user?.email})
                   </p>
                   <p>
+                  <strong>Номер телефона:</strong> {order.user?.phone || 'Не указан'}
+                </p>
+                  <p>
                     <strong>Общая сумма:</strong> {order.totalAmount}
                   </p>
                   <p>

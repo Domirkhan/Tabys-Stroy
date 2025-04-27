@@ -71,7 +71,7 @@ export const createOrderController = async (req, res) => {
 export const getAllOrdersController = async (req, res) => {
   try {
     const orders = await Order.find({})
-      .populate("user", "name email")
+      .populate("user", "name email phone") // Добавляем поле phone
       .sort({ createdAt: -1 });
     res.status(200).json({
       success: true,

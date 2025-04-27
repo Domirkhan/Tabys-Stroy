@@ -10,6 +10,8 @@ import subcategoryRoutes from "./routes/subcategoryRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import downloadRoutes from "./routes/downloadRoutes.js";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import cors from "cors";
 import path from "path";
 
@@ -37,8 +39,10 @@ app.use("/api/v1/order", orderRoutes);
 app.use("/api/v1/upload", uploadRoutes);      // Для загрузки файлов
 app.use("/api/v1/download", downloadRoutes);    // Для отдачи файлов
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 // Если файлы сохранялись на диск, можно сделать их раздачу публичной:
-app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));

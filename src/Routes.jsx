@@ -3,13 +3,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import CartPage from './assets/Pages/CartPage';
 import CategoryPage from './assets/Pages/CategoryPage';
-import ProductPage from './assets/Pages/ProductPage';
+
 import ZakazPage from './assets/Pages/ZakazPage';
 import About from './assets/Pages/About';
 import DeliveryPage from './assets/Pages/DeliveryPage';
 import PaymentPage from './assets/Pages/PaymentPage';
 import ContactsPage from './assets/Pages/ContactsPage';
-import ProductDetail from './assets/components/ProductDetail';
+
 import CatalogPage from './assets/Pages/CatalogPage';
 import PrivateRoute from './assets/components/Routes/Private';
 import AdminRoute from './assets/components/Routes/AdminRoute';
@@ -29,6 +29,8 @@ import Register from './assets/Pages/Auth/Register'
 import Login from './assets/Pages/Auth/Login';
 import ForgotPasssword from './assets/Pages/Auth/ForgotPassword';
 import ResetPassword from './assets/Pages/Auth/ResetPassword';
+import Search from './assets/Pages/Search';
+import ProductCard from './assets/components/ProductCard';
 
 
 
@@ -42,7 +44,7 @@ function RouterApp() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/zakaz" element={<ZakazPage />} />
         
-        <Route path="/:category/:subCategory/:productName" element={<ProductDetail />} />
+        <Route path="/:category/:subCategory/:productName" element={<ProductCard />} />
 
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
@@ -67,7 +69,7 @@ function RouterApp() {
 
         {/* Категории – размещаем в конце маршрутов */}
         <Route path="/product/:slug" element={<ProductInfo/>} />
-
+        <Route path="/search" element={<Search />} />
         <Route path="/:subcategory/:slug" element={<SubCategoryProduct />} />
         <Route path="/:category/:subcategory" element={<CategoryPage />} />
         <Route path="/:category" element={<CategoryPage />} />
