@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/ProductInfo.css";
 import { useCart } from "../../context/cart.jsx";
 import { toast } from "react-hot-toast";
+import Reviews from '../components/Reviews';
 
 const ProductInfo = () => {
   const [cart, setCart] = useCart();
@@ -147,6 +148,7 @@ const ProductInfo = () => {
               ADD TO CART
         </button>       
       </div>
+      <Reviews productId={product?._id} />
       <hr />
       <div className="row container similar-products">
         <h6>Similar Products</h6>

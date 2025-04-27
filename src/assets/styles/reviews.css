@@ -1,0 +1,57 @@
+.reviews-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .review-form {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 4px;
+  }
+  
+  .review-form .ant-rate {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  
+  .review-form .ant-input {
+    margin: 10px 0;
+  }
+  
+  .review-form .ant-btn {
+    margin-top: 10px;
+  }
+  
+  .reviews-list {
+    margin-top: 20px;
+  }
+  
+  .review-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .user-name {
+    font-weight: 600;
+  }
+  
+  .review-date {
+    color: #999;
+    font-size: 0.9em;
+  }
+  
+  .review-comment {
+    margin: 0;
+    line-height: 1.5;
+  }
