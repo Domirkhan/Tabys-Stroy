@@ -63,5 +63,6 @@ export default defineConfig({
       clientsClaim: true,
     })
   ],
+  assetsInclude: ['**/*.mp3'], // Добавьте эту строку
   base: '/'
 });

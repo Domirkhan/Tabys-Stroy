@@ -36,6 +36,7 @@
     "react-swipeable": "^7.0.2",
     "sitemap": "^8.0.0",
     "slick-carousel": "^1.8.1",
+    "socket.io-client": "^4.8.1",
     "yarn": "^1.22.22"
   },
   "devDependencies": {

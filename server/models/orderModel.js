@@ -23,13 +23,13 @@ const orderSchema = new mongoose.Schema(
     totalAmount: { type: Number, required: true },
     paymentStatus: { 
       type: String, 
-      enum: ["Not Processed", "Processing", "Paid", "Failed"],
+      enum: ["Не обработан", "В обработке", "Оплачен", "Не оплачен"],
       default: "Not Processed"
     },
     orderStatus: {
       type: String,
-      enum: ["Not Processed", "Processing", "Shipped", "Delivered", "Cancelled"],
-      default: "Not Processed"
+      enum: ["Не обработан", "В обработке", "Отправлен", "Доставлен", "Cancelled"],
+      default: "Отменён"
     }
   },
   { timestamps: true }

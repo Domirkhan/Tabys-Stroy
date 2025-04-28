@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import AdminMenu from "../../components/AdminMenu";
 import { toast } from "react-hot-toast";
 import axios from "axios";
-
+import { io } from "socket.io-client";
+import notificationSound from "../../sounds/notification-sound.mp3";// Импортируем звук
 const AdminDashboard = () => {
   const [stats, setStats] = useState({
     totalOrders: 0,
@@ -11,6 +12,43 @@ const AdminDashboard = () => {
     totalUsers: 0,
     totalRevenue: 0
   });
+
+  const [socket, setSocket] = useState(null);
+  const audio = new Audio(notificationSound ); 
+  useEffect(() => {
+    // Запрашиваем разрешение на уведомления при загрузке
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission();
+    }
+
+    const newSocket = io(import.meta.env.VITE_API);
+    setSocket(newSocket);
+
+    newSocket.on('newOrder', (data) => {
+      // Проигрываем звук с обработкой ошибок
+      audio.play().catch(err => {
+        console.error('Ошибка воспроизведения звука:', err);
+      });
+      
+     // Показываем уведомление
+     if (Notification.permission === "granted") {
+      new Notification("Новый заказ!", {
+        body: `Поступил заказ на сумму ${data.totalAmount} тг`,
+        icon: "/logo.png",
+        silent: true // Отключаем стандартный звук уведомления
+      });
+    }
+      
+      // Обновляем статистику
+      getStats();
+    });
+
+    return () => {
+      if (socket) {
+        socket.disconnect();
+      }
+    };
+  }, []);
 
   const getStats = async () => {
     try {

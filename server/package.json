@@ -27,6 +27,7 @@
     "multer-gridfs-storage": "^5.0.2",
     "nodemailer": "^6.10.1",
     "nodemon": "^3.1.9",
-    "slugify": "^1.6.6"
+    "slugify": "^1.6.6",
+    "socket.io": "^4.8.1"
   }
 }

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminMenu from "../../components/AdminMenu";
 import { toast } from "react-hot-toast";
+import { io } from "socket.io-client"; // Добавляем импорт
 
 const AdminOrders = () => {
   const [orders, setOrders] = useState([]);
+  const [newOrders, setNewOrders] = useState(0);
 
   const fetchOrders = async () => {
     try {
@@ -22,6 +24,14 @@ const AdminOrders = () => {
 
   useEffect(() => {
     fetchOrders();
+     // Подписка на новые заказы
+     const socket = io(import.meta.env.VITE_API);
+     socket.on('newOrder', () => {
+       setNewOrders(prev => prev + 1);
+       fetchOrders(); // Обновляем список заказов
+     });
+ 
+     return () => socket.disconnect();
   }, []);
 
   const handleOrderStatusChange = async (orderId, newOrderStatus, newPaymentStatus) => {
@@ -47,7 +57,12 @@ const AdminOrders = () => {
           <AdminMenu />
         </div>
         <div className="col-md-9">
-          <h1>Заказы</h1>
+        <h1>
+            Заказы 
+            {newOrders > 0 && (
+              <span className="badge bg-danger ms-2">{newOrders} новых</span>
+            )}
+          </h1>
           {orders.length === 0 ? (
             <p>Нет заказов</p>
           ) : (
