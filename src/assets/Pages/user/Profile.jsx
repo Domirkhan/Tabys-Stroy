@@ -59,7 +59,7 @@ const Profile = () => {
           <div className="col-md-9">
             <div className="form-container ">
               <form onSubmit={handleSubmit}>
-                <h4 className="title">USER PROFILE</h4>
+                <h4 className="title">Профиль</h4>
                 <div className="mb-3">
                   <input
                     type="text"
@@ -67,7 +67,7 @@ const Profile = () => {
                     onChange={(e) => setName(e.target.value)}
                     className="form-control"
                     id="exampleInputName1"
-                    placeholder="Enter Your Name"
+                    placeholder="Введите ваше имя"
                     autoFocus
                   />
                 </div>
@@ -78,7 +78,7 @@ const Profile = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     className="form-control"
                     id="exampleInputEmail1"
-                    placeholder="Enter Your Email "
+                    placeholder="Введите ваш email"
                     disabled
                   />
                 </div>
@@ -89,7 +89,7 @@ const Profile = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     className="form-control"
                     id="exampleInputPassword1"
-                    placeholder="Enter Your Password"
+                    placeholder="Введите ваш пароль"
                   />
                 </div>
                 <div className="mb-3">
@@ -99,7 +99,7 @@ const Profile = () => {
                     onChange={(e) => setPhone(e.target.value)}
                     className="form-control"
                     id="exampleInputPhone1"
-                    placeholder="Enter Your Phone"
+                    placeholder="Введите ваш телефон"
                   />
                 </div>
                 <div className="mb-3">
@@ -109,12 +109,12 @@ const Profile = () => {
                     onChange={(e) => setAddress(e.target.value)}
                     className="form-control"
                     id="exampleInputAddress1"
-                    placeholder="Enter Your Address"
+                    placeholder="Введите ваш адрес"
                   />
                 </div>
 
                 <button type="submit" className="btn btn-primary">
-                  UPDATE
+                  Обновить профиль
                 </button>
               </form>
             </div>

@@ -182,24 +182,25 @@ export const productPhotoController = async (req, res) => {
     const product = await productModel.findById(req.params.pid);
     if (product && product.photos && product.photos.length > 0) {
       const photoRelativePath = product.photos[0];
-      // Формируем абсолютный путь, основываясь на process.cwd()
       const photoAbsolutePath = path.join(process.cwd(), photoRelativePath);
+      if (!fs.existsSync(photoAbsolutePath)) {
+        return res.status(404).send({ error: "Файл не найден" });
+      }
       const ext = path.extname(photoRelativePath).toLowerCase();
       let contentType = "image/jpeg";
       if (ext === ".png") contentType = "image/png";
       else if (ext === ".gif") contentType = "image/gif";
-      
       const fileData = fs.readFileSync(photoAbsolutePath);
       res.set("Content-Type", contentType);
       return res.status(200).send(fileData);
     } else {
-      return res.status(404).send({ error: "No photo found" });
+      return res.status(404).send({ error: "Фото отсутствует" });
     }
   } catch (error) {
     console.error("Error in productPhotoController:", error);
     res.status(500).send({
       success: false,
-      message: "Error while getting photo",
+      message: "Ошибка при получении фото",
       error: error.message,
     });
   }
@@ -233,13 +234,12 @@ export const updateProductController = async (req, res) => {
       price, 
       category, 
       subcategory, 
-      quantity, 
       shipping, 
       characteristics,
-      availability // Добавляем поле availability 
+      availability 
     } = fields;
     
-    if (!name || !description || !price || !category || !quantity)
+    if (!name || !description || !price || !category)
       return res.status(400).send({ error: "Пожалуйста, заполните все обязательные поля" });
     
     // Проверка корректности значения availability
@@ -249,7 +249,7 @@ export const updateProductController = async (req, res) => {
         error: "Некорректный статус наличия товара"
       });
     }
-
+    
     let subcatId = undefined;
     if (subcategory && mongoose.Types.ObjectId.isValid(subcategory)) {
       subcatId = new mongoose.Types.ObjectId(subcategory);
@@ -266,6 +266,18 @@ export const updateProductController = async (req, res) => {
       }
     }
     
+    // Добавляем парсинг pricePerUnit, как в createProductController
+    let parsedPricePerUnit = {};
+    if (fields.pricePerUnit) {
+      try {
+        parsedPricePerUnit = typeof fields.pricePerUnit === 'string'
+          ? JSON.parse(fields.pricePerUnit)
+          : fields.pricePerUnit;
+      } catch (e) {
+        return res.status(400).send({ error: "Invalid format for pricePerUnit" });
+      }
+    }
+    
     const updatedProduct = await productModel.findByIdAndUpdate(
       req.params.pid,
       {
@@ -273,7 +285,8 @@ export const updateProductController = async (req, res) => {
         slug: name ? slugify(name, { lower: true }) : undefined,
         subcategory: subcatId,
         characteristics: parsedCharacteristics,
-        availability: availability || 'Есть в наличии' // Добавляем обновление availability
+        pricePerUnit: parsedPricePerUnit,
+        availability: availability || 'Есть в наличии'
       },
       { new: true }
     );

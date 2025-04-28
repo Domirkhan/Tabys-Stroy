@@ -11,6 +11,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import downloadRoutes from "./routes/downloadRoutes.js";
 import reviewRoutes from './routes/reviewRoutes.js';
+import statsRoutes from "./routes/statsRoutes.js";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import cors from "cors";
@@ -40,6 +41,7 @@ app.use("/api/v1/order", orderRoutes);
 app.use("/api/v1/upload", uploadRoutes);      // Для загрузки файлов
 app.use("/api/v1/download", downloadRoutes);    // Для отдачи файлов
 app.use('/api/v1/review', reviewRoutes);
+app.use("/api/v1/stats", statsRoutes);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

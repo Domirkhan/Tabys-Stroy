@@ -1,15 +1,15 @@
-import multer from 'multer';
-import path from 'path';
+import multer from "multer";
 
-// Настраиваем хранилище
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/'); // куда сохранять файлы
-  },
-  filename: function (req, file, cb) {
-    const ext = path.extname(file.originalname);
-    cb(null, `${Date.now()}-${file.originalname}`);
-  }
+    destination: function (req, file, cb) {
+        cb(null, "uploads/"); // или ваш путь
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + "-" + file.originalname);
+    }
 });
 
-export const upload = multer({ storage });
+// Используем .array вместо .single, поле должно быть "photos"
+const upload = multer({ storage: storage }).array("photos", 5); // 5 – максимальное количество фото
+
+export default upload;

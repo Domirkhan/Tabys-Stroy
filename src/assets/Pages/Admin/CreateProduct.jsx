@@ -175,11 +175,11 @@ const CreateProduct = () => {
           <AdminMenu />
         </div>
         <div className="col-md-9">
-          <h1>Create Product</h1>
+          <h1>Создать продукт</h1>
           <div className="m-1 w-75">
             {/* Выбор категории */}
             <Select
-              placeholder="Select a category"
+              placeholder="Выберите категорию"
               size="large"
               showSearch
               className="form-select mb-3"
@@ -196,7 +196,7 @@ const CreateProduct = () => {
 
             {/* Выбор подкатегории */}
             <Select
-              placeholder="Select a subcategory"
+              placeholder="Выберите подкатегорию"
               size="large"
               showSearch
               className="form-select mb-3"
@@ -216,7 +216,7 @@ const CreateProduct = () => {
             {/* Загрузка фотографий */}
             <div className="mb-3">
               <label className="btn btn-outline-secondary col-md-12">
-                {photos.length > 0 ? `${photos.length} file(s) selected` : "Upload Photos"}
+                {photos.length > 0 ? `${photos.length} file(s) selected` : "Загрузите фото"}
                 <input
                   type="file"
                   name="photos"
@@ -248,7 +248,7 @@ const CreateProduct = () => {
               <input
                 type="text"
                 value={name}
-                placeholder="Write a name"
+                placeholder="Название продукта"
                 className="form-control"
                 onChange={(e) => setName(e.target.value)}
               />
@@ -257,7 +257,7 @@ const CreateProduct = () => {
               <textarea
                 type="text"
                 value={description}
-                placeholder="Write a description"
+                placeholder="Описание продукта"
                 className="form-control"
                 onChange={(e) => setDescription(e.target.value)}
               />
@@ -266,7 +266,7 @@ const CreateProduct = () => {
               <input
                 type="number"
                 value={price}
-                placeholder="Write a price"
+                placeholder="Цена продукта"
                 className="form-control"
                 onChange={(e) => setPrice(e.target.value)}
               />
@@ -287,7 +287,7 @@ const CreateProduct = () => {
             </div>
             <div className="mb-3">
               <Select
-                placeholder="Select Shipping"
+                placeholder="Доставка"
                 size="large"
                 showSearch
                 className="form-select mb-3"
@@ -295,14 +295,14 @@ const CreateProduct = () => {
                   setShipping(value);
                 }}
               >
-                <Option value="0">No</Option>
-                <Option value="1">Yes</Option>
+                <Option value="0">нет</Option>
+                <Option value="1">да</Option>
               </Select>
             </div>
 
             {/* Добавление единиц измерения с ценами */}
             <div className="mb-3">
-              <h5>Price per Unit</h5>
+              <h5>Добавление единиц измерения с ценами</h5>
               <div className="d-flex mb-2">
                 <input
                   type="text"
@@ -338,12 +338,12 @@ const CreateProduct = () => {
 
             {/* Характеристики */}
             <div className="mb-3">
-              <h5>Characteristics</h5>
+              <h5>Характеристики</h5>
               {characteristics.map((char, index) => (
                 <div key={index} className="d-flex mb-2">
                   <input
                     type="text"
-                    placeholder="Key"
+                    placeholder="характеристика (например, цвет)"
                     value={char.key}
                     className="form-control me-2"
                     onChange={(e) =>
@@ -352,7 +352,7 @@ const CreateProduct = () => {
                   />
                   <input
                     type="text"
-                    placeholder="Value"
+                    placeholder="характеристика"
                     value={char.value}
                     className="form-control me-2"
                     onChange={(e) =>
@@ -364,7 +364,7 @@ const CreateProduct = () => {
                     className="btn btn-danger"
                     onClick={() => handleRemoveCharacteristic(index)}
                   >
-                    Remove
+                    Удалить
                   </button>
                 </div>
               ))}
@@ -373,14 +373,14 @@ const CreateProduct = () => {
                 className="btn btn-primary"
                 onClick={handleAddCharacteristic}
               >
-                Add Characteristic
+                Добавить характеристику
               </button>
             </div>
 
             {/* Кнопка для создания продукта */}
             <div className="mb-3">
               <button className="btn btn-primary" onClick={handleCreate}>
-                CREATE PRODUCT
+                Создать продукт
               </button>
             </div>
           </div>

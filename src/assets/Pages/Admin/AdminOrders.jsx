@@ -98,11 +98,11 @@ const AdminOrders = () => {
                         )
                       }
                     >
-                      <option value="Not Processed">Not Processed</option>
-                      <option value="Processing">Processing</option>
-                      <option value="Shipped">Shipped</option>
-                      <option value="Delivered">Delivered</option>
-                      <option value="Cancelled">Cancelled</option>
+                      <option value="Not Processed">Не обработан</option>
+                      <option value="Processing">В обработке</option>
+                      <option value="Shipped">Отправлен</option>
+                      <option value="Delivered">Доставлен</option>
+                      <option value="Cancelled">Отменён</option>
                     </select>
                   </label>
                 </div>
@@ -119,10 +119,10 @@ const AdminOrders = () => {
                         )
                       }
                     >
-                      <option value="Not Processed">Not Processed</option>
-                      <option value="Processing">Processing</option>
-                      <option value="Paid">Paid</option>
-                      <option value="Failed">Failed</option>
+                      <option value="Not Processed">Не обработан</option>
+                      <option value="Processing">В обработке</option>
+                      <option value="Paid">Оплачен</option>
+                      <option value="Failed">Не оплачен</option>
                     </select>
                   </label>
                 </div>

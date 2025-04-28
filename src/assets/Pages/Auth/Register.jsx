@@ -12,7 +12,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [answer, setAnswer] = useState("");
+
   const navigate = useNavigate();
 
   // form function
@@ -25,7 +25,7 @@ const Register = () => {
         password,
         phone,
         address,
-        answer,
+        
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -51,7 +51,7 @@ const Register = () => {
               onChange={(e) => setName(e.target.value)}
               className="form-control"
               id="exampleInputName1"
-              placeholder="Enter Your Name"
+              placeholder="Введите ваше имя"
               required
               autoFocus
             />
@@ -63,7 +63,7 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="Enter Your Email "
+              placeholder="Введите ваш email"
               required
             />
           </div>
@@ -74,7 +74,7 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
               id="exampleInputPassword1"
-              placeholder="Enter Your Password"
+              placeholder="Введите ваш пароль"
               required
             />
           </div>
@@ -85,7 +85,7 @@ const Register = () => {
               onChange={(e) => setPhone(e.target.value)}
               className="form-control"
               id="exampleInputPhone1"
-              placeholder="Enter Your Phone"
+              placeholder="Введите ваш телефон"
               required
             />
           </div>
@@ -96,23 +96,13 @@ const Register = () => {
               onChange={(e) => setAddress(e.target.value)}
               className="form-control"
               id="exampleInputAddress1"
-              placeholder="Enter Your Address"
+              placeholder="Введите ваш адрес"
               required
             />
           </div>
-          <div className="mb-3">
-            <input
-              type="text"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              className="form-control"
-              id="exampleInputAnswer1"
-              placeholder="What is Your Favorite sports"
-              required
-            />
-          </div>
+          
           <button type="submit" className="btn btn-primary">
-            REGISTER
+            Зарегистрироваться
           </button>
         </form>
       </div>

@@ -172,12 +172,12 @@ const removeFromCart = (pid) => {
                 <>
                   <li className="nav-item">
                     <NavLink to="/register" className="nav-link">
-                      Register
+                      Регистрация
                     </NavLink>
                   </li>
                   <li className="nav-item">
                     <NavLink to="/login" className="nav-link">
-                      Login
+                      Войти
                     </NavLink>
                   </li>
                 </>
@@ -200,7 +200,7 @@ const removeFromCart = (pid) => {
                           to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
                           className="dropdown-item"
                         >
-                          Dashboard
+                          Панель управления
                         </NavLink>
                       </li>
                       <li>
@@ -209,7 +209,7 @@ const removeFromCart = (pid) => {
                           to="/login"
                           className="dropdown-item"
                         >
-                          Logout
+                          Выйти
                         </NavLink>
                       </li>
                     </ul>

@@ -5,6 +5,8 @@ import "../styles/ProductInfo.css";
 import { useCart } from "../../context/cart.jsx";
 import { toast } from "react-hot-toast";
 import Reviews from '../components/Reviews';
+import  Header  from "../layout/Header.jsx";
+import Footer from "../layout/Footer.jsx";
 
 const ProductInfo = () => {
   const [cart, setCart] = useCart();
@@ -72,9 +74,14 @@ const ProductInfo = () => {
       prev === 0 ? (product.photos?.length - 1) : prev - 1
     );
   };
-
+  const addToCart = () => {
+    setCart([...cart, product]);
+    localStorage.setItem("cart", JSON.stringify([...cart, product]));
+    toast.success("Item Added to cart");
+  };
   return (
     <>
+    <Header/>
       <div className="row container mt-2 product-details">
         <div className="col-md-6 product-image-container">
           <div className="product-image-slider">
@@ -135,25 +142,23 @@ const ProductInfo = () => {
           )}
         </div>
         <button
-              className="btn btn-secondary ms-1"
-              onClick={() => {
-              setCart([...cart, p]);
-              localStorage.setItem(
-               "cart",
-               JSON.stringify([...cart, p])
-               );
-               toast.success("Item Added to cart");
-               }}
-               >
-              ADD TO CART
-        </button>       
+          className="btn btn-secondary ms-1"
+          onClick={() => {
+            setCart([...cart, product]);
+            localStorage.setItem("cart", JSON.stringify([...cart, product]));
+            toast.success("Ваш товар добавлен в корзину");
+          navigate("/cart");
+          }}
+        >
+          в корзину
+        </button>     
       </div>
       <Reviews productId={product?._id} />
       <hr />
       <div className="row container similar-products">
-        <h6>Similar Products</h6>
+        <h6>Похожие товары</h6>
         {relatedProducts.length < 1 ? (
-          <p className="text-center">No Similar Products found</p>
+          <p className="text-center">нету похожих товаров</p>
         ) : (
           <div className="d-flex flex-wrap">
             {relatedProducts.map((p) => (
@@ -180,25 +185,15 @@ const ProductInfo = () => {
                   >
                     Подробнее
                   </button>
-                  <button
-                    className="btn btn-secondary ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to cart");
-                    }}
-                  >
-                    ADD TO CART
-                  </button>
+                  <button onClick={addToCart}>В корзину</button>
                 </div>
               </div>
             ))}
           </div>
         )}
       </div>
+      
+    <Footer/>
     </>
   );
 };
