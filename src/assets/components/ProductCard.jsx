@@ -21,15 +21,27 @@ function ProductCard({ product }) {
   // Обработчик добавления в корзину
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    const existingItem = cart.find(item => item._id === product._id);
+    const [firstUnit] = Object.keys(product.pricePerUnit);
+    
+    // Проверяем есть ли товар с такой же единицей измерения
+    const existingItem = cart.find(item => 
+      item._id === product._id && 
+      item.selectedUnit === firstUnit
+    );
     
     if (existingItem) {
-      toast.error('Товар уже в корзине');
+      toast.error(`Товар с единицей измерения ${firstUnit} уже в корзине`);
       return;
     }
-
-    setCart([...cart, { ...product, quantity: 1 }]);
-    localStorage.setItem('cart', JSON.stringify([...cart, { ...product, quantity: 1 }]));
+  
+    const cartItem = {
+      ...product,
+      quantity: 1,
+      selectedUnit: firstUnit,
+    };
+  
+    setCart([...cart, cartItem]);
+    localStorage.setItem('cart', JSON.stringify([...cart, cartItem]));
     toast.success('Товар добавлен в корзину');
   };
 
@@ -49,9 +61,9 @@ function ProductCard({ product }) {
         <div className="price-and-status">
           <div className="price-wrapper">
             <span className="current-price">
-              {product.pricePerUnit ? 
-                `${Object.values(product.pricePerUnit)[0]} тг` : 
-                `${product.price} тг`
+              {product.pricePerUnit && Object.entries(product.pricePerUnit)[0] ? 
+                `${Object.entries(product.pricePerUnit)[0][1]} тг за ${Object.entries(product.pricePerUnit)[0][0]}` : 
+                product.price ? `${product.price} тг` : 'Цена по запросу'
               }
             </span>
           </div>

@@ -80,8 +80,17 @@ const AdminOrders = () => {
                   {order.orderItems.map((item, i) => (
                     <div key={i}>
                       <p>
-                        {item.name} - {item.quantity} x {item.price}
+                        <strong>Название:</strong> {item.name}
                       </p>
+                       <p className="card-text mb-1">
+                          Цена: {item.price} тг за {item.selectedUnit}
+                         </p>
+                        <p className="card-text mb-1">
+                           Количество: {item.quantity} {item.selectedUnit}
+                        </p>
+                        <p className="card-text">
+                          <strong>Сумма: {item.price * item.quantity} тг</strong>
+                        </p>
                     </div>
                   ))}
                 </div>

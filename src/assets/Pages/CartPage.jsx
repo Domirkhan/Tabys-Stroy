@@ -17,11 +17,16 @@ const CartPage = () => {
   // Функция вычисления общей стоимости корзины
   const totalPrice = () => {
     try {
-      const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-      return total.toLocaleString("kk-KZ", { style: "currency", currency: "KZT" });
+      let total = 0;
+      cart?.forEach((item) => {
+        if (item.pricePerUnit && item.selectedUnit) {
+          total += item.pricePerUnit[item.selectedUnit] * item.quantity;
+        }
+      });
+      return `${total} тг`;
     } catch (error) {
-      console.error(error);
-      return "0";
+      console.error("Ошибка при подсчете общей стоимости:", error);
+      return "0 тг";
     }
   };
 
@@ -37,10 +42,13 @@ const CartPage = () => {
   };
 
   // Удаление товара из корзины
-  const removeCartItem = (pid) => {
+  const removeCartItem = (pid, selectedUnit) => {
     try {
       let myCart = [...cart];
-      const index = myCart.findIndex(item => item._id === pid);
+      const index = myCart.findIndex(item => 
+        item._id === pid && 
+        item.selectedUnit === selectedUnit
+      );
       if (index > -1) {
         myCart.splice(index, 1);
         setCart(myCart);
@@ -59,11 +67,14 @@ const CartPage = () => {
         orderItems: cart.map((item) => ({
           product: item._id,
           name: item.name,
-          price: item.price,
+          price: item.pricePerUnit[item.selectedUnit],
           quantity: item.quantity,
+          selectedUnit: item.selectedUnit
         })),
-        totalAmount: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
-        deliveryMethod, // Передача метода получения заказа
+        totalAmount: cart.reduce((acc, item) => 
+          acc + (item.pricePerUnit[item.selectedUnit] * item.quantity), 0
+        ),
+        deliveryMethod,
       };
       const { data } = await axios.post(
         `${import.meta.env.VITE_API}/api/v1/order/create-order`,
@@ -97,7 +108,8 @@ const CartPage = () => {
           </h4>
           {cart?.length > 0 && (
             <>
-              {cart.map((p) => (
+              {cart.map((p, index) => (
+                  <div key={`${p._id}-${index}`}>
                 <div className="row mb-2 p-3 card flex-row" key={p._id}>
                   <div className="col-md-4">
                     <img
@@ -108,31 +120,39 @@ const CartPage = () => {
                     />
                   </div>
                   <div className="col-md-8">
-                    <p>{p.name}</p>
-                    <p>{p.description?.substring(0, 30)}...</p>
-                    <p>Price: {p.price} тг</p>
-                    <div className="d-flex align-items-center">
+                      <p>{p.name}</p>
+                      <p>{p.description?.substring(0, 30)}...</p>
+                      {p.pricePerUnit && p.selectedUnit ? (
+                        <p>Цена: {p.pricePerUnit[p.selectedUnit]} тг за {p.selectedUnit}</p>
+                      ) : (
+                        <p>Цена не указана</p>
+                      )}
+                      <div className="d-flex align-items-center">
+                        <button
+                          className="btn btn-secondary me-2"
+                          onClick={() => updateCartItemQuantity(p._id, p.quantity - 1)}
+                        >
+                          -
+                        </button>
+                        <span>{p.quantity}</span>
+                        <button
+                          className="btn btn-secondary ms-2"
+                          onClick={() => updateCartItemQuantity(p._id, p.quantity + 1)}
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div className="mt-2">
+                        <p>Сумма: {p.pricePerUnit[p.selectedUnit] * p.quantity} тг</p>
+                      </div>
                       <button
-                        className="btn btn-secondary me-2"
-                        onClick={() => updateCartItemQuantity(p._id, p.quantity - 1)}
-                      >
-                        -
-                      </button>
-                      <span>{p.quantity}</span>
-                      <button
-                        className="btn btn-secondary ms-2"
-                        onClick={() => updateCartItemQuantity(p._id, p.quantity + 1)}
-                      >
-                        +
-                      </button>
-                    </div>
-                    <button
                       className="btn btn-danger mt-2"
-                      onClick={() => removeCartItem(p._id)}
+                      onClick={() => removeCartItem(p._id, p.selectedUnit)}
                     >
                       Удалить
                     </button>
-                  </div>
+                    </div>
+                </div>
                 </div>
               ))}
               <div className="cart-summary text-center mt-4">

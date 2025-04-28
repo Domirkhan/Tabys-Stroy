@@ -9,20 +9,10 @@ import mongoose from "mongoose";
 export const createProductController = async (req, res) => {
   try {
     const fields = req.fields || req.body;
-    const { 
-      name, 
-      description, 
-      price, 
-      category, 
-      subcategory, 
-      quantity, 
-      pricePerUnit, 
-      characteristics,
-      availability // Добавляем поле availability
-    } = fields;
+    const { name, description, category, subcategory, characteristics, availability, pricePerUnit } = fields;
     
     // Валидация обязательных полей
-    if (!name || !description || !price || !category || !quantity) {
+    if (!name || !description || !category ) {
       return res.status(400).send({ 
         error: "Пожалуйста, заполните все обязательные поля" 
       });
@@ -84,40 +74,40 @@ export const createProductController = async (req, res) => {
       subcategory: subcatId,
       characteristics: parsedCharacteristics,
       pricePerUnit: parsedPricePerUnit,
-      availability: availability || 'Есть в наличии' // Устанавливаем значение по умолчанию
+      availability: availability || 'Есть в наличии'
     });
     
     // Обработка загруженных файлов
     if (req.files && req.files.length > 0) {
-      const uploadDir = path.join(process.cwd(), "uploads");
+      const uploadDir = path.join(process.cwd(), "uploads", "products");
       
+      // Создаем директорию, если её нет
       if (!fs.existsSync(uploadDir)) {
         fs.mkdirSync(uploadDir, { recursive: true });
       }
 
       for (const file of req.files) {
-        const ext = path.extname(file.originalname || file.name);
-        const fileName = `${Date.now()}-${slugify(name, { lower: true })}-${Math.random().toString(36).slice(2)}${ext}`;
+        const ext = path.extname(file.originalname);
+        const fileName = `${Date.now()}-${slugify(name)}-${Math.random().toString(36).slice(2)}${ext}`;
         const uploadPath = path.join(uploadDir, fileName);
+        
         fs.writeFileSync(uploadPath, file.buffer);
-        product.photos.push(`uploads/${fileName}`);
+        product.photos.push(`uploads/products/${fileName}`);
       }
     }
     
     await product.save();
-
     res.status(201).send({
       success: true,
       message: "Продукт успешно создан",
-      product,
+      product
     });
-
   } catch (error) {
     console.error("Ошибка в createProductController:", error);
     res.status(500).send({
       success: false,
       message: "Ошибка при создании продукта",
-      error: error.message,
+      error: error.message
     });
   }
 };
@@ -176,32 +166,36 @@ export const getSingleProductController = async (req, res) => {
   }
 };
 
-// get photo
+// Получение фото продукта
 export const productPhotoController = async (req, res) => {
   try {
     const product = await productModel.findById(req.params.pid);
+    
     if (product && product.photos && product.photos.length > 0) {
       const photoRelativePath = product.photos[0];
       const photoAbsolutePath = path.join(process.cwd(), photoRelativePath);
+      
       if (!fs.existsSync(photoAbsolutePath)) {
         return res.status(404).send({ error: "Файл не найден" });
       }
+
       const ext = path.extname(photoRelativePath).toLowerCase();
-      let contentType = "image/jpeg";
-      if (ext === ".png") contentType = "image/png";
-      else if (ext === ".gif") contentType = "image/gif";
+      const contentType = ext === '.png' ? 'image/png' : 
+                         ext === '.gif' ? 'image/gif' : 
+                         'image/jpeg';
+
       const fileData = fs.readFileSync(photoAbsolutePath);
       res.set("Content-Type", contentType);
       return res.status(200).send(fileData);
-    } else {
-      return res.status(404).send({ error: "Фото отсутствует" });
     }
+    
+    return res.status(404).send({ error: "Фото отсутствует" });
   } catch (error) {
-    console.error("Error in productPhotoController:", error);
+    console.error("Ошибка в productPhotoController:", error);
     res.status(500).send({
       success: false,
       message: "Ошибка при получении фото",
-      error: error.message,
+      error: error.message
     });
   }
 };
@@ -209,17 +203,32 @@ export const productPhotoController = async (req, res) => {
 //delete controller
 export const deleteProductController = async (req, res) => {
   try {
-    await productModel.findByIdAndDelete(req.params.pid).select("-photo");
+    const product = await productModel.findById(req.params.pid);
+    
+    if (product) {
+      // Удаляем фотографии
+      if (product.photos.length > 0) {
+        product.photos.forEach(photo => {
+          const photoPath = path.join(process.cwd(), photo);
+          if (fs.existsSync(photoPath)) {
+            fs.unlinkSync(photoPath);
+          }
+        });
+      }
+
+      await product.deleteOne();
+    }
+
     res.status(200).send({
       success: true,
-      message: "Product Deleted successfully",
+      message: "Продукт успешно удален"
     });
   } catch (error) {
-    console.log(error);
+    console.error("Ошибка в deleteProductController:", error);
     res.status(500).send({
       success: false,
-      message: "Error while deleting product",
-      error,
+      message: "Ошибка при удалении продукта",
+      error: error.message
     });
   }
 };
@@ -231,7 +240,6 @@ export const updateProductController = async (req, res) => {
     const { 
       name, 
       description, 
-      price, 
       category, 
       subcategory, 
       shipping, 
@@ -239,7 +247,7 @@ export const updateProductController = async (req, res) => {
       availability 
     } = fields;
     
-    if (!name || !description || !price || !category)
+    if (!name || !description|| !category)
       return res.status(400).send({ error: "Пожалуйста, заполните все обязательные поля" });
     
     // Проверка корректности значения availability
@@ -292,32 +300,45 @@ export const updateProductController = async (req, res) => {
     );
     
     if (req.files && req.files.length > 0) {
+      // Удаляем старые фото
+      if (updatedProduct.photos.length > 0) {
+        updatedProduct.photos.forEach(photo => {
+          const oldPhotoPath = path.join(process.cwd(), photo);
+          if (fs.existsSync(oldPhotoPath)) {
+            fs.unlinkSync(oldPhotoPath);
+          }
+        });
+      }
+
       updatedProduct.photos = [];
-      req.files.forEach(file => {
-        const ext = path.extname(file.originalname || file.name);
-        const fileName = `${Date.now()}-${slugify(name, { lower: true })}-${Math.random().toString(36).slice(2)}${ext}`;
-        const uploadDir = path.join(process.cwd(), "uploads");
-        if (!fs.existsSync(uploadDir)) {
-          fs.mkdirSync(uploadDir, { recursive: true });
-        }
+      const uploadDir = path.join(process.cwd(), "uploads", "products");
+      
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+
+      for (const file of req.files) {
+        const ext = path.extname(file.originalname);
+        const fileName = `${Date.now()}-${slugify(name)}-${Math.random().toString(36).slice(2)}${ext}`;
         const uploadPath = path.join(uploadDir, fileName);
+        
         fs.writeFileSync(uploadPath, file.buffer);
-        updatedProduct.photos.push(`uploads/${fileName}`);
-      });
+        updatedProduct.photos.push(`uploads/products/${fileName}`);
+      }
     }
     
     await updatedProduct.save();
     res.status(200).send({
       success: true,
       message: "Продукт успешно обновлен",
-      product: updatedProduct,
+      product: updatedProduct
     });
   } catch (error) {
     console.error("Ошибка в updateProductController:", error);
     res.status(500).send({
       success: false,
       message: "Ошибка при обновлении продукта",
-      error: error.message,
+      error: error.message
     });
   }
 };

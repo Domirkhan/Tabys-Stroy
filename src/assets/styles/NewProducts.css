@@ -18,7 +18,7 @@
   margin: 0 auto; /* Центрируем карточки */
 }
   
-  .section-header {
+  .section-header-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;

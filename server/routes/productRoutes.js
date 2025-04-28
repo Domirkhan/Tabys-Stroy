@@ -16,7 +16,7 @@ import {
   getNewProductsController,
 } from "../controllers/productController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
-import formidable from "express-formidable";
+import { productPhotosUpload } from "../middlewares/uploadMiddleware.js";
 import multer from "multer";
 const router = express.Router();
 // Инициализируем multer с использованием memoryStorage (вы можете менять настройки по необходимости)
@@ -27,7 +27,7 @@ router.post(
   "/create-product",
   requireSignIn,
   isAdmin,
-  upload.array("photos", 5),
+  productPhotosUpload,
   createProductController
 );
 //routes
@@ -35,7 +35,7 @@ router.put(
   "/update-product/:pid",
   requireSignIn,
   isAdmin,
-  upload.array("photos", 5),
+  productPhotosUpload,
   updateProductController
 );
 

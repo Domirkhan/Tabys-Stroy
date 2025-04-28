@@ -155,68 +155,58 @@ const removeFromCart = (pid) => {
               
               <SearchInput/>
             
-            <div className="header-actions">
-            <li className="nav-item">
-            <Badge 
-              count={cart?.length} 
-              showZero 
-              offset={[0, 5]} // Смещение счетчика вниз
-              style={{ backgroundColor: 'red', color: 'white' }} // Красный цвет счетчика
-            >
-              <NavLink to="/cart" className="nav-item">
-                <img src={cartIcon} alt="Корзина" className="cart-icon" />
-              </NavLink>
-            </Badge>
-              </li>
-              {!auth?.user ? (
-                <>
+              <div className="header-actions">
                   <li className="nav-item">
-                    <NavLink to="/register" className="nav-link">
-                      Регистрация
-                    </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink to="/login" className="nav-link">
-                      Войти
-                    </NavLink>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li className="nav-item dropdown">
-                    <NavLink
-                      to="#"
-                      className="nav-link dropdown-toggle"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      style={{ border: "none" }}
+                    <Badge 
+                      count={cart?.length} 
+                      showZero 
+                      offset={[0, 5]}
+                      style={{ backgroundColor: 'red', color: 'white' }}
                     >
-                      <img src={userIcon} alt="Профиль" />
-                      {/* {auth?.user?.name} */}
-                    </NavLink>
-                    <ul className="dropdown-menu">
-                      <li>
-                        <NavLink
-                          to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
-                          className="dropdown-item"
-                        >
-                          Панель управления
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          onClick={handleLogout}
-                          to="/login"
-                          className="dropdown-item"
-                        >
-                          Выйти
-                        </NavLink>
-                      </li>
-                    </ul>
+                      <NavLink to="/cart" className="nav-item">
+                        <img src={cartIcon} alt="Корзина" className="cart-icon" />
+                      </NavLink>
+                    </Badge>
                   </li>
-                </>
-              )}
-            </div>
+                  {!auth?.user ? (
+                    <li className="nav-item">
+                      <NavLink to="/login" className="nav-link">
+                        <img src={userIcon} alt="Профиль" style={{ width: '24px', height: '24px' }} />
+                      </NavLink>
+                    </li>
+                  ) : (
+                    <li className="nav-item dropdown">
+                      <NavLink
+                        to="#"
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        style={{ border: "none" }}
+                      >
+                        <img src={userIcon} alt="Профиль" style={{ width: '24px', height: '24px' }} />
+                      </NavLink>
+                      <ul className="dropdown-menu">
+                        <li>
+                          <NavLink
+                            to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
+                            className="dropdown-item"
+                          >
+                            Панель управления
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            onClick={handleLogout}
+                            to="/login"
+                            className="dropdown-item"
+                          >
+                            Выйти
+                          </NavLink>
+                        </li>
+                      </ul>
+                    </li>
+                  )}
+                </div>
           </div>
         </div>
         <div className="header-bottom">

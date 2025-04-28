@@ -74,7 +74,7 @@ const NewProducts = () => {
   return (
     <section className="new-products-section">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header-controls">
           <h2 className="section-title">Новинки</h2>
           <div className="slider-controls">
             <button className="slider-arrow prev" onClick={goToPrev}>

@@ -54,6 +54,7 @@ const HandScrewdriver = [
                             name:  "Отвертка США большой(6)",
                             pricePerUnit: {
                                 шт: 350,
+                                M: 500,
                                 },
                             // oldPrice: 350,
                             image: HandScrewdriverImage3,

@@ -47,6 +47,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 // Если файлы сохранялись на диск, можно сделать их раздачу публичной:
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Добавьте эти строки после других middleware
+app.use('/uploads/products', express.static('uploads/products'));
+app.use('/uploads/reviews', express.static('uploads/reviews'));
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));

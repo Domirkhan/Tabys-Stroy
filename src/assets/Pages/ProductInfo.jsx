@@ -5,8 +5,9 @@ import "../styles/ProductInfo.css";
 import { useCart } from "../../context/cart.jsx";
 import { toast } from "react-hot-toast";
 import Reviews from '../components/Reviews';
-import  Header  from "../layout/Header.jsx";
+import Header from "../layout/Header.jsx";
 import Footer from "../layout/Footer.jsx";
+
 
 const ProductInfo = () => {
   const [cart, setCart] = useCart();
@@ -15,6 +16,8 @@ const ProductInfo = () => {
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedUnit, setSelectedUnit] = useState('');
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     if (slug) {
@@ -22,6 +25,12 @@ const ProductInfo = () => {
     }
   }, [slug]);
 
+  useEffect(() => {
+    if (product?.pricePerUnit) {
+      setSelectedUnit(Object.keys(product.pricePerUnit)[0]);
+    }
+  }, [product]);
+  
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
@@ -75,13 +84,59 @@ const ProductInfo = () => {
     );
   };
   const addToCart = () => {
-    setCart([...cart, product]);
-    localStorage.setItem("cart", JSON.stringify([...cart, product]));
-    toast.success("Item Added to cart");
+    // Проверяем, есть ли товар с такой же единицей измерения в корзине
+    const existingItem = cart.find(item => 
+      item._id === product._id && 
+      item.selectedUnit === selectedUnit
+    );
+    
+    if (existingItem) {
+      toast.error(`Товар с единицей измерения ${selectedUnit} уже в корзине`);
+      return;
+    }
+  
+    const cartItem = {
+      ...product,
+      selectedUnit,
+      quantity,
+      price: product.pricePerUnit[selectedUnit]
+    };
+    
+    setCart([...cart, cartItem]);
+    localStorage.setItem("cart", JSON.stringify([...cart, cartItem]));
+    toast.success("Товар добавлен в корзину");
+    navigate("/cart");
   };
+  const addRelatedToCart = (p) => {
+    // Получаем первую доступную единицу измерения
+    const [firstUnit] = Object.keys(p.pricePerUnit);
+    
+    // Проверяем, есть ли товар с такой же единицей измерения в корзине
+    const existingItem = cart.find(item => 
+      item._id === p._id && 
+      item.selectedUnit === firstUnit
+    );
+    
+    if (existingItem) {
+      toast.error(`Товар с единицей измерения ${firstUnit} уже в корзине`);
+      return;
+    }
+  
+    const cartItem = {
+      ...p,
+      selectedUnit: firstUnit,
+      quantity: 1,
+      price: p.pricePerUnit[firstUnit]
+    };
+    
+    setCart([...cart, cartItem]);
+    localStorage.setItem("cart", JSON.stringify([...cart, cartItem]));
+    toast.success("Товар добавлен в корзину");
+  };
+  
   return (
     <>
-    <Header/>
+    <Header />
       <div className="row container mt-2 product-details">
         <div className="col-md-6 product-image-container">
           <div className="product-image-slider">
@@ -110,15 +165,14 @@ const ProductInfo = () => {
           </div>
         </div>
         <div className="col-md-6 product-details-info">
-          <h1 className="text-center">Product Details</h1>
-          <h6>Name: {product.name}</h6>
-          <h6>Description: {product.description}</h6>
-          <h6>Price: {product.price}</h6>
-          <h6>Category: {product?.category?.name}</h6>
-          <h6>Subcategory: {product?.subcategory?.name}</h6>
+          <h1 className="text-center">Детали товара</h1>
+          <h6>Названия: {product.name}</h6>
+          <h6>Описание: {product.description}</h6>
+          
+          
           {product.characteristics && product.characteristics.length > 0 && (
             <div>
-              <h6>Characteristics:</h6>
+              <h6>Характеристика:</h6>
               <ul>
                 {product.characteristics.map((char, index) => (
                   <li key={index}>
@@ -128,32 +182,44 @@ const ProductInfo = () => {
               </ul>
             </div>
           )}
-          {product.pricePerUnit && Object.keys(product.pricePerUnit).length > 0 && (
-            <div>
-              <h6>Цены за единицу:</h6>
-              <ul>
-                {Object.entries(product.pricePerUnit).map(([unit, price]) => (
-                  <li key={unit}>
-                    {unit}: {price} тг
-                  </li>
-                ))}
-              </ul>
+          <div className="price-section">
+            <h2 className="price-amount">
+              {product.pricePerUnit && selectedUnit 
+                ? `${product.pricePerUnit[selectedUnit]} тг за ${selectedUnit}`
+                : ""}
+            </h2>
+            
+            <div className="unit-quantity-selector">
+              <div className="unit-selector">
+                <label>Выберите единицу:</label>
+                <select 
+                  value={selectedUnit} 
+                  onChange={(e) => setSelectedUnit(e.target.value)}
+                >
+                  {product.pricePerUnit && Object.keys(product.pricePerUnit).map(unit => (
+                    <option key={unit} value={unit}>{unit}</option>
+                  ))}
+                </select>
+              </div>
+              
+              <div className="quantity-controls">
+                <button onClick={() => setQuantity(prev => Math.max(1, prev - 1))}>-</button>
+                <span>{quantity}</span>
+                <button onClick={() => setQuantity(prev => prev + 1)}>+</button>
+              </div>
             </div>
-          )}
+          </div>
         </div>
-        <button
+        <button 
           className="btn btn-secondary ms-1"
-          onClick={() => {
-            setCart([...cart, product]);
-            localStorage.setItem("cart", JSON.stringify([...cart, product]));
-            toast.success("Ваш товар добавлен в корзину");
-          navigate("/cart");
-          }}
+          onClick={addToCart}
+          disabled={product.availability === 'Нет в наличии'}
         >
-          в корзину
-        </button>     
+          В корзину
+        </button> 
+        <Reviews productId={product?._id} />
+            
       </div>
-      <Reviews productId={product?._id} />
       <hr />
       <div className="row container similar-products">
         <h6>Похожие товары</h6>
@@ -185,15 +251,21 @@ const ProductInfo = () => {
                   >
                     Подробнее
                   </button>
-                  <button onClick={addToCart}>В корзину</button>
+                  <button 
+                  className="btn btn-secondary ms-1"
+                  onClick={() => addRelatedToCart(p)}
+                  disabled={p.availability === 'Нет в наличии'}
+                >
+                  В корзину
+                </button>
                 </div>
               </div>
             ))}
           </div>
         )}
       </div>
-      
-    <Footer/>
+
+      <Footer />
     </>
   );
 };

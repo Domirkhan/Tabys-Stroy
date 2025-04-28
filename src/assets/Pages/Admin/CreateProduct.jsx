@@ -89,67 +89,68 @@ const CreateProduct = () => {
     if (!description) {
       return toast.error('Описание товара обязательно');
     }
-    if (!price) {
-      return toast.error('Цена товара обязательна');
-    }
     if (!category) {
       return toast.error('Категория товара обязательна');
+    }
+    if (Object.keys(pricePerUnit).length === 0) {
+      return toast.error('Добавьте хотя бы одну цену с единицей измерения');
     }
     if (!availability) {
       return toast.error('Статус наличия обязателен');
     }
-  
+
     try {
       const productData = new FormData();
       productData.append("name", name);
       productData.append("description", description);
-      productData.append("price", price);
       productData.append("category", category);
-      
       if (subcategory) {
         productData.append("subcategory", subcategory);
       }
       
-      // Добавляем photos
+      // Добавляем фото
       if (photos && photos.length > 0) {
         photos.forEach((file) => {
           productData.append("photos", file);
         });
       }
-  
+
       // Добавляем characteristics если они есть
       if (characteristics && characteristics.length > 0) {
         productData.append("characteristics", JSON.stringify(characteristics));
       }
-  
-      // Добавляем pricePerUnit если оно есть
-      if (Object.keys(pricePerUnit).length > 0) {
-        productData.append("pricePerUnit", JSON.stringify(pricePerUnit));
-      }
-  
+
+      // Добавляем pricePerUnit
+      productData.append("pricePerUnit", JSON.stringify(pricePerUnit));
+
       // Добавляем availability
       productData.append("availability", availability);
-  
-      // Добавляем количество по умолчанию
+
+      // Добавляем shipping
+      productData.append("shipping", shipping);
+
+      // Добавляем quantity по умолчанию
       productData.append("quantity", "1");
-  
+
       const { data } = await axios.post(
         `${import.meta.env.VITE_API}/api/v1/product/create-product`,
-        productData
+        productData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
-  
+
       if (data?.success) {
         toast.success('Товар успешно создан');
         navigate('/dashboard/admin/products');
-      } else {
-        toast.error(data?.message || 'Что-то пошло не так');
       }
     } catch (error) {
       console.error('Ошибка при создании товара:', error);
-      toast.error(error.response?.data?.message || 'Ошибка при создании товара');
+      toast.error(error.response?.data?.error || 'Ошибка при создании товара');
     }
-  };
-
+};
   // Добавление новой характеристики
   const handleAddCharacteristic = () => {
     setCharacteristics([...characteristics, { key: "", value: "" }]);
@@ -262,15 +263,7 @@ const CreateProduct = () => {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-            <div className="mb-3">
-              <input
-                type="number"
-                value={price}
-                placeholder="Цена продукта"
-                className="form-control"
-                onChange={(e) => setPrice(e.target.value)}
-              />
-            </div>
+            
             <div className="mb-3">
               <Select
                 placeholder="Статус наличия"

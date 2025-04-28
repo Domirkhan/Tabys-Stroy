@@ -4,7 +4,7 @@ const productSchema = new mongoose.Schema(
     name: { type: String, required: true },
     slug: { type: String, required: true },
     description: { type: String, required: true },
-    price: { type: Number, default: 0 },
+   
     pricePerUnit: { type: Map, of: Number, default: {} },
     availability: {
       type: String,
@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Subcategory',
     },
-    quantity: { type: Number, required: true },
+   
 
     photos: { type: [String], default: [] },
 

@@ -41,7 +41,7 @@ const Orders = () => {
                 <div className="border p-3 mb-3" key={order._id}>
                   <h5>Заказ ID: {order._id}</h5>
                   <p>
-                    <strong>Общая сумма:</strong> {order.totalAmount}
+                    <strong>Общая сумма:</strong> {order.totalAmount} тг
                   </p>
                   <p>
                     <strong>Статус заказа:</strong> {order.orderStatus}
@@ -68,9 +68,14 @@ const Orders = () => {
                           />
                           <div className="card-body">
                             <h6 className="card-title">{item.name}</h6>
-                            <p className="card-text">Цена: ${item.price}</p>
                             <p className="card-text">
-                              Количество : {item.quantity}
+                              Цена: {item.price} тг за {item.selectedUnit}
+                            </p>
+                            <p className="card-text">
+                              Количество: {item.quantity} {item.selectedUnit}
+                            </p>
+                            <p className="card-text">
+                              Сумма: {item.price * item.quantity} тг
                             </p>
                           </div>
                         </div>
