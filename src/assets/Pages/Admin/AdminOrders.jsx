@@ -75,15 +75,21 @@ const AdminOrders = () => {
                   <strong>Пользователь:</strong> {order.user?.name} ({order.user?.email})
                 </p>
                 <p>
-                  <strong>Адрес:</strong> {order.user?.address || 'Не указан'}
+                <p>
+                  <strong>Адрес:</strong> {order.user?.address}
                 </p>
+                <strong>Способ получения:</strong>{" "}
+                {order.deliveryMethod === "pickup" ? "Самовывоз" : "Доставка"}
+              </p>
+              {order.deliveryMethod === "delivery" && (
+                <p>
+                  <strong>Адрес доставки:</strong> {order.user?.address || "Не указан"}
+                </p>
+              )}
                 <p>
                   <strong>Телефон:</strong> {order.user?.phone || 'Не указан'}
                 </p>
-                <p>
-                  <strong>Способ получения:</strong>{" "}
-                  {order.deliveryMethod === "pickup" ? "Самовывоз" : "Доставка"}
-                </p>
+               
                 <p>
                     <strong>Дата оформления:</strong>{" "}
                     {new Date(order.createdAt).toLocaleString()}
@@ -134,21 +140,21 @@ const AdminOrders = () => {
                   <label>
                     Обновить статус заказа:{" "}
                     <select
-                      value={order.orderStatus}
-                      onChange={(e) =>
-                        handleOrderStatusChange(
-                          order._id,
-                          e.target.value,
-                          order.paymentStatus
-                        )
-                      }
-                    >
-                      <option value="Not Processed">Не обработан</option>
-                      <option value="Processing">В обработке</option>
-                      <option value="Shipped">Отправлен</option>
-                      <option value="Delivered">Доставлен</option>
-                      <option value="Cancelled">Отменён</option>
-                    </select>
+                    value={order.orderStatus}
+                    onChange={(e) =>
+                      handleOrderStatusChange(
+                        order._id,
+                        e.target.value,
+                        order.paymentStatus
+                      )
+                    }
+                  >
+                    <option value="Не обработан">Не обработан</option>
+                    <option value="В обработке">В обработке</option>
+                    <option value="Отправлен">Отправлен</option>
+                    <option value="Доставлен">Доставлен</option>
+                    <option value="Отменён">Отменён</option>
+                  </select>
                   </label>
                 </div>
                 <div className="mt-2">
@@ -164,10 +170,10 @@ const AdminOrders = () => {
                         )
                       }
                     >
-                      <option value="Not Processed">Не обработан</option>
-                      <option value="Processing">В обработке</option>
-                      <option value="Paid">Оплачен</option>
-                      <option value="Failed">Не оплачен</option>
+                      <option value="Не обработан">Не обработан</option>
+                      <option value="В обработке">В обработке</option>
+                      <option value="Оплачен">Оплачен</option>
+                      <option value="Не оплачен">Не оплачен</option>
                     </select>
                   </label>
                 </div>

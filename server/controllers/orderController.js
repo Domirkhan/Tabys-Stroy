@@ -4,6 +4,7 @@ import sendAdminEmail from "../utils/sendAdminEmail.js";
 import sendEmail from "../utils/sendEmail.js";
 
 // Создание HTML шаблона для email уведомления
+// Шаблон письма для администратора
 const createAdminOrderTemplate = (order) => {
   return `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
@@ -14,9 +15,9 @@ const createAdminOrderTemplate = (order) => {
           <div style="margin: 20px 0;">
               <p><strong>Клиент:</strong> ${order.user.name}</p>
               <p><strong>Email:</strong> ${order.user.email}</p>
-              <p><strong>Адрес:</strong> ${order.user.address || 'Не указан'}</p>
               <p><strong>Телефон:</strong> ${order.user.phone || 'Не указан'}</p>
-              <p><strong>Способ получения:</strong> ${order.deliveryMethod === 'pickup' ? 'Самовывоз' : 'Доставка'}</p>
+                <p><strong>Способ получения:</strong> ${order.deliveryMethod === 'pickup' ? 'Самовывоз' : 'Доставка'}</p>
+  ${order.deliveryMethod === 'delivery' ? `<p><strong>Адрес доставки:</strong> ${order.user.address}</p>` : ''}
               <p><strong>Сумма заказа:</strong> ${order.totalAmount} тг</p>
           </div>
           
@@ -32,10 +33,6 @@ const createAdminOrderTemplate = (order) => {
                       </li>
                   `).join('')}
               </ul>
-          </div>
-          
-          <div style="margin-top: 20px; text-align: center; color: #666;">
-              <p>Для управления заказом перейдите в панель администратора</p>
           </div>
       </div>
   `;
@@ -59,11 +56,12 @@ const createUserOrderStatusTemplate = (order) => {
                   <h3 style="color: #444;">Детали заказа:</h3>
                   <p><strong>Сумма заказа:</strong> ${order.totalAmount} тг</p>
                   <p><strong>Способ получения:</strong> ${order.deliveryMethod === 'pickup' ? 'Самовывоз' : 'Доставка'}</p>
+                  ${order.deliveryMethod === 'delivery' ? `<p><strong>Адрес доставки:</strong> ${order.user.address || 'Не указан'}</p>` : ''}
               </div>
           </div>
           
           <div style="text-align: center; margin-top: 30px;">
-              <a href="${process.env.FRONTEND_URL}/dashboard/user/orders" 
+              <a href="${process.env.CLIENT_URL}/dashboard/user/orders" 
                  style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
                  Перейти к заказам
               </a>

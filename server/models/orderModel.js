@@ -21,6 +21,12 @@ const orderSchema = new mongoose.Schema(
       }
     ],
     totalAmount: { type: Number, required: true },
+    deliveryMethod: {
+      type: String,
+      enum: ["delivery", "pickup"],
+      required: true,
+      default: "delivery"
+    },
     paymentStatus: { 
       type: String, 
       enum: ["Не обработан", "В обработке", "Оплачен", "Не оплачен"],

@@ -53,7 +53,15 @@ const Orders = () => {
                     <strong>Дата оформления:</strong>{" "}
                     {new Date(order.createdAt).toLocaleString()}
                   </p>
-                  <p><strong>Адрес:</strong> {order.user.address || 'Не указан'}</p>
+                  <p>
+                    <strong>Способ получения:</strong>{" "}
+                    {order.deliveryMethod === 'pickup' ? 'Самовывоз' : 'Доставка'}
+                  </p>
+                  {order.deliveryMethod === 'delivery' && (
+                    <p>
+                      <strong>Адрес доставки:</strong> {order.user.address || 'Не указан'}
+                    </p>
+                  )}
                   <div className="row">
                     {order.orderItems.map((item, i) => (
                       <div className="col-md-4" key={i}>
