@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import AdminMenu from "../../components/AdminMenu";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { useAuth } from "../../../context/auth";
 import { io } from "socket.io-client";
-import notificationSound from "../../sounds/notification-sound.mp3";// Импортируем звук
+
 const AdminDashboard = () => {
+  const [auth] = useAuth();
   const [stats, setStats] = useState({
     totalOrders: 0,
     successfulOrders: 0,
@@ -14,46 +16,71 @@ const AdminDashboard = () => {
   });
 
   const [socket, setSocket] = useState(null);
-  const audio = new Audio(notificationSound ); 
+
+  
   useEffect(() => {
-    // Запрашиваем разрешение на уведомления при загрузке
+ 
+
+    
+    // Запрашиваем разрешение на уведомления
     if (Notification.permission !== "granted") {
       Notification.requestPermission();
     }
 
-    const newSocket = io(import.meta.env.VITE_API);
-    setSocket(newSocket);
-
-    newSocket.on('newOrder', (data) => {
-      // Проигрываем звук с обработкой ошибок
-      audio.play().catch(err => {
-        console.error('Ошибка воспроизведения звука:', err);
-      });
-      
-     // Показываем уведомление
-     if (Notification.permission === "granted") {
-      new Notification("Новый заказ!", {
-        body: `Поступил заказ на сумму ${data.totalAmount} тг`,
-        icon: "/logo.png",
-        silent: true // Отключаем стандартный звук уведомления
-      });
-    }
-      
-      // Обновляем статистику
-      getStats();
+    const socket = io(import.meta.env.VITE_API, {
+      auth: {
+        token: auth?.token
+      }
     });
 
-    return () => {
-      if (socket) {
-        socket.disconnect();
+    socket.on('newOrder', async (data) => {
+      console.log('Получен новый заказ:', data);
+      
+      try {
+        
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              console.log('Звук успешно воспроизведен');
+            })
+            .catch(err => {
+              console.error('Ошибка воспроизведения звука:', err);
+            });
+        }
+
+        // Показываем уведомление
+        if (Notification.permission === "granted") {
+          new Notification("Новый заказ!", {
+            body: `Новый заказ от ${data.userName} на сумму ${data.totalAmount} тг`,
+            icon: "/logo.png",
+            silent: true // Отключаем стандартный звук уведомления
+          });
+        }
+        
+        // Обновляем статистику и показываем toast
+        getStats();
+        toast.success(`Новый заказ от ${data.userName}`);
+      } catch (error) {
+        console.error('Ошибка при обработке нового заказа:', error);
       }
+    });
+
+    // Очистка при размонтировании
+    return () => {
+     
+      socket.disconnect();
     };
-  }, []);
+  }, [auth?.token]);
 
   const getStats = async () => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API}/api/v1/stats/admin`
+        `${import.meta.env.VITE_API}/api/v1/stats/admin`,
+        {
+          headers: {
+            Authorization: auth?.token
+          }
+        }
       );
       if (data?.success) {
         setStats(data.stats);
@@ -75,6 +102,7 @@ const AdminDashboard = () => {
           <AdminMenu />
         </div>
         <div className="col-md-9">
+       
           <h1>Статистика</h1>
           <div className="row">
             <div className="col-md-4">

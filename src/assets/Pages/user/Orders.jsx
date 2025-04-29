@@ -53,6 +53,7 @@ const Orders = () => {
                     <strong>Дата оформления:</strong>{" "}
                     {new Date(order.createdAt).toLocaleString()}
                   </p>
+                  <p><strong>Адрес:</strong> {order.user.address || 'Не указан'}</p>
                   <div className="row">
                     {order.orderItems.map((item, i) => (
                       <div className="col-md-4" key={i}>

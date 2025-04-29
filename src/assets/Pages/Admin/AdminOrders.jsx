@@ -75,12 +75,19 @@ const AdminOrders = () => {
                   <strong>Пользователь:</strong> {order.user?.name} ({order.user?.email})
                 </p>
                 <p>
+                  <strong>Адрес:</strong> {order.user?.address || 'Не указан'}
+                </p>
+                <p>
                   <strong>Телефон:</strong> {order.user?.phone || 'Не указан'}
                 </p>
                 <p>
                   <strong>Способ получения:</strong>{" "}
                   {order.deliveryMethod === "pickup" ? "Самовывоз" : "Доставка"}
                 </p>
+                <p>
+                    <strong>Дата оформления:</strong>{" "}
+                    {new Date(order.createdAt).toLocaleString()}
+                  </p>
                 <p>
                   <strong>Общая сумма:</strong> {order.totalAmount}
                 </p>
@@ -97,15 +104,29 @@ const AdminOrders = () => {
                       <p>
                         <strong>Название:</strong> {item.name}
                       </p>
-                       <p className="card-text mb-1">
-                          Цена: {item.price} тг за {item.selectedUnit}
-                         </p>
-                        <p className="card-text mb-1">
-                           Количество: {item.quantity} {item.selectedUnit}
-                        </p>
-                        <p className="card-text">
-                          <strong>Сумма: {item.price * item.quantity} тг</strong>
-                        </p>
+                      <div className="card">
+                          <img
+                            src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${item.product}`}
+                            alt={item.name}
+                            className="card-img-top"
+                            style={{
+                              height: "200px",
+                              objectFit: "cover",
+                            }}
+                          />
+                          <div className="card-body">
+                            <h6 className="card-title">{item.name}</h6>
+                            <p className="card-text">
+                              Цена: {item.price} тг за {item.selectedUnit}
+                            </p>
+                            <p className="card-text">
+                              Количество: {item.quantity} {item.selectedUnit}
+                            </p>
+                            <p className="card-text">
+                              Сумма: {item.price * item.quantity} тг
+                            </p>
+                          </div>
+                        </div>
                     </div>
                   ))}
                 </div>
