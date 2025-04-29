@@ -104,6 +104,7 @@
 @media (max-width: 768px) {
   .footer {
       padding: 40px 10px 30px;
+      margin-bottom: 5rem;
   }
   .footer-content {
       display: flex;

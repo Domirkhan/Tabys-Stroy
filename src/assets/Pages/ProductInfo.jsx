@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import Reviews from '../components/Reviews';
 import Header from "../layout/Header.jsx";
 import Footer from "../layout/Footer.jsx";
+import BottomNav from "../components/BottomNav.jsx";
 
 
 const ProductInfo = () => {
@@ -262,7 +263,7 @@ const ProductInfo = () => {
           </div>
         )}
       </div>
-
+      <BottomNav />
       <Footer />
     </>
   );

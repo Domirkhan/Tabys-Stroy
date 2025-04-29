@@ -49,6 +49,7 @@ const Orders = () => {
                   <p>
                     <strong>Статус оплаты:</strong> {order.paymentStatus}
                   </p>
+                  <p><strong>Способ получения:</strong> {order.deliveryMethod === 'pickup' ? 'Самовывоз' : 'Доставка'}</p>
                   <p>
                     <strong>Дата оформления:</strong>{" "}
                     {new Date(order.createdAt).toLocaleString()}

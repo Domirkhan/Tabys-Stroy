@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../../styles/register.css"; // Импортируем CSS файл для стилей
+import BottomNav from "../../components/BottomNav";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -109,6 +110,7 @@ const Register = () => {
         </form>
       </div>
       </div>
+      <BottomNav />
       <Footer />
       </>
   );
