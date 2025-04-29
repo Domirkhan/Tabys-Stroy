@@ -24,18 +24,17 @@ const Register = () => {
         email,
         password,
         phone,
-        address,
-        
+        address, // Убедитесь, что адрес отправляется
       });
       if (res && res.data.success) {
-        toast.success(res.data && res.data.message);
+        toast.success(res.data.message);
         navigate("/login");
       } else {
         toast.error(res.data.message);
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
+      toast.error("Что-то пошло не так");
     }
   };
 

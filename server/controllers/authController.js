@@ -65,50 +65,55 @@ export const registerController = async (req, res) => {
 export const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
-    //validation
+    // Validation
     if (!email || !password) {
-      return res.status(404).send({
+      return res.status(400).send({
         success: false,
-        message: "Invalid email or password",
+        message: "Неверный email или пароль",
       });
     }
-    //check user
+
+    // Check user
     const user = await userModel.findOne({ email });
     if (!user) {
       return res.status(404).send({
         success: false,
-        message: "Email is not registerd",
+        message: "Email не зарегистрирован",
       });
     }
+
     const match = await comparePassword(password, user.password);
     if (!match) {
-      return res.status(200).send({
+      return res.status(401).send({
         success: false,
-        message: "Invalid Password",
+        message: "Неверный пароль",
       });
     }
-    //token
-    const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
+
+    // Token
+    const token = JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
+
+    // Отправляем ВСЕ данные пользователя, включая адрес
     res.status(200).send({
       success: true,
-      message: "login successfully",
+      message: "Успешный вход",
       user: {
-        _id: user._id,
         name: user.name,
         email: user.email,
         phone: user.phone,
-        adddress: user.address,
+        address: user.address, // Убедитесь, что address включен
         role: user.role,
       },
       token,
     });
+
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in login",
+      message: "Ошибка при входе",
       error,
     });
   }
@@ -243,32 +248,49 @@ export const updateProfileController = async (req, res) => {
   try {
     const { name, email, password, address, phone } = req.body;
     const user = await userModel.findById(req.user._id);
-    //password
-    if (password && password.length < 6) {
-      return res.json({ error: "Passsword is required and 6 character long" });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "Пользователь не найден"
+      });
     }
-    const hashedPassword = password ? await hashPassword(password) : undefined;
+
+    // Обновляем только те поля, которые были переданы
+    const updates = {};
+    if (name) updates.name = name;
+    if (phone) updates.phone = phone;
+    if (address) updates.address = address;
+
+    // Проверяем пароль только если он был предоставлен
+    if (password && password.length > 0) {
+      if (password.length < 6) {
+        return res.status(400).json({
+          success: false,
+          message: "Пароль должен быть не менее 6 символов"
+        });
+      }
+      updates.password = await hashPassword(password);
+    }
+
     const updatedUser = await userModel.findByIdAndUpdate(
       req.user._id,
-      {
-        name: name || user.name,
-        password: hashedPassword || user.password,
-        phone: phone || user.phone,
-        address: address || user.address,
-      },
+      updates,
       { new: true }
-    );
-    res.status(200).send({
+    ).select("-password");
+
+    res.status(200).json({
       success: true,
-      message: "Profile Updated SUccessfully",
-      updatedUser,
+      message: "Профиль успешно обновлен",
+      updatedUser
     });
+
   } catch (error) {
-    console.log(error);
-    res.status(400).send({
+    console.error("Ошибка при обновлении профиля:", error);
+    res.status(500).json({
       success: false,
-      message: "Error WHile Update profile",
-      error,
+      message: "Ошибка при обновлении профиля",
+      error: error.message
     });
   }
 };

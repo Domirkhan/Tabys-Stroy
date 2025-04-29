@@ -18,6 +18,7 @@ import cors from "cors";
 import path from "path";
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import JWT from "jsonwebtoken";
 
 // Configure environment variables
 dotenv.config();
@@ -71,7 +72,29 @@ io.on('connection', (socket) => {
     console.log('Admin disconnected');
   });
 });
+// Добавляем middleware для проверки авторизации WebSocket
+io.use((socket, next) => {
+  const token = socket.handshake.auth.token;
+  if (!token) {
+    return next(new Error('Не авторизован'));
+  }
 
+  try {
+    const decoded = JWT.verify(token, process.env.JWT_SECRET);
+    socket.user = decoded;
+    next();
+  } catch (err) {
+    next(new Error('Неверный токен'));
+  }
+});
+
+io.on('connection', (socket) => {
+  console.log('Клиент подключен:', socket.user._id);
+  
+  socket.on('disconnect', () => {
+    console.log('Клиент отключен:', socket.user._id);
+  });
+});
 const PORT = process.env.PORT || 8080;
 // Используйте httpServer вместо app.listen
 httpServer.listen(PORT, () => {

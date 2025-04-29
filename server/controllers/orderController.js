@@ -13,6 +13,7 @@ const createAdminOrderTemplate = (order) => {
           <div style="margin: 20px 0;">
               <p><strong>Клиент:</strong> ${order.user.name}</p>
               <p><strong>Email:</strong> ${order.user.email}</p>
+              <p><strong>Адрес:</strong> ${order.user.address || 'Не указан'}</p>
               <p><strong>Телефон:</strong> ${order.user.phone || 'Не указан'}</p>
               <p><strong>Способ получения:</strong> ${order.deliveryMethod === 'pickup' ? 'Самовывоз' : 'Доставка'}</p>
               <p><strong>Сумма заказа:</strong> ${order.totalAmount} тг</p>
@@ -41,59 +42,62 @@ const createAdminOrderTemplate = (order) => {
 
 // Контроллер для создания заказа (для пользователя)
 // Обновляем контроллер создания заказа
+// Для создания заказа
 export const createOrderController = async (req, res) => {
   try {
-      const { orderItems, totalAmount, deliveryMethod } = req.body;
+    const { orderItems, totalAmount, deliveryMethod } = req.body;
 
-      const order = new Order({
-          user: req.user._id,
-          orderItems,
-          totalAmount,
-          deliveryMethod,
-          orderStatus: "Не обработан",
-          paymentStatus: "Не обработан"
-      });
+    const order = new Order({
+      user: req.user._id,
+      orderItems,
+      totalAmount,
+      deliveryMethod,
+      orderStatus: "Не обработан",
+      paymentStatus: "Не обработан"
+    });
 
-      await order.save();
+    await order.save();
 
-      // Получаем заполненные данные заказа
-      const populatedOrder = await Order.findById(order._id).populate('user');
+    // Получаем заполненные данные заказа со всеми полями пользователя
+    const populatedOrder = await Order.findById(order._id)
+      .populate('user', 'name email phone address');
+    
+    // Отправляем уведомление администратору
+    try {
+      const emailSent = await sendAdminEmail(
+        `Новый заказ #${order._id}`,
+        createAdminOrderTemplate(populatedOrder)
+      );
       
-      // Отправляем уведомление администратору
-      try {
-          const emailSent = await sendAdminEmail(
-              `Новый заказ #${order._id}`,
-              createAdminOrderTemplate(populatedOrder)
-          );
-          
-          if (emailSent) {
-              console.log('Уведомление успешно отправлено администратору');
-          }
-      } catch (emailError) {
-          console.error('Ошибка при отправке уведомления администратору:', emailError);
+      if (emailSent) {
+        console.log('Уведомление успешно отправлено администратору');
       }
+    } catch (emailError) {
+      console.error('Ошибка при отправке уведомления администратору:', emailError);
+    }
 
-      // Оповещаем через сокет
-      if (global.io) {
-          global.io.emit('newOrder', {
-              orderId: order._id,
-              totalAmount: order.totalAmount,
-              userName: populatedOrder.user.name
-          });
-      }
-
-      res.status(201).json({
-          success: true,
-          message: "Заказ успешно создан",
-          order
+    // Оповещаем через сокет
+    if (global.io) {
+      global.io.emit('newOrder', {
+        orderId: order._id,
+        totalAmount: order.totalAmount,
+        userName: populatedOrder.user.name,
+        address: populatedOrder.user.address // Добавляем адрес
       });
+    }
+
+    res.status(201).json({
+      success: true,
+      message: "Заказ успешно создан",
+      order: populatedOrder // Отправляем заполненные данные
+    });
   } catch (error) {
-      console.error("Ошибка при создании заказа:", error);
-      res.status(500).json({
-          success: false,
-          message: "Ошибка при создании заказа",
-          error: error.message
-      });
+    console.error("Ошибка при создании заказа:", error);
+    res.status(500).json({
+      success: false,
+      message: "Ошибка при создании заказа",
+      error: error.message
+    });
   }
 };
 
@@ -101,7 +105,7 @@ export const createOrderController = async (req, res) => {
 export const getAllOrdersController = async (req, res) => {
   try {
     const orders = await Order.find({})
-      .populate("user", "name email phone") // Добавляем поле phone
+      .populate("user", "name email phone address") // Добавляем address
       .sort({ createdAt: -1 });
     res.status(200).json({
       success: true,
@@ -151,7 +155,9 @@ export const updateOrderStatusController = async (req, res) => {
 
 export const getUserOrdersController = async (req, res) => {
   try {
-    const orders = await Order.find({ user: req.user._id }).sort({ createdAt: -1 });
+    const orders = await Order.find({ user: req.user._id })
+      .populate('user', 'name email phone address') // Добавляем address
+      .sort({ createdAt: -1 });
     res.status(200).json({
       success: true,
       orders,
