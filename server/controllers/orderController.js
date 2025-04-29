@@ -158,14 +158,28 @@ export const getAllOrdersController = async (req, res) => {
 export const updateOrderStatusController = async (req, res) => {
   try {
     const { orderId } = req.params;
-    const { orderStatus, paymentStatus } = req.body;
+    let { orderStatus, paymentStatus } = req.body; // Изменили const на let
 
-    // Находим и обновляем заказ
+    // Преобразуем английские статусы в русские
+    const statusMapping = {
+      'Delivered': 'Доставлен',
+      'Paid': 'Оплачен',
+      'Processing': 'В обработке',
+      'Cancelled': 'Отменён',
+      'Shipping': 'Отправлен',
+      'Not Processed': 'Не обработан',
+      'Not Paid': 'Не оплачен'
+    };
+
+    // Преобразуем статусы если они на английском
+    orderStatus = statusMapping[orderStatus] || orderStatus;
+    paymentStatus = statusMapping[paymentStatus] || paymentStatus;
+
     const order = await Order.findByIdAndUpdate(
       orderId,
       { 
-        orderStatus: orderStatus || "Not Processed", 
-        paymentStatus: paymentStatus || "Not Processed" 
+        orderStatus: orderStatus || "Не обработан", 
+        paymentStatus: paymentStatus || "Не оплачен" 
       },
       { new: true }
     ).populate('user', 'name email phone address');
@@ -197,6 +211,7 @@ export const updateOrderStatusController = async (req, res) => {
       message: "Статус заказа обновлен",
       order,
     });
+
   } catch (error) {
     console.error("Error in updateOrderStatus:", error);
     res.status(500).json({

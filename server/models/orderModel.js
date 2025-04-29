@@ -24,11 +24,11 @@ const orderSchema = new mongoose.Schema(
     paymentStatus: { 
       type: String, 
       enum: ["Не обработан", "В обработке", "Оплачен", "Не оплачен"],
-      default: "Not Processed"
+      default: "Не обработан"
     },
     orderStatus: {
       type: String,
-      enum: ["Не обработан", "В обработке", "Отправлен", "Доставлен", "Cancelled"],
+      enum: ["Не обработан", "В обработке", "Отправлен", "Доставлен", "Отменён"],
       default: "Отменён"
     }
   },
