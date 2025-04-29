@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -32,30 +34,36 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit}>
-        <h4 className="title">ВОССТАНОВЛЕНИЕ ПАРОЛЯ</h4>
-        
-        <div className="mb-3">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
-            placeholder="Введите ваш email"
-            required
-          />
-        </div>
+    <>
+    <Header />
+    <div className="container">
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <h4 className="title">ВОССТАНОВЛЕНИЕ ПАРОЛЯ</h4>
+          
+          <div className="mb-3">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="form-control"
+              placeholder="Введите ваш email"
+              required
+            />
+          </div>
 
-        <button 
-          type="submit" 
-          className="btn btn-primary"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Отправка..." : "Отправить"}
-        </button>
-      </form>
+          <button 
+            type="submit" 
+            className="btn btn-primary"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Отправка..." : "Отправить"}
+          </button>
+        </form>
+      </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

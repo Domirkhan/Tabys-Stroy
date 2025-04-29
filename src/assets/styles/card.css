@@ -182,7 +182,7 @@
     flex: 0 0 50%;       /* Две карточки в строку */
     box-sizing: border-box;
     padding: 6px;
-    height: 280px;
+    height: 260px;
     margin: 0;           /* Убираем лишние отступы */
   }
 

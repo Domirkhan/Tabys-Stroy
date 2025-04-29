@@ -5,6 +5,7 @@ import Footer from "../../layout/Footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import "../../styles/register.css"; // Импортируем CSS файл для стилей
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -39,10 +40,12 @@ const Register = () => {
   };
 
   return (
-    
+    <>
+    <Header />
+    <div className="container">
       <div className="form-container ">
         <form onSubmit={handleSubmit}>
-          <h4 className="title">REGISTER FORM</h4>
+          <h4 className="title">Регистрация</h4>
           <div className="mb-3">
             <input
               type="text"
@@ -105,7 +108,9 @@ const Register = () => {
           </button>
         </form>
       </div>
-   
+      </div>
+      <Footer />
+      </>
   );
 };
 

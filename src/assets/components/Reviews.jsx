@@ -170,26 +170,28 @@ useEffect(() => {
                         onChange={(e) => setComment(e.target.value)}
                         placeholder="Напишите ваш отзыв"
                     />
-                    <Upload
-                        listType="picture-card"
-                        {...uploadProps}
-                        onPreview={handlePreview}
-                    >
-                        {fileList.length >= 8 ? null : (
-                            <div>
-                                <PlusOutlined />
-                                <div style={{ marginTop: 8 }}>Добавить</div>
-                            </div>
-                        )}
-                    </Upload>
-                    <Button 
-                        type="primary"
-                        onClick={handleSubmitReview}
-                        loading={loading}
-                        disabled={!comment.trim()}
-                    >
-                        Отправить отзыв
-                    </Button>
+                    <div className="review-form-buttons">
+                        <Upload
+                            listType="picture-card"
+                            {...uploadProps}
+                            onPreview={handlePreview}
+                        >
+                            {fileList.length >= 8 ? null : (
+                                <div>
+                                    <PlusOutlined />
+                                    <div style={{ marginTop: 8 }}>Добавить</div>
+                                </div>
+                            )}
+                        </Upload>
+                        <Button 
+                            type="primary"
+                            onClick={handleSubmitReview}
+                            loading={loading}
+                            disabled={!comment.trim()}
+                        >
+                            Отправить отзыв
+                        </Button>
+                    </div>
                 </div>
             ) : (
                 <p>Войдите, чтобы оставить отзыв</p>

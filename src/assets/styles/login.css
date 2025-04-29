@@ -1,0 +1,112 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+}
+
+.form-container form {
+    background: #fff;
+    padding: 48px 40px 40px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    width: 90%;
+}
+
+.form-container .title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    text-align: center;
+    color: #222;
+}
+
+.form-container .mb-3 {
+    margin-bottom: 22px;
+}
+
+.form-container input.form-control {
+    height: 52px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    padding: 0 18px;
+    background: #fafbfc;
+    transition: border 0.2s;
+    color: #222;
+}
+
+.form-container input.form-control:focus {
+    border: 2px solid #ff0000;
+    outline: none;
+    background: #fff;
+    color: #111;
+}
+
+.form-container .btn-primary {
+    background: #ff0000;
+    border: none;
+    border-radius: 8px;
+    height: 52px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+.form-container .btn-primary:hover {
+    background: #333;
+}
+
+.form-container .btn-outline-primary {
+    border: none;
+    color: #222;
+    background: #fff;
+    border-radius: 8px;
+    height: 48px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.form-container .btn-outline-primary:hover {
+    color: #ff0000;
+}
+
+.form-container p {
+    color: #222;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .form-container{
+        height: 80vh;
+    }
+    .form-container form {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .form-container .title {
+        font-size: 1.5rem;
+    }
+
+    .form-container input.form-control {
+        font-size: 1rem;
+    }
+
+    .form-container .btn-primary,
+    .form-container .btn-outline-primary {
+        font-size: 1rem;
+    }
+}

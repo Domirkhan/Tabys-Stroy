@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer"; 
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
@@ -44,41 +46,47 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit}>
-        <h4 className="title">УСТАНОВКА НОВОГО ПАРОЛЯ</h4>
-        
-        <div className="mb-3">
-          <input
-            type="password"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            className="form-control"
-            placeholder="Новый пароль"
-            required
-          />
-        </div>
+    <>
+    <Header />
+    <div className="container">
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <h4 className="title">УСТАНОВКА НОВОГО ПАРОЛЯ</h4>
+          
+          <div className="mb-3">
+            <input
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              className="form-control"
+              placeholder="Новый пароль"
+              required
+            />
+          </div>
 
-        <div className="mb-3">
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className="form-control"
-            placeholder="Подтвердите пароль"
-            required
-          />
-        </div>
+          <div className="mb-3">
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="form-control"
+              placeholder="Подтвердите пароль"
+              required
+            />
+          </div>
 
-        <button 
-          type="submit" 
-          className="btn btn-primary"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Сохранение..." : "Сохранить"}
-        </button>
-      </form>
+          <button 
+            type="submit" 
+            className="btn btn-primary"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Сохранение..." : "Сохранить"}
+          </button>
+        </form>
+      </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
