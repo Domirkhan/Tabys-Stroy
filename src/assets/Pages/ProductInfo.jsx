@@ -138,6 +138,7 @@ const ProductInfo = () => {
     <>
     <Header />
       <div className="row container mt-2 product-details">
+      <h1 className="section-title-category">Детали продукта</h1>
         <div className="col-md-6 product-image-container">
           <div className="product-image-slider">
           <img
@@ -165,11 +166,9 @@ const ProductInfo = () => {
           </div>
         </div>
         <div className="col-md-6 product-details-info">
-          <h1 className="text-center">Детали товара</h1>
-          <h6>Названия: {product.name}</h6>
-          <h6>Описание: {product.description}</h6>
-          
-          
+          <h1 className="text-center">{product.name}</h1>
+          <h6>Описание: </h6>
+          {product.description}
           {product.characteristics && product.characteristics.length > 0 && (
             <div>
               <h6>Характеристика:</h6>
@@ -208,17 +207,16 @@ const ProductInfo = () => {
                 <button onClick={() => setQuantity(prev => prev + 1)}>+</button>
               </div>
             </div>
-          </div>
-        </div>
-        <button 
+            <button 
           className="btn btn-secondary ms-1"
           onClick={addToCart}
           disabled={product.availability === 'Нет в наличии'}
         >
-          В корзину
+          Добавить в корзину
         </button> 
+          </div>
+        </div>
         <Reviews productId={product?._id} />
-            
       </div>
       <hr />
       <div className="row container similar-products">

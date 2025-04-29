@@ -1,0 +1,12 @@
+.form-container .btn-primary {
+    background: #ff0000;
+    border: none;
+    border-radius: 8px;
+    height: 52px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #fff;
+    transition: background 0.2s;
+    width: 100%; /* Добавлено: кнопка на всю ширину */
+}

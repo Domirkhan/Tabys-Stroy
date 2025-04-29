@@ -44,39 +44,42 @@ const SubCategoryProduct = () => {
       <h6 className="text-center">{products?.length} products found</h6>
       <div className="row">
         <div className="col-md-9 offset-1">
-          <div className="d-flex flex-wrap">
+          <div className="d-flex">
             {products?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
+              <div className="card m-2" key={p._id}>
                 <img
                   src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
-                    {p.description.substring(0, 30)}...
-                  </p>
-                  <p className="card-text">$ {p.price}</p>
-                  <button
-                    className="btn btn-primary ms-1"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    More Details
-                  </button>
-                  <button
-                    className="btn btn-secondary ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to cart");
-                    }}
-                  >
-                    ADD TO CART
-                  </button>
+                  <div className="card-title-text">
+                    <h5 className="product-title">{p.name}</h5>
+                  </div>
+                <div className="price-and-status">
+                <p className="current-price">{p.price} тг</p>
+                <p className={`availability-status ${p.availability === 'Есть в наличии' ? 'in-stock' : 'out-of-stock'}`}>
+                    {p.availability || 'Уточнить наличие'}
+                </p>
+                </div>
+                  <div className="card-buttons">
+                    <button
+                      className="details-btn"
+                      onClick={() => navigate(`/product/${p.slug}`)}
+                    >
+                      Подробнее
+                    </button>
+                    <button
+                      className="add-to-cart-btn"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem("cart", JSON.stringify([...cart, p]));
+                        toast.success("Товар добавлен в корзину");
+                      }}
+                    >
+                      В корзину
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
