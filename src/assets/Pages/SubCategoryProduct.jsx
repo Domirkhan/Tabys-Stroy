@@ -57,12 +57,20 @@ const SubCategoryProduct = () => {
                   <div className="card-title-text">
                     <h5 className="product-title">{p.name}</h5>
                   </div>
-                <div className="price-and-status">
-                <p className="current-price">{p.price} тг</p>
-                <p className={`availability-status ${p.availability === 'Есть в наличии' ? 'in-stock' : 'out-of-stock'}`}>
-                    {p.availability || 'Уточнить наличие'}
-                </p>
-                </div>
+                  <div className="price-and-status">
+                    {p.pricePerUnit && Object.entries(p.pricePerUnit)[0] && (
+                      <p className="current-price">
+                        {Object.entries(p.pricePerUnit)[0][1]} тг за {Object.entries(p.pricePerUnit)[0][0]}
+                      </p>
+                    )}
+                    <p className={`availability-status ${
+                      p.availability === 'Есть в наличии' ? 'in-stock' : 
+                      p.availability === 'Нет в наличии' ? 'out-of-stock' : 
+                      p.availability === 'Под заказ' ? 'on-order' : 'check-availability'
+                    }`}>
+                      {p.availability || 'Уточнить наличие'}
+                    </p>
+                  </div>
                   <div className="card-buttons">
                     <button
                       className="details-btn"

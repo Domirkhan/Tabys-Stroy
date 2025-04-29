@@ -8,100 +8,36 @@ import mongoose from "mongoose";
 
 export const createProductController = async (req, res) => {
   try {
-    const fields = req.fields || req.body;
-    const { name, description, category, subcategory, characteristics, availability, pricePerUnit } = fields;
+    const { name, description, category, subcategory, shipping, characteristics, availability, pricePerUnit } = req.body;
     
-    // Валидация обязательных полей
-    if (!name || !description || !category ) {
-      return res.status(400).send({ 
-        error: "Пожалуйста, заполните все обязательные поля" 
-      });
-    }
-
-    // Проверка корректности значения availability
-    const validAvailabilityValues = ['Есть в наличии', 'Нет в наличии', 'Под заказ', 'Уточнить наличие'];
-    if (availability && !validAvailabilityValues.includes(availability)) {
+    if (!req.files || req.files.length === 0) {
       return res.status(400).send({
-        error: "Некорректный статус наличия товара"
+        success: false,
+        message: "Пожалуйста, загрузите хотя бы одно фото"
       });
     }
 
-    // Приводим subcategory к ObjectId
-    let subcatId = undefined;
-    if (subcategory && mongoose.Types.ObjectId.isValid(subcategory)) {
-      subcatId = new mongoose.Types.ObjectId(subcategory);
-    }
-    
-    // Парсинг characteristics
-    let parsedCharacteristics = [];
-    if (characteristics) {
-      try {
-        parsedCharacteristics = typeof characteristics === 'string' 
-          ? JSON.parse(characteristics)
-          : characteristics;
-
-        if (!Array.isArray(parsedCharacteristics)) {
-          return res.status(400).send({ 
-            error: "Characteristics must be an array" 
-          });
-        }
-      } catch (error) {
-        return res.status(400).send({ 
-          error: "Invalid format for characteristics" 
-        });
-      }
-    }
-    
-    // Обработка pricePerUnit
-    let parsedPricePerUnit = {};
-    if (pricePerUnit) {
-      try {
-        parsedPricePerUnit = typeof pricePerUnit === 'string'
-          ? JSON.parse(pricePerUnit)
-          : pricePerUnit;
-      } catch (e) {
-        return res.status(400).send({ 
-          error: "Invalid format for pricePerUnit" 
-        });
-      }
-    }
-
-    // Создаем продукт
     const product = new productModel({
-      ...fields,
-      slug: slugify(name, { lower: true }),
-      photos: [],
-      subcategory: subcatId,
-      characteristics: parsedCharacteristics,
-      pricePerUnit: parsedPricePerUnit,
-      availability: availability || 'Есть в наличии'
+      name,
+      slug: slugify(name),
+      description,
+      category,
+      subcategory,
+      shipping,
+      characteristics: characteristics ? JSON.parse(characteristics) : [],
+      pricePerUnit: pricePerUnit ? JSON.parse(pricePerUnit) : {},
+      availability: availability || "Есть в наличии",
+      photos: req.files.map(file => file.path.replace(/\\/g, '/')) // Сохраняем пути к файлам
     });
-    
-    // Обработка загруженных файлов
-    if (req.files && req.files.length > 0) {
-      const uploadDir = path.join(process.cwd(), "uploads", "products");
-      
-      // Создаем директорию, если её нет
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
 
-      for (const file of req.files) {
-        const ext = path.extname(file.originalname);
-        const fileName = `${Date.now()}-${slugify(name)}-${Math.random().toString(36).slice(2)}${ext}`;
-        const uploadPath = path.join(uploadDir, fileName);
-        
-        fs.writeFileSync(uploadPath, file.buffer);
-        product.photos.push(`uploads/products/${fileName}`);
-      }
-    }
-    
     await product.save();
+
     res.status(201).send({
       success: true,
       message: "Продукт успешно создан",
       product
     });
+
   } catch (error) {
     console.error("Ошибка в createProductController:", error);
     res.status(500).send({
@@ -111,7 +47,6 @@ export const createProductController = async (req, res) => {
     });
   }
 };
-
 //get all products
 export const getProductController = async (req, res) => {
   try {

@@ -17,14 +17,14 @@ const UpdateProduct = () => {
   const [pricePerUnit, setPricePerUnit] = useState({});
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
-  const [shipping, setShipping] = useState("");
-  // Изменили photo на photos (массив)
+  const [shipping, setShipping] = useState("0");
   const [photos, setPhotos] = useState([]);
   const [characteristics, setCharacteristics] = useState([]);
   const [id, setId] = useState("");
   const [availability, setAvailability] = useState("Есть в наличии");
   const [unitKey, setUnitKey] = useState("");
   const [unitPrice, setUnitPrice] = useState("");
+  const [currentPhotos, setCurrentPhotos] = useState([]); // Добавляем состояние для текущих фото
 
   // Получение данных о продукте
   const getSingleProduct = async () => {
@@ -32,18 +32,21 @@ const UpdateProduct = () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API}/api/v1/product/get-product/${params.slug}`
       );
-      setName(data.product.name);
-      setId(data.product._id);
-      setDescription(data.product.description);
-      setPrice(data.product.price);
-      setPricePerUnit(data.product.pricePerUnit || {});
-      setCategory(data.product.category._id);
-      setSubcategory(data.product.subcategory?._id || "");
-      setCharacteristics(data.product.characteristics || []);
-      setShipping(data.product.shipping);
-      setAvailability(data.product.availability || "Есть в наличии");
+      if (data?.product) {
+        setName(data.product.name || "");
+        setId(data.product._id || "");
+        setDescription(data.product.description || "");
+        setPrice(data.product.price || "");
+        setPricePerUnit(data.product.pricePerUnit || {});
+        setCategory(data.product.category?._id || "");
+        setSubcategory(data.product.subcategory?._id || "");
+        setCharacteristics(data.product.characteristics || []);
+        setShipping(data.product.shipping ? "1" : "0");
+        setAvailability(data.product.availability || "Есть в наличии");
+        setCurrentPhotos(data.product.photos || []); // Сохраняем текущие фото
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Ошибка при получении данных о продукте:", error);
       toast.error("Ошибка при получении данных о продукте");
     }
   };
@@ -78,7 +81,7 @@ const UpdateProduct = () => {
     getSingleProduct();
     getAllCategory();
     getAllSubcategories();
-  }, []);
+  }, [params.slug]); // Добавляем зависимость от slug
 
   // Функция добавления новой единицы измерения с ценой
   const addUnitPrice = () => {
@@ -91,30 +94,42 @@ const UpdateProduct = () => {
     }
   };
 
+  // Удаление единицы измерения
+  const removeUnitPrice = (unitToRemove) => {
+    const newPricePerUnit = { ...pricePerUnit };
+    delete newPricePerUnit[unitToRemove];
+    setPricePerUnit(newPricePerUnit);
+  };
+
   // Обновление продукта
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
+      // Валидация
+      if (!name.trim()) return toast.error("Название продукта обязательно");
+      if (!description.trim()) return toast.error("Описание продукта обязательно");
+      if (!category) return toast.error("Выберите категорию");
+      if (Object.keys(pricePerUnit).length === 0) return toast.error("Добавьте хотя бы одну цену");
+
       const formData = new FormData();
-      
-      formData.append("name", name);
-      formData.append("description", description);
-      formData.append("price", price);
+      formData.append("name", name.trim());
+      formData.append("description", description.trim());
       formData.append("category", category);
       if (subcategory) formData.append("subcategory", subcategory);
-      // Преобразуем shipping в булево значение
       formData.append("shipping", shipping === "1");
       formData.append("characteristics", JSON.stringify(characteristics));
       formData.append("availability", availability);
       formData.append("pricePerUnit", JSON.stringify(pricePerUnit));
       
+      // Добавляем новые фото, если они есть
       if (photos.length > 0) {
-        // Добавляем каждый выбранный файл в поле "photos"
-        for (let i = 0; i < photos.length; i++) {
-          formData.append("photos", photos[i]);
-        }
+        photos.forEach(photo => {
+          if (photo instanceof File) {
+            formData.append("photos", photo);
+          }
+        });
       }
-  
+
       const { data } = await axios.put(
         `${import.meta.env.VITE_API}/api/v1/product/update-product/${id}`,
         formData,
@@ -124,51 +139,39 @@ const UpdateProduct = () => {
           }
         }
       );
-  
+
       if (data?.success) {
         toast.success("Продукт успешно обновлен");
         navigate("/dashboard/admin/products");
       } else {
-        toast.error(data?.message);
+        toast.error(data?.message || "Ошибка при обновлении");
       }
     } catch (error) {
-      console.log(error);
-      toast.error("Что-то пошло не так при обновлении продукта");
+      console.error("Ошибка при обновлении:", error);
+      toast.error("Ошибка при обновлении продукта");
     }
-};
+  };
 
   // Удаление продукта
   const handleDelete = async () => {
     try {
-      let answer = window.prompt("Вы уверены, что хотите удалить этот продукт?");
-      if (!answer) return;
+      let answer = window.prompt("Вы уверены, что хотите удалить этот продукт? Напишите 'да' для подтверждения.");
+      if (answer?.toLowerCase() !== 'да') return;
+
       const { data } = await axios.delete(
         `${import.meta.env.VITE_API}/api/v1/product/delete-product/${id}`
       );
-      toast.success("Продукт успешно удален");
-      navigate("/dashboard/admin/products");
+      
+      if (data?.success) {
+        toast.success("Продукт успешно удален");
+        navigate("/dashboard/admin/products");
+      } else {
+        toast.error(data?.message || "Ошибка при удалении");
+      }
     } catch (error) {
-      console.log(error);
-      toast.error("Что-то пошло не так");
+      console.error("Ошибка при удалении:", error);
+      toast.error("Ошибка при удалении продукта");
     }
-  };
-
-  // Добавление характеристики
-  const handleAddCharacteristic = () => {
-    setCharacteristics([...characteristics, { key: "", value: "" }]);
-  };
-
-  // Удаление характеристики
-  const handleRemoveCharacteristic = (index) => {
-    const updatedCharacteristics = characteristics.filter((_, i) => i !== index);
-    setCharacteristics(updatedCharacteristics);
-  };
-
-  // Обновление характеристики
-  const handleCharacteristicChange = (index, field, value) => {
-    const updatedCharacteristics = [...characteristics];
-    updatedCharacteristics[index][field] = value;
-    setCharacteristics(updatedCharacteristics);
   };
 
   return (
@@ -214,10 +217,79 @@ const UpdateProduct = () => {
                 ))}
             </Select>
 
+            {/* Основные поля */}
+            <div className="mb-3">
+              <input
+                type="text"
+                value={name}
+                placeholder="Название продукта"
+                className="form-control"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <textarea
+                value={description}
+                placeholder="Описание продукта"
+                className="form-control"
+                onChange={(e) => setDescription(e.target.value)}
+                rows="4"
+              />
+            </div>
+
+            {/* Цены за единицу */}
+            <div className="mb-3">
+              <h5>Цены за единицу</h5>
+              <div className="d-flex mb-2">
+                <input
+                  type="text"
+                  placeholder="Единица измерения"
+                  value={unitKey}
+                  className="form-control me-2"
+                  onChange={(e) => setUnitKey(e.target.value)}
+                />
+                <input
+                  type="number"
+                  placeholder="Цена"
+                  value={unitPrice}
+                  className="form-control me-2"
+                  onChange={(e) => setUnitPrice(e.target.value)}
+                />
+                <button 
+                  type="button" 
+                  className="btn btn-secondary"
+                  onClick={addUnitPrice}
+                >
+                  Добавить
+                </button>
+              </div>
+
+              {/* Список текущих цен */}
+              {Object.entries(pricePerUnit).length > 0 && (
+                <div className="mt-2">
+                  <h6>Текущие цены:</h6>
+                  <ul className="list-group">
+                    {Object.entries(pricePerUnit).map(([unit, price]) => (
+                      <li key={unit} className="list-group-item d-flex justify-content-between align-items-center">
+                        {unit}: {price} тг
+                        <button
+                          className="btn btn-danger btn-sm"
+                          onClick={() => removeUnitPrice(unit)}
+                        >
+                          Удалить
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
             {/* Загрузка фото */}
             <div className="mb-3">
               <label className="btn btn-outline-secondary col-md-12">
-                {photos.length > 0 ? `${photos.length} file(s) selected` : "Загрузить фото"}
+                {photos.length > 0 ? `Выбрано файлов: ${photos.length}` : "Загрузить фото"}
                 <input
                   type="file"
                   name="photos"
@@ -228,100 +300,38 @@ const UpdateProduct = () => {
                 />
               </label>
             </div>
+
+            {/* Предпросмотр фото */}
             <div className="mb-3">
-              {photos.length > 0 ? (
-                <div className="text-center">
-                  {Array.from(photos).map((file, index) => (
+              <div className="d-flex flex-wrap gap-2">
+                {photos.length > 0 ? (
+                  photos.map((file, index) => (
                     <img
                       key={index}
                       src={URL.createObjectURL(file)}
-                      alt={`preview ${index}`}
-                      height="200px"
-                      className="img img-responsive me-2"
+                      alt={`preview ${index + 1}`}
+                      style={{ height: "100px", objectFit: "cover" }}
+                      className="border rounded"
                     />
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center">
+                  ))
+                ) : currentPhotos.map((photo, index) => (
                   <img
-                    src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${id}`}
-                    alt="product_photo"
-                    height="200px"
-                    className="img img-responsive"
+                    key={index}
+                    src={`${import.meta.env.VITE_API}/${photo}`}
+                    alt={`current ${index + 1}`}
+                    style={{ height: "100px", objectFit: "cover" }}
+                    className="border rounded"
                   />
-                </div>
-              )}
-            </div>
-
-            {/* Поля для ввода данных */}
-            <div className="mb-3">
-              <input
-                type="text"
-                value={name}
-                placeholder="Название продукта"
-                className="form-control"
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div className="mb-3">
-              <textarea
-                value={description}
-                placeholder="Описание продукта"
-                className="form-control"
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
-            <div className="mb-3">
-              <input
-                type="number"
-                value={price}
-                placeholder="Цена продукта"
-                className="form-control"
-                onChange={(e) => setPrice(e.target.value)}
-              />
-            </div>
-
-            {/* Добавление единиц измерения с ценами */}
-            <div className="mb-3">
-              <h5>Цены за единицу</h5>
-              <div className="d-flex mb-2">
-                <input
-                  type="text"
-                  placeholder="Единица (например, кг или мешок)"
-                  value={unitKey}
-                  className="form-control me-2"
-                  onChange={(e) => setUnitKey(e.target.value)}
-                />
-                <input
-                  type="number"
-                  placeholder="Цена для единицы"
-                  value={unitPrice}
-                  className="form-control me-2"
-                  onChange={(e) => setUnitPrice(e.target.value)}
-                />
-                <button type="button" className="btn btn-secondary" onClick={addUnitPrice}>
-                  Добавить единицу
-                </button>
+                ))}
               </div>
-              {Object.keys(pricePerUnit).length > 0 && (
-                <div>
-                  <h6>Заданные цены:</h6>
-                  <ul>
-                    {Object.entries(pricePerUnit).map(([unit, cost]) => (
-                      <li key={unit}>
-                        {unit}: {cost} тг
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
 
+            {/* Статус наличия */}
             <div className="mb-3">
               <Select
                 placeholder="Статус наличия"
                 size="large"
-                className="form-select mb-3"
+                className="form-select"
                 onChange={(value) => setAvailability(value)}
                 value={availability}
               >
@@ -329,20 +339,6 @@ const UpdateProduct = () => {
                 <Option value="Нет в наличии">Нет в наличии</Option>
                 <Option value="Под заказ">Под заказ</Option>
                 <Option value="Уточнить наличие">Уточнить наличие</Option>
-              </Select>
-            </div>
-
-            <div className="mb-3">
-              <Select
-                placeholder="Способ доставки"
-                size="large"
-                showSearch
-                className="form-select mb-3"
-                onChange={(value) => setShipping(value)}
-                value={shipping ? "1" : "0"}
-              >
-                <Option value="0">Нет</Option>
-                <Option value="1">Да</Option>
               </Select>
             </div>
 
@@ -356,23 +352,30 @@ const UpdateProduct = () => {
                     placeholder="Характеристика"
                     value={char.key}
                     className="form-control me-2"
-                    onChange={(e) =>
-                      handleCharacteristicChange(index, "key", e.target.value)
-                    }
+                    onChange={(e) => {
+                      const updatedChars = [...characteristics];
+                      updatedChars[index].key = e.target.value;
+                      setCharacteristics(updatedChars);
+                    }}
                   />
                   <input
                     type="text"
                     placeholder="Значение"
                     value={char.value}
                     className="form-control me-2"
-                    onChange={(e) =>
-                      handleCharacteristicChange(index, "value", e.target.value)
-                    }
+                    onChange={(e) => {
+                      const updatedChars = [...characteristics];
+                      updatedChars[index].value = e.target.value;
+                      setCharacteristics(updatedChars);
+                    }}
                   />
                   <button
                     type="button"
                     className="btn btn-danger"
-                    onClick={() => handleRemoveCharacteristic(index)}
+                    onClick={() => {
+                      const updatedChars = characteristics.filter((_, i) => i !== index);
+                      setCharacteristics(updatedChars);
+                    }}
                   >
                     Удалить
                   </button>
@@ -380,20 +383,18 @@ const UpdateProduct = () => {
               ))}
               <button
                 type="button"
-                className="btn btn-primary"
-                onClick={handleAddCharacteristic}
+                className="btn btn-secondary"
+                onClick={() => setCharacteristics([...characteristics, { key: "", value: "" }])}
               >
                 Добавить характеристику
               </button>
             </div>
 
             {/* Кнопки действий */}
-            <div className="mb-3">
+            <div className="d-flex gap-3">
               <button className="btn btn-primary" onClick={handleUpdate}>
                 Обновить продукт
               </button>
-            </div>
-            <div className="mb-3">
               <button className="btn btn-danger" onClick={handleDelete}>
                 Удалить продукт
               </button>

@@ -82,73 +82,104 @@ const CreateProduct = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     
-    // Проверка обязательных полей
-    if (!name) {
-      return toast.error('Название товара обязательно');
-    }
-    if (!description) {
-      return toast.error('Описание товара обязательно');
-    }
-    if (!category) {
-      return toast.error('Категория товара обязательна');
-    }
-    if (Object.keys(pricePerUnit).length === 0) {
-      return toast.error('Добавьте хотя бы одну цену с единицей измерения');
-    }
-    if (!availability) {
-      return toast.error('Статус наличия обязателен');
-    }
-
     try {
-      const productData = new FormData();
-      productData.append("name", name);
-      productData.append("description", description);
-      productData.append("category", category);
-      if (subcategory) {
-        productData.append("subcategory", subcategory);
-      }
-      
-      // Добавляем фото
-      if (photos && photos.length > 0) {
-        photos.forEach((file) => {
-          productData.append("photos", file);
-        });
-      }
-
-      // Добавляем characteristics если они есть
-      if (characteristics && characteristics.length > 0) {
-        productData.append("characteristics", JSON.stringify(characteristics));
-      }
-
-      // Добавляем pricePerUnit
-      productData.append("pricePerUnit", JSON.stringify(pricePerUnit));
-
-      // Добавляем availability
-      productData.append("availability", availability);
-
-      // Добавляем shipping
-      productData.append("shipping", shipping);
-
-      // Добавляем quantity по умолчанию
-      productData.append("quantity", "1");
-
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API}/api/v1/product/create-product`,
-        productData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+        // Валидация обязательных полей
+        if (!name.trim()) {
+            return toast.error('Название товара обязательно');
         }
-      );
+        if (!description.trim()) {
+            return toast.error('Описание товара обязательно');
+        }
+        if (!category) {
+            return toast.error('Категория товара обязательна');
+        }
+        if (Object.keys(pricePerUnit).length === 0) {
+            return toast.error('Добавьте хотя бы одну цену с единицей измерения');
+        }
+        if (!availability) {
+            return toast.error('Статус наличия обязателен');
+        }
+        if (!photos || photos.length === 0) {
+            return toast.error('Добавьте хотя бы одно фото товара');
+        }
 
-      if (data?.success) {
-        toast.success('Товар успешно создан');
-        navigate('/dashboard/admin/products');
-      }
+        // Создаем объект FormData
+        const productData = new FormData();
+
+        // Добавляем основные поля
+        productData.append("name", name.trim());
+        productData.append("description", description.trim());
+        productData.append("category", category);
+        
+        // Добавляем подкатегорию если она выбрана
+        if (subcategory) {
+            productData.append("subcategory", subcategory);
+        }
+        
+        // Добавляем фотографии
+        photos.forEach((photo) => {
+            if (photo instanceof File) {
+                productData.append("photos", photo);
+            }
+        });
+
+        // Добавляем характеристики, если они есть
+        const validCharacteristics = characteristics.filter(char => 
+            char.key.trim() && char.value.trim()
+        );
+        if (validCharacteristics.length > 0) {
+            productData.append("characteristics", JSON.stringify(validCharacteristics));
+        }
+
+        // Добавляем цены по единицам измерения
+        productData.append("pricePerUnit", JSON.stringify(pricePerUnit));
+
+        // Добавляем статус наличия
+        productData.append("availability", availability);
+
+        // Добавляем информацию о доставке
+        if (shipping) {
+            productData.append("shipping", shipping);
+        }
+
+        // Добавляем количество по умолчанию
+        productData.append("quantity", "1");
+
+        // Отправляем запрос на создание продукта
+        const { data } = await axios.post(
+            `${import.meta.env.VITE_API}/api/v1/product/create-product`,
+            productData,
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            }
+        );
+
+        if (data?.success) {
+            toast.success('Товар успешно создан');
+            // Очищаем форму
+            setName("");
+            setDescription("");
+            setCategory("");
+            setSubcategory("");
+            setPhotos([]);
+            setCharacteristics([{ key: "", value: "" }]);
+            setPricePerUnit({});
+            setAvailability("Есть в наличии");
+            setShipping("");
+            // Перенаправляем на страницу продуктов
+            navigate('/dashboard/admin/products');
+        } else {
+            toast.error(data?.message || 'Что-то пошло не так');
+        }
     } catch (error) {
-      console.error('Ошибка при создании товара:', error);
-      toast.error(error.response?.data?.error || 'Ошибка при создании товара');
+        console.error('Ошибка при создании товара:', error);
+        toast.error(
+            error.response?.data?.message || 
+            error.message || 
+            'Ошибка при создании товара'
+        );
     }
 };
   // Добавление новой характеристики
