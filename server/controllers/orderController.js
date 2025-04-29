@@ -1,6 +1,7 @@
 import Order from "../models/orderModel.js";
 import nodemailer from "nodemailer";
 import sendAdminEmail from "../utils/sendAdminEmail.js";
+import sendEmail from "../utils/sendEmail.js";
 
 // Создание HTML шаблона для email уведомления
 const createAdminOrderTemplate = (order) => {
@@ -35,6 +36,37 @@ const createAdminOrderTemplate = (order) => {
           
           <div style="margin-top: 20px; text-align: center; color: #666;">
               <p>Для управления заказом перейдите в панель администратора</p>
+          </div>
+      </div>
+  `;
+};
+const createUserOrderStatusTemplate = (order) => {
+  return `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
+          <h2 style="color: #333; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+              Обновление статуса заказа #${order._id}
+          </h2>
+          
+          <div style="margin: 20px 0;">
+              <p>Уважаемый(ая) ${order.user.name},</p>
+              <p>Статус вашего заказа был обновлен:</p>
+              <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                  <p><strong>Статус заказа:</strong> ${order.orderStatus}</p>
+                  <p><strong>Статус оплаты:</strong> ${order.paymentStatus}</p>
+              </div>
+              
+              <div style="margin-top: 20px;">
+                  <h3 style="color: #444;">Детали заказа:</h3>
+                  <p><strong>Сумма заказа:</strong> ${order.totalAmount} тг</p>
+                  <p><strong>Способ получения:</strong> ${order.deliveryMethod === 'pickup' ? 'Самовывоз' : 'Доставка'}</p>
+              </div>
+          </div>
+          
+          <div style="text-align: center; margin-top: 30px;">
+              <a href="${process.env.FRONTEND_URL}/dashboard/user/orders" 
+                 style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                 Перейти к заказам
+              </a>
           </div>
       </div>
   `;
@@ -126,18 +158,40 @@ export const getAllOrdersController = async (req, res) => {
 export const updateOrderStatusController = async (req, res) => {
   try {
     const { orderId } = req.params;
-    const { orderStatus, paymentStatus } = req.body; // например, orderStatus: "Processing", "Shipped", "Delivered", "Cancelled"
+    const { orderStatus, paymentStatus } = req.body;
+
+    // Находим и обновляем заказ
     const order = await Order.findByIdAndUpdate(
       orderId,
-      { orderStatus: orderStatus || "Not Processed", paymentStatus: paymentStatus || "Not Processed" },
+      { 
+        orderStatus: orderStatus || "Not Processed", 
+        paymentStatus: paymentStatus || "Not Processed" 
+      },
       { new: true }
-    );
+    ).populate('user', 'name email phone address');
+
     if (!order) {
       return res.status(404).json({
         success: false,
         message: "Заказ не найден",
       });
     }
+
+    // Отправляем email пользователю
+    try {
+      const emailSent = await sendEmail(
+        order.user.email,
+        `Обновление статуса заказа #${order._id}`,
+        createUserOrderStatusTemplate(order)
+      );
+
+      if (emailSent) {
+        console.log('Уведомление успешно отправлено пользователю');
+      }
+    } catch (emailError) {
+      console.error('Ошибка при отправке уведомления пользователю:', emailError);
+    }
+
     res.status(200).json({
       success: true,
       message: "Статус заказа обновлен",
