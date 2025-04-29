@@ -5,6 +5,7 @@ import { useCart } from '../../context/cart';
 import Header from "../layout/Header";
 import '../styles/SubCategory.css';
 import Footer from "../layout/Footer";
+import BottomNav from "../components/BottomNav";
 
 const SubCategoryProduct = () => {
   const [cart, setCart] = useCart();
@@ -87,6 +88,7 @@ const SubCategoryProduct = () => {
         </div>
       </div>
     </div>
+    <BottomNav/>
     <Footer/>
     </>
   );

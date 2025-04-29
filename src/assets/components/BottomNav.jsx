@@ -59,20 +59,14 @@ function BottomNav() {
           <span className="cart-text">Корзина</span>
         </NavLink>
       </Badge>
-      { !auth?.user ? (
-          <>
-            <li className="nav-item">
-              <NavLink to="/register" className="nav-link">
-                Register
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to="/login" className="nav-link">
-                Login
-              </NavLink>
-            </li>
-          </>
-        ) : (
+                  {!auth?.user ? (
+                    <li className="nav-item">
+                      <NavLink to="/login" className="nav-item">
+                        <img src={userIcon} alt="Профиль" style={{ width: '24px', height: '24px' }} />
+                        <span className='profil-nav'>Профиль</span>
+                      </NavLink>
+                    </li>
+                  ) : (
           <>
             <li className="nav-item dropdown">
             <NavLink
@@ -91,7 +85,7 @@ function BottomNav() {
                     to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
                     className="dropdown-item"
                   >
-                    Dashboard
+                    Панель управления
                   </NavLink>
                 </li>
                 <li>
@@ -100,7 +94,7 @@ function BottomNav() {
                     to="/login"
                     className="dropdown-item"
                   >
-                    Logout
+                    Выйти
                   </NavLink>
                 </li>
               </ul>

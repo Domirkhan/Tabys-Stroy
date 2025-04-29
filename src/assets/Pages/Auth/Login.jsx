@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../../../context/auth";
 import "../../styles/login.css"; // Импортируем CSS файл для стилей
+import BottomNav from "../../components/BottomNav";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -101,6 +102,7 @@ const Login = () => {
         </form>
       </div>
     </div>
+  <BottomNav />
   <Footer />
   </>
   );

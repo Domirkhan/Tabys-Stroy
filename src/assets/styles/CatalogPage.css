@@ -2,7 +2,7 @@
   max-width: 1120px;
   margin: 0 auto;
   padding: 20px;
-  margin-top: 6rem;
+  margin-top: 1rem;
 }
 
 .catalog-grid {
@@ -85,8 +85,8 @@
 
 @media (max-width: 768px) {
   .catalog-page {
-    padding: 15px;
-    margin-top: 4rem;
+    margin: 0 ;
+    padding-top: 0;
   }
 
   .catalog-category-header {
