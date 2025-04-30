@@ -4,6 +4,10 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useAuth } from "../../../context/auth";
 import { io } from "socket.io-client";
+import Footer from "../../layout/Footer";
+import BottomNav from "../../components/BottomNav";
+import Header from "../../layout/Header";
+import '../../styles/Admin.css'
 
 const AdminDashboard = () => {
   const [auth] = useAuth();
@@ -19,8 +23,6 @@ const AdminDashboard = () => {
 
   
   useEffect(() => {
- 
-
     
     // Запрашиваем разрешение на уведомления
     if (Notification.permission !== "granted") {
@@ -96,14 +98,16 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="container-fluid m-3 p-3">
+    <>
+    <Header/>
+    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <div className="col-md-3">
           <AdminMenu />
         </div>
         <div className="col-md-9">
-       
-          <h1>Статистика</h1>
+          <h1 className="static">Статистика</h1>
           <div className="row">
             <div className="col-md-4">
               <div className="card text-center mb-3">
@@ -151,6 +155,10 @@ const AdminDashboard = () => {
         </div>
       </div>
     </div>
+    </div>
+    <BottomNav/>
+    <Footer/>
+    </>
   );
 };
 

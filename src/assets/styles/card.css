@@ -41,7 +41,7 @@
   border-radius: 0.75rem;
   margin-bottom: 0.5rem;
 }
-.product-title {
+.product-title-card {
   font-size: 0.9rem; /* Уменьшаем размер шрифта */
   margin: 5px 0; /* Уменьшаем отступы */
   color: #333;

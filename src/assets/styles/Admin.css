@@ -1,0 +1,341 @@
+/* Общие стили админ-панели */
+.container-fluid {
+  margin-top: 8rem;
+  margin-bottom: 4rem;
+}
+
+
+
+/* Стили для страницы заказов */
+.orders-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.orders-title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.new-orders-badge {
+  background: #ff4757;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Стили для карточки заказа */
+.order-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.order-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transform: translateY(-2px);
+}
+
+.order-header {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.order-info {
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+.order-info strong {
+  color: #1a202c;
+  font-weight: 500;
+}
+
+/* Стили для товаров в заказе */
+.order-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1rem;
+  background: #f8f9fa;
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.product-price {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+/* Стили для селектов статуса */
+.status-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.status-select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  background: white;
+  min-width: 200px;
+}
+
+.status-select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Стили для статусов */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-processing {
+  background: #fff8e1;
+  color: #f39c12;
+}
+
+.status-delivered {
+  background: #e8f5e9;
+  color: #2ecc71;
+}
+
+.status-cancelled {
+  background: #ffebee;
+  color: #e74c3c;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container-fluid {
+    margin-top: 4rem;
+    padding: 0 1rem;
+  }
+
+  .orders-container {
+    padding: 1rem;
+  }
+
+  .order-card {
+    padding: 1rem;
+  }
+
+  .status-controls {
+    flex-direction: column;
+  }
+
+  .status-select {
+    width: 100%;
+  }
+}
+
+/* Стили для страницы продуктов */
+
+.products-title {
+  font-size: 1.75rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1rem;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .product-image {
+    height: 150px;
+  }
+}
+
+/* Стили для страницы пользователей */
+.users-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.users-title {
+  font-size: 1.75rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Стили для таблицы */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
+}
+
+.table thead th {
+  background: #f8f9fa;
+  color: #2c3e50;
+  font-weight: 500;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #eee;
+}
+
+.table tbody td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  color: #666;
+}
+
+.table tbody tr:hover {
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+/* Стили для ролей пользователей */
+.role-admin {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.role-user {
+  color: #666;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .col-md-9{
+    margin-top: 0.5rem;
+  }
+  .users-container {
+    padding: 1rem;
+  }
+
+  .table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .p-3.w-50 {
+    width: 100% !important;
+    padding: 0 !important;
+    padding-top: 0.5rem !important;
+    margin-bottom: 1.5rem;
+  }
+
+  .w-75 {
+    width: 100% !important;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+}

@@ -220,49 +220,60 @@ const ProductInfo = () => {
         <Reviews productId={product?._id} />
       </div>
       <hr />
-      <div className="row container similar-products">
-        <h6>Похожие товары</h6>
-        {relatedProducts.length < 1 ? (
-          <p className="text-center">нету похожих товаров</p>
-        ) : (
-          <div className="d-flex flex-wrap">
-            {relatedProducts.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
-                <img
-                    src={p.photos?.[0] || `${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                  />
-                <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
-                    {p.description?.substring(0, 30)}...
-                  </p>
-                  {p.price && <p className="card-text">Цена: {p.price} тг</p>}
+      <div className="container">
+      <div className="similar-products">
+      <h6>Похожие товары</h6>
+      {relatedProducts.length < 1 ? (
+        <p className="text-center">нету похожих товаров</p>
+      ) : (
+        <div className="d-flex flex-wrap">
+          {relatedProducts.map((p) => (
+              <div className="card m-2" key={p._id}>
+              <img
+                src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}`}
+                className="card-img-top"
+                alt={p.name}
+              />
+              <div className="card-body">
+                <div className="card-title-text">
+                  <h5 className="product-title">{p.name}</h5>
+                </div>
+                <div className="price-and-status">
                   {p.pricePerUnit && Object.entries(p.pricePerUnit)[0] && (
-                    <p className="card-text">
-                      Цена: {Object.entries(p.pricePerUnit)[0][1]} тг за {Object.entries(p.pricePerUnit)[0][0]}
+                    <p className="current-price">
+                      {Object.entries(p.pricePerUnit)[0][1]} тг за {Object.entries(p.pricePerUnit)[0][0]}
                     </p>
                   )}
+                  <p className={`availability-status ${
+                    p.availability === 'Есть в наличии' ? 'in-stock' : 
+                    p.availability === 'Нет в наличии' ? 'out-of-stock' : 
+                    p.availability === 'Под заказ' ? 'on-order' : 'check-availability'
+                  }`}>
+                    {p.availability || 'Уточнить наличие'}
+                  </p>
+                </div>
+                <div className="card-buttons">
                   <button
-                    className="btn btn-primary ms-1"
+                    className="details-btn"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
                     Подробнее
                   </button>
-                  <button 
-                  className="btn btn-secondary ms-1"
-                  onClick={() => addRelatedToCart(p)}
-                  disabled={p.availability === 'Нет в наличии'}
-                >
-                  В корзину
-                </button>
+                  <button
+                    className="add-to-cart-btn"
+                    onClick={() => addRelatedToCart(p)} // Изменить эту строку
+                    disabled={p.availability === 'Нет в наличии'} // Изменить эту строку
+                  >
+                    В корзину
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
-      </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+    </div>
       <BottomNav />
       <Footer />
     </>

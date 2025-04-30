@@ -34,6 +34,33 @@ const SubCategoryProduct = () => {
       console.error("Error fetching subcategory products:", error);
     }
   };
+  // Заменить существующий обработчик onClick на:
+const handleAddToCart = (p) => {
+  const [firstUnit] = Object.keys(p.pricePerUnit);
+  
+  // Проверяем есть ли товар с такой же единицей измерения
+  const existingItem = cart.find(item => 
+    item._id === p._id && 
+    item.selectedUnit === firstUnit
+  );
+  
+  if (existingItem) {
+    toast.error(`Товар с единицей измерения ${firstUnit} уже в корзине`);
+    return;
+  }
+
+  const cartItem = {
+    ...p,
+    selectedUnit: firstUnit,
+    quantity: 1,
+    price: p.pricePerUnit[firstUnit]
+  };
+  
+  setCart([...cart, cartItem]);
+  localStorage.setItem("cart", JSON.stringify([...cart, cartItem]));
+  toast.success("Товар добавлен в корзину");
+};
+
 
   return (
     <>
@@ -80,11 +107,7 @@ const SubCategoryProduct = () => {
                     </button>
                     <button
                       className="add-to-cart-btn"
-                      onClick={() => {
-                        setCart([...cart, p]);
-                        localStorage.setItem("cart", JSON.stringify([...cart, p]));
-                        toast.success("Товар добавлен в корзину");
-                      }}
+                      onClick={() => handleAddToCart(p)}
                     >
                       В корзину
                     </button>

@@ -68,6 +68,7 @@ p{
     }
     
     .card img {
+        width: 170px;
         height: 150px;
     }
 }

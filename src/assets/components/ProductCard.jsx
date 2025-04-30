@@ -55,8 +55,8 @@ function ProductCard({ product }) {
         />
       </div>
       
-      <div className="product-info" onClick={handleNavigateToProduct}>
-        <h3 className="product-title">{product.name}</h3>
+      <div className="product-info-card" onClick={handleNavigateToProduct}>
+        <h3 className="product-title-card">{product.name}</h3>
         
         <div className="price-and-status">
           <div className="price-wrapper">

@@ -4,6 +4,9 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Modal } from "antd";
 import '../../styles/CreateCategory.css';
+import Footer from "../../layout/Footer";
+import BottomNav from "../../components/BottomNav";
+import Header from "../../layout/Header";
 
 const CreateCategory = () => {
   const [categories, setCategories] = useState([]);
@@ -207,7 +210,10 @@ const handleUpdatedIconChange = (e) => {
   };
 
   return (
-    <div className="container-fluid m-3 p-3">
+    <>
+    <Header/>
+    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <div className="col-md-3">
           <AdminMenu />
@@ -409,6 +415,10 @@ const handleUpdatedIconChange = (e) => {
         </div>
       </div>
     </div>
+    </div>
+    <BottomNav  />
+    <Footer/>
+    </>
   );
 };
 

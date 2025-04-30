@@ -4,6 +4,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
+import BottomNav from '../../components/BottomNav';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -29,44 +30,55 @@ const Users = () => {
 
   return (
     <>
-    <Header/>
-    <div className="row">
-      <div className="col-md-3">
-        <AdminMenu />
+      <Header/>
+      <div className="container">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-3">
+              <AdminMenu />
+            </div>
+            <div className="col-md-9">
+              <div className="users-container">
+                <h1 className="users-title">Список пользователей</h1>
+                <div className="table-responsive">
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Имя</th>
+                        <th>Email</th>
+                        <th>Номер</th>
+                        <th>Адрес</th>
+                        <th>Роль</th>
+                        <th>Дата регистрации</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {users.map((u, index) => (
+                        <tr key={u._id}>
+                          <td>{index + 1}</td>
+                          <td>{u.name}</td>
+                          <td>{u.email}</td>
+                          <td>{u.phone || 'Не указан'}</td>
+                          <td>{u.address || 'Не указан'}</td>
+                          <td className={u.role === 1 ? 'role-admin' : 'role-user'}>
+                            {u.role === 1 ? 'Админ' : 'Пользователь'}
+                          </td>
+                          <td>{new Date(u.createdAt).toLocaleDateString()}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="col-md-9 ">
-        <h1 className="text-center">Список пользователей</h1>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Имя</th>
-              <th>Email</th>
-              <th>Номер</th>
-              <th>Адрес</th>
-              <th>Роль</th>
-              <th>Дата регистрации</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((u, index) => (
-              <tr key={u._id}>
-                <td>{index + 1}</td>
-                <td>{u.name}</td>
-                <td>{u.email}</td>
-                <td>{u.phone}</td>
-                <td>{u.address}</td>
-                <td>{u.role === 1 ? 'Админ' : 'Пользователь'}</td>
-                <td>{new Date(u.createdAt).toLocaleDateString()}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <Footer/>
+      <BottomNav/>
+      <Footer/>
     </>
   );
-};
+}
 
 export default Users;

@@ -10,7 +10,6 @@
 /* Контейнер изображения */
 .product-image-container {
   border-radius: 8px;
-  padding: 1rem;
 }
 
 .product-image-slider {
@@ -127,19 +126,7 @@
 .btn-secondary:hover {
   background: #333;
 }
-
-/* Похожие товары */
-.similar-products {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-.similar-products h6 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
-}
+ы
 /* Цена */
 .price-section {
   padding: 1.5rem;
@@ -208,6 +195,15 @@
 }
 /* Адаптивность */
 @media (max-width: 768px) {
+
+  .quantity-btn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    color: #333;
+  }
   .product-image-container {
     padding: 0;
   }
@@ -220,11 +216,15 @@
   }
   
   .price-amount {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   .product-details-info h1 {
     font-size: 1.5rem;
+  }
+
+  .product-details-info h6 {
+    font-size: 1rem;
   }
 
   .slider-btn {
@@ -244,5 +244,15 @@
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 0.5rem;
+  }
+  .product-main-image{
+    max-width: 80%;
+    max-height: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  .d-flex {
+    flex-direction: column;
   }
 }
