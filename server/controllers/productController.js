@@ -47,27 +47,29 @@ export const createProductController = async (req, res) => {
     });
   }
 };
-//get all products
 export const getProductController = async (req, res) => {
   try {
+    console.log('Fetching products...');
     const products = await productModel
       .find({})
       .populate("category")
       .select("-photo")
       .limit(12)
       .sort({ createdAt: -1 });
+    
+    console.log('Products found:', products.length);
     res.status(200).send({
       success: true,
-      counTotal: products.length,
-      message: "ALlProducts ",
+      countTotal: products.length,
+      message: "All Products",
       products,
     });
   } catch (error) {
-    console.log(error);
+    console.error('Error in getProductController:', error);
     res.status(500).send({
       success: false,
-      message: "Erorr in getting products",
-      error: error.message,
+      message: "Error fetching products",
+      error: error.message
     });
   }
 };
