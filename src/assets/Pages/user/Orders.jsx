@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-
 import UserMenu from "../../components/UserMenu";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer";
+import BottomNav from "../../components/BottomNav";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -26,8 +28,10 @@ const Orders = () => {
   }, []);
 
   return (
-    
-      <div className="container-fluid p-3 m-3">
+    <>
+    <Header />  
+    <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-md-3">
             <UserMenu />
@@ -98,7 +102,10 @@ const Orders = () => {
           </div>
         </div>
       </div>
-   
+      </div>
+      <BottomNav />
+      <Footer />
+    </>
   );
 };
 

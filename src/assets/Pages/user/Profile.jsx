@@ -3,6 +3,9 @@ import UserMenu from "../../components/UserMenu";
 import { useAuth } from "../../../context/auth";
 import toast from "react-hot-toast";
 import axios from "axios";
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer";
+import BottomNav from "../../components/BottomNav";
 
 const Profile = () => {
   const [auth, setAuth] = useAuth();
@@ -62,7 +65,10 @@ const Profile = () => {
   };
 
   return (
-    <div className="container-fluid m-3 p-3">
+    <>
+    <Header />  
+    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <div className="col-md-3">
           <UserMenu />
@@ -131,6 +137,10 @@ const Profile = () => {
         </div>
       </div>
     </div>
+    </div>
+      <BottomNav />
+      <Footer />
+    </>
   );
 };
 

@@ -1,12 +1,17 @@
 import React from "react";
-
 import UserMenu from "../../components/UserMenu";
 import { useAuth } from "../../../context/auth";
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer";
+import BottomNav from "../../components/BottomNav";
+
 const Dashboard = () => {
   const [auth] = useAuth();
   return (
     <>
-      <div className="container-flui m-3 p-3">
+    <Header />  
+    <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-md-3">
             <UserMenu />
@@ -20,6 +25,9 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      </div>
+      <BottomNav />
+      <Footer />
     </>
   );
 };
