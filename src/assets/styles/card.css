@@ -115,6 +115,7 @@
 
 .card-buttons{
   display: flex;
+  justify-content: space-between; /* Разделяем по краям */
   gap: 1rem;
 }
 .price-and-status {
@@ -126,6 +127,9 @@
 }
 /* Адаптивные стили */
 @media (max-width: 768px) {
+  .product-title-card{
+    font-size: 0.5rem;
+  }
   .product-image {
     height: 150px; /* Уменьшаем высоту изображения */
     width: 100%;

@@ -6,25 +6,25 @@ export const getAdminStats = async (req, res) => {
     // Получаем общее количество заказов
     const totalOrders = await Order.countDocuments();
     
-    // Получаем количество успешных заказов (статус "Delivered")
+    // Исправляем запрос для успешных заказов
     const successfulOrders = await Order.countDocuments({ 
-      orderStatus: "Delivered" 
+      orderStatus: "Доставлен" // Изменено с "Delivered" на "Доставлен"
     });
     
-    // Получаем количество отменённых заказов
+    // Исправляем запрос для отменённых заказов
     const cancelledOrders = await Order.countDocuments({ 
-      orderStatus: "Cancelled" 
+      orderStatus: "Отменён" // Изменено с "Cancelled" на "Отменён"
     });
     
     // Получаем общее количество пользователей
     const totalUsers = await User.countDocuments();
     
-    // Получаем общую выручку по успешным заказам
+    // Исправляем запрос для подсчета выручки
     const totalRevenue = await Order.aggregate([
       {
         $match: { 
-          orderStatus: "Delivered",
-          paymentStatus: "Paid"
+          orderStatus: "Доставлен",
+          paymentStatus: "Оплачен"
         }
       },
       {
