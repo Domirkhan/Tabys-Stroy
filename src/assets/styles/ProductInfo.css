@@ -189,6 +189,66 @@
   text-align: center;
   font-weight: bold;
 }
+.similar-products {
+  margin: 2rem 0;
+}
+
+.similar-products .d-flex {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.similar-products .card {
+  width: 100%;
+  margin: 0 !important;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.similar-products .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.similar-products .card-img-top {
+  height: 200px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+
+.similar-products .product-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+  min-height: 40px;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .similar-products .d-flex {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .similar-products .d-flex {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .similar-products .d-flex {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .similar-products .card-img-top {
+    height: 150px;
+  }
+}
 /* Адаптивность */
 @media (max-width: 768px) {
 
