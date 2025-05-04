@@ -299,7 +299,6 @@
   .price-and-status {
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 0.5rem;
   }
   .product-main-image{
     max-width: 80%;

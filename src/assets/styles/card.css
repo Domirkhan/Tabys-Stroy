@@ -168,11 +168,11 @@
   }
   .details-btn {
       padding:0.3rem 0.7rem;
-      font-size: 0.6rem;
+      font-size: 0.5rem;
   }
   .add-to-cart-btn {
       padding: 0.3rem 0.7rem;
-      font-size: 0.6rem;
+      font-size: 0.5rem;
   }
 }
 @media (max-width: 480px) {
