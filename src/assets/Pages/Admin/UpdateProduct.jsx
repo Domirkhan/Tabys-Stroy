@@ -4,6 +4,9 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+import Footer from "../../layout/Footer";
+import BottomNav from "../../components/BottomNav";
+import Header from "../../layout/Header";
 const { Option } = Select;
 
 const UpdateProduct = () => {
@@ -175,7 +178,10 @@ const UpdateProduct = () => {
   };
 
   return (
-    <div className="container-fluid m-3 p-3">
+    <>
+    <Header/>
+    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <div className="col-md-3">
           <AdminMenu />
@@ -403,6 +409,10 @@ const UpdateProduct = () => {
         </div>
       </div>
     </div>
+    </div>
+    <BottomNav/>
+    <Footer/>
+    </>
   );
 };
 

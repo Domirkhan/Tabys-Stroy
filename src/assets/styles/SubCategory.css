@@ -1,3 +1,11 @@
+/* Контейнер для сетки товаров */
+.row-subcategory {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 товара в ряд */
+    gap: 20px;
+    padding: 0 auto;
+}
+
 .col-md-9 {
     margin-left: 0;
     padding: 0;
@@ -19,24 +27,41 @@
     margin-bottom: 2rem;
 }
 
-.card-title-text{
-    display: flex;
-    justify-content: start;
+.card-title-text {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
 }
-/* Стили карточек товаров */
+
+/* Карточка товара */
 .card {
+    width: 100%;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 6px;
+    padding: 0.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-body{
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* Изображение товара */
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+/* Информация о товаре */
+.card-body {
+    padding: 0;
+    gap: 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0;
 }
+
 p{
     margin: 0;
     padding: 0;
@@ -53,7 +78,45 @@ p{
     object-fit: contain;
     margin-bottom: 1rem;
 }
-
+/* Кнопки */
+.card-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+@media (max-width: 1200px) {
+    .row-subcategory {
+      grid-template-columns: repeat(3, 1fr);
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .row-subcategory {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    
+      .card-img-top {
+        height: 150px;
+      }
+    
+      .card-title-text {
+        font-size: 13px;
+        min-height: 35px;
+      }
+      .row-subcategory {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+    
+    .card img {
+        height: 150px;
+    }
+    .card-title-text {
+        font-size: 10px;
+        margin-bottom: 0;
+    }
+}
 @media (max-width: 1120px) {
     .container-sub {
         width: 90%;
@@ -62,13 +125,5 @@ p{
     }
     .card-body {
         gap: 0.2rem;
-    }
-    .card {
-        margin: 0.5rem;
-    }
-    
-    .card img {
-        width: 170px;
-        height: 150px;
     }
 }

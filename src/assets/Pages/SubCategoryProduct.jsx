@@ -67,56 +67,50 @@ const handleAddToCart = (p) => {
     <Header/>
     <div className="container-sub mt-3">
       <h4 className="section-title-category">
-      {subcategoryData?.name || subcatSlug}
+        {subcategoryData?.name || subcatSlug}
       </h4>
-      <h6 className="text-center">{products?.length} products found</h6>
-      <div className="row">
-        <div className="col-md-9 offset-1">
-          <div className="d-flex">
-            {products?.map((p) => (
-              <div className="card m-2" key={p._id}>
-                <img
-                  src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
-                <div className="card-body">
-                  <div className="card-title-text">
-                    <h5 className="product-title">{p.name}</h5>
-                  </div>
-                  <div className="price-and-status">
-                    {p.pricePerUnit && Object.entries(p.pricePerUnit)[0] && (
-                      <p className="current-price">
-                        {Object.entries(p.pricePerUnit)[0][1]} тг за {Object.entries(p.pricePerUnit)[0][0]}
-                      </p>
-                    )}
-                    <p className={`availability-status ${
-                      p.availability === 'Есть в наличии' ? 'in-stock' : 
-                      p.availability === 'Нет в наличии' ? 'out-of-stock' : 
-                      p.availability === 'Под заказ' ? 'on-order' : 'check-availability'
-                    }`}>
-                      {p.availability || 'Уточнить наличие'}
-                    </p>
-                  </div>
-                  <div className="card-buttons">
-                    <button
-                      className="details-btn"
-                      onClick={() => navigate(`/product/${p.slug}`)}
-                    >
-                      Подробнее
-                    </button>
-                    <button
-                      className="add-to-cart-btn"
-                      onClick={() => handleAddToCart(p)}
-                    >
-                      В корзину
-                    </button>
-                  </div>
-                </div>
+      <div className="row-subcategory">
+        {products?.map((p) => (
+          <div className="card" key={p._id}>
+            <img
+              src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}`}
+              className="card-img-top"
+              alt={p.name}
+            />
+            <div className="card-body">
+              <div className="card-title-text">{p.name}</div>
+              <div className="price-and-status">
+                {p.pricePerUnit && Object.entries(p.pricePerUnit)[0] && (
+                  <p className="current-price">
+                    {Object.entries(p.pricePerUnit)[0][1]} тг за {Object.entries(p.pricePerUnit)[0][0]}
+                  </p>
+                )}
+                <p className={`availability-status ${
+                  p.availability === 'Есть в наличии' ? 'in-stock' : 
+                  p.availability === 'Нет в наличии' ? 'out-of-stock' : 
+                  p.availability === 'Под заказ' ? 'on-order' : 'check-availability'
+                }`}>
+                  {p.availability || 'Уточнить наличие'}
+                </p>
               </div>
-            ))}
+              <div className="card-buttons">
+                <button
+                  className="details-btn"
+                  onClick={() => navigate(`/product/${p.slug}`)}
+                >
+                  Подробнее
+                </button>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() => handleAddToCart(p)}
+                  disabled={p.availability === 'Нет в наличии'}
+                >
+                  В корзину
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
     <BottomNav/>
