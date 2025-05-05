@@ -27,9 +27,8 @@ const UpdateProduct = () => {
   const [availability, setAvailability] = useState("Есть в наличии");
   const [unitKey, setUnitKey] = useState("");
   const [unitPrice, setUnitPrice] = useState("");
-  const [currentPhotos, setCurrentPhotos] = useState([]); // Добавляем состояние для текущих фото
+  const [currentPhotos, setCurrentPhotos] = useState([]);
 
-  // Получение данных о продукте
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
@@ -46,7 +45,7 @@ const UpdateProduct = () => {
         setCharacteristics(data.product.characteristics || []);
         setShipping(data.product.shipping ? "1" : "0");
         setAvailability(data.product.availability || "Есть в наличии");
-        setCurrentPhotos(data.product.photos || []); // Сохраняем текущие фото
+        setCurrentPhotos(data.product.photos || []);
       }
     } catch (error) {
       console.error("Ошибка при получении данных о продукте:", error);
@@ -54,11 +53,11 @@ const UpdateProduct = () => {
     }
   };
 
-  // Получение всех категорий
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(`${import.meta.env.VITE_API}/api/v1/category/get-category`);
       if (data?.success) {
+        console.log("Полученные категории:", data.category);
         setCategories(data?.category);
       }
     } catch (error) {
@@ -67,11 +66,11 @@ const UpdateProduct = () => {
     }
   };
 
-  // Получение всех подкатегорий
   const getAllSubcategories = async () => {
     try {
       const { data } = await axios.get(`${import.meta.env.VITE_API}/api/v1/subcategory/get-subcategory`);
       if (data?.success) {
+        console.log("Полученные подкатегории:", data.subcategories);
         setSubcategories(data?.subcategories);
       }
     } catch (error) {
@@ -84,9 +83,8 @@ const UpdateProduct = () => {
     getSingleProduct();
     getAllCategory();
     getAllSubcategories();
-  }, [params.slug]); // Добавляем зависимость от slug
+  }, [params.slug]);
 
-  // Функция добавления новой единицы измерения с ценой
   const addUnitPrice = () => {
     if (unitKey.trim() && unitPrice.trim()) {
       setPricePerUnit(prev => ({ ...prev, [unitKey.trim()]: Number(unitPrice) }));
@@ -97,18 +95,15 @@ const UpdateProduct = () => {
     }
   };
 
-  // Удаление единицы измерения
   const removeUnitPrice = (unitToRemove) => {
     const newPricePerUnit = { ...pricePerUnit };
     delete newPricePerUnit[unitToRemove];
     setPricePerUnit(newPricePerUnit);
   };
 
-  // Обновление продукта
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      // Валидация
       if (!name.trim()) return toast.error("Название продукта обязательно");
       if (!description.trim()) return toast.error("Описание продукта обязательно");
       if (!category) return toast.error("Выберите категорию");
@@ -123,15 +118,7 @@ const UpdateProduct = () => {
       formData.append("characteristics", JSON.stringify(characteristics));
       formData.append("availability", availability);
       formData.append("pricePerUnit", JSON.stringify(pricePerUnit));
-      
-      // Добавляем новые фото, если они есть
-      if (photos.length > 0) {
-        photos.forEach(photo => {
-          if (photo instanceof File) {
-            formData.append("photos", photo);
-          }
-        });
-      }
+      photos.forEach((photo) => formData.append("photos", photo));
 
       const { data } = await axios.put(
         `${import.meta.env.VITE_API}/api/v1/product/update-product/${id}`,
@@ -155,7 +142,6 @@ const UpdateProduct = () => {
     }
   };
 
-  // Удаление продукта
   const handleDelete = async () => {
     try {
       let answer = window.prompt("Вы уверены, что хотите удалить этот продукт? Напишите 'да' для подтверждения.");
@@ -189,13 +175,16 @@ const UpdateProduct = () => {
         <div className="col-md-9">
           <h1>Обновить продукт</h1>
           <div className="m-1 w-75">
-            {/* Выбор категории */}
             <Select
               placeholder="Выберите категорию"
               size="large"
               showSearch
               className="form-select mb-3"
-              onChange={(value) => setCategory(value)}
+              onChange={(value) => {
+                console.log("Выбрана категория:", value);
+                setCategory(value);
+                setSubcategory(""); // Сбрасываем подкатегорию при изменении категории
+              }}
               value={category}
             >
               {categories?.map((c) => (
@@ -205,17 +194,20 @@ const UpdateProduct = () => {
               ))}
             </Select>
 
-            {/* Выбор подкатегории */}
             <Select
               placeholder="Выберите подкатегорию"
               size="large"
               showSearch
               className="form-select mb-3"
-              onChange={(value) => setSubcategory(value)}
+              onChange={(value) => {
+                console.log("Выбрана подкатегория:", value);
+                setSubcategory(value);
+              }}
               value={subcategory}
+              disabled={!category} // Деактивируем если категория не выбрана
             >
               {subcategories
-                ?.filter((sc) => sc.category?._id === category)
+                ?.filter((sc) => sc.category._id === category) // Изменено условие фильтрации
                 .map((sc) => (
                   <Option key={sc._id} value={sc._id}>
                     {sc.name}
@@ -223,7 +215,6 @@ const UpdateProduct = () => {
                 ))}
             </Select>
 
-            {/* Основные поля */}
             <div className="mb-3">
               <input
                 type="text"
@@ -244,7 +235,6 @@ const UpdateProduct = () => {
               />
             </div>
 
-            {/* Цены за единицу */}
             <div className="mb-3">
               <h5>Цены за единицу</h5>
               <div className="d-flex mb-2">
@@ -271,7 +261,6 @@ const UpdateProduct = () => {
                 </button>
               </div>
 
-              {/* Список текущих цен */}
               {Object.entries(pricePerUnit).length > 0 && (
                 <div className="mt-2">
                   <h6>Текущие цены:</h6>
@@ -292,7 +281,6 @@ const UpdateProduct = () => {
               )}
             </div>
 
-            {/* Загрузка фото */}
             <div className="mb-3">
               <label className="btn btn-outline-secondary col-md-12">
                 {photos.length > 0 ? `Выбрано файлов: ${photos.length}` : "Загрузить фото"}
@@ -307,7 +295,6 @@ const UpdateProduct = () => {
               </label>
             </div>
 
-            {/* Предпросмотр фото */}
             <div className="mb-3">
               <div className="d-flex flex-wrap gap-2">
                 {photos.length > 0 ? (
@@ -332,7 +319,6 @@ const UpdateProduct = () => {
               </div>
             </div>
 
-            {/* Статус наличия */}
             <div className="mb-3">
               <Select
                 placeholder="Статус наличия"
@@ -348,7 +334,6 @@ const UpdateProduct = () => {
               </Select>
             </div>
 
-            {/* Характеристики */}
             <div className="mb-3">
               <h5>Характеристики</h5>
               {characteristics.map((char, index) => (
@@ -396,7 +381,6 @@ const UpdateProduct = () => {
               </button>
             </div>
 
-            {/* Кнопки действий */}
             <div className="d-flex gap-3">
               <button className="btn btn-primary" onClick={handleUpdate}>
                 Обновить продукт

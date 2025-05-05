@@ -56,6 +56,11 @@ const upload = multer({
     }
 });
 
+export const productPhotoUpload = multer({
+    storage,
+    limits: { fileSize: 5 * 1024 * 1024 }, // Ограничение на размер файла 5MB
+}).array("photos", 5); // Разрешаем загрузку до 5 файлов
+
 // Экспортируем разные middleware для разных случаев
 export const productPhotosUpload = upload.array('photos', 5);
 export const reviewMediaUpload = upload.array('media', 8);

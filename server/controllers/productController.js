@@ -49,15 +49,12 @@ export const createProductController = async (req, res) => {
 };
 export const getProductController = async (req, res) => {
   try {
-    console.log('Fetching products...');
     const products = await productModel
       .find({})
       .populate("category")
-      .select("-photo")
-      .limit(12)
-      .sort({ createdAt: -1 });
+      .populate("subcategory")
+      .sort({ createdAt: -1 }); // Убрали лимит и добавили populate для subcategory
     
-    console.log('Products found:', products.length);
     res.status(200).send({
       success: true,
       countTotal: products.length,
@@ -223,6 +220,11 @@ export const updateProductController = async (req, res) => {
       }
     }
     
+    let updatedPhotos = [];
+    if (req.files && req.files.length > 0) {
+      updatedPhotos = req.files.map(file => file.path.replace(/\\/g, '/'));
+    }
+
     const updatedProduct = await productModel.findByIdAndUpdate(
       req.params.pid,
       {
@@ -231,38 +233,11 @@ export const updateProductController = async (req, res) => {
         subcategory: subcatId,
         characteristics: parsedCharacteristics,
         pricePerUnit: parsedPricePerUnit,
-        availability: availability || 'Есть в наличии'
+        availability: availability || 'Есть в наличии',
+        photos: updatedPhotos.length > 0 ? updatedPhotos : undefined, // Обновляем только если есть новые фото
       },
       { new: true }
     );
-    
-    if (req.files && req.files.length > 0) {
-      // Удаляем старые фото
-      if (updatedProduct.photos.length > 0) {
-        updatedProduct.photos.forEach(photo => {
-          const oldPhotoPath = path.join(process.cwd(), photo);
-          if (fs.existsSync(oldPhotoPath)) {
-            fs.unlinkSync(oldPhotoPath);
-          }
-        });
-      }
-
-      updatedProduct.photos = [];
-      const uploadDir = path.join(process.cwd(), "uploads", "products");
-      
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
-
-      for (const file of req.files) {
-        const ext = path.extname(file.originalname);
-        const fileName = `${Date.now()}-${slugify(name)}-${Math.random().toString(36).slice(2)}${ext}`;
-        const uploadPath = path.join(uploadDir, fileName);
-        
-        fs.writeFileSync(uploadPath, file.buffer);
-        updatedProduct.photos.push(`uploads/products/${fileName}`);
-      }
-    }
     
     await updatedProduct.save();
     res.status(200).send({

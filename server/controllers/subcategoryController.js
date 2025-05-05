@@ -87,23 +87,17 @@ export const updateSubcategoryController = async (req, res) => {
 export const getAllSubcategoriesController = async (req, res) => {
   try {
     const subcategories = await subcategoryModel.find({}).populate("category");
-    if (!subcategories || subcategories.length === 0) {
-      return res.status(404).send({
-        success: false,
-        message: "No subcategories found",
-      });
-    }
     res.status(200).send({
       success: true,
-      message: "All subcategories list",
+      message: "Все подкатегории",
       subcategories,
     });
   } catch (error) {
-    console.error("Error while getting subcategories: ", error);
+    console.error("Ошибка при получении подкатегорий:", error);
     res.status(500).send({
       success: false,
-      message: "Error while getting subcategories",
-      error: error.message || error,
+      message: "Ошибка при получении подкатегорий",
+      error: error.message,
     });
   }
 };

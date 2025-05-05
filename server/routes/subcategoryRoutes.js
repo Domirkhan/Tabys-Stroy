@@ -30,6 +30,9 @@ router.put(
 // получить все подкатегории (публичный)
 router.get("/get-subcategory", getAllSubcategoriesController);
 
+// получить все подкатегории (публичный)
+router.get("/get-subcategories", getAllSubcategoriesController);
+
 // получить одну подкатегорию по slug (публичный)
 router.get("/single-subcategory/:slug", singleSubcategoryController);
 
