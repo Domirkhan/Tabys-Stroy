@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import '../styles/Header.css';
 import cartIcon from "../icon/cart-2.png";
-import Products from "../../data/Products";
 import Logo from "../icon/logo.png";
 import Menu from "../icon/menu.png";
 import { NavLink } from 'react-router-dom';
@@ -14,24 +13,6 @@ import { toast } from 'react-hot-toast';
 import { useCart } from '../../context/cart.jsx';
 import { Badge } from "antd";
 import SearchInput from '../components/Form/SearchInput';
-
-
-//icons
-import plumbingIcon from "../icon/plumbing.png";
-import toolsIcon from "../icon/tools.png";
-import powerToolsIcon from "../icon/power-tools.png";
-import accessoriesIcon from "../icon/accessories.png";
-import gasIcon from "../icon/gas.png";
-import electricalIcon from "../icon/electrical.png";
-import lightingIcon from "../icon/lightingIcon.png";
-import decorIcon from "../icon/Decor.png";
-import paintIcon from "../icon/paint.png";
-import floorIcon from "../icon/floor.png";
-import buildingIcon from "../icon/building.png";
-import constructionIcon from "../icon/construction.png";
-import hardwareIcon from "../icon/hardware.png";
-import doorsIcon from "../icon/doors.png";
-import heatingIcon from "../icon/heating.png";
 import specialIcon from "../icon/special.png";
 import userIcon from '../icon/user.png';
 
@@ -88,9 +69,6 @@ function Header() {
     }, 500);
   };
 
-  const filteredProducts = Products.filter(product => 
-    product.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   const openCatalog = () => {
     setIsCatalogOpen(true);

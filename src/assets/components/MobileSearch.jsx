@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Products from '../../data/Products';
 import '../styles/MobileSearch.css';
 
 function MobileSearch() {
