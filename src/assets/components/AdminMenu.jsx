@@ -36,6 +36,7 @@ const AdminMenu = () => {
         >
           Заказы
         </NavLink>
+        <NavLink to="/dashboard/admin/promocodes"  className="list-group-item list-group-item-action">Промокоды</NavLink>
         </div>
       </div>
     </>

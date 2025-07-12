@@ -36,7 +36,10 @@ const orderSchema = new mongoose.Schema(
       type: String,
       enum: ["Не обработан", "В обработке", "Отправлен", "Доставлен", "Отменён"],
       default: "Отменён"
-    }
+    },
+    promoCode: { type: String, default: null },
+    discountPercent: { type: Number, default: 0 },
+    discountAmount: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
