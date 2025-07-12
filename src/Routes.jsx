@@ -31,7 +31,7 @@ import ForgotPasssword from './assets/Pages/Auth/ForgotPassword';
 import ResetPassword from './assets/Pages/Auth/ResetPassword';
 import Search from './assets/Pages/Search';
 import ProductCard from './assets/components/ProductCard';
-
+import AdminPromoCodes from './assets/Pages/Admin/AdminPromoCodes';
 
 
 
@@ -60,6 +60,7 @@ function RouterApp() {
           <Route path="admin/products" element={<Products />} />
           <Route path="admin/users" element={<Users />} />
           <Route path="admin/orders" element={<AdminOrders />} />
+          <Route path="/dashboard/admin/promocodes" element={<AdminPromoCodes />} />
         </Route>
 
         <Route path="/about" element={<About />} />
