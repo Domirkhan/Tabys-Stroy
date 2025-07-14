@@ -62,6 +62,8 @@ const Orders = () => {
                 {order.promoCode && order.discountAmount > 0 && (
                   <div style={{ color: "#4caf50", fontSize: "0.95em", marginTop: 2 }}>
                     Промокод <b>{order.promoCode}</b> применён: скидка {order.discountPercent}% (−{order.discountAmount} тг)
+                    <br />
+                    Итоговая цена: <span style={{ color: "#ff0000", fontWeight: 600 }}>{order.totalAmount} тг</span>
                   </div>
                 )}
                     <p>
