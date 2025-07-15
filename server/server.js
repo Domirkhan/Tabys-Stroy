@@ -12,6 +12,7 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import downloadRoutes from "./routes/downloadRoutes.js";
 import reviewRoutes from './routes/reviewRoutes.js';
 import statsRoutes from "./routes/statsRoutes.js";
+import promoCodeRoutes from "./routes/promoCodeRoutes.js";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import cors from "cors";
@@ -34,7 +35,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(cors({
-  origin: process.env.FRONTEND_URL.replace(/\/$/, ''), // Удаляем слеш в конце если есть
+  origin: [
+    process.env.FRONTEND_URL.replace(/\/$/, ''),
+    'http://localhost:5173',
+    'http://localhost:8080'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -50,6 +55,7 @@ app.use("/api/v1/upload", uploadRoutes);      // Для загрузки фай�
 app.use("/api/v1/download", downloadRoutes);    // Для отдачи файлов
 app.use('/api/v1/review', reviewRoutes);
 app.use("/api/v1/stats", statsRoutes);
+app.use("/api/v1/promo", promoCodeRoutes);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

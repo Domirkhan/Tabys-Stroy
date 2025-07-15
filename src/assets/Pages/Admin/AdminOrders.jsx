@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminMenu from "../../components/AdminMenu";
 import { toast } from "react-hot-toast";
-import { io } from "socket.io-client"; // Добавляем импорт
+import { io } from "socket.io-client";
 import Footer from "../../layout/Footer";
 import BottomNav from "../../components/BottomNav";
 import Header from "../../layout/Header";
@@ -28,14 +28,12 @@ const AdminOrders = () => {
 
   useEffect(() => {
     fetchOrders();
-     // Подписка на новые заказы
-     const socket = io(import.meta.env.VITE_API);
-     socket.on('newOrder', () => {
-       setNewOrders(prev => prev + 1);
-       fetchOrders(); // Обновляем список заказов
-     });
- 
-     return () => socket.disconnect();
+    const socket = io(import.meta.env.VITE_API);
+    socket.on('newOrder', () => {
+      setNewOrders(prev => prev + 1);
+      fetchOrders();
+    });
+    return () => socket.disconnect();
   }, []);
 
   const handleOrderStatusChange = async (orderId, newOrderStatus, newPaymentStatus) => {
@@ -58,7 +56,7 @@ const AdminOrders = () => {
     <>
       <Header />
       <div className="container">
-      <div className="container-fluid">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-md-3">
               <AdminMenu />
@@ -81,7 +79,28 @@ const AdminOrders = () => {
                         <div className="order-info">
                           <p><strong>Заказ ID:</strong> {order._id}</p>
                           <p><strong>Дата:</strong> {new Date(order.createdAt).toLocaleString()}</p>
-                          <p><strong>Сумма:</strong> {order.totalAmount} тг</p>
+                          <p>
+                          <strong>Общая сумма:</strong>{" "}
+                          {order.promoCode && order.discountAmount > 0 ? (
+                            <>
+                              <span style={{ textDecoration: "line-through", color: "#888", marginRight: 8 }}>
+                                {order.totalAmount + order.discountAmount} тг
+                              </span>
+                              <span style={{ color: "#ff0000", fontWeight: 600 }}>
+                                {order.totalAmount} тг
+                              </span>
+                            </>
+                          ) : (
+                            <span>{order.totalAmount} тг</span>
+                          )}
+                        </p>
+                        {order.promoCode && order.discountAmount > 0 && (
+                          <div style={{ color: "#4caf50", fontSize: "0.95em", marginTop: 2 }}>
+                            Промокод <b>{order.promoCode}</b> применён: скидка {order.discountPercent}% (−{order.discountAmount} тг)
+                            <br />
+                            Итоговая цена: <span style={{ color: "#ff0000", fontWeight: 600 }}>{order.totalAmount} тг</span>
+                          </div>
+                        )}
                         </div>
                         <div className="order-info">
                           <p><strong>Клиент:</strong> {order.user?.name}</p>

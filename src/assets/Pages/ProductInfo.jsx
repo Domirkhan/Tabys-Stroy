@@ -4,11 +4,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/ProductInfo.css";
 import { useCart } from "../../context/cart.jsx";
 import { toast } from "react-hot-toast";
-import Reviews from '../components/Reviews';
+import Reviews from "../components/Reviews";
 import Header from "../layout/Header.jsx";
 import Footer from "../layout/Footer.jsx";
 import BottomNav from "../components/BottomNav.jsx";
-
 
 const ProductInfo = () => {
   const [cart, setCart] = useCart();
@@ -17,7 +16,7 @@ const ProductInfo = () => {
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [selectedUnit, setSelectedUnit] = useState('');
+  const [selectedUnit, setSelectedUnit] = useState("");
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const ProductInfo = () => {
       setSelectedUnit(Object.keys(product.pricePerUnit)[0]);
     }
   }, [product]);
-  
+
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
@@ -41,9 +40,11 @@ const ProductInfo = () => {
         // Добавляем базовый URL к путям изображений
         const productWithFullImagePaths = {
           ...data.product,
-          photos: data.product.photos?.map(photo => 
-            photo.startsWith('http') ? photo : `${import.meta.env.VITE_API}/${photo}`
-          )
+          photos: data.product.photos?.map((photo) =>
+            photo.startsWith("http")
+              ? photo
+              : `${import.meta.env.VITE_API}/${photo}`
+          ),
         };
         setProduct(productWithFullImagePaths);
         getSimilarProduct(data.product._id, data.product.category?._id);
@@ -52,19 +53,23 @@ const ProductInfo = () => {
       console.error("Error fetching product:", error);
     }
   };
-  
+
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `${import.meta.env.VITE_API}/api/v1/product/related-product/${pid}/${cid}`
+        `${
+          import.meta.env.VITE_API
+        }/api/v1/product/related-product/${pid}/${cid}`
       );
       if (data?.products) {
         // Добавляем базовый URL к путям изображений похожих продуктов
-        const productsWithFullImagePaths = data.products.map(product => ({
+        const productsWithFullImagePaths = data.products.map((product) => ({
           ...product,
-          photos: product.photos?.map(photo =>
-            photo.startsWith('http') ? photo : `${import.meta.env.VITE_API}/${photo}`
-          )
+          photos: product.photos?.map((photo) =>
+            photo.startsWith("http")
+              ? photo
+              : `${import.meta.env.VITE_API}/${photo}`
+          ),
         }));
         setRelatedProducts(productsWithFullImagePaths);
       }
@@ -74,35 +79,34 @@ const ProductInfo = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => 
-      prev === (product.photos?.length - 1) ? 0 : prev + 1
+    setCurrentImageIndex((prev) =>
+      prev === product.photos?.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => 
-      prev === 0 ? (product.photos?.length - 1) : prev - 1
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? product.photos?.length - 1 : prev - 1
     );
   };
   const addToCart = () => {
     // Проверяем, есть ли товар с такой же единицей измерения в корзине
-    const existingItem = cart.find(item => 
-      item._id === product._id && 
-      item.selectedUnit === selectedUnit
+    const existingItem = cart.find(
+      (item) => item._id === product._id && item.selectedUnit === selectedUnit
     );
-    
+
     if (existingItem) {
       toast.error(`Товар с единицей измерения ${selectedUnit} уже в корзине`);
       return;
     }
-  
+
     const cartItem = {
       ...product,
       selectedUnit,
       quantity,
-      price: product.pricePerUnit[selectedUnit]
+      price: product.pricePerUnit[selectedUnit],
     };
-    
+
     setCart([...cart, cartItem]);
     localStorage.setItem("cart", JSON.stringify([...cart, cartItem]));
     toast.success("Товар добавлен в корзину");
@@ -111,53 +115,63 @@ const ProductInfo = () => {
   const addRelatedToCart = (p) => {
     // Получаем первую доступную единицу измерения
     const [firstUnit] = Object.keys(p.pricePerUnit);
-    
+
     // Проверяем, есть ли товар с такой же единицей измерения в корзине
-    const existingItem = cart.find(item => 
-      item._id === p._id && 
-      item.selectedUnit === firstUnit
+    const existingItem = cart.find(
+      (item) => item._id === p._id && item.selectedUnit === firstUnit
     );
-    
+
     if (existingItem) {
       toast.error(`Товар с единицей измерения ${firstUnit} уже в корзине`);
       return;
     }
-  
+
     const cartItem = {
       ...p,
       selectedUnit: firstUnit,
       quantity: 1,
-      price: p.pricePerUnit[firstUnit]
+      price: p.pricePerUnit[firstUnit],
     };
-    
+
     setCart([...cart, cartItem]);
     localStorage.setItem("cart", JSON.stringify([...cart, cartItem]));
     toast.success("Товар добавлен в корзину");
   };
-  
+
   return (
     <>
-    <Header />
+      <Header />
       <div className="row container mt-2 product-details">
-      <h1 className="section-title-category">Детали продукта</h1>
+        <h1 className="section-title-category">Детали продукта</h1>
         <div className="col-md-6 product-image-container">
           <div className="product-image-slider">
-          <img
-            src={product.photos?.[currentImageIndex] || `${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}`}
-            className="product-main-image"
-            alt={product.name}
-            height="300"
-            width="350px"
-          />
+            <img
+              src={
+                product.photos?.[currentImageIndex] ||
+                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
+                  product._id
+                }`
+              }
+              className="product-main-image"
+              alt={product.name}
+              height="300"
+              width="350px"
+            />
             {product.photos?.length > 1 && (
               <>
-                <button className="slider-btn prev" onClick={prevImage}>‹</button>
-                <button className="slider-btn next" onClick={nextImage}>›</button>
+                <button className="slider-btn prev" onClick={prevImage}>
+                  ‹
+                </button>
+                <button className="slider-btn next" onClick={nextImage}>
+                  ›
+                </button>
                 <div className="image-dots">
                   {product.photos?.map((_, index) => (
                     <span
                       key={index}
-                      className={`dot ${index === currentImageIndex ? 'active' : ''}`}
+                      className={`dot ${
+                        index === currentImageIndex ? "active" : ""
+                      }`}
                       onClick={() => setCurrentImageIndex(index)}
                     />
                   ))}
@@ -176,7 +190,7 @@ const ProductInfo = () => {
               <ul>
                 {product.characteristics.map((char, index) => (
                   <li key={index}>
-                    {char.key}: {char.value}
+                    {char.key} : {char.value}
                   </li>
                 ))}
               </ul>
@@ -184,96 +198,114 @@ const ProductInfo = () => {
           )}
           <div className="price-section">
             <h2 className="price-amount">
-              {product.pricePerUnit && selectedUnit 
+              {product.pricePerUnit && selectedUnit
                 ? `${product.pricePerUnit[selectedUnit]} тг за ${selectedUnit}`
                 : ""}
             </h2>
-            
+
             <div className="unit-quantity-selector">
               <div className="unit-selector">
                 <label>Выберите единицу:</label>
-                <select 
-                  value={selectedUnit} 
+                <select
+                  value={selectedUnit}
                   onChange={(e) => setSelectedUnit(e.target.value)}
                 >
-                  {product.pricePerUnit && Object.keys(product.pricePerUnit).map(unit => (
-                    <option key={unit} value={unit}>{unit}</option>
-                  ))}
+                  {product.pricePerUnit &&
+                    Object.keys(product.pricePerUnit).map((unit) => (
+                      <option key={unit} value={unit}>
+                        {unit}
+                      </option>
+                    ))}
                 </select>
               </div>
-              
+
               <div className="quantity-controls">
-                <button onClick={() => setQuantity(prev => Math.max(1, prev - 1))}>-</button>
+                <button
+                  onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                >
+                  -
+                </button>
                 <span>{quantity}</span>
-                <button onClick={() => setQuantity(prev => prev + 1)}>+</button>
+                <button onClick={() => setQuantity((prev) => prev + 1)}>
+                  +
+                </button>
               </div>
             </div>
-            <button 
-          className="btn btn-secondary ms-1"
-          onClick={addToCart}
-          disabled={product.availability === 'Нет в наличии'}
-        >
-          Добавить в корзину
-        </button> 
+            <button
+              className="btn btn-secondary ms-1"
+              onClick={addToCart}
+              disabled={product.availability === "Нет в наличии"}
+            >
+              Добавить в корзину
+            </button>
           </div>
         </div>
         <Reviews productId={product?._id} />
       </div>
       <hr />
       <div className="container">
-      <div className="similar-products">
-      <h6>Похожие товары</h6>
-      {relatedProducts.length < 1 ? (
-        <p className="text-center">нету похожих товаров</p>
-      ) : (
-        <div className="d-flex flex-wrap">
-          {relatedProducts.map((p) => (
-              <div className="card m-2" key={p._id}>
-              <img
-                src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}`}
-                className="card-img-top"
-                alt={p.name}
-              />
-              <div className="card-body">
-                <div className="card-title-text">
-                  <h5 className="product-title">{p.name}</h5>
+        <div className="similar-products">
+          <h6>Похожие товары</h6>
+          {relatedProducts.length < 1 ? (
+            <p className="text-center">нету похожих товаров</p>
+          ) : (
+            <div className="d-flex flex-wrap">
+              {relatedProducts.map((p) => (
+                <div className="card m-2" key={p._id}>
+                  <img
+                    src={`${
+                      import.meta.env.VITE_API
+                    }/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt={p.name}
+                  />
+                  <div className="card-body">
+                    <div className="card-title-text">
+                      <h5 className="product-title">{p.name}</h5>
+                    </div>
+                    <div className="price-and-status">
+                      {p.pricePerUnit && Object.entries(p.pricePerUnit)[0] && (
+                        <p className="current-price">
+                          {Object.entries(p.pricePerUnit)[0][1]} тг за{" "}
+                          {Object.entries(p.pricePerUnit)[0][0]}
+                        </p>
+                      )}
+                      <p
+                        className={`availability-status ${
+                          p.availability === "Есть в наличии"
+                            ? "in-stock"
+                            : p.availability === "Нет в наличии"
+                            ? "out-of-stock"
+                            : p.availability === "Под заказ"
+                            ? "on-order"
+                            : "check-availability"
+                        }`}
+                      >
+                        {p.availability || "Уточнить наличие"}
+                      </p>
+                    </div>
+                    <div className="card-buttons">
+                      <button
+                        className="details-btn"
+                        onClick={() => navigate(`/product/${p.slug}`)}
+                      >
+                        Подробнее
+                      </button>
+                      <button
+                        className="add-to-cart-btn"
+                        onClick={() => addRelatedToCart(p)} // Изменить эту строку
+                        disabled={p.availability === "Нет в наличии"} // Изменить эту строку
+                      >
+                        В корзину
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div className="price-and-status">
-                  {p.pricePerUnit && Object.entries(p.pricePerUnit)[0] && (
-                    <p className="current-price">
-                      {Object.entries(p.pricePerUnit)[0][1]} тг за {Object.entries(p.pricePerUnit)[0][0]}
-                    </p>
-                  )}
-                  <p className={`availability-status ${
-                    p.availability === 'Есть в наличии' ? 'in-stock' : 
-                    p.availability === 'Нет в наличии' ? 'out-of-stock' : 
-                    p.availability === 'Под заказ' ? 'on-order' : 'check-availability'
-                  }`}>
-                    {p.availability || 'Уточнить наличие'}
-                  </p>
-                </div>
-                <div className="card-buttons">
-                  <button
-                    className="details-btn"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    Подробнее
-                  </button>
-                  <button
-                    className="add-to-cart-btn"
-                    onClick={() => addRelatedToCart(p)} // Изменить эту строку
-                    disabled={p.availability === 'Нет в наличии'} // Изменить эту строку
-                  >
-                    В корзину
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
-      )}
-    </div>
-    </div>
+      </div>
       <BottomNav />
       <Footer />
     </>
