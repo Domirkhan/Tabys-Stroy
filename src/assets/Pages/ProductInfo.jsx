@@ -8,6 +8,7 @@ import Reviews from "../components/Reviews";
 import Header from "../layout/Header.jsx";
 import Footer from "../layout/Footer.jsx";
 import BottomNav from "../components/BottomNav.jsx";
+import { FaShoppingCart } from "react-icons/fa";
 
 const ProductInfo = () => {
   const [cart, setCart] = useCart();
@@ -251,7 +252,11 @@ const ProductInfo = () => {
           ) : (
             <div className="d-flex flex-wrap">
               {relatedProducts.map((p) => (
-                <div className="card m-2" key={p._id}>
+                <div
+                  className="card"
+                  key={p._id}
+                  onClick={() => navigate(`/product/${p.slug}`)}
+                >
                   <img
                     src={`${
                       import.meta.env.VITE_API
@@ -260,43 +265,39 @@ const ProductInfo = () => {
                     alt={p.name}
                   />
                   <div className="card-body">
-                    <div className="card-title-text">
-                      <h5 className="product-title">{p.name}</h5>
-                    </div>
-                    <div className="price-and-status">
-                      {p.pricePerUnit && Object.entries(p.pricePerUnit)[0] && (
-                        <p className="current-price">
-                          {Object.entries(p.pricePerUnit)[0][1]} тг за{" "}
-                          {Object.entries(p.pricePerUnit)[0][0]}
-                        </p>
-                      )}
-                      <p
-                        className={`availability-status ${
-                          p.availability === "Есть в наличии"
-                            ? "in-stock"
-                            : p.availability === "Нет в наличии"
-                            ? "out-of-stock"
-                            : p.availability === "Под заказ"
-                            ? "on-order"
-                            : "check-availability"
-                        }`}
-                      >
-                        {p.availability || "Уточнить наличие"}
-                      </p>
-                    </div>
-                    <div className="card-buttons">
-                      <button
-                        className="details-btn"
-                        onClick={() => navigate(`/product/${p.slug}`)}
-                      >
-                        Подробнее
-                      </button>
+                    <div className="card-title-text">{p.name}</div>
+                    <p
+                      className={`availability-status ${
+                        p.availability === "Есть в наличии"
+                          ? "in-stock"
+                          : p.availability === "Нет в наличии"
+                          ? "out-of-stock"
+                          : p.availability === "Под заказ"
+                          ? "on-order"
+                          : "check-availability"
+                      }`}
+                    >
+                      {p.availability || "Уточнить наличие"}
+                    </p>
+                    <div className="card-footer">
+                      <div className="price-and-status">
+                        {p.pricePerUnit &&
+                          Object.entries(p.pricePerUnit)[0] && (
+                            <p className="current-price">
+                              {Object.entries(p.pricePerUnit)[0][1]} тг/
+                              {Object.entries(p.pricePerUnit)[0][0]}
+                            </p>
+                          )}
+                      </div>
                       <button
                         className="add-to-cart-btn"
-                        onClick={() => addRelatedToCart(p)} // Изменить эту строку
-                        disabled={p.availability === "Нет в наличии"} // Изменить эту строку
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          addRelatedToCart(p);
+                        }}
+                        disabled={p.availability === "Нет в наличии"}
                       >
-                        В корзину
+                        <FaShoppingCart size={16} />
                       </button>
                     </div>
                   </div>
