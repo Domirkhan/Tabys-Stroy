@@ -135,6 +135,10 @@
     flex-direction: column;
     gap: 0.25rem;
 }
+.card-footer{
+  background: none;
+}
+
 /* Адаптивные стили */
 @media (max-width: 768px) {
   .product-title-card {
