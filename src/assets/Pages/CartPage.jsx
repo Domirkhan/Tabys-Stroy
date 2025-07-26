@@ -8,7 +8,8 @@ import "../../assets/styles/CartPage.css";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import BottomNav from "../components/BottomNav";
-import { DeleteOutlined } from '@ant-design/icons';
+import { FaCheck } from "react-icons/fa";
+import { DeleteOutlined } from "@ant-design/icons";
 
 const CartPage = () => {
   const [auth] = useAuth();
@@ -117,7 +118,9 @@ const CartPage = () => {
              Не действует на категории: ${excludedSubcategoryNames.join(", ")}`
           );
         } else {
-          toast.success(`Промокод применён! Скидка ${data.promo.discountPercent}%`);
+          toast.success(
+            `Промокод применён! Скидка ${data.promo.discountPercent}%`
+          );
         }
       } else {
         setPromo(null);
@@ -220,13 +223,17 @@ const CartPage = () => {
                     const discountPercent = getDiscountForItem(item);
                     const price = item.pricePerUnit[item.selectedUnit];
                     const discountedPrice = getDiscountedPrice(item);
-                    const isExcluded = promo?.excludedSubcategories?.includes(item.subcategory?._id);
+                    const isExcluded = promo?.excludedSubcategories?.includes(
+                      item.subcategory?._id
+                    );
 
                     return (
                       <div key={`${item._id}-${index}`} className="cart-item">
                         <div className="item-image">
                           <img
-                            src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${item._id}`}
+                            src={`${
+                              import.meta.env.VITE_API
+                            }/api/v1/product/product-photo/${item._id}`}
                             alt={item.name}
                           />
                         </div>
@@ -236,19 +243,39 @@ const CartPage = () => {
                           <div className="item-price">
                             {discountPercent > 0 ? (
                               <>
-                                <span style={{ textDecoration: "line-through", color: "#888", marginRight: 8 }}>
+                                <span
+                                  style={{
+                                    textDecoration: "line-through",
+                                    color: "#888",
+                                    marginRight: 8,
+                                  }}
+                                >
                                   {price} тг/{item.selectedUnit}
                                 </span>
-                                <span style={{ color: "#ff0000", fontWeight: 600 }}>
+                                <span
+                                  style={{ color: "#ff0000", fontWeight: 600 }}
+                                >
                                   {discountedPrice} тг/{item.selectedUnit}{" "}
-                                  <span style={{ fontSize: 12, color: "#4caf50" }}>−{discountPercent}%</span>
+                                  <span
+                                    style={{ fontSize: 12, color: "#4caf50" }}
+                                  >
+                                    −{discountPercent}%
+                                  </span>
                                 </span>
                               </>
                             ) : (
                               <>
-                                <span>{price} тг/{item.selectedUnit}</span>
+                                <span>
+                                  {price} тг/{item.selectedUnit}
+                                </span>
                                 {isExcluded && (
-                                  <span style={{ color: "#ff7043", fontSize: "0.8rem", marginLeft: 8 }}>
+                                  <span
+                                    style={{
+                                      color: "#ff7043",
+                                      fontSize: "0.8rem",
+                                      marginLeft: 8,
+                                    }}
+                                  >
                                     * Промокод не действует
                                   </span>
                                 )}
@@ -260,14 +287,26 @@ const CartPage = () => {
                             <div className="quantity-controls">
                               <button
                                 className="quantity-btn"
-                                onClick={() => updateCartItemQuantity(item._id, item.selectedUnit, item.quantity - 1)}
+                                onClick={() =>
+                                  updateCartItemQuantity(
+                                    item._id,
+                                    item.selectedUnit,
+                                    item.quantity - 1
+                                  )
+                                }
                               >
                                 −
                               </button>
                               <span className="quantity">{item.quantity}</span>
                               <button
                                 className="quantity-btn"
-                                onClick={() => updateCartItemQuantity(item._id, item.selectedUnit, item.quantity + 1)}
+                                onClick={() =>
+                                  updateCartItemQuantity(
+                                    item._id,
+                                    item.selectedUnit,
+                                    item.quantity + 1
+                                  )
+                                }
                               >
                                 +
                               </button>
@@ -276,10 +315,21 @@ const CartPage = () => {
                             <div className="item-total">
                               {discountPercent > 0 ? (
                                 <>
-                                  <span style={{ textDecoration: "line-through", color: "#888", marginRight: 8 }}>
+                                  <span
+                                    style={{
+                                      textDecoration: "line-through",
+                                      color: "#888",
+                                      marginRight: 8,
+                                    }}
+                                  >
                                     {price * item.quantity} тг
                                   </span>
-                                  <span style={{ color: "#ff0000", fontWeight: 600 }}>
+                                  <span
+                                    style={{
+                                      color: "#ff0000",
+                                      fontWeight: 600,
+                                    }}
+                                  >
                                     {discountedPrice * item.quantity} тг
                                   </span>
                                 </>
@@ -290,7 +340,9 @@ const CartPage = () => {
 
                             <button
                               className="remove-btn"
-                              onClick={() => removeCartItem(item._id, item.selectedUnit)}
+                              onClick={() =>
+                                removeCartItem(item._id, item.selectedUnit)
+                              }
                             >
                               <DeleteOutlined /> Удалить
                             </button>
@@ -302,7 +354,14 @@ const CartPage = () => {
                 </div>
 
                 <div className="promo-section" style={{ margin: "1.5rem 0" }}>
-                  <div style={{ display: "flex", gap: 8, alignItems: "center", maxWidth: 350 }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: 8,
+                      alignItems: "center",
+                      maxWidth: 350,
+                    }}
+                  >
                     <input
                       type="text"
                       placeholder="Промокод"
@@ -321,15 +380,28 @@ const CartPage = () => {
                     {!promo ? (
                       <button
                         className="checkout-btn"
-                        style={{ width: 120, padding: "0.5rem", fontSize: "1rem" }}
+                        style={{
+                          width: 120,
+                          padding: "0.5rem",
+                          fontSize: "1rem",
+                        }}
                         onClick={handleApplyPromo}
                       >
-                        Применить
+                        {/* Добавляем условный рендеринг для мобильной версии */}
+                        <span className="button-text">Применить</span>
+                        <span className="button-icon">
+                          <FaCheck />
+                        </span>
                       </button>
                     ) : (
                       <button
                         className="login-btn"
-                        style={{ width: 120, padding: "0.5rem", fontSize: "1rem", background: "#eee" }}
+                        style={{
+                          width: 120,
+                          padding: "0.5rem",
+                          fontSize: "1rem",
+                          background: "#eee",
+                        }}
                         onClick={handleRemovePromo}
                       >
                         Убрать
@@ -337,27 +409,48 @@ const CartPage = () => {
                     )}
                   </div>
                   {promo && (
-                    <div style={{ color: totalWithDiscount().discount > 0 ? "#4caf50" : "#ff0000", marginTop: 8 }}>
+                    <div
+                      style={{
+                        color:
+                          totalWithDiscount().discount > 0
+                            ? "#4caf50"
+                            : "#ff0000",
+                        marginTop: 8,
+                      }}
+                    >
                       {totalWithDiscount().discount > 0 && (
                         <>
                           <div>
-                            Промокод <b>{promo.code}</b> применён: скидка {promo.discountPercent}% 
-                            (−{totalWithDiscount().discount} тг)
+                            Промокод <b>{promo.code}</b> применён: скидка{" "}
+                            {promo.discountPercent}% (−
+                            {totalWithDiscount().discount} тг)
                           </div>
                           {excludedCategories.length > 0 && (
-                            <div style={{ color: "#ff7043", fontSize: "0.9rem", marginTop: 4 }}>
-                              * Промокод не действует на категории: {excludedCategories.join(", ")}
+                            <div
+                              style={{
+                                color: "#ff7043",
+                                fontSize: "0.9rem",
+                                marginTop: 4,
+                              }}
+                            >
+                              * Промокод не действует на категории:{" "}
+                              {excludedCategories.join(", ")}
                             </div>
                           )}
                         </>
                       )}
                       {totalWithDiscount().discount === 0 && (
-                        <>Промокод применяется только при сумме заказа от {promo.minAmount || 0} тг</>
+                        <>
+                          Промокод применяется только при сумме заказа от{" "}
+                          {promo.minAmount || 0} тг
+                        </>
                       )}
                     </div>
                   )}
                   {promoError && (
-                    <div style={{ color: "#ff0000", marginTop: 8 }}>{promoError}</div>
+                    <div style={{ color: "#ff0000", marginTop: 8 }}>
+                      {promoError}
+                    </div>
                   )}
                 </div>
 
@@ -375,9 +468,17 @@ const CartPage = () => {
                   <div className="total">
                     <span>Итого:</span>
                     <span className="total-amount">
-                      {promo && promo.discountPercent > 0 && totalWithDiscount().discount > 0 ? (
+                      {promo &&
+                      promo.discountPercent > 0 &&
+                      totalWithDiscount().discount > 0 ? (
                         <>
-                          <span style={{ textDecoration: "line-through", color: "#888", marginRight: 8 }}>
+                          <span
+                            style={{
+                              textDecoration: "line-through",
+                              color: "#888",
+                              marginRight: 8,
+                            }}
+                          >
                             {calcTotal()} тг
                           </span>
                           <span style={{ color: "#ff0000", fontWeight: 600 }}>
@@ -391,7 +492,10 @@ const CartPage = () => {
                   </div>
 
                   {auth?.user ? (
-                    <button className="checkout-btn" onClick={checkoutOrder}>
+                    <button
+                      className="cart-checkout-btn"
+                      onClick={checkoutOrder}
+                    >
                       Оформить заказ
                     </button>
                   ) : (
