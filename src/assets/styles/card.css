@@ -196,7 +196,9 @@
     }
 }
 @media (max-width: 480px) {
-  
+  .current-price {
+    font-size: 0.7rem;
+  }
   .product-price{
     font-size: 0.7rem; /* Уменьшаем размер шрифта */
   }
