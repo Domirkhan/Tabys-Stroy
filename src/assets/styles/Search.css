@@ -32,7 +32,7 @@
   /* Адаптивность */
   @media (max-width: 768px) {
     .search-page {
-      margin-top: 4rem;
+      margin-top: 0;
       padding: 1rem 0;
     }
   

@@ -164,3 +164,18 @@ p{
         gap: 0.2rem;
     }
 }
+
+@media (max-width: 400px) {
+    .container-sub {
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 0 0.5rem;
+    }
+    .card-body {
+        gap: 0.1rem;
+    }
+    .row-subcategory {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+}

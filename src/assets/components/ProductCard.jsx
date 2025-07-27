@@ -1,97 +1,90 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useCart } from '../../context/cart';
-import toast from 'react-hot-toast';
-import '../../assets/styles/card.css';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/cart";
+import toast from "react-hot-toast";
+import { FaShoppingCart } from "react-icons/fa";
+import "../styles/card.css";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
 
-  // Если product не передан, не отображаем карточку
   if (!product) {
     return null;
   }
 
-  // Обработчик перехода на страницу товара
   const handleNavigateToProduct = () => {
     navigate(`/product/${product.slug}`);
   };
 
-  // Обработчик добавления в корзину
   const handleAddToCart = (e) => {
     e.stopPropagation();
     const [firstUnit] = Object.keys(product.pricePerUnit);
-    
-    // Проверяем есть ли товар с такой же единицей измерения
-    const existingItem = cart.find(item => 
-      item._id === product._id && 
-      item.selectedUnit === firstUnit
+
+    const existingItem = cart.find(
+      (item) => item._id === product._id && item.selectedUnit === firstUnit
     );
-    
+
     if (existingItem) {
       toast.error(`Товар с единицей измерения ${firstUnit} уже в корзине`);
       return;
     }
-  
+
     const cartItem = {
       ...product,
-      quantity: 1,
       selectedUnit: firstUnit,
+      quantity: 1,
+      price: product.pricePerUnit[firstUnit],
     };
-  
+
     setCart([...cart, cartItem]);
-    localStorage.setItem('cart', JSON.stringify([...cart, cartItem]));
-    toast.success('Товар добавлен в корзину');
+    localStorage.setItem("cart", JSON.stringify([...cart, cartItem]));
+    toast.success("Товар добавлен в корзину");
   };
 
   return (
-    <div className="card-container">
-      <div className="product-image-container" onClick={handleNavigateToProduct}>
-        <img 
-          src={product.photo || product.image || 'default_image.jpg'} 
-          alt={product.name || 'Продукт'} 
-          className="product-image"
-        />
-      </div>
-      
-      <div className="product-info-card" onClick={handleNavigateToProduct}>
-        <h3 className="product-title-card">{product.name}</h3>
-        
-        <div className="price-and-status">
-          <div className="price-wrapper">
-            <span className="current-price">
-              {product.pricePerUnit && Object.entries(product.pricePerUnit)[0] ? 
-                `${Object.entries(product.pricePerUnit)[0][1]} тг за ${Object.entries(product.pricePerUnit)[0][0]}` : 
-                product.price ? `${product.price} тг` : 'Цена по запросу'
-              }
-            </span>
+    <div className="card" onClick={handleNavigateToProduct}>
+      <img
+        src={product.photo || product.image || "default_image.jpg"}
+        className="card-img-top"
+        alt={product.name}
+      />
+      <div className="card-body">
+        <div className="card-title-text">{product.name}</div>
+        <p
+          className={`availability-status ${
+            product.availability === "Есть в наличии"
+              ? "in-stock"
+              : product.availability === "Нет в наличии"
+              ? "out-of-stock"
+              : product.availability === "Под заказ"
+              ? "on-order"
+              : "check-availability"
+          }`}
+        >
+          {product.availability || "Уточнить наличие"}
+        </p>
+        <div className="card-footer">
+          <div className="price-and-status">
+            {product.pricePerUnit &&
+              Object.entries(product.pricePerUnit)[0] && (
+                <p className="current-price">
+                  {Object.entries(product.pricePerUnit)[0][1]} тг/
+                  {Object.entries(product.pricePerUnit)[0][0]}
+                </p>
+              )}
           </div>
-          
-          <span className={`availability-status ${
-            product.availability === 'Есть в наличии' ? 'in-stock' :
-            product.availability === 'Нет в наличии' ? 'out-of-stock' :
-            product.availability === 'Под заказ' ? 'on-order' : 'check-availability'
-          }`}>
-            {product.availability || 'Уточнить наличие'}
-          </span>
+          <button
+            className="add-to-cart-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleAddToCart(e);
+            }}
+            disabled={product.availability === "Нет в наличии"}
+          >
+            <FaShoppingCart size={16} />
+          </button>
         </div>
-      </div>
-
-      <div className="card-buttons">
-        <button 
-          className="details-btn"
-          onClick={handleNavigateToProduct}
-        >
-          Подробнее
-        </button>
-        <button 
-          className="add-to-cart-btn"
-          onClick={handleAddToCart}
-          disabled={product.availability === 'Нет в наличии'}
-        >
-          В корзину
-        </button>
       </div>
     </div>
   );
