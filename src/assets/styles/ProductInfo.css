@@ -204,18 +204,23 @@
   margin: 0 !important;
   border: 1px solid #ddd;
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .similar-products .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
 .similar-products .card-img-top {
+  width: 100%;
   height: 200px;
   object-fit: contain;
-  padding: 10px;
+  margin-bottom: 1rem;
 }
 
 
@@ -236,6 +241,10 @@
   .similar-products .d-flex {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+  
+  .similar-products .card-img-top {
+    height: 150px;
   }
 }
 
@@ -309,5 +318,8 @@
 @media (max-width: 400px) {
   .d-flex {
     flex-direction: column;
+  }
+  .similar-products .d-flex {
+    grid-template-columns: 1fr;
   }
 }

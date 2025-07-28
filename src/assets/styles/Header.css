@@ -6,6 +6,41 @@
     background: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+/* Обновляем стили для выпадающего меню профиля */
+.dropdown-menu {
+  background: #fff;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 0.5rem;
+  min-width: 200px;
+  margin-top: 0.5rem;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #333;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  background: transparent; /* Добавляем прозрачный фон */
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background: #f8f9fa;
+  color: #ff0000;
+  transform: translateX(5px);
+}
+
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item:focus {
+  background: #f8f9fa;
+  color: #ff0000;
+}
 
 .logotipe{
     width: 36px;

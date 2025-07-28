@@ -7,7 +7,7 @@ import { io } from "socket.io-client";
 import Footer from "../../layout/Footer";
 import BottomNav from "../../components/BottomNav";
 import Header from "../../layout/Header";
-import '../../styles/Admin.css'
+import "../../styles/Admin.css";
 
 const AdminDashboard = () => {
   const [auth] = useAuth();
@@ -16,14 +16,12 @@ const AdminDashboard = () => {
     successfulOrders: 0,
     cancelledOrders: 0,
     totalUsers: 0,
-    totalRevenue: 0
+    totalRevenue: 0,
   });
 
   const [socket, setSocket] = useState(null);
 
-  
   useEffect(() => {
-    
     // Запрашиваем разрешение на уведомления
     if (Notification.permission !== "granted") {
       Notification.requestPermission();
@@ -31,22 +29,21 @@ const AdminDashboard = () => {
 
     const socket = io(import.meta.env.VITE_API, {
       auth: {
-        token: auth?.token
-      }
+        token: auth?.token,
+      },
     });
 
-    socket.on('newOrder', async (data) => {
-      console.log('Получен новый заказ:', data);
-      
+    socket.on("newOrder", async (data) => {
+      console.log("Получен новый заказ:", data);
+
       try {
-        
         if (playPromise !== undefined) {
           playPromise
             .then(() => {
-              console.log('Звук успешно воспроизведен');
+              console.log("Звук успешно воспроизведен");
             })
-            .catch(err => {
-              console.error('Ошибка воспроизведения звука:', err);
+            .catch((err) => {
+              console.error("Ошибка воспроизведения звука:", err);
             });
         }
 
@@ -55,21 +52,20 @@ const AdminDashboard = () => {
           new Notification("Новый заказ!", {
             body: `Новый заказ от ${data.userName} на сумму ${data.totalAmount} тг`,
             icon: "/logo.png",
-            silent: true // Отключаем стандартный звук уведомления
+            silent: true, // Отключаем стандартный звук уведомления
           });
         }
-        
+
         // Обновляем статистику и показываем toast
         getStats();
         toast.success(`Новый заказ от ${data.userName}`);
       } catch (error) {
-        console.error('Ошибка при обработке нового заказа:', error);
+        console.error("Ошибка при обработке нового заказа:", error);
       }
     });
 
     // Очистка при размонтировании
     return () => {
-     
       socket.disconnect();
     };
   }, [auth?.token]);
@@ -80,8 +76,8 @@ const AdminDashboard = () => {
         `${import.meta.env.VITE_API}/api/v1/stats/admin`,
         {
           headers: {
-            Authorization: auth?.token
-          }
+            Authorization: auth?.token,
+          },
         }
       );
       if (data?.success) {
@@ -99,65 +95,55 @@ const AdminDashboard = () => {
 
   return (
     <>
-    <Header/>
-    <div className="container">
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-3">
-          <AdminMenu />
-        </div>
-        <div className="col-md-9">
-          <h1 className="static">Статистика</h1>
+      <Header />
+      <div className="container">
+        <div className="container-fluid">
           <div className="row">
-            <div className="col-md-4">
-              <div className="card text-center mb-3">
-                <div className="card-body">
-                  <h3 className="card-title">Всего заказов</h3>
-                  <p className="card-text display-4">{stats.totalOrders}</p>
+            <div className="col-md-3">
+              <AdminMenu />
+            </div>
+            <div className="col-md-9">
+              <h1 className="static">Статистика</h1>
+              <div className="row">
+                <div className="col-md-4">
+                  <div className="stats-card stats-total">
+                    <h3 className="card-title">Всего заказов</h3>
+                    <p className="display-4">{stats.totalOrders}</p>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="stats-card stats-success">
+                    <h3 className="card-title">Успешных заказов</h3>
+                    <p className="display-4">{stats.successfulOrders}</p>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="stats-card stats-cancelled">
+                    <h3 className="card-title">Отменённых заказов</h3>
+                    <p className="display-4">{stats.cancelledOrders}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card text-center mb-3 bg-success text-white">
-                <div className="card-body">
-                  <h3 className="card-title">Успешных заказов</h3>
-                  <p className="card-text display-4">{stats.successfulOrders}</p>
+              <div className="row mt-4">
+                <div className="col-md-6">
+                  <div className="stats-card stats-users">
+                    <h3 className="card-title">Всего пользователей</h3>
+                    <p className="display-4">{stats.totalUsers}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card text-center mb-3 bg-danger text-white">
-                <div className="card-body">
-                  <h3 className="card-title">Отменённых заказов</h3>
-                  <p className="card-text display-4">{stats.cancelledOrders}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row mt-3">
-            <div className="col-md-6">
-              <div className="card text-center mb-3 bg-info text-white">
-                <div className="card-body">
-                  <h3 className="card-title">Всего пользователей</h3>
-                  <p className="card-text display-4">{stats.totalUsers}</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="card text-center mb-3 bg-warning text-dark">
-                <div className="card-body">
-                  <h3 className="card-title">Общая выручка</h3>
-                  <p className="card-text display-4">{stats.totalRevenue} ₸</p>
+                <div className="col-md-6">
+                  <div className="stats-card stats-revenue">
+                    <h3 className="card-title">Общая выручка</h3>
+                    <p className="display-4">{stats.totalRevenue} ₸</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
-    <BottomNav/>
-    <Footer/>
+      <BottomNav />
+      <Footer />
     </>
   );
 };
