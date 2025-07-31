@@ -258,9 +258,13 @@ const ProductInfo = () => {
                   onClick={() => navigate(`/product/${p.slug}`)}
                 >
                   <img
-                    src={`${
-                      import.meta.env.VITE_API
-                    }/api/v1/product/product-photo/${p._id}`}
+                    src={
+                      product.photo
+                        ? `${
+                            import.meta.env.VITE_API
+                          }/api/v1/product/product-photo/${product._id}`
+                        : product.image || "/default_image.jpg"
+                    }
                     className="card-img-top"
                     alt={p.name}
                   />
