@@ -79,7 +79,7 @@ export const getSingleProductController = async (req, res) => {
       .populate("category")
       .populate("subcategory");
 
-    const baseUrl = process.env.VITE_API || 'http://localhost:8080'; // установите API_URL
+    const baseUrl = process.env.VITE_API || 'http://localhost:8081'; // установите API_URL
 
     res.status(200).send({
       success: true,

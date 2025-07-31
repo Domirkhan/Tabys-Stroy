@@ -38,7 +38,7 @@ app.use(cors({
   origin: [
     process.env.FRONTEND_URL.replace(/\/$/, ''),
     'http://localhost:5173',
-    'http://localhost:8080'
+    'http://localhost:8081'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -106,7 +106,7 @@ io.on('connection', (socket) => {
     console.log('Клиент отключен:', socket.user._id);
   });
 });
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 // Используйте httpServer вместо app.listen
 httpServer.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`.bgCyan.white);
