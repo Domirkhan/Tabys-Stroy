@@ -38,14 +38,24 @@ const ProductInfo = () => {
         `${import.meta.env.VITE_API}/api/v1/product/get-product/${slug}`
       );
       if (data?.product) {
-        // Добавляем базовый URL к путям изображений
+        // Обновляем логику обработки путей фотографий
         const productWithFullImagePaths = {
           ...data.product,
-          photos: data.product.photos?.map((photo) =>
-            photo.startsWith("http")
-              ? photo
-              : `${import.meta.env.VITE_API}/${photo}`
-          ),
+          photo: data.product.photos?.[0] || null, // Используем первое фото как основное
+          photos: data.product.photos?.map((photo) => {
+            // Если путь уже полный URL - оставляем как есть
+            if (photo.startsWith("http")) {
+              return photo;
+            }
+            // Если путь начинается с uploads - добавляем базовый URL
+            if (photo.startsWith("uploads")) {
+              return `${import.meta.env.VITE_API}/${photo}`;
+            }
+            // В противном случае используем API эндпоинт для фото
+            return `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
+              data.product._id
+            }`;
+          }),
         };
         setProduct(productWithFullImagePaths);
         getSimilarProduct(data.product._id, data.product.category?._id);
