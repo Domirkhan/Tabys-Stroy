@@ -155,15 +155,12 @@ const ProductInfo = () => {
       <div className="row container mt-2 product-details">
         <h1 className="section-title-category">Детали продукта</h1>
         <div className="col-md-6 product-image-container">
-          <div className="product-image-slider">
-                <img
-                src={
-                  product.photo
-                    ? `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
-                        product._id
-                      }`
-                    : product.image || "/default_image.jpg"
-                }
+         <div className="product-image-slider">
+            <img
+              src={
+                product.photos?.[currentImageIndex] || // Используем текущий индекс для photos
+                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}`
+              }
               className="product-main-image"
               alt={product.name}
               height="300"
@@ -181,9 +178,7 @@ const ProductInfo = () => {
                   {product.photos?.map((_, index) => (
                     <span
                       key={index}
-                      className={`dot ${
-                        index === currentImageIndex ? "active" : ""
-                      }`}
+                      className={`dot ${index === currentImageIndex ? "active" : ""}`}
                       onClick={() => setCurrentImageIndex(index)}
                     />
                   ))}
@@ -270,11 +265,8 @@ const ProductInfo = () => {
                 >
                   <img
                     src={
-                      product.photo
-                        ? `${
-                            import.meta.env.VITE_API
-                          }/api/v1/product/product-photo/${product._id}`
-                        : product.image || "/default_image.jpg"
+                      p.photos?.[0] || // Используем первое фото из массива фотографий товара
+                      `${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}`
                     }
                     className="card-img-top"
                     alt={p.name}
