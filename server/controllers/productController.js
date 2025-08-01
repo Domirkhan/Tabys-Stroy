@@ -104,36 +104,28 @@ export const getSingleProductController = async (req, res) => {
 export const productPhotoController = async (req, res) => {
   try {
     const product = await productModel.findById(req.params.pid);
+    const photoIndex = req.query.index || 0; // Получаем индекс фото из query параметра
     
-    if (product && product.photos && product.photos.length > 0) {
-      // Если путь начинается с uploads - отдаем файл напрямую
-      if (product.photos[0].startsWith('uploads/')) {
-        const photoPath = path.join(process.cwd(), product.photos[0]);
-        if (fs.existsSync(photoPath)) {
-          return res.sendFile(photoPath);
+    if (product && product.photos && product.photos.length > photoIndex) {
+      const photoPath = product.photos[photoIndex];
+      
+      if (photoPath.startsWith('uploads/')) {
+        const fullPath = path.join(process.cwd(), photoPath);
+        if (fs.existsSync(fullPath)) {
+          const ext = path.extname(photoPath).toLowerCase();
+          const contentType = ext === '.png' ? 'image/png' : 
+                            ext === '.gif' ? 'image/gif' : 
+                            'image/jpeg';
+          
+          res.set('Content-Type', contentType);
+          return res.sendFile(fullPath);
         }
       }
-      
-      // Иначе пытаемся найти фото по старой логике
-      const photoRelativePath = product.photos[0];
-      const photoAbsolutePath = path.join(process.cwd(), photoRelativePath);
-      
-      if (!fs.existsSync(photoAbsolutePath)) {
-        return res.status(404).send({ error: "Файл не найден" });
-      }
-
-      const ext = path.extname(photoRelativePath).toLowerCase();
-      const contentType = ext === '.png' ? 'image/png' : 
-                         ext === '.gif' ? 'image/gif' : 
-                         'image/jpeg';
-
-      res.set("Content-Type", contentType);
-      return res.sendFile(photoAbsolutePath);
     }
     
-    return res.status(404).send({ error: "Фото отсутствует" });
+    return res.status(404).send({ error: "Фото не найдено" });
   } catch (error) {
-    console.error(error);
+    console.error("Error in productPhotoController:", error);
     res.status(500).send({ error: "Ошибка при получении фото" });
   }
 };

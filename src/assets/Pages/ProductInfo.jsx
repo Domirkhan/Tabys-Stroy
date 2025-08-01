@@ -40,21 +40,15 @@ const getProduct = async () => {
     if (data?.product) {
       const productWithFullImagePaths = {
         ...data.product,
-        photos: data.product.photos?.map(photo => {
-          // Если путь уже является полным URL
-          if (photo.startsWith('http')) {
-            return photo;
-          }
-          // Если путь начинается с uploads
+        photos: data.product.photos?.map((photo, index) => {
+          // Проверяем путь для каждой фотографии
           if (photo.startsWith('uploads/')) {
+            // Если фото в uploads - используем прямой путь
             return `${import.meta.env.VITE_API}/${photo}`;
+          } else {
+            // Иначе используем API эндпоинт для получения фото
+            return `${import.meta.env.VITE_API}/api/v1/product/product-photo/${data.product._id}?index=${index}`;
           }
-          // Если путь начинается с /uploads
-          if (photo.startsWith('/uploads/')) {
-            return `${import.meta.env.VITE_API}${photo}`;
-          }
-          // В остальных случаях используем API эндпоинт
-          return `${import.meta.env.VITE_API}/api/v1/product/product-photo/${data.product._id}`;
         }) || []
       };
       setProduct(productWithFullImagePaths);
