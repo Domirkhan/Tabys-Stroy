@@ -104,29 +104,33 @@ export const getSingleProductController = async (req, res) => {
 export const productPhotoController = async (req, res) => {
   try {
     const product = await productModel.findById(req.params.pid);
-    const photoIndex = req.query.index || 0; // Получаем индекс фото из query параметра
-    
-    if (product && product.photos && product.photos.length > photoIndex) {
-      const photoPath = product.photos[photoIndex];
-      
-      if (photoPath.startsWith('uploads/')) {
-        const fullPath = path.join(process.cwd(), photoPath);
-        if (fs.existsSync(fullPath)) {
-          const ext = path.extname(photoPath).toLowerCase();
-          const contentType = ext === '.png' ? 'image/png' : 
-                            ext === '.gif' ? 'image/gif' : 
-                            'image/jpeg';
-          
-          res.set('Content-Type', contentType);
-          return res.sendFile(fullPath);
-        }
+    const index = parseInt(req.query.index, 10) || 0;
+
+    if (!product || !Array.isArray(product.photos) || index >= product.photos.length) {
+      return res.status(404).send({ error: "Фото не найдено" });
+    }
+
+    const photoPath = product.photos[index];
+
+    // Убедимся, что путь безопасен
+    if (photoPath && photoPath.startsWith('uploads/')) {
+      const fullPath = path.join(process.cwd(), photoPath);
+      if (fs.existsSync(fullPath)) {
+        const ext = path.extname(fullPath).toLowerCase();
+        const contentType = 
+          ext === '.png' ? 'image/png' :
+          ext === '.gif' ? 'image/gif' :
+          'image/jpeg';
+
+        res.set('Content-Type', contentType);
+        return res.sendFile(fullPath);
       }
     }
-    
-    return res.status(404).send({ error: "Фото не найдено" });
+
+    return res.status(404).send({ error: "Файл не найден" });
   } catch (error) {
-    console.error("Error in productPhotoController:", error);
-    res.status(500).send({ error: "Ошибка при получении фото" });
+    console.error("Ошибка в productPhotoController:", error);
+    res.status(500).send({ error: "Внутренняя ошибка сервера" });
   }
 };
 
