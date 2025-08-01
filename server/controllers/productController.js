@@ -79,7 +79,7 @@ export const getSingleProductController = async (req, res) => {
       .populate("category")
       .populate("subcategory");
 
-    const baseUrl = process.env.VITE_API || 'http://localhost:8080'; // установите API_URL
+    const baseUrl = process.env.VITE_API || 'http://localhost:8081'; // установите API_URL
 
     res.status(200).send({
       success: true,
@@ -106,6 +106,15 @@ export const productPhotoController = async (req, res) => {
     const product = await productModel.findById(req.params.pid);
     
     if (product && product.photos && product.photos.length > 0) {
+      // Если путь начинается с uploads - отдаем файл напрямую
+      if (product.photos[0].startsWith('uploads/')) {
+        const photoPath = path.join(process.cwd(), product.photos[0]);
+        if (fs.existsSync(photoPath)) {
+          return res.sendFile(photoPath);
+        }
+      }
+      
+      // Иначе пытаемся найти фото по старой логике
       const photoRelativePath = product.photos[0];
       const photoAbsolutePath = path.join(process.cwd(), photoRelativePath);
       
@@ -118,19 +127,14 @@ export const productPhotoController = async (req, res) => {
                          ext === '.gif' ? 'image/gif' : 
                          'image/jpeg';
 
-      const fileData = fs.readFileSync(photoAbsolutePath);
       res.set("Content-Type", contentType);
-      return res.status(200).send(fileData);
+      return res.sendFile(photoAbsolutePath);
     }
     
     return res.status(404).send({ error: "Фото отсутствует" });
   } catch (error) {
-    console.error("Ошибка в productPhotoController:", error);
-    res.status(500).send({
-      success: false,
-      message: "Ошибка при получении фото",
-      error: error.message
-    });
+    console.error(error);
+    res.status(500).send({ error: "Ошибка при получении фото" });
   }
 };
 
