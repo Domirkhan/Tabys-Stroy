@@ -35,38 +35,53 @@ const ProductInfo = () => {
 
 const getProduct = async () => {
   try {
-    const { data } = await axios.get(
+    const response = await axios.get(
       `${import.meta.env.VITE_API}/api/v1/product/get-product/${slug}`
     );
-    if (data?.product) {
+
+    const productData = response.data?.product;
+
+    if (productData) {
       const productWithFixedPhotos = {
-        ...data.product,
-        photos: data.product.photos?.map((_, index) => (
-          `${import.meta.env.VITE_API}/api/v1/product/product-photo/${data.product._id}?index=${index}`
+        ...productData,
+        photos: productData.photos?.map((_, index) => (
+          `${import.meta.env.VITE_API}/api/v1/product/product-photo/${productData._id}?index=${index}`
         )) || []
       };
+
       setProduct(productWithFixedPhotos);
-      getSimilarProduct(data.product._id, data.product.category?._id);
+      getSimilarProduct(productData._id, productData.category?._id);
+    } else {
+      console.error("Продукт не найден в ответе сервера");
     }
-  };
+  } catch (error) {
+    console.error("Ошибка при получении продукта:", error);
+  }
+};
 
 // Также обновим обработку похожих товаров
 const getSimilarProduct = async (pid, cid) => {
   try {
-    const { data } = await axios.get(
+    const response = await axios.get(
       `${import.meta.env.VITE_API}/api/v1/product/related-product/${pid}/${cid}`
     );
-    if (data?.products) {
-      const productsWithPhotos = data.products.map(p => ({
+
+    const related = response.data?.products;
+
+    if (related) {
+      const productsWithPhotos = related.map((p) => ({
         ...p,
         photos: p.photos?.map((_, index) => (
           `${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}?index=${index}`
         )) || []
       }));
+
       setRelatedProducts(productsWithPhotos);
     }
-  };
-
+  } catch (error) {
+    console.error("Ошибка при получении похожих продуктов:", error);
+  }
+};
 
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
@@ -138,7 +153,7 @@ const getSimilarProduct = async (pid, cid) => {
             <img
               src={
                 product.photos?.[currentImageIndex] || // Используем текущий индекс для photos
-                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${data.product._id}?index=${index}`
+                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}` // Исправлено: убрана ссылка на несуществующий data.product
               }
               className="product-main-image"
               alt={product.name}
