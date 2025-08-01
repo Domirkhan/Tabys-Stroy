@@ -146,13 +146,14 @@ const ProductInfo = () => {
         <h1 className="section-title-category">Детали продукта</h1>
         <div className="col-md-6 product-image-container">
           <div className="product-image-slider">
-            <img
-              src={
-                product.photos?.[currentImageIndex] ||
-                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
-                  product._id
-                }`
-              }
+                <img
+                src={
+                  product.photo
+                    ? `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
+                        product._id
+                      }`
+                    : product.image || "/default_image.jpg"
+                }
               className="product-main-image"
               alt={product.name}
               height="300"
