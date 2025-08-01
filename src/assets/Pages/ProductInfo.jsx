@@ -150,16 +150,15 @@ const getSimilarProduct = async (pid, cid) => {
         <div className="col-md-6 product-image-container">
          <div className="product-image-slider">
             <img
-                src={product.photos?.[currentImageIndex]}
-                className="product-main-image"
-                alt={product.name}
-                height="300"
-                width="350px"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = `${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}`;
-                }}
-              />
+              src={
+                product.photos?.[currentImageIndex] || // Используем текущий индекс для photos
+                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}`
+              }
+              className="product-main-image"
+              alt={product.name}
+              height="300"
+              width="350px"
+            />
             {product.photos?.length > 1 && (
               <>
                 <button className="slider-btn prev" onClick={prevImage}>
