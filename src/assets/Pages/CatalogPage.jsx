@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
-import BottomNav from '../components/BottomNav';
-import '../../assets/styles/CatalogPage.css';
-import useCategory from '../hooks/useCategory';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
+import BottomNav from "../components/BottomNav";
+import "../../assets/styles/CatalogPage.css";
+import useCategory from "../hooks/useCategory";
 import { Helmet } from "react-helmet-async";
 
 function CatalogPage() {
@@ -57,25 +57,35 @@ function CatalogPage() {
           <div className="catalog-grid">
             {categories?.map((category) => (
               <div key={category._id} className="catalog-category">
-                <div 
+                <div
                   className="catalog-category-header"
                   onClick={() => toggleCategory(category.slug)}
                 >
-                  {category.iconUrl && (
-                    <img 
-                      src={`${import.meta.env.VITE_API}${category.iconUrl}`}
-                      alt={category.name}
-                      className="category-icon"
-                    />
-                  )}
+                  {/* {category.iconUrl && (
+                    // <img 
+                    //   src={`${import.meta.env.VITE_API}${category.iconUrl}`}
+                    //   alt={category.name}
+                    //   className="category-icon"
+                    // />
+                  )} */}
                   <span className="category-name">{category.name}</span>
-                  <span className={`category-arrow ${openCategory === category.slug ? 'open' : ''}`}>
+                  <span
+                    className={`category-arrow ${
+                      openCategory === category.slug ? "open" : ""
+                    }`}
+                  >
                     ›
                   </span>
                 </div>
-                <div className={`subcategories ${openCategory === category.slug ? 'active' : ''}`}>
+                <div
+                  className={`subcategories ${
+                    openCategory === category.slug ? "active" : ""
+                  }`}
+                >
                   {subcategories
-                    ?.filter(sub => sub.category && sub.category._id === category._id)
+                    ?.filter(
+                      (sub) => sub.category && sub.category._id === category._id
+                    )
                     .map((sub) => (
                       <Link
                         key={sub._id}
