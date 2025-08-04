@@ -38,7 +38,7 @@ app.use(cors({
   origin: [
     process.env.FRONTEND_URL.replace(/\/$/, ''),
     'http://localhost:5173',
-    'http://localhost:8080'
+    'http://localhost:8081'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -61,6 +61,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 // Если файлы сохранялись на диск, можно сделать их раздачу публичной:
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads/categories', express.static(path.join(__dirname, 'uploads/categories')));
 // Добавьте эти строки после других middleware
 app.use('/uploads/products', express.static('uploads/products'));
 app.use('/uploads/reviews', express.static('uploads/reviews'));
@@ -106,7 +108,7 @@ io.on('connection', (socket) => {
     console.log('Клиент отключен:', socket.user._id);
   });
 });
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 // Используйте httpServer вместо app.listen
 httpServer.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`.bgCyan.white);

@@ -80,27 +80,30 @@ const AdminOrders = () => {
                           <p><strong>Заказ ID:</strong> {order._id}</p>
                           <p><strong>Дата:</strong> {new Date(order.createdAt).toLocaleString()}</p>
                           <p>
-                          <strong>Общая сумма:</strong>{" "}
-                          {order.promoCode && order.discountAmount > 0 ? (
-                            <>
-                              <span style={{ textDecoration: "line-through", color: "#888", marginRight: 8 }}>
-                                {order.totalAmount + order.discountAmount} тг
-                              </span>
-                              <span style={{ color: "#ff0000", fontWeight: 600 }}>
-                                {order.totalAmount} тг
-                              </span>
-                            </>
-                          ) : (
-                            <span>{order.totalAmount} тг</span>
+                            <strong>Общая сумма:</strong>{" "}
+                            {order.promoCode && order.discountAmount > 0 ? (
+                              <>
+                                <span style={{ textDecoration: "line-through", color: "#888", marginRight: 8 }}>
+                                  {order.totalAmount + order.discountAmount} тг
+                                </span>
+                                <span style={{ color: "#ff0000", fontWeight: 600 }}>
+                                  {order.totalAmount} тг
+                                </span>
+                              </>
+                            ) : (
+                              <span>{order.totalAmount} тг</span>
+                            )}
+                          </p>
+                          {order.promoCode && order.discountAmount > 0 && (
+                            <div style={{ color: "#4caf50", fontSize: "0.95em", marginTop: 2 }}>
+                              Промокод <b>{order.promoCode}</b> применён: скидка {order.discountPercent}% (−{order.discountAmount} тг)
+                              {order.promoInactive && (
+                                <span style={{ color: "#ff0000", marginLeft: 5 }}>
+                                  *Промокод не действует
+                                </span>
+                              )}
+                            </div>
                           )}
-                        </p>
-                        {order.promoCode && order.discountAmount > 0 && (
-                          <div style={{ color: "#4caf50", fontSize: "0.95em", marginTop: 2 }}>
-                            Промокод <b>{order.promoCode}</b> применён: скидка {order.discountPercent}% (−{order.discountAmount} тг)
-                            <br />
-                            Итоговая цена: <span style={{ color: "#ff0000", fontWeight: 600 }}>{order.totalAmount} тг</span>
-                          </div>
-                        )}
                         </div>
                         <div className="order-info">
                           <p><strong>Клиент:</strong> {order.user?.name}</p>
@@ -129,13 +132,55 @@ const AdminOrders = () => {
                             <div className="product-info">
                               <h6 className="product-name">{item.name}</h6>
                               <p className="product-price">
-                                {item.price} тг за {item.selectedUnit}
+                                {order.promoCode && 
+                                !order.promoInactive && 
+                                !order.excludedSubcategories?.includes(item.subcategory) ? (
+                                  <>
+                                    <span className="original-price">
+                                      {item.price} тг/{item.selectedUnit}
+                                    </span>
+                                    <span className="discounted-price">
+                                      {Math.round(item.price * (1 - order.discountPercent/100))} тг/{item.selectedUnit}
+                                    </span>
+                                    <span style={{ fontSize: 12, color: "#4caf50" }}>
+                                      −{order.discountPercent}%
+                                    </span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <span>{item.price} тг/{item.selectedUnit}</span>
+                                    {order.promoCode && 
+                                     order.excludedSubcategories?.includes(item.subcategory) && (
+                                      <div style={{
+                                        backgroundColor: "#fff3e0",
+                                        padding: "8px",
+                                        borderRadius: "4px",
+                                        marginTop: "8px",
+                                        fontSize: "0.9rem",
+                                        color: "#ff7043"
+                                      }}>
+                                        * Промокод не действует на данный товар
+                                      </div>
+                                    )}
+                                  </>
+                                )}
                               </p>
-                              <p className="product-price">
+                              <p className="product-quantity">
                                 Количество: {item.quantity} {item.selectedUnit}
                               </p>
-                              <p className="product-price">
-                                Итого: {item.price * item.quantity} тг
+                              <p className="product-total">
+                                Сумма: {
+                                  order.promoCode && !order.promoInactive ?
+                                  <>
+                                    <span className="original-total">
+                                      {item.quantity * item.price} тг
+                                    </span>
+                                    <span className="discounted-total">
+                                      {Math.round(item.quantity * item.price * (1 - order.discountPercent/100))} тг
+                                    </span>
+                                  </> :
+                                  `${item.quantity * item.price} тг`
+                                }
                               </p>
                             </div>
                           </div>
@@ -172,10 +217,9 @@ const AdminOrders = () => {
                             )
                           }
                         >
-                          <option value="Не обработан">Не обработан</option>
+                          <option value="Не оплачен">Не оплачен</option>
                           <option value="В обработке">В обработке</option>
                           <option value="Оплачен">Оплачен</option>
-                          <option value="Не оплачен">Не оплачен</option>
                         </select>
                       </div>
                     </div>

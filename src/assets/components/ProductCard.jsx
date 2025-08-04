@@ -45,7 +45,13 @@ function ProductCard({ product }) {
   return (
     <div className="card" onClick={handleNavigateToProduct}>
       <img
-        src={product.photo || product.image || "default_image.jpg"}
+        src={
+          product.photo
+            ? `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
+                product._id
+              }`
+            : product.image || "/default_image.jpg"
+        }
         className="card-img-top"
         alt={product.name}
       />

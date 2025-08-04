@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useCart } from "../../context/cart";
-import { useAuth } from "../../context/auth";
+import { useCart } from "../../context/cart"; // Исправляем путь
+import { useAuth } from "../../context/auth"; 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -30,19 +30,20 @@ const CartPage = () => {
     });
     return total;
   };
-
-  const getDiscountForItem = (item) => {
-    if (
-      promo &&
-      promo.discountPercent > 0 &&
-      item.subcategory &&
-      (!promo.excludedSubcategories ||
-        !promo.excludedSubcategories.includes(item.subcategory._id))
-    ) {
-      return promo.discountPercent;
-    }
+const getDiscountForItem = (item) => {
+  // Проверяем наличие промокода и его процента скидки
+  if (!promo || !promo.discountPercent || !item.subcategory) {
     return 0;
-  };
+  }
+
+  // Проверяем, есть ли подкатегория товара в списке исключенных
+  const isExcluded = promo.excludedSubcategories.some(
+    excludedId => excludedId === item.subcategory._id
+  );
+
+  // Возвращаем скидку только если товар НЕ в исключенных подкатегориях
+  return isExcluded ? 0 : promo.discountPercent;
+};
 
   const getDiscountedPrice = (item) => {
     const discount = getDiscountForItem(item);
@@ -170,28 +171,59 @@ const CartPage = () => {
     }
   };
 
-  const checkoutOrder = async () => {
+const checkoutOrder = async () => {
     try {
-      const { total, discount } = totalWithDiscount();
-      const orderData = {
-        orderItems: cart.map((item) => ({
+      // Получаем общую сумму и скидку с учетом исключенных товаров
+      const orderItems = cart.map((item) => {
+        const discountPercent = getDiscountForItem(item); // Используем существующую функцию
+        const originalPrice = item.pricePerUnit[item.selectedUnit];
+        const finalPrice = discountPercent > 0 
+          ? Math.round(originalPrice * (1 - discountPercent / 100)) 
+          : originalPrice;
+        
+        return {
+          _id: item._id,
           product: item._id,
           name: item.name,
-          price: item.pricePerUnit[item.selectedUnit],
+          pricePerUnit: { [item.selectedUnit]: item.pricePerUnit[item.selectedUnit] },
+          price: originalPrice,
+          finalPrice: finalPrice, // Добавляем финальную цену
           quantity: item.quantity,
           selectedUnit: item.selectedUnit,
-          subcategory: item.subcategory,
-        })),
-        totalAmount: total,
+          subcategory: item.subcategory?._id || item.subcategory,
+          discountApplied: discountPercent > 0, // Флаг применения скидки
+          discountPercent: discountPercent // Процент скидки для каждого товара
+        };
+      });
+
+      // Считаем итоговые суммы
+      const totalOriginal = cart.reduce((sum, item) => 
+        sum + (item.pricePerUnit[item.selectedUnit] * item.quantity), 0
+      );
+      
+      const totalWithDiscounts = orderItems.reduce((sum, item) => 
+        sum + (item.finalPrice * item.quantity), 0
+      );
+
+      const orderData = {
+        orderItems,
+        totalAmount: totalWithDiscounts,
+        originalAmount: totalOriginal,
         deliveryMethod,
         promoCode: promo?.code || null,
         discountPercent: promo?.discountPercent || 0,
-        discountAmount: discount || 0,
+        discountAmount: totalOriginal - totalWithDiscounts,
+        promoInactive: promo?.inactive || false,
+        excludedSubcategories: promo?.excludedSubcategories || []
       };
+
+      console.log('Отправляемые данные заказа:', orderData);
+
       const { data } = await axios.post(
         `${import.meta.env.VITE_API}/api/v1/order/create-order`,
         orderData
       );
+
       if (data.success) {
         toast.success("Заказ создан. Ожидайте подтверждения администратора.");
         setCart([]);
@@ -201,11 +233,10 @@ const CartPage = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.error(error);
-      toast.error("Ошибка при оформлении заказа");
+      console.error("Ошибка при оформлении заказа:", error);
+      toast.error(error.response?.data?.message || "Ошибка при оформлении заказа");
     }
-  };
-
+};
   return (
     <>
       <Header />
@@ -269,15 +300,16 @@ const CartPage = () => {
                                   {price} тг/{item.selectedUnit}
                                 </span>
                                 {isExcluded && (
-                                  <span
-                                    style={{
-                                      color: "#ff7043",
-                                      fontSize: "0.8rem",
-                                      marginLeft: 8,
-                                    }}
-                                  >
-                                    * Промокод не действует
-                                  </span>
+                                  <div style={{
+                                    backgroundColor: "#fff3e0",
+                                    padding: "8px",
+                                    borderRadius: "4px",
+                                    marginTop: "8px",
+                                    fontSize: "0.9rem",
+                                    color: "#ff7043"
+                                  }}>
+                                    * Промокод не действует на данный товар
+                                  </div>
                                 )}
                               </>
                             )}

@@ -21,17 +21,41 @@
     font-size: 12px;
     cursor: pointer;
   }
-  .nav-item {
-    border: none;
-    background: none;
-    text-decoration: none;
-    color: #333;
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+.nav-item {
+  position: relative; /* Для позиционирования линии */
+  border: none;
+  background: none;
+  text-decoration: none;
+  color: #333;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  .nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* Расположение линии снизу */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+/* Стили для активного состояния */
+.nav-item.active {
+  color: #ff0000; /* Красный цвет для активного элемента */
+}
+
+.nav-item.active::after {
+  background-color: #ff0000; /* Красная линия для активного элемента */
+}
+
+/* Анимация при переходе */
+.nav-item.active img {
+  transform: translateY(-2px); /* Небольшой сдвиг иконки вверх */
+  transition: transform 0.3s ease;
+}
   .nav-item img {
     width: 24px;
     height: 24px;

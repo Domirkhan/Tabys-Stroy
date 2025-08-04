@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from "react";
 import UserMenu from "../../components/UserMenu";
 import axios from "axios";
-import { toast } from "react-hot-toast";
-import Header from "../../layout/Header";
-import Footer from "../../layout/Footer";
+import { useAuth } from "../../../context/auth";
 import BottomNav from "../../components/BottomNav";
+import Footer from "../../layout/Footer";
+import Header from "../../layout/Header";
+import moment from "moment";
+import "moment/locale/ru";
+moment.locale("ru");
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [auth] = useAuth();
 
-  const fetchUserOrders = async () => {
+  const getOrders = async () => {
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API}/api/v1/order/user-orders`
       );
-      if (data.success) {
-        setOrders(data.orders);
-      }
+      setOrders(data.orders);
     } catch (error) {
-      console.error("Ошибка при получении заказов:", error);
-      toast.error("Ошибка при получении заказов");
+      console.error(error);
     }
   };
 
   useEffect(() => {
-    fetchUserOrders();
-  }, []);
+    if (auth?.token) getOrders();
+  }, [auth?.token]);
 
   return (
     <>
@@ -37,79 +38,115 @@ const Orders = () => {
               <UserMenu />
             </div>
             <div className="col-md-9">
-              <h1>История заказов</h1>
+              <h1 className="orders-title">История заказов</h1>
               {orders.length === 0 ? (
-                <p>Заказы не найдены</p>
+                <p className="no-orders">Заказы не найдены</p>
               ) : (
                 orders.map((order) => (
-                  <div className="border p-3 mb-3" key={order._id}>
-                    <h5>Заказ ID: {order._id}</h5>
-                  <p>
-                  <strong>Общая сумма:</strong>{" "}
-                  {order.promoCode && order.discountAmount > 0 ? (
-                    <>
-                      <span style={{ textDecoration: "line-through", color: "#888", marginRight: 8 }}>
-                        {order.totalAmount + order.discountAmount} тг
-                      </span>
-                      <span style={{ color: "#ff0000", fontWeight: 600 }}>
-                        {order.totalAmount} тг
-                      </span>
-                    </>
-                  ) : (
-                    <span>{order.totalAmount} тг</span>
-                  )}
-                </p>
-                {order.promoCode && order.discountAmount > 0 && (
-                  <div style={{ color: "#4caf50", fontSize: "0.95em", marginTop: 2 }}>
-                    Промокод <b>{order.promoCode}</b> применён: скидка {order.discountPercent}% (−{order.discountAmount} тг)
-                    <br />
-                    Итоговая цена: <span style={{ color: "#ff0000", fontWeight: 600 }}>{order.totalAmount} тг</span>
-                  </div>
-                )}
-                    <p>
+                  <div className="order-card" key={order._id}>
+                    <h5 className="order-id">Заказ #{order._id}</h5>
+                    <div className="price-info">
+                      <strong>Общая сумма:</strong>
+                      {order.promoCode && order.discountAmount > 0 ? (
+                        <>
+                          <span className="original-price">
+                            {order.totalAmount + order.discountAmount} тг
+                          </span>
+                          <span className="final-price">
+                            {order.totalAmount} тг
+                          </span>
+                        </>
+                      ) : (
+                        <span className="total-price">{order.totalAmount} тг</span>
+                      )}
+                    </div>
+                    {order.promoCode && order.discountAmount > 0 && (
+                      <div className="promo-info">
+                        Промокод <b>{order.promoCode}</b>: скидка {order.discountPercent}% 
+                        (−{order.discountAmount} тг)
+                      </div>
+                    )}
+                    <p className="order-status">
                       <strong>Статус заказа:</strong> {order.orderStatus}
                     </p>
-                    <p>
+                    <p className="payment-status">
                       <strong>Статус оплаты:</strong> {order.paymentStatus}
                     </p>
-                    <p>
+                    <p className="delivery-method">
                       <strong>Способ получения:</strong>{" "}
                       {order.deliveryMethod === 'pickup' ? 'Самовывоз' : 'Доставка'}
                     </p>
-                    <p>
+                    <p className="order-date">
                       <strong>Дата оформления:</strong>{" "}
-                      {new Date(order.createdAt).toLocaleString()}
+                      {moment(order.createdAt).format('LLL')}
                     </p>
                     {order.deliveryMethod === 'delivery' && (
-                      <p>
+                      <p className="delivery-address">
                         <strong>Адрес доставки:</strong> {order.user.address || 'Не указан'}
                       </p>
                     )}
-                    <div className="row">
-                      {order.orderItems.map((item, i) => (
-                        <div className="col-md-4" key={i}>
-                          <div className="card">
-                            <img
-                              src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${item.product}`}
-                              alt={item.name}
-                              className="card-img-top"
-                              style={{
-                                height: "200px",
-                                objectFit: "cover",
-                              }}
-                            />
-                            <div className="card-body">
-                              <h6 className="card-title">{item.name}</h6>
-                              <p className="card-text">
-                                Цена: {item.price} тг за {item.selectedUnit}
-                              </p>
-                              <p className="card-text">
-                                Количество: {item.quantity} {item.selectedUnit}
-                              </p>
-                              <p className="card-text">
-                                Сумма: {item.price * item.quantity} тг
-                              </p>
-                            </div>
+
+                    <div className="order-items">
+                      {order.orderItems.map((item, index) => (
+                        <div className="product-card" key={index}>
+                          <img
+                            src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${item.product}`}
+                            alt={item.name}
+                            className="product-image"
+                          />
+                          <div className="product-info">
+                            <h6 className="product-name">{item.name}</h6>
+                            <p className="product-price">
+                              {order.promoCode && 
+                               !order.promoInactive && 
+                               !order.excludedSubcategories?.includes(item.subcategory) ? (
+                                <>
+                                  <span className="original-price">
+                                    {item.price} тг/{item.selectedUnit}
+                                  </span>
+                                  <span className="discounted-price">
+                                    {Math.round(item.price * (1 - order.discountPercent/100))} тг/{item.selectedUnit}
+                                  </span>
+                                  <span style={{ fontSize: 12, color: "#4caf50" }}>
+                                    −{order.discountPercent}%
+                                  </span>
+                                </>
+                              ) : (
+                                <>
+                                  <span>{item.price} тг/{item.selectedUnit}</span>
+                                  {order.promoCode && 
+                                   order.excludedSubcategories?.includes(item.subcategory) && (
+                                    <div style={{
+                                      backgroundColor: "#fff3e0",
+                                      padding: "8px",
+                                      borderRadius: "4px",
+                                      marginTop: "8px",
+                                      fontSize: "0.9rem",
+                                      color: "#ff7043"
+                                    }}>
+                                      * Промокод не действует на данный товар
+                                    </div>
+                                  )}
+                                </>
+                              )}
+                            </p>
+                            <p className="product-quantity">
+                              Количество: {item.quantity} {item.selectedUnit}
+                            </p>
+                            <p className="product-total">
+                              Сумма: {
+                                order.promoCode && !order.promoInactive ?
+                                <>
+                                  <span className="original-total">
+                                    {item.quantity * item.price} тг
+                                  </span>
+                                  <span className="discounted-total">
+                                    {Math.round(item.quantity * item.price * (1 - order.discountPercent/100))} тг
+                                  </span>
+                                </> :
+                                `${item.quantity * item.price} тг`
+                              }
+                            </p>
                           </div>
                         </div>
                       ))}

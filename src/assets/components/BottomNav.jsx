@@ -1,34 +1,27 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { useCart } from '../../context/cart';
-import homeIcon from '../icon/home.png';
-import catalogIcon from '../icon/Catalog.png';
-import cartIcon from '../icon/cart-2.png';
-import userIcon from '../icon/user.png';
-import '../styles/BottomNav.css';
-import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../context/auth';
-import { Badge } from 'antd'; 
+import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { useCart } from "../../context/cart";
+import { useAuth } from "../../context/auth";
+import { Badge } from "antd";
+import toast from "react-hot-toast";
+import homeIcon from "../icon/home.png";
+import catalogIcon from "../icon/Catalog.png";
+import cartIcon from "../icon/cart-2.png";
+import userIcon from "../icon/user.png";
+import "../styles/BottomNav.css";
 
 function BottomNav() {
-  const [cart, setCart] = useCart();
-
-  // Рассчитываем общее количество товаров
-  const totalQuantity = cart?.reduce((sum, item) => sum + item.quantity, 0) || 0;
-
+  const [cart] = useCart();
   const [auth, setAuth] = useAuth();
-// Добавление в корзину
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-    localStorage.setItem('cart', JSON.stringify([...cart, product]));
+  const location = useLocation();
+
+  const isActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(path);
   };
 
-  // Удаление из корзины
-  const removeFromCart = (pid) => {
-    const newCart = cart.filter((item) => item._id !== pid);
-    setCart(newCart);
-    localStorage.setItem('cart', JSON.stringify(newCart));
-  };
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -36,71 +29,70 @@ function BottomNav() {
       token: "",
     });
     localStorage.removeItem("auth");
-    toast.success("Logout Successfully");
+    toast.success("Вы успешно вышли");
   };
+
   return (
     <nav className="bottom-nav">
-      <Link to="/" className="nav-item">
+      <NavLink to="/" className={`nav-item ${isActive("/") ? "active" : ""}`}>
         <img src={homeIcon} alt="Главная" />
         <span>Главная</span>
-      </Link>
-      <Link to="/catalog" className="nav-item">
+      </NavLink>
+
+      <NavLink
+        to="/catalog"
+        className={`nav-item ${isActive("/catalog") ? "active" : ""}`}
+      >
         <img src={catalogIcon} alt="Каталог" />
         <span>Каталог</span>
-      </Link>
-      <Badge 
-        count={cart?.length} 
-        showZero 
-        offset={[-8, 5]} // Смещение счетчика вниз
-        style={{ backgroundColor: 'red', color: 'white' }} // Красный цвет счетчика
+      </NavLink>
+
+      <Badge
+        count={cart?.length}
+        showZero
+        offset={[-8, 5]}
+        style={{ backgroundColor: "red", color: "white" }}
       >
-        <NavLink to="/cart" className="nav-item">
+        <NavLink
+          to="/cart"
+          className={`nav-item ${isActive("/cart") ? "active" : ""}`}
+        >
           <img src={cartIcon} alt="Корзина" className="cart-icon" />
           <span className="cart-text">Корзина</span>
         </NavLink>
       </Badge>
-                  {!auth?.user ? (
-                    <li className="nav-item">
-                      <NavLink to="/login" className="nav-item">
-                        <img src={userIcon} alt="Профиль" style={{ width: '24px', height: '24px' }} />
-                        <span className='profil-nav'>Профиль</span>
-                      </NavLink>
-                    </li>
-                  ) : (
-          <>
-            <li className="nav-item dropdown">
-            <NavLink
-              to="#"
-              className="nav-item dropdown-toggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              style={{ border: "none" }}
-            >
-              <img src={userIcon} alt="Профиль" />
-              <span className='profil-nav'>Профиль</span>
-            </NavLink>
-              <ul className="dropdown-menu">
-                <li>
-                  <NavLink
-                    to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
-                    className="dropdown-item"
-                  >
-                    Панель управления
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    onClick={handleLogout}
-                    to="/login"
-                    className="dropdown-item"
-                  >
-                    Выйти
-                  </NavLink>
-                </li>
-              </ul>
-            </li>
-          </>
-        )}
+
+      {!auth?.user ? (
+        <NavLink
+          to="/login"
+          className={`nav-item ${isActive("/login") ? "active" : ""}`}
+        >
+          <img
+            src={userIcon}
+            alt="Профиль"
+            style={{ width: "24px", height: "24px" }}
+          />
+          <span className="profil-nav">Профиль</span>
+        </NavLink>
+      ) : (
+        <div className="nav-item dropdown">
+          <NavLink
+            to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
+            className={`nav-item ${
+              isActive("/dashboard/admin") || isActive("/dashboard/user")
+                ? "active"
+                : ""
+            }`}
+          >
+            <img
+              src={userIcon}
+              alt="Профиль"
+              style={{ width: "24px", height: "24px" }}
+            />
+            <span className="profil-nav">Профиль</span>
+          </NavLink>
+        </div>
+      )}
     </nav>
   );
 }

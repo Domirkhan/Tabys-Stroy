@@ -32,52 +32,55 @@ const ProductInfo = () => {
     }
   }, [product]);
 
-  const getProduct = async () => {
-    try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API}/api/v1/product/get-product/${slug}`
-      );
-      if (data?.product) {
-        // Добавляем базовый URL к путям изображений
-        const productWithFullImagePaths = {
-          ...data.product,
-          photos: data.product.photos?.map((photo) =>
-            photo.startsWith("http")
-              ? photo
-              : `${import.meta.env.VITE_API}/${photo}`
-          ),
-        };
-        setProduct(productWithFullImagePaths);
-        getSimilarProduct(data.product._id, data.product.category?._id);
-      }
-    } catch (error) {
-      console.error("Error fetching product:", error);
+const getProduct = async () => {
+  try {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API}/api/v1/product/get-product/${slug}`
+    );
+    if (data?.product) {
+      const productWithFullImagePaths = {
+        ...data.product,
+        photos: data.product.photos?.map((photo, index) => {
+          // Проверяем путь для каждой фотографии
+          if (photo.startsWith('uploads/')) {
+            // Если фото в uploads - используем прямой путь
+            return `${import.meta.env.VITE_API}/${photo}`;
+          } else {
+            // Иначе используем API эндпоинт для получения фото
+            return `${import.meta.env.VITE_API}/api/v1/product/product-photo/${data.product._id}?index=${index}`;
+          }
+        }) || []
+      };
+      setProduct(productWithFullImagePaths);
+      getSimilarProduct(data.product._id, data.product.category?._id);
     }
-  };
+  } catch (error) {
+    console.error("Error fetching product:", error);
+  }
+};
 
-  const getSimilarProduct = async (pid, cid) => {
-    try {
-      const { data } = await axios.get(
-        `${
-          import.meta.env.VITE_API
-        }/api/v1/product/related-product/${pid}/${cid}`
-      );
-      if (data?.products) {
-        // Добавляем базовый URL к путям изображений похожих продуктов
-        const productsWithFullImagePaths = data.products.map((product) => ({
-          ...product,
-          photos: product.photos?.map((photo) =>
-            photo.startsWith("http")
-              ? photo
-              : `${import.meta.env.VITE_API}/${photo}`
-          ),
-        }));
-        setRelatedProducts(productsWithFullImagePaths);
-      }
-    } catch (error) {
-      console.error("Error fetching similar products:", error);
+// Также обновим обработку похожих товаров
+const getSimilarProduct = async (pid, cid) => {
+  try {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API}/api/v1/product/related-product/${pid}/${cid}`
+    );
+    if (data?.products) {
+      const productsWithFullImagePaths = data.products.map(product => ({
+        ...product,
+        photos: product.photos?.map(photo => {
+          if (photo.startsWith('http')) return photo;
+          if (photo.startsWith('uploads/')) return `${import.meta.env.VITE_API}/${photo}`;
+          if (photo.startsWith('/uploads/')) return `${import.meta.env.VITE_API}${photo}`;
+          return `${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}`;
+        }) || []
+      }));
+      setRelatedProducts(productsWithFullImagePaths);
     }
-  };
+  } catch (error) {
+    console.error("Error fetching similar products:", error);
+  }
+};
 
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
@@ -145,13 +148,11 @@ const ProductInfo = () => {
       <div className="row container mt-2 product-details">
         <h1 className="section-title-category">Детали продукта</h1>
         <div className="col-md-6 product-image-container">
-          <div className="product-image-slider">
+         <div className="product-image-slider">
             <img
               src={
-                product.photos?.[currentImageIndex] ||
-                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
-                  product._id
-                }`
+                product.photos?.[currentImageIndex] || // Используем текущий индекс для photos
+                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}`
               }
               className="product-main-image"
               alt={product.name}
@@ -170,9 +171,7 @@ const ProductInfo = () => {
                   {product.photos?.map((_, index) => (
                     <span
                       key={index}
-                      className={`dot ${
-                        index === currentImageIndex ? "active" : ""
-                      }`}
+                      className={`dot ${index === currentImageIndex ? "active" : ""}`}
                       onClick={() => setCurrentImageIndex(index)}
                     />
                   ))}
@@ -258,12 +257,14 @@ const ProductInfo = () => {
                   onClick={() => navigate(`/product/${p.slug}`)}
                 >
                   <img
-                    src={`${
-                      import.meta.env.VITE_API
-                    }/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                  />
+                      src={p.photos?.[0]}
+                      className="card-img-top"
+                      alt={p.name}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = `${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}`;
+                      }}
+                    />
                   <div className="card-body">
                     <div className="card-title-text">{p.name}</div>
                     <p
