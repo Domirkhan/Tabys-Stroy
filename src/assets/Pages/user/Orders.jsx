@@ -43,8 +43,8 @@ const Orders = () => {
                 <p className="no-orders">Заказы не найдены</p>
               ) : (
                 orders.map((order) => (
-                  <div className="order-card" key={order._id}>
-                    <h5 className="order-id">Заказ #{order._id}</h5>
+                  <div className="order-card" key={order.orderId}>
+                    <h5 className="order-id">Заказ #{order.orderId}</h5>
                     <div className="price-info">
                       <strong>Общая сумма:</strong>
                       {order.promoCode && order.discountAmount > 0 ? (

@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema(
   {
+    orderId: {
+        type: String,
+        required: true,
+        unique: true
+      },
     user: { 
       type: mongoose.Schema.Types.ObjectId, 
       ref: "users", 
@@ -9,6 +14,7 @@ const orderSchema = new mongoose.Schema(
     },
     orderItems: [
       {
+        
         product: { 
           type: mongoose.Schema.Types.ObjectId, 
           ref: "Products", 
@@ -36,8 +42,14 @@ const orderSchema = new mongoose.Schema(
           type: mongoose.Schema.Types.ObjectId,
           ref: "Subcategory"
         },
-         discountApplied: Boolean, // Флаг применения скидки
-        itemDiscountPercent: Number // Процент скидки для конкретного товара
+         discountApplied: {
+        type: Boolean,
+        default: false
+      },
+      itemDiscountPercent: {
+        type: Number,
+        default: 0
+      }
       }
     ],
     totalAmount: { 

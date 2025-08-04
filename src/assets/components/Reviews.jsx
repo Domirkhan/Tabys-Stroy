@@ -219,59 +219,60 @@ useEffect(() => {
                         </div>
                         <p className="review-comment">{review.comment}</p>
                         {review.media && review.media.length > 0 && (
-    <div className="review-media">
-        {review.media.map((media, index) => (
-            <div key={index} className="media-item">
-                {media.type.startsWith('image/') ? (
-                    <img
-                        src={`${import.meta.env.VITE_API}${media.url}`}
-                        alt={`Фото ${index + 1}`}
-                        onClick={() => handlePreview(media)}
-                    />
-                ) : (
-                    <div 
-                        className="video-preview" 
-                        onClick={() => handlePreview(media)}
-                    >
-                        <PlayCircleOutlined />
-                    </div>
-                )}
-            </div>
-        ))}
-    </div>
-)}
+                        <div className="review-media">
+                            {review.media.map((media, index) => (
+                        <div key={index} className="media-item">
+                            {media.type.startsWith('image/') ? (
+                                <img
+                                    src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
+                                    alt={`Фото ${index + 1}`}
+                                    onClick={() => handlePreview(media)}
+                                />
+                            ) : (
+                                <video
+                                    src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
+                                    className="video-preview"
+                                    onClick={() => handlePreview(media)}
+                                >
+                                    <PlayCircleOutlined />
+                                </video>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            )}
                     </div>
                 ))}
             </div>
 
-            <Modal
-    open={previewOpen}
-    title={previewTitle}
-    footer={null}
-    onCancel={() => {
-        setPreviewOpen(false);
-        setPreviewImage('');
-        setPreviewVideo('');
-    }}
-    width={800}
->
-    {previewImage && (
-        <img 
-            alt="preview" 
-            style={{ width: '100%' }} 
-            src={previewImage} 
-        />
-    )}
-    {previewVideo && (
-        <video
-            controls
-            style={{ width: '100%' }}
-            src={previewVideo}
-        >
-            Ваш браузер не поддерживает видео
-        </video>
-    )}
-</Modal>
+                <Modal
+                    open={previewOpen}
+                    title={previewTitle}
+                    footer={null}
+                    onCancel={() => {
+                        setPreviewOpen(false);
+                        setPreviewImage('');
+                        setPreviewVideo('');
+                    }}
+                    width={800}
+                >
+                    {previewImage && (
+                        <img 
+                            alt="preview" 
+                            style={{ width: '100%' }} 
+                            src={previewImage} 
+                        />
+                    )}
+                    {previewVideo && (
+                        <video
+                            controls
+                            style={{ width: '100%' }}
+                            src={previewVideo}
+                        >
+                            Ваш браузер не поддерживает видео
+                        </video>
+                    )}
+                </Modal>
         </div>
     );
 };

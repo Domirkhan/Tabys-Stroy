@@ -10,7 +10,7 @@ const createAdminOrderTemplate = (order) => {
   <div style="font-family: 'Montserrat', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #fafafa; border-radius: 12px; border: 1px solid #eee; overflow: hidden;">
     <div style="background: #ff0000; color: #fff; padding: 24px 32px; text-align: center;">
       <img src="https://tabys-stroy.kz/logo.png" alt="Tabys Stroy" style="height: 48px; margin-bottom: 10px;" />
-      <h2 style="margin: 0; font-size: 2rem; font-weight: 700;">Новый заказ #${order._id}</h2>
+      <h2 style="margin: 0; font-size: 2rem; font-weight: 700;">Новый заказ #${order.orderId}</h2>
     </div>
     
     <div style="padding: 24px 32px;">
@@ -97,7 +97,7 @@ const createUserOrderStatusTemplate = (order) => {
   <div style="font-family: 'Montserrat', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #fafafa; border-radius: 12px; border: 1px solid #eee; overflow: hidden;">
     <div style="background: #ff0000; color: #fff; padding: 24px 32px; text-align: center;">
       <img src="https://tabys-stroy.kz/logo.png" alt="Tabys Stroy" style="height: 48px; margin-bottom: 10px;" />
-      <h2 style="margin: 0; font-size: 2rem; font-weight: 700;">Ваш заказ #${order._id}</h2>
+      <h2 style="margin: 0; font-size: 2rem; font-weight: 700;">Ваш заказ #${order.orderId}</h2>
     </div>
     <div style="padding: 24px 32px;">
       <p style="font-size: 1.1rem; color: #333;">Здравствуйте, <b>${order.user.name}</b>!</p>
@@ -192,11 +192,26 @@ export const createOrderController = async (req, res) => {
       promoInactive
     } = req.body;
 
-    // Валидация входных данных
-    if (!orderItems || !Array.isArray(orderItems) || orderItems.length === 0) {
+    // Проверяем наличие пользователя
+    if (!req.user?._id) {
+      return res.status(401).json({
+        success: false,
+        message: "Пользователь не авторизован"
+      });
+    }
+
+    // Валидация входных данных с подробными сообщениями об ошибках
+    if (!orderItems || !Array.isArray(orderItems)) {
       return res.status(400).json({
         success: false,
-        message: "Необходимо указать товары для заказа"
+        message: "Отсутствуют товары в заказе"
+      });
+    }
+
+    if (orderItems.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Корзина пуста"
       });
     }
 
@@ -207,125 +222,135 @@ export const createOrderController = async (req, res) => {
       });
     }
 
-    // Преобразование orderItems с подробной проверкой данных
-    const processedOrderItems = orderItems.map((item, index) => {
-  if (!item) {
-    throw new Error(`Товар ${index} отсутствует`);
-  }
+    // Генерация короткого ID заказа
+    const orderId = Math.random().toString(36).substring(2, 8).toUpperCase();
 
-  if (!item._id) {
-    throw new Error(`Отсутствует ID для товара ${index}`);
-  }
-
-  if (!item.name) {
-    throw new Error(`Отсутствует название для товара ${index}`);
-  }
-
-  if (!item.selectedUnit) {
-    throw new Error(`Отсутствует единица измерения для товара ${index}`);
-  }
-
-  if (!item.quantity || typeof item.quantity !== 'number' || item.quantity <= 0) {
-    throw new Error(`Некорректное количество для товара ${index}`);
-  }
-
-  const originalPrice = item.pricePerUnit[item.selectedUnit];
-  if (typeof originalPrice !== 'number' || originalPrice <= 0) {
-    throw new Error(`Некорректная цена для товара ${index}`);
-  }
-
-  // Проверяем, применяется ли скидка к данному товару
-  const isExcluded = excludedSubcategories?.includes(item.subcategory);
-  const finalPrice = isExcluded ? originalPrice : 
-    (promoCode && !promoInactive) ? 
-      Math.round(originalPrice * (1 - (discountPercent || 0) / 100)) : 
-      originalPrice;
-
-  return {
-    product: item._id,
-    name: item.name,
-    price: originalPrice, // Добавляем обязательное поле price
-    originalPrice: originalPrice,
-    finalPrice: finalPrice,
-    quantity: Number(item.quantity),
-    selectedUnit: item.selectedUnit,
-    subcategory: item.subcategory || null,
-    hasDiscount: !isExcluded && promoCode && !promoInactive,
-    discountPercent: !isExcluded && promoCode && !promoInactive ? discountPercent : 0
-  };
-});
-
-    // Создание заказа с проверенными данными
-    const order = new Order({
-      user: req.user._id,
-      orderItems: processedOrderItems,
-      totalAmount: Number(totalAmount),
-      originalAmount: Number(originalAmount),
-      deliveryMethod: deliveryMethod || 'delivery',
-      promoCode: promoCode || null,
-      discountPercent: Number(discountPercent) || 0,
-      discountAmount: Number(discountAmount) || 0,
-      promoInactive: Boolean(promoInactive),
-      excludedSubcategories: Array.isArray(excludedSubcategories) ? excludedSubcategories : []
-    });
-
-    await order.save();
-
-    // Получаем заполненные данные заказа
-    const populatedOrder = await Order.findById(order._id)
-      .populate('user', 'name email phone address')
-      .populate('orderItems.product')
-      .populate('orderItems.subcategory');
-
-    // Отправляем уведомления
     try {
-      // Уведомление администратору
-      await sendAdminEmail(
-        `Новый заказ #${order._id}`,
-        createAdminOrderTemplate(populatedOrder)
-      );
+      // Преобразование orderItems с проверкой каждого элемента
+      const processedOrderItems = orderItems.map((item, index) => {
+        if (!item || typeof item !== 'object') {
+          throw new Error(`Некорректные данные товара в позиции ${index + 1}`);
+        }
 
-      // Уведомление пользователю
-      await sendEmail(
-        populatedOrder.user.email,
-        `Ваш заказ #${order._id} успешно создан`,
-        createUserOrderStatusTemplate(populatedOrder)
-      );
+        if (!item._id) {
+          throw new Error(`Отсутствует ID товара в позиции ${index + 1}`);
+        }
 
-      // Оповещение через сокет
-      if (global.io) {
-        global.io.emit('newOrder', {
-          orderId: order._id,
-          totalAmount: order.totalAmount,
-          originalAmount: order.originalAmount,
-          userName: populatedOrder.user.name,
-          userEmail: populatedOrder.user.email,
-          phone: populatedOrder.user.phone,
-          address: populatedOrder.user.address,
-          promoDetails: promoCode ? {
-            code: promoCode,
-            discount: discountPercent,
-            amount: discountAmount,
-            inactive: promoInactive,
-            excludedSubcategories
-          } : null
-        });
+        if (!item.name) {
+          throw new Error(`Отсутствует название товара в позиции ${index + 1}`);
+        }
+
+        if (!item.selectedUnit) {
+          throw new Error(`Не указана единица измерения для товара "${item.name}"`);
+        }
+
+        if (!item.quantity || typeof item.quantity !== 'number' || item.quantity <= 0) {
+          throw new Error(`Некорректное количество для товара "${item.name}"`);
+        }
+
+        const originalPrice = item.pricePerUnit?.[item.selectedUnit];
+        if (typeof originalPrice !== 'number' || originalPrice <= 0) {
+          throw new Error(`Некорректная цена для товара "${item.name}"`);
+        }
+
+        const isExcluded = excludedSubcategories?.includes(item.subcategory);
+        const finalPrice = isExcluded ? originalPrice : 
+          (promoCode && !promoInactive) ? 
+            Math.round(originalPrice * (1 - (discountPercent || 0) / 100)) : 
+            originalPrice;
+
+        return {
+          product: item._id,
+          name: item.name,
+          price: originalPrice,
+          originalPrice: originalPrice,
+          finalPrice: finalPrice,
+          quantity: Number(item.quantity),
+          selectedUnit: item.selectedUnit,
+          subcategory: item.subcategory || null,
+          hasDiscount: !isExcluded && promoCode && !promoInactive,
+          discountPercent: !isExcluded && promoCode && !promoInactive ? discountPercent : 0
+        };
+      });
+
+      // Создание заказа
+      const order = new Order({
+        orderId,
+        user: req.user._id,
+        orderItems: processedOrderItems,
+        totalAmount: Number(totalAmount),
+        originalAmount: Number(originalAmount || totalAmount),
+        deliveryMethod: deliveryMethod || 'delivery',
+        promoCode: promoCode || null,
+        discountPercent: Number(discountPercent) || 0,
+        discountAmount: Number(discountAmount) || 0,
+        promoInactive: Boolean(promoInactive),
+        excludedSubcategories: Array.isArray(excludedSubcategories) ? excludedSubcategories : []
+      });
+
+      await order.save();
+
+      // Получение полных данных заказа
+      const populatedOrder = await Order.findById(order._id)
+        .populate('user', 'name email phone address')
+        .populate('orderItems.product')
+        .populate('orderItems.subcategory');
+
+      // Отправка уведомлений
+      try {
+        await sendAdminEmail(
+          `Новый заказ #${order.orderId}`,
+          createAdminOrderTemplate(populatedOrder)
+        );
+
+        await sendEmail(
+          populatedOrder.user.email,
+          `Ваш заказ #${order.orderId} успешно создан`,
+          createUserOrderStatusTemplate(populatedOrder)
+        );
+
+        if (global.io) {
+          global.io.emit('newOrder', {
+            orderId: order.orderId,
+            _id: order._id,
+            totalAmount: order.totalAmount,
+            originalAmount: order.originalAmount,
+            userName: populatedOrder.user.name,
+            userEmail: populatedOrder.user.email,
+            phone: populatedOrder.user.phone,
+            address: populatedOrder.user.address,
+            promoDetails: promoCode ? {
+              code: promoCode,
+              discount: discountPercent,
+              amount: discountAmount,
+              inactive: promoInactive,
+              excludedSubcategories
+            } : null
+          });
+        }
+      } catch (emailError) {
+        console.error('Ошибка при отправке уведомлений:', emailError);
       }
-    } catch (emailError) {
-      console.error('Ошибка при отправке уведомлений:', emailError);
-    }
 
-    res.status(201).json({
-      success: true,
-      message: "Заказ успешно создан",
-      order: populatedOrder
-    });
+      return res.status(201).json({
+        success: true,
+        message: "Заказ успешно создан",
+        order: populatedOrder
+      });
+
+    } catch (processError) {
+      console.error("Ошибка при обработке данных заказа:", processError);
+      return res.status(400).json({
+        success: false,
+        message: processError.message
+      });
+    }
 
   } catch (error) {
     console.error("Ошибка при создании заказа:", error);
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
-      message: error.message || "Ошибка при создании заказа",
+      message: "Ошибка при создании заказа",
       error: error.message
     });
   }

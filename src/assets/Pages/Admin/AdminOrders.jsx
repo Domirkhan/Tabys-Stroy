@@ -74,10 +74,10 @@ const AdminOrders = () => {
                   <p>Нет заказов</p>
                 ) : (
                   orders.map((order) => (
-                    <div className="order-card" key={order._id}>
+                    <div className="order-card" key={order.orderId}>
                       <div className="order-header">
                         <div className="order-info">
-                          <p><strong>Заказ ID:</strong> {order._id}</p>
+                          <p><strong>Заказ ID:</strong> {order.orderId}</p>
                           <p><strong>Дата:</strong> {new Date(order.createdAt).toLocaleString()}</p>
                           <p>
                             <strong>Общая сумма:</strong>{" "}

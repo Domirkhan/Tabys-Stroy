@@ -128,3 +128,48 @@ export const deleteReview = async (req, res) => {
       });
   }
 };
+
+export const getReviewMedia = async (req, res) => {
+  try {
+    const { mediaId } = req.params;
+    const review = await reviewModel.findOne({ "media._id": mediaId });
+
+    if (!review) {
+      return res.status(404).json({
+        success: false,
+        message: "Медиафайл не найден"
+      });
+    }
+
+    const media = review.media.find(m => m._id.toString() === mediaId);
+    
+    if (!media) {
+      return res.status(404).json({
+        success: false,
+        message: "Медиафайл не найден"
+      });
+    }
+
+    const filePath = path.join(__dirname, '..', media.url);
+    
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({
+        success: false,
+        message: "Файл не найден на сервере"
+      });
+    }
+
+    // Определяем content-type
+    res.set('Content-Type', media.type);
+    // Отправляем файл
+    res.sendFile(filePath);
+
+  } catch (error) {
+    console.error("Ошибка при получении медиафайла:", error);
+    res.status(500).json({
+      success: false,
+      message: "Ошибка при получении медиафайла",
+      error: error.message
+    });
+  }
+};

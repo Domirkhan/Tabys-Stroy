@@ -7,7 +7,7 @@ import "../styles/SubCategory.css";
 import Footer from "../layout/Footer";
 import BottomNav from "../components/BottomNav";
 import { FaShoppingCart } from "react-icons/fa";
-
+import toast from "react-hot-toast";
 const SubCategoryProduct = () => {
   const [cart, setCart] = useCart();
   const { subcategory, slug } = useParams(); // subcategory - категория, slug - подкатегория
