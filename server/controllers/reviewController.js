@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import reviewModel from "../models/reviewModel.js";
 import fs from "fs";
 import path from "path";
@@ -133,7 +134,6 @@ export const getReviewMedia = async (req, res) => {
   try {
     const { mediaId } = req.params;
     
-    // Проверяем валидность mediaId
     if (!mongoose.Types.ObjectId.isValid(mediaId)) {
       return res.status(400).json({
         success: false,
@@ -141,7 +141,9 @@ export const getReviewMedia = async (req, res) => {
       });
     }
 
-    const review = await reviewModel.findOne({ "media._id": mediaId });
+    const review = await reviewModel.findOne({ 
+      "media._id": new mongoose.Types.ObjectId(mediaId) 
+    });
 
     if (!review) {
       return res.status(404).json({
@@ -150,7 +152,9 @@ export const getReviewMedia = async (req, res) => {
       });
     }
 
-    const media = review.media.find(m => m._id.toString() === mediaId);
+    const media = review.media.find(m => 
+      m._id.toString() === mediaId
+    );
 
     if (!media) {
       return res.status(404).json({
@@ -168,14 +172,13 @@ export const getReviewMedia = async (req, res) => {
       });
     }
 
-    // Отправляем файл с правильным content-type
     res.set('Content-Type', media.type);
     res.sendFile(filePath);
 
   } catch (error) {
     console.error("Ошибка при получении медиафайла:", error);
     res.status(500).json({
-      success: false,
+      success: false, 
       message: "Ошибка при получении медиафайла",
       error: error.message
     });
