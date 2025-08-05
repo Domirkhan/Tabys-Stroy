@@ -46,11 +46,13 @@ const Reviews = ({ productId }) => {
     const handlePreview = async (file) => {
       // Если передан объект с медиа из отзыва
       if (file.url) {
-          setPreviewImage(file.type?.startsWith('image/') ? `${import.meta.env.VITE_API}${file.url}` : '');
-          setPreviewVideo(file.type?.startsWith('video/') ? `${import.meta.env.VITE_API}${file.url}` : '');
-          setPreviewOpen(true);
-          setPreviewTitle('Медиа');
-      } 
+    setPreviewImage(file.type?.startsWith('image/') ? 
+        `${import.meta.env.VITE_API}/api/v1/review/media/${file._id}` : '');
+    setPreviewVideo(file.type?.startsWith('video/') ? 
+        `${import.meta.env.VITE_API}/api/v1/review/media/${file._id}` : '');
+    setPreviewOpen(true);
+    setPreviewTitle('Медиа');
+}
       // Если передан файл для загрузки
       else if (file.originFileObj) {
           if (!file.preview) {
@@ -221,26 +223,26 @@ useEffect(() => {
                         {review.media && review.media.length > 0 && (
                         <div className="review-media">
                             {review.media.map((media, index) => (
-                        <div key={index} className="media-item">
-                            {media.type.startsWith('image/') ? (
-                                <img
-                                    src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
-                                    alt={`Фото ${index + 1}`}
-                                    onClick={() => handlePreview(media)}
-                                />
-                            ) : (
-                                <video
-                                    src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
-                                    className="video-preview"
-                                    onClick={() => handlePreview(media)}
-                                >
-                                    <PlayCircleOutlined />
-                                </video>
-                            )}
+                                <div key={index} className="media-item">
+                                    {media.type.startsWith('image/') ? (
+                                        <img
+                                            src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
+                                            alt={`Фото ${index + 1}`}
+                                            onClick={() => handlePreview(media)}
+                                        />
+                                    ) : (
+                                        <video
+                                            src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
+                                            className="video-preview"
+                                            onClick={() => handlePreview(media)}
+                                        >
+                                            <PlayCircleOutlined />
+                                        </video>
+                                    )}
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-            )}
+                    )}
                     </div>
                 ))}
             </div>
