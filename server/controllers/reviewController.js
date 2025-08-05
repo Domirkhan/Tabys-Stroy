@@ -132,17 +132,26 @@ export const deleteReview = async (req, res) => {
 export const getReviewMedia = async (req, res) => {
   try {
     const { mediaId } = req.params;
+    
+    // Проверяем валидность mediaId
+    if (!mongoose.Types.ObjectId.isValid(mediaId)) {
+      return res.status(400).json({
+        success: false,
+        message: "Некорректный ID медиафайла"
+      });
+    }
+
     const review = await reviewModel.findOne({ "media._id": mediaId });
 
     if (!review) {
       return res.status(404).json({
         success: false,
-        message: "Медиафайл не найден"
+        message: "Отзыв с указанным медиафайлом не найден"
       });
     }
 
     const media = review.media.find(m => m._id.toString() === mediaId);
-    
+
     if (!media) {
       return res.status(404).json({
         success: false,
@@ -159,9 +168,8 @@ export const getReviewMedia = async (req, res) => {
       });
     }
 
-    // Определяем content-type
+    // Отправляем файл с правильным content-type
     res.set('Content-Type', media.type);
-    // Отправляем файл
     res.sendFile(filePath);
 
   } catch (error) {
