@@ -7,6 +7,13 @@ import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Создание папки для загрузок, если её нет
+const uploadsDir = path.join(__dirname, '..', 'uploads', 'reviews');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
 // Добавление отзыва
 export const createReview = async (req, res) => {
   try {
@@ -19,7 +26,7 @@ export const createReview = async (req, res) => {
       });
     }
 
-    // Создаем массив медиафайлов
+    // Создаем массив медиафайлов с правильными путями
     const media = req.files ? req.files.map(file => ({
       url: `/uploads/reviews/${file.filename}`,
       type: file.mimetype
@@ -31,7 +38,7 @@ export const createReview = async (req, res) => {
       rating: Number(rating),
       comment,
       userName,
-      media: media // передаем массив объектов
+      media
     });
 
     await review.save();
@@ -51,85 +58,90 @@ export const createReview = async (req, res) => {
     });
   }
 };
-  
-  // Получение отзывов для продукта
-  export const getProductReviews = async (req, res) => {
-    try {
-        const { productId } = req.params;
 
-        // Добавляем проверку productId
-        if (!productId) {
-            return res.status(400).json({
-                success: false,
-                message: "ID продукта не указан"
-            });
-        }
+// Получение отзывов для продукта
+export const getProductReviews = async (req, res) => {
+  try {
+    const { productId } = req.params;
 
-        const reviews = await reviewModel
-            .find({ productId })
-            .sort({ createdAt: -1 });
-
-        res.status(200).json({
-            success: true,
-            reviews
-        });
-    } catch (error) {
-        console.error("Ошибка при получении отзывов:", error);
-        res.status(500).json({
-            success: false,
-            message: "Ошибка при получении отзывов",
-            error: error.message
-        });
+    if (!productId) {
+      return res.status(400).json({
+        success: false,
+        message: "ID продукта не указан"
+      });
     }
+
+    const reviews = await reviewModel
+      .find({ productId })
+      .populate('userId', 'name')
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      reviews
+    });
+  } catch (error) {
+    console.error("Ошибка при получении отзывов:", error);
+    res.status(500).json({
+      success: false,
+      message: "Ошибка при получении отзывов",
+      error: error.message
+    });
+  }
 };
 
 // Удаление отзыва
 export const deleteReview = async (req, res) => {
   try {
-      const { reviewId } = req.params;
+    const { reviewId } = req.params;
 
-      if (!reviewId) {
-          return res.status(400).json({
-              success: false,
-              message: "ID отзыва не указан"
-          });
-      }
-
-      const review = await reviewModel.findById(reviewId);
-
-      if (!review) {
-          return res.status(404).json({
-              success: false,
-              message: "Отзыв не найден"
-          });
-      }
-
-      // Удаляем медиафайлы, если они есть
-      if (review.media && review.media.length > 0) {
-          review.media.forEach(media => {
-              const filePath = path.join(__dirname, '..', media.url);
-              if (fs.existsSync(filePath)) {
-                  fs.unlinkSync(filePath);
-              }
-          });
-      }
-
-      await review.deleteOne();
-
-      res.status(200).json({
-          success: true,
-          message: "Отзыв успешно удален"
+    if (!reviewId) {
+      return res.status(400).json({
+        success: false,
+        message: "ID отзыва не указан"
       });
+    }
+
+    const review = await reviewModel.findById(reviewId);
+
+    if (!review) {
+      return res.status(404).json({
+        success: false,
+        message: "Отзыв не найден"
+      });
+    }
+
+    // Удаляем связанные медиафайлы
+    if (review.media && review.media.length > 0) {
+      for (const media of review.media) {
+        const filePath = path.join(__dirname, '..', media.url);
+        try {
+          if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+          }
+        } catch (err) {
+          console.error(`Ошибка при удалении файла ${filePath}:`, err);
+        }
+      }
+    }
+
+    await review.deleteOne();
+
+    res.status(200).json({
+      success: true,
+      message: "Отзыв успешно удален"
+    });
   } catch (error) {
-      console.error("Ошибка при удалении отзыва:", error);
-      res.status(500).json({
-          success: false,
-          message: "Ошибка при удалении отзыва",
-          error: error.message
-      });
+    console.error("Ошибка при удалении отзыва:", error);
+    res.status(500).json({
+      success: false,
+      message: "Ошибка при удалении отзыва",
+      error: error.message
+    });
   }
 };
 
+// Получение медиафайла отзыва
 export const getReviewMedia = async (req, res) => {
   try {
     const { mediaId } = req.params;
@@ -141,8 +153,8 @@ export const getReviewMedia = async (req, res) => {
       });
     }
 
-    const review = await reviewModel.findOne({ 
-      "media._id": new mongoose.Types.ObjectId(mediaId) 
+    const review = await reviewModel.findOne({
+      'media._id': mediaId
     });
 
     if (!review) {
@@ -152,9 +164,7 @@ export const getReviewMedia = async (req, res) => {
       });
     }
 
-    const media = review.media.find(m => 
-      m._id.toString() === mediaId
-    );
+    const media = review.media.find(m => m._id.toString() === mediaId);
 
     if (!media) {
       return res.status(404).json({
@@ -163,8 +173,10 @@ export const getReviewMedia = async (req, res) => {
       });
     }
 
-    const filePath = path.join(__dirname, '..', media.url);
-    
+    // Формируем правильный путь к файлу
+    const filePath = path.join(__dirname, '..', media.url.replace(/^\//, ''));
+
+    // Проверяем существование файла
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({
         success: false,
@@ -172,7 +184,12 @@ export const getReviewMedia = async (req, res) => {
       });
     }
 
-    res.set('Content-Type', media.type);
+    // Отправляем файл
+    res.set({
+      'Content-Type': media.type,
+      'Cache-Control': 'public, max-age=31536000' // кэширование на 1 год
+    });
+    
     res.sendFile(filePath);
 
   } catch (error) {

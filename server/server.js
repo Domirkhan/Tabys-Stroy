@@ -61,11 +61,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 // Если файлы сохранялись на диск, можно сделать их раздачу публичной:
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads/reviews', express.static(path.join(__dirname, 'uploads/reviews')));
+app.use('/uploads/products', express.static(path.join(__dirname, 'uploads/products')));
 app.use('/uploads/categories', express.static(path.join(__dirname, 'uploads/categories')));
-// Добавьте эти строки после других middleware
-app.use('/uploads/products', express.static('uploads/products'));
-app.use('/uploads/reviews', express.static('uploads/reviews'));
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {

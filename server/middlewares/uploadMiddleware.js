@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
         
         // Если это медиафайл отзыва
         if (req.baseUrl.includes('review')) {
-            uploadPath = 'uploads/reviews/';
+            uploadPath = path.join(__dirname, '..', 'uploads/reviews');
         }
         // Если это фото продукта
         else if (req.baseUrl.includes('product')) {

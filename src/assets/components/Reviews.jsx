@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Rate, Input, Button, message, Upload, Modal } from 'antd';
-import { PlusOutlined, PlayCircleOutlined, DeleteOutlined } from '@ant-design/icons'; // Добавляем импорт DeleteOutlined
+import { PlusOutlined, PlayCircleOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useAuth } from '../../context/auth';
 import axios from 'axios';
 import '../styles/reviews.css';
@@ -44,120 +44,124 @@ const Reviews = ({ productId }) => {
     };
 
     const handlePreview = async (file) => {
-      // Если передан объект с медиа из отзыва
-      if (file.url) {
-    setPreviewImage(file.type?.startsWith('image/') ? 
-        `${import.meta.env.VITE_API}/api/v1/review/media/${file._id}` : '');
-    setPreviewVideo(file.type?.startsWith('video/') ? 
-        `${import.meta.env.VITE_API}/api/v1/review/media/${file._id}` : '');
-    setPreviewOpen(true);
-    setPreviewTitle('Медиа');
-}
-      // Если передан файл для загрузки
-      else if (file.originFileObj) {
-          if (!file.preview) {
-              file.preview = await getBase64(file.originFileObj);
-          }
-          setPreviewImage(file.type?.startsWith('image/') ? file.preview : '');
-          setPreviewVideo(file.type?.startsWith('video/') ? file.preview : '');
-          setPreviewOpen(true);
-          setPreviewTitle(file.name);
-      }
-  };
-  const getReviews = async () => {
-    try {
-        // Добавляем проверку productId
-        if (!productId) {
-            console.log('ProductId не определен');
-            return;
+        try {
+            // Для существующих медиафайлов из отзыва
+            if (file._id) {
+                const mediaUrl = `${import.meta.env.VITE_API}/api/v1/review/media/${file._id}`;
+                setPreviewImage(file.type?.startsWith('image/') ? mediaUrl : '');
+                setPreviewVideo(file.type?.startsWith('video/') ? mediaUrl : '');
+                setPreviewOpen(true);
+                setPreviewTitle('Медиа');
+            }
+            // Для новых загружаемых файлов
+            else if (file.originFileObj) {
+                if (!file.preview) {
+                    file.preview = await getBase64(file.originFileObj);
+                }
+                setPreviewImage(file.type?.startsWith('image/') ? file.preview : '');
+                setPreviewVideo(file.type?.startsWith('video/') ? file.preview : '');
+                setPreviewOpen(true);
+                setPreviewTitle(file.name);
+            }
+        } catch (error) {
+            console.error('Ошибка при предпросмотре файла:', error);
+            message.error('Ошибка при загрузке предпросмотра');
         }
+    };
 
-        const { data } = await axios.get(
-            `${import.meta.env.VITE_API}/api/v1/review/product-reviews/${productId}`
-        );
-        if (data?.success) {
-            setReviews(data.reviews);
+    const getReviews = async () => {
+        try {
+            if (!productId) {
+                console.log('ProductId не определен');
+                return;
+            }
+
+            const { data } = await axios.get(
+                `${import.meta.env.VITE_API}/api/v1/review/product-reviews/${productId}`
+            );
+            if (data?.success) {
+                setReviews(data.reviews);
+            }
+        } catch (error) {
+            console.error("Ошибка при получении отзывов:", error);
+            message.error("Не удалось загрузить отзывы");
         }
-    } catch (error) {
-        console.error("Ошибка при получении отзывов:", error);
-        message.error("Не удалось загрузить отзывы");
-    }
-};
+    };
 
-useEffect(() => {
-    // Вызываем getReviews только если есть productId
-    if (productId) {
-        getReviews();
-    }
-}, [productId]);
+    useEffect(() => {
+        if (productId) {
+            getReviews();
+        }
+    }, [productId]);
 
     // Добавление отзыва с медиафайлами
     const handleSubmitReview = async () => {
-      try {
-        if (!auth?.user?.name) {
-          message.error('Не удалось определить имя пользователя');
-          return;
-        }
-    
-        setLoading(true);
-        const formData = new FormData();
-        formData.append('productId', productId);
-        formData.append('rating', rating);
-        formData.append('comment', comment);
-        formData.append('userName', auth.user.name);
-    
-        // Добавление медиафайлов
-        fileList.forEach(file => {
-          if (file.originFileObj) {
-            formData.append('media', file.originFileObj);
-          }
-        });
-    
-        const { data } = await axios.post(
-          `${import.meta.env.VITE_API}/api/v1/review/create-review`,
-          formData,
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-              Authorization: auth.token
+        try {
+            if (!auth?.user?.name) {
+                message.error('Не удалось определить имя пользователя');
+                return;
             }
-          }
-        );
-    
-        if (data?.success) {
-          message.success('Отзыв успешно добавлен');
-          setComment('');
-          setRating(5);
-          setFileList([]);
-          getReviews(); // Обновляем список отзывов
-        }
-      } catch (error) {
-        console.log(error);
-        message.error(error.response?.data?.message || 'Ошибка при добавлении отзыва');
-      } finally {
-        setLoading(false);
-      }
-    };
-    const handleDeleteReview = async (reviewId) => {
-      try {
-          const { data } = await axios.delete(
-              `${import.meta.env.VITE_API}/api/v1/review/delete-review/${reviewId}`,
-              {
-                  headers: {
-                      Authorization: auth.token
-                  }
-              }
-          );
 
-          if (data?.success) {
-              message.success('Отзыв успешно удален');
-              getReviews(); // Обновляем список отзывов
-          }
-      } catch (error) {
-          console.error(error);
-          message.error('Ошибка при удалении отзыва');
-      }
-  };
+            setLoading(true);
+            const formData = new FormData();
+            formData.append('productId', productId);
+            formData.append('rating', rating);
+            formData.append('comment', comment);
+            formData.append('userName', auth.user.name);
+
+            // Добавление медиафайлов
+            fileList.forEach(file => {
+                if (file.originFileObj) {
+                    formData.append('media', file.originFileObj);
+                }
+            });
+
+            const { data } = await axios.post(
+                `${import.meta.env.VITE_API}/api/v1/review/create-review`,
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        Authorization: auth.token
+                    }
+                }
+            );
+
+            if (data?.success) {
+                message.success('Отзыв успешно добавлен');
+                setComment('');
+                setRating(5);
+                setFileList([]);
+                getReviews();
+            }
+        } catch (error) {
+            console.error(error);
+            message.error(error.response?.data?.message || 'Ошибка при добавлении отзыва');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleDeleteReview = async (reviewId) => {
+        try {
+            const { data } = await axios.delete(
+                `${import.meta.env.VITE_API}/api/v1/review/delete-review/${reviewId}`,
+                {
+                    headers: {
+                        Authorization: auth.token
+                    }
+                }
+            );
+
+            if (data?.success) {
+                message.success('Отзыв успешно удален');
+                getReviews();
+            }
+        } catch (error) {
+            console.error(error);
+            message.error('Ошибка при удалении отзыва');
+        }
+    };
 
     return (
         <div className="reviews-section">
@@ -221,60 +225,60 @@ useEffect(() => {
                         </div>
                         <p className="review-comment">{review.comment}</p>
                         {review.media && review.media.length > 0 && (
-                        <div className="review-media">
-                            {review.media.map((media, index) => (
-                                <div key={index} className="media-item">
-                                    {media.type.startsWith('image/') ? (
-                                        <img
-                                            src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
-                                            alt={`Фото ${index + 1}`}
-                                            onClick={() => handlePreview(media)}
-                                        />
-                                    ) : (
-                                        <video
-                                            src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
-                                            className="video-preview"
-                                            onClick={() => handlePreview(media)}
-                                        >
-                                            <PlayCircleOutlined />
-                                        </video>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                            <div className="review-media">
+                                {review.media.map((media, index) => (
+                                    <div key={index} className="media-item">
+                                        {media.type.startsWith('image/') ? (
+                                            <img
+                                                src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
+                                                alt={`Фото ${index + 1}`}
+                                                onClick={() => handlePreview(media)}
+                                            />
+                                        ) : (
+                                            <video
+                                                src={`${import.meta.env.VITE_API}/api/v1/review/media/${media._id}`}
+                                                className="video-preview"
+                                                onClick={() => handlePreview(media)}
+                                            >
+                                                <PlayCircleOutlined />
+                                            </video>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>
 
-                <Modal
-                    open={previewOpen}
-                    title={previewTitle}
-                    footer={null}
-                    onCancel={() => {
-                        setPreviewOpen(false);
-                        setPreviewImage('');
-                        setPreviewVideo('');
-                    }}
-                    width={800}
-                >
-                    {previewImage && (
-                        <img 
-                            alt="preview" 
-                            style={{ width: '100%' }} 
-                            src={previewImage} 
-                        />
-                    )}
-                    {previewVideo && (
-                        <video
-                            controls
-                            style={{ width: '100%' }}
-                            src={previewVideo}
-                        >
-                            Ваш браузер не поддерживает видео
-                        </video>
-                    )}
-                </Modal>
+            <Modal
+                open={previewOpen}
+                title={previewTitle}
+                footer={null}
+                onCancel={() => {
+                    setPreviewOpen(false);
+                    setPreviewImage('');
+                    setPreviewVideo('');
+                }}
+                width={800}
+            >
+                {previewImage && (
+                    <img 
+                        alt="preview" 
+                        style={{ width: '100%' }} 
+                        src={previewImage} 
+                    />
+                )}
+                {previewVideo && (
+                    <video
+                        controls
+                        style={{ width: '100%' }}
+                        src={previewVideo}
+                    >
+                        Ваш браузер не поддерживает видео
+                    </video>
+                )}
+            </Modal>
         </div>
     );
 };
