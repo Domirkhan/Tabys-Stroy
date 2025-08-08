@@ -14,6 +14,7 @@ function ProductCard({ product }) {
   }
 
   const handleNavigateToProduct = () => {
+    window.scrollTo(0, 0);
     navigate(`/product/${product.slug}`);
   };
 

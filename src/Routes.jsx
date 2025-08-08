@@ -1,50 +1,53 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App';
-import CartPage from './assets/Pages/CartPage';
-import CategoryPage from './assets/Pages/CategoryPage';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import App from "./App";
+import ScrollToTop from "./assets/components/ScrollToTop";
+import CartPage from "./assets/Pages/CartPage";
+import CategoryPage from "./assets/Pages/CategoryPage";
 
-import ZakazPage from './assets/Pages/ZakazPage';
-import About from './assets/Pages/About';
-import DeliveryPage from './assets/Pages/DeliveryPage';
-import PaymentPage from './assets/Pages/PaymentPage';
-import ContactsPage from './assets/Pages/ContactsPage';
+import ZakazPage from "./assets/Pages/ZakazPage";
+import About from "./assets/Pages/About";
+import DeliveryPage from "./assets/Pages/DeliveryPage";
+import PaymentPage from "./assets/Pages/PaymentPage";
+import ContactsPage from "./assets/Pages/ContactsPage";
 
-import CatalogPage from './assets/Pages/CatalogPage';
-import PrivateRoute from './assets/components/Routes/Private';
-import AdminRoute from './assets/components/Routes/AdminRoute';
-import Dashboard from './assets/Pages/user/Dashboard';
-import Orders from './assets/Pages/user/Orders';
-import Profile from './assets/Pages/user/Profile';
-import AdminDashboard from './assets/Pages/Admin/AdminDashboard';
-import CreateCategory from './assets/Pages/Admin/CreateCategory';
-import CreateProduct from './assets/Pages/Admin/CreateProduct';
-import UpdateProduct from './assets/Pages/Admin/UpdateProduct';
-import Products from './assets/Pages/Admin/Products';
-import Users from './assets/Pages/Admin/Users';
-import AdminOrders from './assets/Pages/Admin/AdminOrders';
-import SubCategoryProduct from './assets/Pages/SubCategoryProduct';
-import ProductInfo from './assets/Pages/ProductInfo';
-import Register from './assets/Pages/Auth/Register'
-import Login from './assets/Pages/Auth/Login';
-import ForgotPasssword from './assets/Pages/Auth/ForgotPassword';
-import ResetPassword from './assets/Pages/Auth/ResetPassword';
-import Search from './assets/Pages/Search';
-import ProductCard from './assets/components/ProductCard';
-import AdminPromoCodes from './assets/Pages/Admin/AdminPromoCodes';
-
-
+import CatalogPage from "./assets/Pages/CatalogPage";
+import PrivateRoute from "./assets/components/Routes/Private";
+import AdminRoute from "./assets/components/Routes/AdminRoute";
+import Dashboard from "./assets/Pages/user/Dashboard";
+import Orders from "./assets/Pages/user/Orders";
+import Profile from "./assets/Pages/user/Profile";
+import AdminDashboard from "./assets/Pages/Admin/AdminDashboard";
+import CreateCategory from "./assets/Pages/Admin/CreateCategory";
+import CreateProduct from "./assets/Pages/Admin/CreateProduct";
+import UpdateProduct from "./assets/Pages/Admin/UpdateProduct";
+import Products from "./assets/Pages/Admin/Products";
+import Users from "./assets/Pages/Admin/Users";
+import AdminOrders from "./assets/Pages/Admin/AdminOrders";
+import SubCategoryProduct from "./assets/Pages/SubCategoryProduct";
+import ProductInfo from "./assets/Pages/ProductInfo";
+import Register from "./assets/Pages/Auth/Register";
+import Login from "./assets/Pages/Auth/Login";
+import ForgotPasssword from "./assets/Pages/Auth/ForgotPassword";
+import ResetPassword from "./assets/Pages/Auth/ResetPassword";
+import Search from "./assets/Pages/Search";
+import ProductCard from "./assets/components/ProductCard";
+import AdminPromoCodes from "./assets/Pages/Admin/AdminPromoCodes";
 
 function RouterApp() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/zakaz" element={<ZakazPage />} />
-        
-        <Route path="/:category/:subCategory/:productName" element={<ProductCard />} />
+
+        <Route
+          path="/:category/:subCategory/:productName"
+          element={<ProductCard />}
+        />
 
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
@@ -60,7 +63,10 @@ function RouterApp() {
           <Route path="admin/products" element={<Products />} />
           <Route path="admin/users" element={<Users />} />
           <Route path="admin/orders" element={<AdminOrders />} />
-          <Route path="/dashboard/admin/promocodes" element={<AdminPromoCodes />} />
+          <Route
+            path="/dashboard/admin/promocodes"
+            element={<AdminPromoCodes />}
+          />
         </Route>
 
         <Route path="/about" element={<About />} />
@@ -69,14 +75,14 @@ function RouterApp() {
         <Route path="/contacts" element={<ContactsPage />} />
 
         {/* Категории – размещаем в конце маршрутов */}
-        <Route path="/product/:slug" element={<ProductInfo/>} />
+        <Route path="/product/:slug" element={<ProductInfo />} />
         <Route path="/search" element={<Search />} />
         <Route path="/:subcategory/:slug" element={<SubCategoryProduct />} />
         <Route path="/:category/:subcategory" element={<CategoryPage />} />
         <Route path="/:category" element={<CategoryPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPasssword />} />
-        <Route path="/reset-password/:token" element={<ResetPassword />} /> 
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
