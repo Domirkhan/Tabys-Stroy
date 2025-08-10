@@ -1,21 +1,5 @@
-.contact-content {
-    margin-top: 1rem;
-    padding-bottom: 3rem;
-    background-color: #f9f9f9;
-  }
-  
-  .contact-container {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    border-radius: 8px;
-    margin-top: 7rem;
-  }
-  
-  .section-title-category {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-top: 5rem;
+.contact-section {
+    margin-top: 8rem;
     margin-bottom: 1rem;
     background-image: url('../../assets/image/bg/bg-title.jpg'); /* Укажите путь к вашему изображению */
     background-size: cover;
@@ -27,45 +11,163 @@
     height: 200px; /* Увеличенная высота */
     display: flex;
     align-items: center;
-  }
-  
-  .contact-info {
-    margin-top: 2rem;
-  }
-  .contact-info a{
-    text-decoration: none;
-    color: #333;
-    transition: 0.3s ease;
-  }
+}
 
-  .contact-info a:hover{
-    color: #ff0000;
-  }
-  
-  .contact-info p {
-    font-size: 1.2rem;
+.contact-content h1 {
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.contact-content {
+    margin-top: 5rem;
+    padding-bottom: 4rem;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #E10600;
+    background: rgba(225, 6, 0, 0.1);
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
-  }
-  
-  .contact-info .icon {
-    margin-right: 0.5rem;
-    width: 24px; /* Установите нужный размер иконок */
-    height: 24px;
-  }
+    justify-content: center;
+    border-radius: 15px;
+}
 
-  @media (max-width: 768px) {
-    .contact-container {
-      margin-top: 0rem;
+.contact-card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-links a {
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.contact-links a:hover {
+    color: #E10600;
+    transform: translateX(5px);
+}
+
+.location-section {
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+}
+
+.locations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.location-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.location-card h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.location-card p {
+    color: #666;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        margin-top: 1rem;
     }
-    .contact-container p{
-      font-size: 0.9rem;
+
+    .contact-content {
+        margin-top: 0;
+        padding-bottom: 0;
     }
-    .section-title-category {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      padding: 1rem; /* Уменьшенные отступы внутри заголовка */
-      height: 150px; /* Уменьшенная высота */
+
+    .contact-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
-  }
+
+    .contact-card {
+        padding: 1.5rem;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .contact-card h2 {
+        font-size: 1.25rem;
+    }
+
+    .contact-links a {
+        font-size: 1rem;
+    }
+
+    .location-section {
+        padding: 1.5rem;
+    }
+}

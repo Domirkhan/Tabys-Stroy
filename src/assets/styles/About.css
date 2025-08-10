@@ -1,7 +1,22 @@
 .about-section {
     margin-top: 3rem;
   }
-  
+  .section-title-category{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    background-image: url('../../assets/image/bg/bg-title.jpg'); /* Укажите путь к вашему изображению */
+    background-size: cover;
+    background-position: center;
+    color: white; /* Цвет текста, чтобы он был виден на фоне */
+    padding: 2rem; /* Увеличенные отступы внутри заголовка */
+    border-radius: 8px; /* Скругленные углы */
+    width: 100%; /* Ширина на всю страницу */
+    height: 200px; /* Увеличенная высота */
+    display: flex;
+    align-items: center;
+  }
   .about-container {
     max-width: 1120px;
     margin: 0 auto;
@@ -173,6 +188,9 @@
   
   /* Адаптивные стили для мобильных устройств */
   @media (max-width: 768px) {
+    .section-title-category{
+      margin-top: 0rem;
+    }
     .about-image-mobile {
       display: block;
     }

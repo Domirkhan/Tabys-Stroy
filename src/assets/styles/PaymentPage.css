@@ -1,109 +1,211 @@
-.payment-content {
-    margin-top: 2rem;
-    width: 1120px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-.payment-container{
-  display: flex;
-}
-  .payment-container h1 {
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .payment-method-page {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
+.hero-section {
+    margin-top: 8rem;
     margin-bottom: 1rem;
-  }
+    background-image: url('../../assets/image/bg/bg-title.jpg'); /* Укажите путь к вашему изображению */
+    background-size: cover;
+    background-position: center;
+    color: white; /* Цвет текста, чтобы он был виден на фоне */
+    padding: 2rem; /* Увеличенные отступы внутри заголовка */
+    border-radius: 8px; /* Скругленные углы */
+    width: 100%; /* Ширина на всю страницу */
+    height: 200px; /* Увеличенная высота */
+    display: flex;
+    align-items: center;
+}
 
-  .payment-method{
-    margin-top: 1rem;
-  }
-  
-  .payment-method h2 {
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  .payment-method p {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  .payment-method-page p {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  .whatsapp-button {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #ff0000;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.hero-content h1 {
+    font-size: 2rem;
     font-weight: bold;
-    margin-top: 10px;
-    transition: 0.3s ease;
-  }
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-  .whatsapp-button:hover {
-    background: #b00000;
-  }
-  
-  @media (max-width: 1120px) {
-    .payment-content {
-      width: 90%;
-      margin-top: 1rem;
-      padding: 0;
-    }
-  }
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
 
-  @media (max-width: 768px) {
-    .payment-container{
-      display: block;
-    }
-    .payment-method{
-      margin-top: 1rem;
-    }
-    
-    .payment-method h2 {
-      text-align: left;
-      color: #333;
-      margin-bottom: 5px;
-    }
-    .payment-method-page h2 {
-      text-align: left;
-      color: #333;
-      margin-bottom: 5px;
-    }
-    
-    .payment-method p {
-      text-align: left;
-      font-size: 0.7rem;
-      color: #333;
-    }
-    
-    .payment-method-page p {
-      text-align: left;
-      font-size: 0.7rem;
-      color: #333;
-    }
-    
-    .whatsapp-button {
-      font-size: 0.6rem;
+.payment-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.payment-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.payment-method-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.payment-method-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #E10600;
+    background: rgba(225, 6, 0, 0.1);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.payment-method-card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.payment-method-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.more-info-btn {
+    background: transparent;
+    color: #E10600;
+    border: 2px solid #E10600;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.more-info-btn:hover {
+    background: #E10600;
+    color: white;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #E10600;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+.kaspi-number {
+    display: block;
+    background: rgba(225, 6, 0, 0.1);
+    color: #E10600;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.info-section {
+    margin: 4rem 0;
+}
+
+.help-card {
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.help-card svg {
+    font-size: 2.5rem;
+    color: #E10600;
+    margin-bottom: 1rem;
+}
+
+.help-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.help-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #E10600;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 200px;
+        margin-top: 2rem;
     }
 
-    .payment-method-page{
-      text-align: left;
-      padding: 0;
+    .hero-content h1 {
+        font-size: 1.5rem;
     }
-  
-  }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .payment-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .payment-method-card {
+        padding: 1.5rem;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .whatsapp-button,
+    .contact-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
