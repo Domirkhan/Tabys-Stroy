@@ -256,14 +256,26 @@ export const updateProfileController = async (req, res) => {
       });
     }
 
-    // Обновляем только те поля, которые были переданы
+    // Проверяем email на уникальность, если он был изменен
+    if (email && email !== user.email) {
+      const existingUser = await userModel.findOne({ email });
+      if (existingUser) {
+        return res.status(400).json({
+          success: false,
+          message: "Этот email уже используется другим пользователем"
+        });
+      }
+    }
+
+    // Создаем объект с обновлениями
     const updates = {};
     if (name) updates.name = name;
+    if (email) updates.email = email;
     if (phone) updates.phone = phone;
     if (address) updates.address = address;
 
-    // Проверяем пароль только если он был предоставлен
-    if (password && password.length > 0) {
+    // Проверяем пароль если он был предоставлен
+    if (password) {
       if (password.length < 6) {
         return res.status(400).json({
           success: false,
@@ -273,11 +285,22 @@ export const updateProfileController = async (req, res) => {
       updates.password = await hashPassword(password);
     }
 
+    // Обновляем пользователя
     const updatedUser = await userModel.findByIdAndUpdate(
       req.user._id,
       updates,
-      { new: true }
-    ).select("-password");
+      { 
+        new: true, // Возвращает обновленный документ
+        runValidators: true // Запускает валидаторы схемы
+      }
+    ).select("-password"); // Исключаем пароль из ответа
+
+    if (!updatedUser) {
+      return res.status(404).json({
+        success: false,
+        message: "Ошибка при обновлении профиля"
+      });
+    }
 
     res.status(200).json({
       success: true,
@@ -289,7 +312,9 @@ export const updateProfileController = async (req, res) => {
     console.error("Ошибка при обновлении профиля:", error);
     res.status(500).json({
       success: false,
-      message: "Ошибка при обновлении профиля",
+      message: error.code === 11000 
+        ? "Этот email уже используется" 
+        : "Ошибка при обновлении профиля",
       error: error.message
     });
   }

@@ -9,39 +9,59 @@ import BottomNav from "../../components/BottomNav";
 
 const Profile = () => {
   const [auth, setAuth] = useAuth();
-  
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    phone: "",
+    address: ""
+  });
+  const [loading, setLoading] = useState(false);
 
+  // Загрузка данных пользователя при монтировании компонента
   useEffect(() => {
-    console.log("Auth user data:", auth?.user); // Добавим для отладки
     if (auth?.user) {
-      const { name, email, phone, address } = auth.user;
-      console.log("User address from auth:", address); // Добавим для отладки
-      setName(name || "");
-      setEmail(email || "");
-      setPhone(phone || "");
-      setAddress(address || "");
+      setFormData({
+        name: auth.user.name || "",
+        email: auth.user.email || "",
+        password: "",
+        phone: auth.user.phone || "",
+        address: auth.user.address || ""
+      });
     }
   }, [auth?.user]);
-  
-  // Измените обработчик отправки формы
+
+  // Обработка изменений в полях формы
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Отправка формы
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
     try {
-      console.log("Sending update with address:", address); // Добавим для отладки
+      // Создаем объект с обновлениями, включая все поля кроме пустого пароля
+      const updates = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address
+      };
+
+      // Добавляем пароль только если он был введен
+      if (formData.password) {
+        updates.password = formData.password;
+      }
+
       const { data } = await axios.put(
         `${import.meta.env.VITE_API}/api/v1/auth/profile`,
-        {
-          name,
-          email,
-          password,
-          phone,
-          address // Всегда отправляем адрес
-        },
+        updates,
         {
           headers: {
             Authorization: auth?.token
@@ -50,94 +70,128 @@ const Profile = () => {
       );
       
       if (data?.success) {
-        console.log("Updated user data:", data.updatedUser); // Добавим для отладки
-        setAuth({ ...auth, user: data.updatedUser });
-        let ls = localStorage.getItem("auth");
-        ls = JSON.parse(ls);
-        ls.user = data.updatedUser;
-        localStorage.setItem("auth", JSON.stringify(ls));
+        // Создаем новый объект с обновленными данными пользователя
+        const updatedUser = {
+          ...auth.user,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address
+        };
+
+        // Обновляем контекст auth
+        const updatedAuth = {
+          ...auth,
+          user: updatedUser
+        };
+
+        // Обновляем состояние auth и localStorage
+        setAuth(updatedAuth);
+        localStorage.setItem("auth", JSON.stringify(updatedAuth));
+
+        // Обновляем форму
+        setFormData(prev => ({
+          ...prev,
+          password: "" // Очищаем только пароль
+        }));
+
         toast.success("Профиль успешно обновлен");
+        
+        // Принудительно обновляем страницу после успешного обновления
+        window.location.reload();
       }
     } catch (error) {
-      console.log("Update error:", error);
-      toast.error("Ошибка при обновлении профиля");
+      console.error("Update error:", error);
+      toast.error(
+        error.response?.data?.message || 
+        "Ошибка при обновлении профиля"
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
-    <Header />  
-    <div className="container">
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-3">
-          <UserMenu />
-        </div>
-        <div className="col-md-9">
-          <div className="form-container">
-            <form onSubmit={handleSubmit}>
-              <h4 className="title">Профиль</h4>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="form-control"
-                  id="exampleInputName1"
-                  placeholder="Введите ваше имя"
-                  autoFocus
-                />
+      <Header />  
+      <div className="container">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-3">
+              <UserMenu />
+            </div>
+            <div className="col-md-9">
+              <div className="form-container">
+                <form onSubmit={handleSubmit}>
+                  <h4 className="title">Профиль</h4>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="form-control"
+                      placeholder="Введите ваше имя"
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="form-control"
+                      placeholder="Введите ваш email"
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      className="form-control"
+                      placeholder="Введите новый пароль (необязательно)"
+                      minLength={6}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="form-control"
+                      placeholder="Введите ваш телефон"
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      className="form-control"
+                      placeholder="Введите ваш адрес"
+                      required
+                    />
+                  </div>
+                  <button 
+                    type="submit" 
+                    className="btn btn-primary"
+                    disabled={loading}
+                  >
+                    {loading ? "Обновление..." : "Обновить профиль"}
+                  </button>
+                </form>
               </div>
-              <div className="mb-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  placeholder="Введите ваш email"
-                  disabled
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Введите ваш пароль"
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="form-control"
-                  id="exampleInputPhone1"
-                  placeholder="Введите ваш телефон"
-                />
-              </div>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className="form-control"
-                  id="exampleInputAddress1"
-                  placeholder="Введите ваш адрес"
-                />
-              </div>
-              <button type="submit" className="btn btn-primary">
-                Обновить профиль
-              </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
       <BottomNav />
       <Footer />
     </>

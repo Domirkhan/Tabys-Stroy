@@ -7,6 +7,7 @@ import Footer from "../../layout/Footer";
 import Header from "../../layout/Header";
 import moment from "moment";
 import "moment/locale/ru";
+
 moment.locale("ru");
 
 const Orders = () => {
@@ -38,7 +39,7 @@ const Orders = () => {
               <UserMenu />
             </div>
             <div className="col-md-9">
-              <h1 className="orders-title">История заказов</h1>
+              <h1 className="orders-title m-2">История заказов</h1>
               {orders.length === 0 ? (
                 <p className="no-orders">Заказы не найдены</p>
               ) : (
