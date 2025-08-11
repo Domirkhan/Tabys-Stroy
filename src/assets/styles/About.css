@@ -190,6 +190,7 @@
   @media (max-width: 768px) {
     .section-title-category{
       margin-top: 0rem;
+      height: 160px;
     }
     .about-image-mobile {
       display: block;

@@ -1,12 +1,12 @@
-import Header from './assets/layout/Header';
-import Glav from './assets/Pages/Glav';
-import Footer from './assets/layout/Footer';
-import Map from './assets/components/Map';
-import AboutUs from './assets/components/AboutUs';
+import Header from "./assets/layout/Header";
+import Glav from "./assets/Pages/Glav";
+import Footer from "./assets/layout/Footer";
+import Map from "./assets/components/Map";
+import AboutUs from "./assets/components/AboutUs";
 import { Helmet } from "react-helmet-async";
-import UnderConstructionModal from './assets/components/UnderConstructionModal';
-import BottomNav from './assets/components/BottomNav';
-import NewProducts from './assets/components/NewProducts'; // Новый компонент
+import UnderConstructionModal from "./assets/components/UnderConstructionModal";
+import BottomNav from "./assets/components/BottomNav";
+import NewProducts from "./assets/components/NewProducts"; // Новый компонент
 
 function App() {
   return (
@@ -18,10 +18,21 @@ function App() {
       <Header />
       <div className="app-container">
         <main className="main-content">
-          <Glav />
-          <NewProducts /> {/* Новый компонент для отображения новых товаров */}
-          <AboutUs />
-          <Map />
+          <div className="animate-fade-up">
+            <Glav />
+          </div>
+
+          <div className="animate-fade-left delay-200">
+            <NewProducts />
+          </div>
+
+          <div className="animate-fade-right delay-300">
+            <AboutUs />
+          </div>
+
+          <div className="animate-fade-up delay-400">
+            <Map />
+          </div>
         </main>
       </div>
       <Footer />

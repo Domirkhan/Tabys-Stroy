@@ -1,3 +1,58 @@
+/* Анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Модифицируем существующие стили */
+.card {
+  /* ...existing code... */
+  animation: fadeInUp 0.6s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Добавляем задержку для каждой карточки */
+.card:nth-child(1) { animation-delay: 100ms; }
+.card:nth-child(2) { animation-delay: 200ms; }
+.card:nth-child(3) { animation-delay: 300ms; }
+.card:nth-child(4) { animation-delay: 400ms; }
+.card:nth-child(5) { animation-delay: 500ms; }
+.card:nth-child(6) { animation-delay: 600ms; }
+.card:nth-child(7) { animation-delay: 700ms; }
+.card:nth-child(8) { animation-delay: 800ms; }
+
+/* Анимация для заголовка секции */
+.section-title-category {
+  animation: fadeInUp 0.5s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+.animate-fade-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Спиннер загрузки */
+.loading-spinner {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+/* Анимация для контейнера с товарами */
+.row-subcategory {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out 0.2s;
+  animation-fill-mode: forwards;
+}
+
 /* Контейнер для сетки товаров */
 .row-subcategory {
     display: grid;
