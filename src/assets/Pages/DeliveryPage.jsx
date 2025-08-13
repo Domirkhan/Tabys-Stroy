@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import "../styles/DeliveryPage.css";
+import "../styles/animations.css";
 import { Helmet } from "react-helmet-async";
 import BottomNav from "../components/BottomNav";
 import { FaTruck, FaPhoneAlt, FaClock, FaMoneyBillWave } from "react-icons/fa";
@@ -17,13 +18,13 @@ function DeliveryPage() {
       <Header />
       <main className="delivery-content">
         <div className="delivery-container">
-          <div className="contact-section">
+          <div className="contact-section animate-fade-up">
             <div className="contact-content">
               <h1>Доставка</h1>
               <p>Узнайте о условиях доставки и стоимости</p>
             </div>
           </div>
-          <div className="delivery-cards">
+          <div className="delivery-cards animate-fade-left delay-100">
             <div className="delivery-card">
               <div className="card-icon">
                 <FaTruck />
@@ -62,7 +63,7 @@ function DeliveryPage() {
             </div>
           </div>
 
-          <div className="delivery-section">
+          <div className="delivery-section animate-fade-up delay-200">
             <div className="help-card">
               <FaPhoneAlt />
               <h3>Остались вопросы?</h3>

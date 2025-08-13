@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import "../styles/PaymentPage.css";
+import "../styles/animations.css";
 import { Helmet } from "react-helmet-async";
 import BottomNav from "../components/BottomNav";
 import {
@@ -22,13 +23,13 @@ function PaymentPage() {
       </Helmet>
       <Header />
       <main className="payment-content">
-        <div className="hero-section">
+        <div className="hero-section animate-fade-up">
           <div className="hero-content">
             <h1>Способы оплаты</h1>
             <p>Выберите удобный для вас способ оплаты заказа</p>
           </div>
         </div>
-        <div className="payment-container">
+        <div className="payment-container animate-fade-left delay-100">
           <div className="payment-method-card delivery">
             <div className="card-icon">
               <FaTruck />
@@ -67,7 +68,7 @@ function PaymentPage() {
           </div>
         </div>
 
-        <div className="info-section">
+        <div className="info-section animate-fade-up delay-200">
           <div className="help-card">
             <FaQuestionCircle />
             <h3>Нужна помощь?</h3>

@@ -1,6 +1,8 @@
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import "../styles/ContactsPage.css";
+import "../styles/animations.css";
+import "../styles/animations.css";
 import { Helmet } from "react-helmet-async";
 import BottomNav from "../components/BottomNav";
 import {
@@ -22,13 +24,13 @@ function ContactsPage() {
       <Header />
       <main className="contact-content">
         <div className="contact-container">
-          <div className="contact-section">
+          <div className="contact-section animate-fade-up">
             <div className="contact-content">
               <h1>Контакты</h1>
               <p>Свяжитесь с нами удобным для вас способом</p>
             </div>
           </div>
-          <div className="contact-cards">
+          <div className="contact-cards animate-fade-left delay-100">
             <div className="contact-card whatsapp">
               <div className="card-icon">
                 <FaWhatsapp />
@@ -82,7 +84,7 @@ function ContactsPage() {
             </div>
           </div>
 
-          <div className="location-section">
+          <div className="location-section animate-fade-up delay-200">
             <div className="location-info">
               <div className="card-icon">
                 <FaMapMarkerAlt />

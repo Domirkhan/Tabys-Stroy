@@ -1,5 +1,6 @@
 import React from "react";
 import "../../assets/styles/About.css";
+import "../../assets/styles/animations.css";
 import { CheckCircle, Award, Clock, MapPin } from "react-feather"; // Импортируем иконки
 import Header from "../layout/Header"; // Импортируем Header
 import Footer from "../layout/Footer";
@@ -16,8 +17,8 @@ function About() {
       <Header />
       <div className="about-section">
         <div className="about-container">
-          <h1 className="section-title-category">О нас</h1>
-          <div className="about-grid">
+          <h1 className="section-title-category animate-fade-up">О нас</h1>
+          <div className="about-grid animate-fade-left delay-100">
             <div className="about-info">
               <h3 className="about-info-title">О нашем магазине</h3>
               <div className="about-info-text">
@@ -89,7 +90,7 @@ function About() {
             </div>
           </div>
 
-          <div className="about-cards">
+          <div className="about-cards animate-fade-up delay-200">
             <div className="about-card">
               <h4 className="about-card-title">Наш ассортимент</h4>
               <p className="text">
