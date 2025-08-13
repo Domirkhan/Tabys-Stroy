@@ -314,12 +314,3 @@
     max-height: 100%;
   }
 }
-
-@media (max-width: 400px) {
-  .d-flex {
-    flex-direction: column;
-  }
-  .similar-products .d-flex {
-    grid-template-columns: 1fr;
-  }
-}
