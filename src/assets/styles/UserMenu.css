@@ -1,0 +1,76 @@
+.user-menu-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.user-menu-title {
+  color: #ff0000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.user-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.user-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.user-menu-icon {
+  font-size: 1.2rem;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.user-menu-item:hover {
+  background: #f8f9fa;
+  color: #ff0000;
+  transform: translateX(5px);
+}
+
+.user-menu-item:hover .user-menu-icon {
+  color: #ff0000;
+}
+
+.user-menu-item.active {
+  background: #fff0f0;
+  color: #ff0000;
+}
+
+.user-menu-item.active .user-menu-icon {
+  color: #ff0000;
+}
+
+@media (max-width: 768px) {
+  .user-menu-container {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .user-menu-title {
+    font-size: 1.1rem;
+  }
+
+  .user-menu-item {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+  }
+}
