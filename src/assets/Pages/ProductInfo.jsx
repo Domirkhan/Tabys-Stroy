@@ -33,55 +33,65 @@ const ProductInfo = () => {
     }
   }, [product]);
 
-const getProduct = async () => {
-  try {
-    const response = await axios.get(
-      `${import.meta.env.VITE_API}/api/v1/product/get-product/${slug}`
-    );
+  const getProduct = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API}/api/v1/product/get-product/${slug}`
+      );
 
-    const productData = response.data?.product;
+      const productData = response.data?.product;
 
-    if (productData) {
-      const productWithFixedPhotos = {
-        ...productData,
-        photos: productData.photos?.map((_, index) => (
-          `${import.meta.env.VITE_API}/api/v1/product/product-photo/${productData._id}?index=${index}`
-        )) || []
-      };
+      if (productData) {
+        const productWithFixedPhotos = {
+          ...productData,
+          photos:
+            productData.photos?.map(
+              (_, index) =>
+                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
+                  productData._id
+                }?index=${index}`
+            ) || [],
+        };
 
-      setProduct(productWithFixedPhotos);
-      getSimilarProduct(productData._id, productData.category?._id);
-    } else {
-      console.error("Продукт не найден в ответе сервера");
+        setProduct(productWithFixedPhotos);
+        getSimilarProduct(productData._id, productData.category?._id);
+      } else {
+        console.error("Продукт не найден в ответе сервера");
+      }
+    } catch (error) {
+      console.error("Ошибка при получении продукта:", error);
     }
-  } catch (error) {
-    console.error("Ошибка при получении продукта:", error);
-  }
-};
+  };
 
-// Также обновим обработку похожих товаров
-const getSimilarProduct = async (pid, cid) => {
-  try {
-    const response = await axios.get(
-      `${import.meta.env.VITE_API}/api/v1/product/related-product/${pid}/${cid}`
-    );
+  // Также обновим обработку похожих товаров
+  const getSimilarProduct = async (pid, cid) => {
+    try {
+      const response = await axios.get(
+        `${
+          import.meta.env.VITE_API
+        }/api/v1/product/related-product/${pid}/${cid}`
+      );
 
-    const related = response.data?.products;
+      const related = response.data?.products;
 
-    if (related) {
-      const productsWithPhotos = related.map((p) => ({
-        ...p,
-        photos: p.photos?.map((_, index) => (
-          `${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}?index=${index}`
-        )) || []
-      }));
+      if (related) {
+        const productsWithPhotos = related.map((p) => ({
+          ...p,
+          photos:
+            p.photos?.map(
+              (_, index) =>
+                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
+                  p._id
+                }?index=${index}`
+            ) || [],
+        }));
 
-      setRelatedProducts(productsWithPhotos);
+        setRelatedProducts(productsWithPhotos);
+      }
+    } catch (error) {
+      console.error("Ошибка при получении похожих продуктов:", error);
     }
-  } catch (error) {
-    console.error("Ошибка при получении похожих продуктов:", error);
-  }
-};
+  };
 
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
@@ -153,7 +163,9 @@ const getSimilarProduct = async (pid, cid) => {
             <img
               src={
                 product.photos?.[currentImageIndex] || // Используем текущий индекс для photos
-                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${product._id}` // Исправлено: убрана ссылка на несуществующий data.product
+                `${import.meta.env.VITE_API}/api/v1/product/product-photo/${
+                  product._id
+                }` // Исправлено: убрана ссылка на несуществующий data.product
               }
               className="product-main-image"
               alt={product.name}
@@ -248,7 +260,7 @@ const getSimilarProduct = async (pid, cid) => {
       <hr />
       <div className="container">
         <div className="similar-products">
-          <h6>Похожие товары</h6>
+          <h6 className="text-center">Похожие товары</h6>
           {relatedProducts.length < 1 ? (
             <p className="text-center">нету похожих товаров</p>
           ) : (
