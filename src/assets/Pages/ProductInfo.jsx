@@ -260,7 +260,12 @@ const ProductInfo = () => {
       <hr />
       <div className="container">
         <div className="similar-products">
-          <h6 className="text-center">Похожие товары</h6>
+          <h6
+            className="text-center"
+            style={{ fontSize: "1.5rem", fontWeight: "600" }}
+          >
+            Похожие товары
+          </h6>
           {relatedProducts.length < 1 ? (
             <p className="text-center">нету похожих товаров</p>
           ) : (
