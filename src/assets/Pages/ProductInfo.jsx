@@ -169,8 +169,8 @@ const ProductInfo = () => {
               }
               className="product-main-image"
               alt={product.name}
-              height="300"
-              width="350px"
+              height="400"
+              width="450px"
             />
             {product.photos?.length > 1 && (
               <>
