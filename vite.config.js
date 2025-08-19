@@ -3,9 +3,8 @@ import react from '@vitejs/plugin-react-swc'
 import { VitePWA } from 'vite-plugin-pwa'
 import compression from 'vite-plugin-compression';
 
-
 const manifest = {
-  "theme_color": "#ffffff",
+  "theme_color": "#1976d2", // например твой фирменный синий
   "background_color": "#ffffff",
   "icons": [
     {
@@ -58,11 +57,11 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,png,jpg,svg,ico}'],
         maximumFileSizeToCacheInBytes: 4000000,
       },
-      manifest: { /* ... */ },
+      manifest, // ✅ передаем объект
       skipWaiting: true,
       clientsClaim: true,
     })
   ],
-  assetsInclude: ['**/*.mp3'], // Добавьте эту строку
+  assetsInclude: ['**/*.mp3'],
   base: '/'
 });
