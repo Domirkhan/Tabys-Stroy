@@ -21,7 +21,9 @@ const Products = () => {
   // Получение всех категорий
   const getAllCategories = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API}/api/v1/category/get-category`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data.category);
       }
@@ -34,7 +36,9 @@ const Products = () => {
   // Получение всех подкатегорий
   const getAllSubcategories = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API}/api/v1/subcategory/get-subcategory`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API}/api/v1/subcategory/get-subcategory`
+      );
       if (data?.success) {
         setSubcategories(data.subcategories);
       }
@@ -48,7 +52,9 @@ const Products = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${import.meta.env.VITE_API}/api/v1/product/get-product`);
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API}/api/v1/product/get-product`
+      );
       setProducts(data.products);
     } catch (error) {
       console.log(error);
@@ -67,19 +73,43 @@ const Products = () => {
   // Фильтрация продуктов
   const filteredProducts = products.filter((product) => {
     if (selectedCategory === "all") {
-      return selectedSubcategory === "all" ? true : product.subcategory?._id === selectedSubcategory;
+      return selectedSubcategory === "all"
+        ? true
+        : product.subcategory?._id === selectedSubcategory;
     }
-    
+
     const categoryMatch = product.category?._id === selectedCategory;
-    const subcategoryMatch = selectedSubcategory === "all" || product.subcategory?._id === selectedSubcategory;
-    
+    const subcategoryMatch =
+      selectedSubcategory === "all" ||
+      product.subcategory?._id === selectedSubcategory;
+
     return categoryMatch && subcategoryMatch;
   });
 
-  console.log('Selected Category:', selectedCategory);
-  console.log('Selected Subcategory:', selectedSubcategory);
-  console.log('Total Products:', products.length);
-  console.log('Filtered Products:', filteredProducts.length);
+  // Получение текста с количеством продуктов
+  const getProductCountText = () => {
+    const count = filteredProducts.length;
+
+    if (selectedCategory === "all" && selectedSubcategory === "all") {
+      return `Всего продуктов: ${count}`;
+    }
+
+    if (selectedCategory !== "all" && selectedSubcategory === "all") {
+      const categoryName = categories.find(
+        (c) => c._id === selectedCategory
+      )?.name;
+      return `Продуктов в категории "${categoryName}": ${count}`;
+    }
+
+    if (selectedSubcategory !== "all") {
+      const subcategoryName = subcategories.find(
+        (sc) => sc._id === selectedSubcategory
+      )?.name;
+      return `Продуктов в подкатегории "${subcategoryName}": ${count}`;
+    }
+
+    return `Найдено продуктов: ${count}`;
+  };
 
   return (
     <>
@@ -93,7 +123,7 @@ const Products = () => {
             <div className="col-md-9">
               <div className="products-container">
                 <h1 className="products-title">Список продуктов</h1>
-                
+
                 {/* Фильтры */}
                 <div className="filters mb-4">
                   <Select
@@ -104,7 +134,7 @@ const Products = () => {
                       setSelectedSubcategory("all");
                     }}
                     value={selectedCategory}
-                    style={{ width: '200px', marginRight: '10px' }}
+                    style={{ width: "200px", marginRight: "10px" }}
                   >
                     <Option value="all">Все категории</Option>
                     {categories?.map((c) => (
@@ -119,7 +149,7 @@ const Products = () => {
                     className="form-select mb-3"
                     onChange={(value) => setSelectedSubcategory(value)}
                     value={selectedSubcategory}
-                    style={{ width: '200px' }}
+                    style={{ width: "200px" }}
                   >
                     <Option value="all">Все подкатегории</Option>
                     {subcategories
@@ -134,6 +164,20 @@ const Products = () => {
                         </Option>
                       ))}
                   </Select>
+
+                  {/* Отображение количества продуктов */}
+                  <div
+                    style={{
+                      marginTop: "10px",
+                      padding: "10px",
+                      backgroundColor: "#f8f9fa",
+                      borderRadius: "5px",
+                      fontWeight: "500",
+                      color: "#333",
+                    }}
+                  >
+                    {getProductCountText()}
+                  </div>
                 </div>
 
                 {/* Список продуктов */}
@@ -148,7 +192,9 @@ const Products = () => {
                         className="product-card"
                       >
                         <img
-                          src={`${import.meta.env.VITE_API}/api/v1/product/product-photo/${p._id}`}
+                          src={`${
+                            import.meta.env.VITE_API
+                          }/api/v1/product/product-photo/${p._id}`}
                           className="product-image"
                           alt={p.name}
                         />
