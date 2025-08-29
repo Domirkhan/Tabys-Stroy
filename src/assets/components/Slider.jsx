@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSwipeable } from "react-swipeable"; // Подключаем библиотеку
+import { useSwipeable } from "react-swipeable";
 import "../../assets/styles/Slider.css";
 import slide1 from "../image/Slider/slide-1.png";
 import slide2 from "../image/Slider/slide-2.png";
+import slide3 from "../image/Slider/slide-3.png"; // Добавьте новое изображение
 
 const slides = [
   {
+    image: slide3, // Поставим первым, чтобы показывался сначала
+    title: "Инструкция по установке веб-приложения",
+    path: "/install-guide", // Новый путь для страницы с инструкцией
+  },
+  {
     image: slide1,
     title: "НАДЕЖНЫЕ ТРУБЫ ОТ ВЕДУЩИХ ПРОИЗВОДИТЕЛЕЙ",
-    path: "/santehnika/truby"
+    path: "/santehnika/truby",
   },
   {
     image: slide2,
     title: "ФИТИНГИ ДЛЯ ВСЕХ ВИДОВ ТРУБ",
-    path: "/santehnika/fitingi"
-  }
+    path: "/santehnika/fitingi",
+  },
 ];
 
 function Slider() {
@@ -30,9 +36,13 @@ function Slider() {
   }, []);
 
   const handlers = useSwipeable({
-    onSwipedLeft: () => setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length),
-    onSwipedRight: () => setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length),
-    trackMouse: true // Поддержка свайпов мышью (для тестов на ПК)
+    onSwipedLeft: () =>
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length),
+    onSwipedRight: () =>
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
+      ),
+    trackMouse: true, // Поддержка свайпов мышью (для тестов на ПК)
   });
 
   const handleSlideClick = () => {
