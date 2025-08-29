@@ -1,0 +1,160 @@
+.hero-section {
+    margin-top: 8rem;
+    margin-bottom: 1rem;
+    background-image: url('../../assets/image/bg/bg-title.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.install-guide {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.guide-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.guide-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.guide-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.guide-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.guide-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.guide-content video {
+    width: 100%;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.guide-content ol {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.guide-content li {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.info-section {
+    margin: 4rem 0;
+}
+
+.help-card {
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.help-card svg {
+    font-size: 2.5rem;
+    color: #E10600;
+    margin-bottom: 1rem;
+}
+
+.help-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.help-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #E10600;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 200px;
+        margin-top: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .guide-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .guide-section {
+        padding: 1.5rem;
+    }
+
+    .guide-content video {
+        max-width: 100%;
+        height: 180px;
+    }
+
+    .contact-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

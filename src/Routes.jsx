@@ -33,6 +33,7 @@ import ResetPassword from "./assets/Pages/Auth/ResetPassword";
 import Search from "./assets/Pages/Search";
 import ProductCard from "./assets/components/ProductCard";
 import AdminPromoCodes from "./assets/Pages/Admin/AdminPromoCodes";
+import InstallGuide from "./assets/Pages/InstallGuide";
 
 function RouterApp() {
   return (
@@ -43,6 +44,7 @@ function RouterApp() {
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/zakaz" element={<ZakazPage />} />
+        <Route path="/install-guide" element={<InstallGuide />} />
 
         <Route
           path="/:category/:subCategory/:productName"
