@@ -14,8 +14,12 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedSubcategory, setSelectedSubcategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState(
+    localStorage.getItem("adminSelectedCategory") || "all"
+  );
+  const [selectedSubcategory, setSelectedSubcategory] = useState(
+    localStorage.getItem("adminSelectedSubcategory") || "all"
+  );
   const [loading, setLoading] = useState(true);
 
   // Получение всех категорий
@@ -69,6 +73,19 @@ const Products = () => {
     getAllSubcategories();
     getAllProducts();
   }, []);
+
+  // Обработчики изменения фильтров
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
+    setSelectedSubcategory("all");
+    localStorage.setItem("adminSelectedCategory", value);
+    localStorage.setItem("adminSelectedSubcategory", "all");
+  };
+
+  const handleSubcategoryChange = (value) => {
+    setSelectedSubcategory(value);
+    localStorage.setItem("adminSelectedSubcategory", value);
+  };
 
   // Фильтрация продуктов
   const filteredProducts = products.filter((product) => {
@@ -129,10 +146,7 @@ const Products = () => {
                   <Select
                     placeholder="Выберите категорию"
                     className="form-select mb-3"
-                    onChange={(value) => {
-                      setSelectedCategory(value);
-                      setSelectedSubcategory("all");
-                    }}
+                    onChange={handleCategoryChange}
                     value={selectedCategory}
                     style={{ width: "200px", marginRight: "10px" }}
                   >
@@ -147,7 +161,7 @@ const Products = () => {
                   <Select
                     placeholder="Выберите подкатегорию"
                     className="form-select mb-3"
-                    onChange={(value) => setSelectedSubcategory(value)}
+                    onChange={handleSubcategoryChange}
                     value={selectedSubcategory}
                     style={{ width: "200px" }}
                   >
