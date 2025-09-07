@@ -1,67 +1,53 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import { VitePWA } from 'vite-plugin-pwa'
-import compression from 'vite-plugin-compression';
-
-const manifest = {
-  "theme_color": "#1976d2", // например твой фирменный синий
-  "background_color": "#ffffff",
-  "icons": [
-    {
-      "purpose": "maskable",
-      "sizes": "512x512",
-      "src": "/icon512_maskable.png",
-      "type": "image/png"
-    },
-    {
-      "purpose": "any",
-      "sizes": "512x512",
-      "src": "/icon512_rounded.png",
-      "type": "image/png"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/screenshots/desktop.png",
-      "type": "image/png",
-      "sizes": "1905x922",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/screenshots/mobile.png",
-      "type": "image/png",
-      "sizes": "374x677",
-      "form_factor": "narrow"
-    }
-  ],
-  "orientation": "portrait",
-  "display": "standalone",
-  "dir": "auto",
-  "lang": "ru",
-  "name": "Tabys Stroy",
-  "short_name": "Tabys",
-  "start_url": "/",
-  "description": "Tabys Stroy — магазин строительных и отделочных материалов в Улытауском области. Широкий выбор товаров для ремонта, инструменты, краски, сантехника, электрика и многое другое."
-};
+import { defineConfig } from 'vite';
+import { VitePWA } from 'vite-plugin-pwa';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [
     react(),
-    compression({
-      algorithm: 'gzip',
-    }),
     VitePWA({
       registerType: 'autoUpdate',
-      workbox: {
-        globDirectory: 'dist',
-        globPatterns: ['**/*.{js,css,html,png,jpg,svg,ico}'],
-        maximumFileSizeToCacheInBytes: 4000000,
+      includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+      manifest: {
+        name: 'Tabys Stroy',
+        short_name: 'Tabys',
+        description: 'Tabys Stroy — магазин строительных и отделочных материалов',
+        theme_color: '#1976d2',
+        background_color: '#ffffff',
+        display: 'standalone',
+        start_url: '/',
+        icons: [
+          {
+            src: '/icon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          },
+          {
+            src: '/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
+          }
+        ]
       },
-      manifest, // ✅ передаем объект
-      skipWaiting: true,
-      clientsClaim: true,
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
+        runtimeCaching: [
+          {
+            urlPattern: new RegExp('^https://tabys-stroy\\.kz/'),
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'api-cache',
+              networkTimeoutSeconds: 5
+            }
+          }
+        ]
+      }
     })
-  ],
-  assetsInclude: ['**/*.mp3'],
-  base: '/'
+  ]
 });

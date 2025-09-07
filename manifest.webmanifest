@@ -1,23 +1,27 @@
 {
   "name": "Tabys Stroy",
   "short_name": "Tabys",
-  "description": "Строительные материалы и инструменты",
+  "description": "Tabys Stroy — магазин строительных и отделочных материалов",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#ff0000",
+  "theme_color": "#1976d2",
   "icons": [
     {
-      "src": "/public/icon512_maskable.png",
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    },
-    {
-      "src": "/public/icon512_rounded.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
     }
   ]
 }
