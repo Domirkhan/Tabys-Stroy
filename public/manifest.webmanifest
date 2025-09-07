@@ -6,8 +6,7 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff0000",
-  "prefer_related_applications": false,
-  "categories": ["shopping"],
+      "prefer_related_applications": false,
   "icons": [
     {
       "src": "/logo-1.png",
