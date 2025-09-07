@@ -166,28 +166,49 @@
 .quantity-controls {
   display: flex;
   align-items: center;
-  margin: 1rem 0;
+  gap: 8px;
+  margin-bottom: 1rem;
 }
 
 .quantity-controls button {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
   border: 1px solid #ddd;
-  background: white;
   border-radius: 4px;
-  font-size: 1.2rem;
   cursor: pointer;
-  transition: all 0.4s;
+  font-size: 16px;
 }
+
 .quantity-controls button:hover {
-  background: #666;
-  color: white;
+  background: #e0e0e0;
 }
 
 .quantity-controls span {
   min-width: 40px;
   text-align: center;
   font-weight: bold;
+}
+.quantity-input {
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0 8px;
+}
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-input:focus {
+  outline: none;
+  border-color: #ff0000;
 }
 .similar-products {
   margin: 2rem 0;

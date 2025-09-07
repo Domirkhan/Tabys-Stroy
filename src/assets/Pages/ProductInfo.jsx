@@ -92,7 +92,23 @@ const ProductInfo = () => {
       console.error("Ошибка при получении похожих продуктов:", error);
     }
   };
+  const handleQuantityChange = (e) => {
+    const value = e.target.value;
 
+    // Разрешаем пустую строку при вводе
+    if (value === "") {
+      setQuantity("");
+      return;
+    }
+
+    // Преобразуем в число
+    const numValue = parseInt(value);
+
+    // Проверяем, является ли значение положительным числом
+    if (!isNaN(numValue) && numValue >= 0) {
+      setQuantity(numValue);
+    }
+  };
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
       prev === product.photos?.length - 1 ? 0 : prev + 1
@@ -240,12 +256,25 @@ const ProductInfo = () => {
                 >
                   -
                 </button>
-                <span>{quantity}</span>
+                <input
+                  type="number"
+                  min="1"
+                  value={quantity === "" ? "" : quantity}
+                  onChange={handleQuantityChange}
+                  className="quantity-input"
+                  onBlur={() => {
+                    // При потере фокуса, если поле пустое или 0, устанавливаем 1
+                    if (quantity === "" || quantity === 0) {
+                      setQuantity(1);
+                    }
+                  }}
+                />
                 <button onClick={() => setQuantity((prev) => prev + 1)}>
                   +
                 </button>
               </div>
             </div>
+
             <button
               className="btn btn-secondary ms-1"
               onClick={addToCart}
