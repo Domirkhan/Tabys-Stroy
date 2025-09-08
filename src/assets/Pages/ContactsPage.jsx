@@ -40,9 +40,6 @@ function ContactsPage() {
                 <a href="https://wa.me/+77782673976">
                   +7 (778) 267-39-76 (Жезказган)
                 </a>
-                <a href="https://wa.me/77082621972">
-                  +7 (708) 262-19-72 (Сатпаев)
-                </a>
               </div>
             </div>
 
@@ -53,7 +50,6 @@ function ContactsPage() {
               <h2>Телефоны</h2>
               <div className="contact-links">
                 <a href="tel:+77782673976">+7 (778) 267-39-76 (Жезказган)</a>
-                <a href="tel:+77082621972">+7 (708) 262-19-72 (Сатпаев)</a>
               </div>
             </div>
 
@@ -93,11 +89,19 @@ function ContactsPage() {
               <div className="locations">
                 <div className="location-card">
                   <h3>Жезказган</h3>
-                  <p>ул. Алашахана, 8</p>
-                </div>
-                <div className="location-card">
-                  <h3>Сатпаев</h3>
-                  <p>прс. Независивости, 25А</p>
+                  <p className="hero-subtitle">
+                    город: Жезказган, улица: Алашахана 8
+                  </p>
+                  <div className="map">
+                    <iframe
+                      className="map-url"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2679.785709728515!2d67.70759407670865!3d47.80498957425639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4217d7e7d84fc3bb%3A0x906dcbe3b43a463e!2z0YPQu9C40YbQsCDQkNC70LDRiNCw0YXQsNC90LAgOCwg0JbQtdC30LrQsNC30LPQsNC9IDEwMDAwMA!5e0!3m2!1sru!2skz!4v1733991759117!5m2!1sru!2skz"
+                      frameBorder="0"
+                      allowFullScreen=""
+                      aria-hidden="false"
+                      tabIndex="0"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
             </div>
