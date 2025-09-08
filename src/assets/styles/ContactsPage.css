@@ -118,11 +118,6 @@
     margin-top: 2rem;
 }
 
-.location-card {
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
 .location-card h3 {
     color: #333;
     margin-bottom: 0.5rem;
