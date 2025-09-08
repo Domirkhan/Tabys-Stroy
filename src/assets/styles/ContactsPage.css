@@ -103,10 +103,12 @@
 }
 
 .location-section {
-    background: #f8f9fa;
+    background: white;
     border-radius: 20px;
     padding: 2.5rem;
     margin-top: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .locations {
@@ -117,8 +119,6 @@
 }
 
 .location-card {
-    background: white;
-    padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
