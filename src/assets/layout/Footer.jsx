@@ -1,5 +1,5 @@
 import "../styles/Footer.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -38,21 +38,29 @@ function Footer() {
             <div className="footer-contacts">
               <div className="footer-phones">
                 <a href="https://wa.me/+77782673976">Жезказган +77782673976</a>
-                <a href="https://wa.me/+77082621972">Сатпаев +7708262197</a>
               </div>
               <p className="footer-address">г. Жезказган, ул. Алашахана, 8</p>
-              <p className="footer-address">г. Сатпаев, проспект Независимости, 25А</p>
               <div className="social-links">
-                <a href="https://wa.me/+77782673976" className="social-link whatsapp"></a>
-                <a href="https://instagram.com/tabys_stroy" className="social-link instagram"></a>
-                <a href="https://t.me/+77782673976" className="social-link telegram"></a>
+                <a
+                  href="https://wa.me/+77782673976"
+                  className="social-link whatsapp"
+                ></a>
+                <a
+                  href="https://instagram.com/tabys_stroy"
+                  className="social-link instagram"
+                ></a>
+                <a
+                  href="https://t.me/+77782673976"
+                  className="social-link telegram"
+                ></a>
               </div>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
           <p>
-            2025 © Tabys Stroy - магазин товаров для ремонта и строительства, отделочные материалы, инструменты
+            2025 © Tabys Stroy - магазин товаров для ремонта и строительства,
+            отделочные материалы, инструменты
           </p>
         </div>
       </div>
