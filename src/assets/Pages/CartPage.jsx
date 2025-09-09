@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useCart } from "../../context/cart"; // Исправляем путь
-import { useAuth } from "../../context/auth"; 
+import { useAuth } from "../../context/auth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -25,25 +25,28 @@ const CartPage = () => {
     let total = 0;
     cart?.forEach((item) => {
       if (item.pricePerUnit && item.selectedUnit) {
-        total += item.pricePerUnit[item.selectedUnit] * item.quantity;
+        const price = parseFloat(item.pricePerUnit[item.selectedUnit]);
+        const quantity = parseFloat(item.quantity);
+        total += price * quantity;
       }
     });
-    return total;
+    // Округляем до 2 знаков после запятой
+    return Math.round(total * 100) / 100;
   };
-const getDiscountForItem = (item) => {
-  // Проверяем наличие промокода и его процента скидки
-  if (!promo || !promo.discountPercent || !item.subcategory) {
-    return 0;
-  }
+  const getDiscountForItem = (item) => {
+    // Проверяем наличие промокода и его процента скидки
+    if (!promo || !promo.discountPercent || !item.subcategory) {
+      return 0;
+    }
 
-  // Проверяем, есть ли подкатегория товара в списке исключенных
-  const isExcluded = promo.excludedSubcategories.some(
-    excludedId => excludedId === item.subcategory._id
-  );
+    // Проверяем, есть ли подкатегория товара в списке исключенных
+    const isExcluded = promo.excludedSubcategories.some(
+      (excludedId) => excludedId === item.subcategory._id
+    );
 
-  // Возвращаем скидку только если товар НЕ в исключенных подкатегориях
-  return isExcluded ? 0 : promo.discountPercent;
-};
+    // Возвращаем скидку только если товар НЕ в исключенных подкатегориях
+    return isExcluded ? 0 : promo.discountPercent;
+  };
 
   const getDiscountedPrice = (item) => {
     const discount = getDiscountForItem(item);
@@ -148,7 +151,10 @@ const getDiscountForItem = (item) => {
       (item) => item._id === pid && item.selectedUnit === selectedUnit
     );
     if (index !== -1) {
-      myCart[index].quantity = newQuantity > 0 ? newQuantity : 1;
+      // Проверяем что количество больше 0.01
+      const quantity = Math.max(0.01, parseFloat(newQuantity));
+      // Округляем до 2 знаков после запятой
+      myCart[index].quantity = Math.round(quantity * 100) / 100;
       setCart(myCart);
       localStorage.setItem("cart", JSON.stringify(myCart));
     }
@@ -171,38 +177,44 @@ const getDiscountForItem = (item) => {
     }
   };
 
-const checkoutOrder = async () => {
+  const checkoutOrder = async () => {
     try {
       // Получаем общую сумму и скидку с учетом исключенных товаров
       const orderItems = cart.map((item) => {
         const discountPercent = getDiscountForItem(item); // Используем существующую функцию
         const originalPrice = item.pricePerUnit[item.selectedUnit];
-        const finalPrice = discountPercent > 0 
-          ? Math.round(originalPrice * (1 - discountPercent / 100)) 
-          : originalPrice;
-        
+        const finalPrice =
+          discountPercent > 0
+            ? Math.round(originalPrice * (1 - discountPercent / 100))
+            : originalPrice;
+
         return {
           _id: item._id,
           product: item._id,
           name: item.name,
-          pricePerUnit: { [item.selectedUnit]: item.pricePerUnit[item.selectedUnit] },
+          pricePerUnit: {
+            [item.selectedUnit]: item.pricePerUnit[item.selectedUnit],
+          },
           price: originalPrice,
           finalPrice: finalPrice, // Добавляем финальную цену
           quantity: item.quantity,
           selectedUnit: item.selectedUnit,
           subcategory: item.subcategory?._id || item.subcategory,
           discountApplied: discountPercent > 0, // Флаг применения скидки
-          discountPercent: discountPercent // Процент скидки для каждого товара
+          discountPercent: discountPercent, // Процент скидки для каждого товара
         };
       });
 
       // Считаем итоговые суммы
-      const totalOriginal = cart.reduce((sum, item) => 
-        sum + (item.pricePerUnit[item.selectedUnit] * item.quantity), 0
+      const totalOriginal = cart.reduce(
+        (sum, item) =>
+          sum + item.pricePerUnit[item.selectedUnit] * item.quantity,
+        0
       );
-      
-      const totalWithDiscounts = orderItems.reduce((sum, item) => 
-        sum + (item.finalPrice * item.quantity), 0
+
+      const totalWithDiscounts = orderItems.reduce(
+        (sum, item) => sum + item.finalPrice * item.quantity,
+        0
       );
 
       const orderData = {
@@ -214,10 +226,10 @@ const checkoutOrder = async () => {
         discountPercent: promo?.discountPercent || 0,
         discountAmount: totalOriginal - totalWithDiscounts,
         promoInactive: promo?.inactive || false,
-        excludedSubcategories: promo?.excludedSubcategories || []
+        excludedSubcategories: promo?.excludedSubcategories || [],
       };
 
-      console.log('Отправляемые данные заказа:', orderData);
+      console.log("Отправляемые данные заказа:", orderData);
 
       const { data } = await axios.post(
         `${import.meta.env.VITE_API}/api/v1/order/create-order`,
@@ -234,9 +246,11 @@ const checkoutOrder = async () => {
       }
     } catch (error) {
       console.error("Ошибка при оформлении заказа:", error);
-      toast.error(error.response?.data?.message || "Ошибка при оформлении заказа");
+      toast.error(
+        error.response?.data?.message || "Ошибка при оформлении заказа"
+      );
     }
-};
+  };
   return (
     <>
       <Header />
@@ -300,14 +314,16 @@ const checkoutOrder = async () => {
                                   {price} тг/{item.selectedUnit}
                                 </span>
                                 {isExcluded && (
-                                  <div style={{
-                                    backgroundColor: "#fff3e0",
-                                    padding: "8px",
-                                    borderRadius: "4px",
-                                    marginTop: "8px",
-                                    fontSize: "0.9rem",
-                                    color: "#ff7043"
-                                  }}>
+                                  <div
+                                    style={{
+                                      backgroundColor: "#fff3e0",
+                                      padding: "8px",
+                                      borderRadius: "4px",
+                                      marginTop: "8px",
+                                      fontSize: "0.9rem",
+                                      color: "#ff7043",
+                                    }}
+                                  >
                                     * Промокод не действует на данный товар
                                   </div>
                                 )}
@@ -323,20 +339,33 @@ const checkoutOrder = async () => {
                                   updateCartItemQuantity(
                                     item._id,
                                     item.selectedUnit,
-                                    item.quantity - 1
+                                    parseFloat((item.quantity - 0.1).toFixed(2))
                                   )
                                 }
                               >
                                 −
                               </button>
-                              <span className="quantity">{item.quantity}</span>
+                              <input
+                                type="number"
+                                min="1"
+                                step="0.1"
+                                value={item.quantity}
+                                onChange={(e) =>
+                                  updateCartItemQuantity(
+                                    item._id,
+                                    item.selectedUnit,
+                                    parseFloat(e.target.value) || 0.01
+                                  )
+                                }
+                                className="quantity-input"
+                              />
                               <button
                                 className="quantity-btn"
                                 onClick={() =>
                                   updateCartItemQuantity(
                                     item._id,
                                     item.selectedUnit,
-                                    item.quantity + 1
+                                    parseFloat((item.quantity + 0.1).toFixed(2))
                                   )
                                 }
                               >

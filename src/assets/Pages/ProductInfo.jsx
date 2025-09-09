@@ -101,12 +101,13 @@ const ProductInfo = () => {
       return;
     }
 
-    // Преобразуем в число
-    const numValue = parseInt(value);
+    // Преобразуем в число с плавающей точкой
+    const numValue = parseFloat(value);
 
     // Проверяем, является ли значение положительным числом
-    if (!isNaN(numValue) && numValue >= 0) {
-      setQuantity(numValue);
+    if (!isNaN(numValue) && numValue > 0) {
+      // Ограничиваем до 2 знаков после запятой
+      setQuantity(Math.round(numValue * 100) / 100);
     }
   };
   const nextImage = () => {
@@ -259,6 +260,7 @@ const ProductInfo = () => {
                 <input
                   type="number"
                   min="1"
+                  step="0.1"
                   value={quantity === "" ? "" : quantity}
                   onChange={handleQuantityChange}
                   className="quantity-input"
