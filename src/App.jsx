@@ -6,15 +6,14 @@ import AboutUs from "./assets/components/AboutUs";
 import { Helmet } from "react-helmet-async";
 import UnderConstructionModal from "./assets/components/UnderConstructionModal";
 import BottomNav from "./assets/components/BottomNav";
-import NewProducts from "./assets/components/NewProducts"; // Новый компонент
-import CanonicalLink from "./assets/components/CanonicalLink";
+import NewProducts from "./assets/components/NewProducts";
 
 function App() {
   return (
     <>
       <Helmet>
         <title>Tabys Stroy | Главная страница</title>
-        <CanonicalLink />
+        <link rel="canonical" href="https://tabys-stroy.kz/" />
       </Helmet>
       <UnderConstructionModal />
       <Header />
@@ -23,15 +22,12 @@ function App() {
           <div className="animate-fade-up">
             <Glav />
           </div>
-
           <div className="animate-fade-left delay-200">
             <NewProducts />
           </div>
-
           <div className="animate-fade-right delay-300">
             <AboutUs />
           </div>
-
           <div className="animate-fade-up delay-400">
             <Map />
           </div>
