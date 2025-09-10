@@ -1,89 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Главные страницы -->
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/</loc>
-    <lastmod>2025-02-13</lastmod>
+    <loc>https://tabys-stroy.kz/</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/cart</loc>
-    <lastmod>2025-02-13</lastmod>
+    <loc>https://tabys-stroy.kz/about</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/zakaz</loc>
-    <lastmod>2025-02-13</lastmod>
+    <loc>https://tabys-stroy.kz/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Категории товаров -->
+  <url>
+    <loc>https://tabys-stroy.kz/santehnika</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tabys-stroy.kz/santehnika/truby</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/paint/dulux</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/santehnika/fitingi</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/paint/san-marino</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/santehnika/shlangi-dlya-smesitelej-i-unitaza</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Электроинструменты -->
+  <url>
+    <loc>https://tabys-stroy.kz/elektroinstrumenty</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/paint/ceiling-paint</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/elektroinstrumenty/dreli-shurupoverty</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Бензиновая техника -->
+  <url>
+    <loc>https://tabys-stroy.kz/benzinovye-tehniki</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/paint/wall-paint</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/benzinovye-tehniki/generatory</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Электротовары -->
+  <url>
+    <loc>https://tabys-stroy.kz/elektrotovary</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/paint/varnish</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/elektrotovary/rozetki-vyklyuchateli-i-ramki</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Освещение -->
+  <url>
+    <loc>https://tabys-stroy.kz/osveshenie</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/paint/emulsion</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/osveshenie/lampochki-i-patrony-dlya-lamp</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/paint/solvents</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/osveshenie/lyustry</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Напольные покрытия -->
+  <url>
+    <loc>https://tabys-stroy.kz/napolnye-pokrytiya-i-plitki</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/power-tools/drills</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/napolnye-pokrytiya-i-plitki/laminat</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Стройматериалы -->
+  <url>
+    <loc>https://tabys-stroy.kz/strojmaterialy</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/power-tools/hammer-drills</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/strojmaterialy/shtukaturki-i-shpaklevki</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Декор -->
+  <url>
+    <loc>https://tabys-stroy.kz/dekor</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/power-tools/grinders</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
+    <loc>https://tabys-stroy.kz/dekor/dekorotivnye-paneli-i-gibkij-mramor</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/power-tools/sanders</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/power-tools/angle-grinders</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/power-tools/jigsaws</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://domirkhan.github.io/Tabys-Stroy/#/power-tools/planers</loc>
-    <lastmod>2025-02-13</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <!-- Добавьте остальные URL-адреса страниц вашего сайта -->
+
 </urlset>

@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 Sitemap: https://tabys-stroy.kz/sitemap.xml
 User-agent: Googlebot-Image  
 Allow: /
