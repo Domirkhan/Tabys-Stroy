@@ -50,6 +50,7 @@ const Login = () => {
           <h4 className="title">Вход в аккаунт</h4>
 
           <div className="mb-3">
+             <label>Email</label>
             <input
               type="email"
               value={email}
@@ -61,6 +62,7 @@ const Login = () => {
             />
           </div>
           <div className="mb-3">
+            <label>Пароль</label>
             <input
               type="password"
               value={password}

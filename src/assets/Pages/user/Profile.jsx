@@ -18,7 +18,6 @@ const Profile = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  // Загрузка данных пользователя при монтировании компонента
   useEffect(() => {
     if (auth?.user) {
       setFormData({
@@ -31,22 +30,30 @@ const Profile = () => {
     }
   }, [auth?.user]);
 
-  // Обработка изменений в полях формы
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    if (name.startsWith('address.')) {
+      const addressField = name.split('.')[1];
+      setFormData(prev => ({
+        ...prev,
+        address: {
+          ...prev.address,
+          [addressField]: value
+        }
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   };
 
-  // Отправка формы
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      // Создаем объект с обновлениями, включая все поля кроме пустого пароля
       const updates = {
         name: formData.name,
         email: formData.email,
@@ -54,7 +61,6 @@ const Profile = () => {
         address: formData.address
       };
 
-      // Добавляем пароль только если он был введен
       if (formData.password) {
         updates.password = formData.password;
       }
@@ -70,7 +76,6 @@ const Profile = () => {
       );
       
       if (data?.success) {
-        // Создаем новый объект с обновленными данными пользователя
         const updatedUser = {
           ...auth.user,
           name: formData.name,
@@ -79,25 +84,20 @@ const Profile = () => {
           address: formData.address
         };
 
-        // Обновляем контекст auth
         const updatedAuth = {
           ...auth,
           user: updatedUser
         };
 
-        // Обновляем состояние auth и localStorage
         setAuth(updatedAuth);
         localStorage.setItem("auth", JSON.stringify(updatedAuth));
 
-        // Обновляем форму
         setFormData(prev => ({
           ...prev,
-          password: "" // Очищаем только пароль
+          password: ""
         }));
 
         toast.success("Профиль успешно обновлен");
-        
-        // Принудительно обновляем страницу после успешного обновления
         window.location.reload();
       }
     } catch (error) {
@@ -125,6 +125,7 @@ const Profile = () => {
                 <form onSubmit={handleSubmit}>
                   <h4 className="title">Профиль</h4>
                   <div className="mb-3">
+                    <label>Имя</label>
                     <input
                       type="text"
                       name="name"
@@ -136,6 +137,7 @@ const Profile = () => {
                     />
                   </div>
                   <div className="mb-3">
+                    <label>Email</label>
                     <input
                       type="email"
                       name="email"
@@ -147,6 +149,7 @@ const Profile = () => {
                     />
                   </div>
                   <div className="mb-3">
+                    <label>Пароль</label>
                     <input
                       type="password"
                       name="password"
@@ -158,6 +161,7 @@ const Profile = () => {
                     />
                   </div>
                   <div className="mb-3">
+                    <label>Телефон</label>
                     <input
                       type="text"
                       name="phone"
@@ -168,17 +172,19 @@ const Profile = () => {
                       required
                     />
                   </div>
-                  <div className="mb-3">
-                    <input
-                      type="text"
+                   <div className="mb-3">
+                    <label>Город и адрес</label>
+              <input
+                type="text"
                       name="address"
                       value={formData.address}
                       onChange={handleChange}
                       className="form-control"
-                      placeholder="Введите ваш адрес"
-                      required
-                    />
-                  </div>
+                      placeholder="Напиши свой город и адрес"
+                required
+              />
+            </div>
+            
                   <button 
                     type="submit" 
                     className="btn btn-primary"
